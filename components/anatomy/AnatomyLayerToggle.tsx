@@ -19,7 +19,7 @@ export function AnatomyLayerToggle() {
             role="switch"
             aria-checked={on}
             onClick={() => dispatch({ type: "toggleLayer", layer })}
-            className={`flex shrink-0 items-center justify-between gap-3 rounded-full border px-3 py-1.5 text-xs transition-colors md:rounded-lg md:py-2 ${
+            className={`flex min-h-9 shrink-0 items-center justify-between gap-3 rounded-full border px-3 text-xs transition-colors md:min-h-8 md:rounded-lg ${
               on
                 ? "border-teal-300/40 bg-teal-300/10 text-foreground"
                 : "border-border bg-surface text-muted hover:text-foreground"

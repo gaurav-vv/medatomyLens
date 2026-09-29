@@ -71,7 +71,7 @@ export function ReportCard() {
           loadDemo();
           setExpanded(true);
         }}
-        className="rounded-full border border-violet-300/50 bg-violet-300/10 px-3 py-1.5 text-xs backdrop-blur hover:bg-violet-300/20 focus-visible:outline-2 focus-visible:outline-teal-300 md:w-full md:rounded-lg md:py-2 md:text-left"
+        className="ui-btn ui-btn-report md:w-full md:justify-start md:rounded-lg"
       >
         Try the demo report
       </button>
@@ -82,7 +82,7 @@ export function ReportCard() {
   return (
     <section
       aria-label="Report findings"
-      className="rounded-2xl border border-border bg-[#121820]/90 shadow-xl backdrop-blur"
+      className="ui-panel"
     >
       <div className="flex items-center gap-2 px-3 pt-2.5">
         <span className="rounded bg-amber-200/90 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-black">
@@ -167,7 +167,7 @@ export function BodyFindingPanel() {
   return (
     <aside
       aria-label="Finding details"
-      className="pointer-events-auto absolute inset-x-2 bottom-2 z-20 max-h-[55dvh] overflow-y-auto rounded-2xl border border-border bg-[#121820]/95 p-4 shadow-xl backdrop-blur md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-6rem)] md:w-96"
+      className="pointer-events-auto absolute inset-x-2 bottom-2 z-20 max-h-[55dvh] overflow-y-auto ui-panel p-4 md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-6rem)] md:w-96"
     >
       <div className="flex items-start justify-between gap-3">
         <div>

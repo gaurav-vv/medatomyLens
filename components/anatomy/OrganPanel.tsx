@@ -33,7 +33,7 @@ export function OrganPanel() {
   return (
     <aside
       aria-label="Selected structure"
-      className="pointer-events-auto absolute inset-x-2 bottom-2 z-20 max-h-[50dvh] overflow-y-auto rounded-2xl border border-border bg-[#121820]/90 p-4 shadow-xl backdrop-blur md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-6rem)] md:w-80"
+      className="pointer-events-auto absolute inset-x-2 bottom-2 z-20 max-h-[50dvh] overflow-y-auto ui-panel p-4 md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-6rem)] md:w-80"
     >
       <div className="flex items-start justify-between gap-3">
         <h2 className="text-base font-semibold leading-tight" aria-live="polite">
@@ -87,14 +87,14 @@ export function OrganPanel() {
         <button
           type="button"
           onClick={() => dispatch({ type: "openDetail" })}
-          className="rounded-full border border-teal-300/60 bg-teal-300/20 px-3 py-1.5 text-xs font-medium focus-visible:outline-2 focus-visible:outline-teal-300"
+          className="ui-btn ui-btn-accent font-medium"
         >
           Open detailed view
         </button>
         <button
           type="button"
           onClick={() => dispatch({ type: "focus" })}
-          className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs focus-visible:outline-2 focus-visible:outline-teal-300"
+          className="ui-btn"
         >
           Focus
         </button>
@@ -109,7 +109,7 @@ export function ViewControls() {
     <button
       type="button"
       onClick={() => dispatch({ type: "resetCamera" })}
-      className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs text-muted backdrop-blur hover:text-foreground focus-visible:outline-2 focus-visible:outline-teal-300"
+      className="ui-btn text-muted hover:text-foreground"
     >
       ⟲ Reset view
     </button>

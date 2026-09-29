@@ -17,7 +17,7 @@ const HRA_CITATION =
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="space-y-2">
+    <section className="ui-panel space-y-2 p-4">
       <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{title}</h2>
       <div className="space-y-2 text-sm leading-relaxed">{children}</div>
     </section>
@@ -32,7 +32,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-2xl space-y-8 px-5 py-8">
         <header className="flex items-center justify-between gap-4">
           <h1 className="text-xl font-semibold">About AnatomyLens</h1>
-          <Link href="/" className="rounded-full border border-border bg-surface px-3 py-1.5 text-sm hover:bg-white/5">
+          <Link href="/" className="ui-btn shrink-0">
             ← Back to the viewer
           </Link>
         </header>

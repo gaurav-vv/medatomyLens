@@ -9,6 +9,7 @@ import { BodyLayer } from "./BodyLayer";
 import { CameraRig, HOME_POSITION, HOME_TARGET } from "./CameraRig";
 import { DetailModel } from "./DetailModel";
 import { ViewerStatus } from "./ViewerStatus";
+import { ZoomToPointer } from "./ZoomToPointer";
 import { SplitRenderer } from "@/components/report/SplitRenderer";
 import { useOrganReport } from "@/components/report/useOrganReport";
 
@@ -125,12 +126,13 @@ export function AnatomyCanvas() {
           makeDefault
           target={HOME_TARGET.toArray()}
           enableDamping={false}
-          minDistance={0.08}
+          minDistance={0.03}
           maxDistance={6}
           zoomSpeed={1.1}
           regress
         />
         <CameraRig />
+        <ZoomToPointer />
         {split && <SplitRenderer />}
       </Canvas>
       {anyLoading && <ViewerStatus text="Loading anatomy..." />}

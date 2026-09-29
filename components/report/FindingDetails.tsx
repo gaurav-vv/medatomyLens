@@ -120,12 +120,12 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
                     key={s.id}
                     type="button"
                     onClick={s.onClick}
-                    className="rounded-full border border-violet-300/50 bg-violet-300/10 px-2.5 py-1 text-xs hover:bg-violet-300/20 focus-visible:outline-2 focus-visible:outline-teal-300"
+                    className="ui-btn ui-btn-report"
                   >
                     {s.name} →
                   </button>
                 ) : (
-                  <span key={s.id} className="rounded-full border border-border px-2.5 py-1 text-xs">
+                  <span key={s.id} className="ui-tag border-border text-xs">
                     {s.name}
                   </span>
                 ),

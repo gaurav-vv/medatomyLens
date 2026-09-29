@@ -63,7 +63,7 @@ export function AnatomySearch() {
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 120)}
         onKeyDown={onKeyDown}
-        className="w-full rounded-full border border-border bg-surface px-4 py-2 text-sm text-foreground placeholder:text-muted backdrop-blur focus:outline-2 focus:outline-teal-300"
+        className="h-10 w-full rounded-full border border-border bg-surface px-4 text-base md:h-9 md:text-sm text-foreground placeholder:text-muted backdrop-blur focus:outline-2 focus:outline-teal-300"
       />
       {showList && (
         <ul

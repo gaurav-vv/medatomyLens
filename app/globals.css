@@ -27,3 +27,22 @@ body {
   /* Prevent pull-to-refresh / overscroll from fighting 3D touch gestures. */
   overscroll-behavior: none;
 }
+
+
+/* Shared UI primitives: one look for panels and buttons across the app.
+   Buttons are at least 36 px tall on touch screens (easy to tap), 32 px on desktop. */
+@utility ui-panel {
+  @apply rounded-2xl border border-border bg-[#121820]/95 shadow-xl backdrop-blur;
+}
+@utility ui-btn {
+  @apply inline-flex min-h-9 items-center justify-center gap-1 rounded-full border border-border bg-surface px-3 text-xs text-foreground backdrop-blur transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-teal-300 md:min-h-8;
+}
+@utility ui-btn-accent {
+  @apply border-teal-300/60 bg-teal-300/20 hover:bg-teal-300/30;
+}
+@utility ui-btn-report {
+  @apply border-violet-300/50 bg-violet-300/10 hover:bg-violet-300/20;
+}
+@utility ui-tag {
+  @apply inline-flex items-center rounded-full border px-2.5 py-1 text-[11px];
+}

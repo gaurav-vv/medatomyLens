@@ -8,12 +8,12 @@ export default function Home() {
       <header className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-3 pb-2 pt-[max(0.625rem,env(safe-area-inset-top))] md:p-4">
         <span className="text-sm font-semibold tracking-wide">AnatomyLens</span>
         <div className="flex items-center gap-2">
-          <span className="hidden rounded-full border border-border bg-surface px-3 py-1 text-xs text-muted backdrop-blur md:inline">
+          <span className="ui-tag hidden border-border bg-surface text-muted backdrop-blur md:inline-flex">
             Explore mode
           </span>
           <Link
             href="/about"
-            className="pointer-events-auto rounded-full border border-border bg-surface px-3 py-1 text-xs text-muted backdrop-blur hover:text-foreground"
+            className="pointer-events-auto ui-btn text-muted hover:text-foreground"
           >
             About
           </Link>

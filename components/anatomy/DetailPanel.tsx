@@ -26,14 +26,14 @@ const MODES: { id: OrganViewMode; label: string; wideOnly?: boolean }[] = [
   { id: "side_by_side", label: "Side by side", wideOnly: true },
 ];
 
-const chip = "pointer-events-auto rounded-full border px-3 py-1.5 text-xs backdrop-blur focus-visible:outline-2 focus-visible:outline-teal-300";
+const chip = "pointer-events-auto ui-btn";
 
 /** Reported | Normal | Side by side (Section 109). Side by side is desktop/tablet only. */
 function OrganViewModeToggle({ mode }: { mode: OrganViewMode }) {
   const { dispatch } = useAnatomy();
   const wide = useIsWide();
   return (
-    <div role="radiogroup" aria-label="Organ view mode" className="pointer-events-auto flex rounded-full border border-border bg-surface p-0.5 backdrop-blur">
+    <div role="radiogroup" aria-label="Organ view mode" className="pointer-events-auto flex min-h-9 items-center rounded-full border border-border bg-surface p-0.5 backdrop-blur md:min-h-8">
       {MODES.filter((m) => wide || !m.wideOnly).map((m) => (
         <button
           key={m.id}
@@ -41,7 +41,7 @@ function OrganViewModeToggle({ mode }: { mode: OrganViewMode }) {
           role="radio"
           aria-checked={mode === m.id}
           onClick={() => dispatch({ type: "viewMode", mode: m.id })}
-          className={`rounded-full px-2.5 py-1 text-xs focus-visible:outline-2 focus-visible:outline-teal-300 ${
+          className={`rounded-full px-3 py-1.5 text-xs focus-visible:outline-2 md:py-1 focus-visible:outline-teal-300 ${
             mode === m.id ? "bg-white/15 text-foreground" : "text-muted hover:text-foreground"
           }`}
         >
@@ -149,7 +149,7 @@ export function DetailPanel() {
             type="button"
             aria-label="Back to body"
             onClick={() => dispatch({ type: "closeDetail" })}
-            className={`${chip} shrink-0 border-border bg-surface hover:text-teal-200`}
+            className={`${chip} shrink-0`}
           >
             ← <span className="hidden sm:inline">Back to body</span>
             <span className="sm:hidden">Body</span>
@@ -161,7 +161,7 @@ export function DetailPanel() {
             <button
               type="button"
               onClick={() => dispatch({ type: "resetCamera" })}
-              className={`${chip} ml-auto shrink-0 border-border bg-surface text-muted`}
+              className={`${chip} ml-auto shrink-0 text-muted`}
             >
               ⟲ Reset view
             </button>
@@ -170,7 +170,7 @@ export function DetailPanel() {
         <div className="flex flex-wrap items-center gap-1.5">
           {view.mode !== "side_by_side" && (
             <span
-              className={`rounded-full border px-2.5 py-1 text-[11px] ${
+              className={`ui-tag ${
                 view.mode === "normal" ? "border-teal-300/30 bg-teal-300/10 text-teal-100" : "border-violet-300/40 bg-violet-300/10 text-violet-100"
               }`}
             >
@@ -184,7 +184,7 @@ export function DetailPanel() {
               role="switch"
               aria-checked={state.seeInside}
               onClick={() => dispatch({ type: "toggleSeeInside" })}
-              className={`${chip} ${state.seeInside ? "border-teal-300/60 bg-teal-300/20" : "border-border bg-surface"}`}
+              className={`${chip} ${state.seeInside ? "ui-btn-accent" : ""}`}
             >
               See inside
             </button>
@@ -195,10 +195,10 @@ export function DetailPanel() {
 
       {view.mode === "side_by_side" && (
         <div className="pointer-events-none absolute inset-x-0 top-32 z-10 hidden grid-cols-2 text-center md:grid md:pr-[23rem]">
-          <span className="mx-auto rounded-full border border-violet-300/40 bg-violet-300/10 px-2.5 py-1 text-[11px] text-violet-100">
+          <span className="ui-tag mx-auto border-violet-300/40 bg-violet-300/10 text-violet-100">
             {REPORTED_VIEW_LABEL} · {DEMO_LABEL}
           </span>
-          <span className="mx-auto rounded-full border border-teal-300/30 bg-teal-300/10 px-2.5 py-1 text-[11px] text-teal-100">
+          <span className="ui-tag mx-auto border-teal-300/30 bg-teal-300/10 text-teal-100">
             {NORMAL_REFERENCE_LABEL}
           </span>
         </div>
@@ -209,7 +209,7 @@ export function DetailPanel() {
       </p>
 
       <div
-        className={`pointer-events-auto absolute inset-x-0 bottom-0 z-20 flex flex-col rounded-t-2xl border border-border bg-[#121820]/95 shadow-xl backdrop-blur md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-7rem)] md:w-[21rem] md:rounded-2xl ${
+        className={`pointer-events-auto ui-panel absolute inset-x-0 bottom-0 z-20 flex flex-col rounded-b-none md:rounded-b-2xl md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-7rem)] md:w-[21rem] ${
           sheetOpen ? "h-[72%]" : "h-[34%]"
         } md:h-auto`}
       >

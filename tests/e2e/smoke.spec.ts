@@ -256,3 +256,19 @@ test("demo report: body highlight, organ view modes, region marker, explanation"
   await expect(panel).toContainText("Right kidney");
   expect(errors).toEqual([]);
 });
+
+test("mouse wheel zooms towards the part under the pointer", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "desktop-chromium", "wheel is a desktop gesture");
+  test.setTimeout(180_000);
+  await page.goto("/");
+  await layersReady(page);
+  const box = (await page.getByTestId("anatomy-viewer").boundingBox())!;
+  // The skull sits near the top centre of the home view.
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height * 0.16);
+  for (let i = 0; i < 15; i++) {
+    await page.mouse.wheel(0, -300);
+    await page.waitForTimeout(60);
+  }
+  await page.waitForTimeout(800);
+  await page.screenshot({ path: testInfo.outputPath("zoom-skull.png") });
+});
