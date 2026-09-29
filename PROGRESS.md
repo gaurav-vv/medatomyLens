@@ -58,7 +58,7 @@ Not done or known gaps:
 - The structure panel shows only the name, layer, side and parent organ. There's no educational text yet; it needs reviewed sources (AGENTS.md Section 116).
 - About screen (`/about`): disclaimer, what the app does and does not do, privacy, full model credits and HRA citation.
 - First commit made on `main` (local only, no remote yet).
-- Not live yet: `gh` is not logged in on this machine. Deploy is ready via `.github/workflows/pages.yml` (GitHub Pages, sub-path handled by `NEXT_PUBLIC_BASE_PATH` / `lib/basePath.ts`).
+- Hosted on GitHub Pages: https://gaurav-vv.github.io/medatomyLens/ (repo https://github.com/gaurav-vv/medatomyLens). Every push to `main` redeploys via `.github/workflows/pages.yml` (GitHub Pages, sub-path handled by `NEXT_PUBLIC_BASE_PATH` / `lib/basePath.ts`).
 
 ## 4. Key decisions (and why)
 
@@ -145,3 +145,4 @@ docs/                         ARCHITECTURE, THIRD_PARTY_ASSETS, MEDICAL_SOURCES,
 | 2026-09-29 | The user chose a second model for internal organ parts. Found HuBMAP HRA reference organs (CC BY 4.0, about 90 organs). Integrated the kidneys (plus renal pelvis): fetch and build scripts, `public/anatomy/organs/`, DetailOrganModel, "See inside", part list with the atlas source note, footer credit. HRA frame verified equal to the app frame (left = +X); tests check side, alignment, size and that the pelvis is medial. 88 unit tests and 6 e2e tests passing. |
 | 2026-09-29 | Added HRA heart, liver, lungs, brain and both eyes (detailed parts, colours, laterality checks; brain labels mirrored in source and fixed from geometry; eyes simplified 4.5 to 0.35 MB). Brain white matter and cerebellar hemispheres now fade with See inside. Material recompile only when transparency flips (faster toggles). fetch-organs script lists all 10 sources. Removed survey_hra.py. 95 unit tests and 8 e2e tests (desktop and mobile) passing; screenshots checked. |
 | 2026-09-29 | Phase 1.7: rendering polish without new dependencies (rim light, CSS studio backdrop, adaptive resolution while the camera moves via drei AdaptiveDpr + OrbitControls regress). About page with disclaimer, privacy and full credits; header link. Optional sub-path hosting (`lib/basePath.ts`, basePath in next.config, service worker scope-relative, v2 cache). GitHub Pages workflow. 98 unit tests and 10 e2e tests (desktop and mobile) passing. First git commit. |
+| 2026-09-29 | Pushed to https://github.com/gaurav-vv/medatomyLens; GitHub Pages enabled (Source: GitHub Actions). |
