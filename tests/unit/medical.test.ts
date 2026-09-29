@@ -84,7 +84,7 @@ describe("demo report (Sections 74, 106, 107)", () => {
   });
   it("keeps unmapped findings and counts them (Section 39)", () => {
     expect(byId("finding_004").structures).toEqual([]);
-    expect(reportSummary(report.findings)).toEqual({ total: 5, mapped: 4, review: 0, unmapped: 1 });
+    expect(reportSummary(report.findings)).toEqual({ total: 5, mapped: 4, review: 0, grouped: 0, unmapped: 1 });
   });
   it("a lab value has no location: whole organ (Section 107)", () => {
     expect(byId("finding_001").location.kind).toBe("unspecified");

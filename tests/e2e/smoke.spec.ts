@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { labTablePage, makePdf } from "../fixtures/makePdf";
 
 const layersReady = (page: Page) =>
   expect(page.locator("[data-layers-ready]")).toHaveAttribute("data-layers-ready", "true", { timeout: 90_000 });
@@ -194,7 +195,7 @@ test("detailed atlas organs open with their internal parts", async ({ page }, te
   expect(errors).toEqual([]);
 });
 
-test("demo report: body highlight, organ view modes, region marker, explanation", async ({ page }, testInfo) => {
+test("uploaded report: body highlight, organ view modes, region marker, explanation", async ({ page }, testInfo) => {
   test.setTimeout(300_000);
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -207,10 +208,31 @@ test("demo report: body highlight, organ view modes, region marker, explanation"
 
   await page.goto("/");
   await layersReady(page);
-  await page.getByRole("button", { name: "Try the demo report" }).click();
+  await expect(page.getByRole("button", { name: "Try the demo report" })).toHaveCount(0);
+  // SYNTHETIC report (Section 75), same content as the former demo: a lab table and an ultrasound page.
+  const pdf = makePdf([
+    labTablePage("SYNTHETIC TEST REPORT - not a real patient", [
+      ["Test", "Result", "Unit", "Reference range"],
+      ["Creatinine", "1.9", "mg/dL", "0.7 - 1.3"],
+      ["eGFR", "42", "mL/min/1.73m2", "> 60"],
+      ["ALT (SGPT)", "28", "U/L", "7 - 56"],
+      ["Vitamin B12", "450", "pg/mL", "200 - 900"],
+    ]),
+    {
+      texts: [
+        "SYNTHETIC ULTRASOUND ABDOMEN - not a real patient",
+        "Right kidney: 1.8 cm simple cortical cyst at the lower pole.",
+        "Liver: normal in size.",
+      ].map((text, i) => ({ x: 40, y: 60 + i * 20, text, size: 11 })),
+    },
+  ]);
+  await page.getByTestId("report-file-input").setInputFiles({ name: "synthetic.pdf", mimeType: "application/pdf", buffer: Buffer.from(pdf) });
+  await page.getByRole("dialog", { name: "Check what was read" }).getByRole("button", { name: /Show results/ }).click();
   const card = page.getByRole("region", { name: "Report findings" });
-  await expect(card).toContainText("DEMO / SAMPLE DATA");
-  await expect(card).toContainText("5 findings · 4 shown on the body · 1 not mapped");
+  await expect(card).toContainText("YOUR REPORT");
+  await expect(card).toContainText("5 findings · 4 shown on the body · 1 not recognized yet");
+  await expect(card).toContainText("Kidneys");
+  await expect(card).toContainText("2 outside range");
   await shot("demo-1-list.png");
 
   // Finding → anatomy: creatinine emphasises both kidneys.
@@ -222,6 +244,13 @@ test("demo report: body highlight, organ view modes, region marker, explanation"
   await expect(finding.getByRole("img", { name: /above reported range/ })).toBeVisible();
   await shot("demo-2-creatinine.png");
 
+  // Closing the details keeps the kidneys highlighted and offers a way back.
+  await finding.getByRole("button", { name: /Close details/ }).click();
+  const bar = page.getByRole("status", { name: "Showing finding" });
+  await expect(bar).toContainText("Creatinine");
+  await shot("demo-2b-highlight-kept.png");
+  await bar.getByRole("button", { name: "Details" }).click();
+
   // Open the right kidney from the finding, then its organ view.
   await finding.getByRole("button", { name: /Right kidney/ }).click();
   const panel = page.getByRole("complementary", { name: "Selected structure" });
@@ -229,7 +258,7 @@ test("demo report: body highlight, organ view modes, region marker, explanation"
   await panel.getByRole("button", { name: "Open detailed view" }).click();
   await expect(detailStatus).toHaveAttribute("data-detail-status", "ready", { timeout: 90_000 });
   const organFindings = page.getByRole("region", { name: "Organ findings" });
-  await organFindings.getByRole("button", { name: /Right kidney \(ultrasound\)/ }).click();
+  await organFindings.getByRole("button", { name: /Right kidney \(report statement\)/ }).click();
   await expect(page.getByText("Reported area", { exact: false }).first()).toBeVisible();
   await expect(organFindings).toContainText("Right kidney, lower pole");
   await expect(organFindings).toContainText("Size as reported: 1.8 cm");

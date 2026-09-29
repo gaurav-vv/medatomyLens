@@ -4,7 +4,8 @@
  * of its page and passes the exact-quote check in lib/medical/report.ts.
  */
 import type { RawFinding, RawReport } from "@/lib/medical/types";
-import { parseLabPages, parseRow } from "./labParser";
+import { termKey } from "@/lib/medical/report";
+import { parseBloodPressure, parseLabPages, parseRow } from "./labParser";
 import { parseImagingLines } from "./imagingParser";
 import type { TextRow } from "./layout";
 import type { ExtractedDocument, PageMethod } from "./pdfText";
@@ -37,7 +38,7 @@ export function buildReport(doc: ExtractedDocument, documentId: string): ReadRep
   );
   // Rows that are not lab results may be imaging text (V1.5). OCR pages are left out:
   // a misread "left"/"right" or "no" would change where a statement is placed.
-  const labIds = new Set(lab.map((f) => f.id));
+  const labIds = new Set(lab.map((f) => f.id.replace(/_\d+$/, "")));
   const imaging = readable
     .filter((p) => p.method === "text")
     .flatMap((p) =>
@@ -46,7 +47,7 @@ export function buildReport(doc: ExtractedDocument, documentId: string): ReadRep
         p.rows.map((r, i) => ({ text: r.text, index: i })).filter((l) => !labIds.has(`p${p.page}_r${l.index + 1}`)),
       ),
     );
-  const findings = [...lab, ...imaging];
+  const findings = dedupe([...lab, ...imaging]);
   return {
     report: {
       documentId,
@@ -65,6 +66,24 @@ export function buildReport(doc: ExtractedDocument, documentId: string): ReadRep
   };
 }
 
+/**
+ * Reports often repeat results (a summary page, a "results out of range" box).
+ * The same test with the same value and unit is kept once, from its first page.
+ * Different values for the same test are all kept (Section 91: never pick one).
+ */
+export function dedupe(findings: RawFinding[]): RawFinding[] {
+  const seen = new Set<string>();
+  return findings.filter((f) => {
+    const k =
+      f.findingType === "lab_association"
+        ? `lab|${termKey(f.name)}|${f.value}|${termKey(f.unit ?? "")}`
+        : `st|${termKey(f.statementText ?? f.source.text)}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+}
+
 /** Keep only the findings the user confirmed on the review screen. */
 export function withFindings(report: RawReport, keep: (f: RawFinding) => boolean): RawReport {
   return { ...report, findings: report.findings.filter(keep) };
@@ -77,5 +96,8 @@ export function fromOcr(f: RawFinding): boolean {
 
 /** A page is usable when at least one row reads as a result or an organ statement. */
 export function rowsAreUsable(rows: TextRow[]): boolean {
-  return rows.some((r) => parseRow(r.cells)) || parseImagingLines(0, rows.map((r, i) => ({ text: r.text, index: i }))).length > 0;
+  return (
+    rows.some((r) => parseRow(r.cells) || parseBloodPressure(r.cells)) ||
+    parseImagingLines(0, rows.map((r, i) => ({ text: r.text, index: i }))).length > 0
+  );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
-import demoReport from "@/data/medical/demo/demo_report.json";
 import { useAnatomy } from "@/components/anatomy/AnatomyContext";
 import { meshesForStructure, structureExists } from "@/lib/medical/anatomyLink";
 import { resolveReport } from "@/lib/medical/report";
@@ -12,7 +11,6 @@ interface ReportContextValue {
   selectedFinding: ResolvedFinding | null;
   /** Meshes of every mapped finding: drawn in the "Reported" look. */
   reportedMeshes: Set<string>;
-  loadDemo: () => void;
   /** Show a report read from the user's PDF (after the review screen). Memory only. */
   loadReport: (report: RawReport) => void;
   closeReport: () => void;
@@ -42,9 +40,17 @@ export function ReportProvider({ children }: { children: ReactNode }) {
     [index],
   );
 
+  // Always-on "Reported" look: organs and structures only. Whole layers (blood
+  // vessels, bones) are shown only while their finding is open, so the body
+  // does not look entirely "reported".
   const reportedMeshes = useMemo(
-    () => new Set(report ? report.findings.flatMap((f) => meshesOf(f)) : []),
-    [report, meshesOf],
+    () =>
+      new Set(
+        report && index
+          ? report.findings.flatMap((f) => f.structures.filter((s) => !s.startsWith("layer:")).flatMap((s) => meshesForStructure(index, s)))
+          : [],
+      ),
+    [report, index],
   );
 
   const value = useMemo<ReportContextValue>(
@@ -52,10 +58,6 @@ export function ReportProvider({ children }: { children: ReactNode }) {
       report,
       selectedFinding: report?.findings.find((f) => f.raw.id === selectedId) ?? null,
       reportedMeshes,
-      loadDemo: () => {
-        setSelectedId(null);
-        setRaw(demoReport as RawReport);
-      },
       loadReport: (r: RawReport) => {
         setSelectedId(null);
         setRaw(r);

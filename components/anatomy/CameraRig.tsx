@@ -67,10 +67,10 @@ export function CameraRig() {
     return { v: Math.atan(t * visible), h: Math.atan((t * width) / size.height), tv: t * visible, th: (t * width) / size.height };
   }
 
-  /** Distance that fits a sphere in the visible part of the view. */
+  /** Distance that fits a sphere in the visible part of the view (phones: more margin, the view is narrow). */
   function fitDistance(radius: number) {
     const f = halfFov();
-    return (radius / Math.sin(Math.min(f.v, f.h))) * 1.15;
+    return (radius / Math.sin(Math.min(f.v, f.h))) * (phone ? 1.55 : 1.15);
   }
 
   /** Home view: desktop keeps the fixed framing; phones fit the body to the free area. */

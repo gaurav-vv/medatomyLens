@@ -160,10 +160,10 @@ export function anatomyReducer(state: AnatomyState, action: AnatomyAction): Anat
       return state.viewMode === action.mode ? state : { ...state, viewMode: action.mode };
     case "emphasize": {
       if (state.view !== "body") return state;
-      // Emphasised structures must be visible, like a search selection.
+      // Emphasised structures must be visible, like a search selection (every layer involved).
       const layers = new Set(action.meshes.map((m) => state.index?.structures.get(m)?.layer).filter((l) => !!l));
       let visible = state.visible;
-      if (layers.size && ![...layers].some((l) => visible[l!])) {
+      if ([...layers].some((l) => !visible[l!])) {
         visible = { ...visible };
         for (const l of layers) visible[l!] = true;
       }

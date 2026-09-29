@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useAnatomy } from "@/components/anatomy/AnatomyContext";
 import { structureName } from "@/lib/medical/anatomyLink";
-import { findTerm, REGIONS } from "@/lib/medical/report";
+import { findTerm, REGIONS, TERM_GROUPS } from "@/lib/medical/report";
 import type { RawFinding } from "@/lib/medical/types";
 import { fromOcr, withFindings, type ReadReport } from "@/lib/reports/buildReport";
 import type { ReadProgress } from "@/lib/reports/pdfText";
@@ -57,7 +57,9 @@ function ReviewRow({ f, checked, onToggle }: { f: RawFinding; checked: boolean; 
         }`
       : isStatement
         ? "No single organ could be placed: listed, not shown on the body"
-        : "Not in the app's terminology yet: listed, not shown on the body";
+        : term
+          ? `${TERM_GROUPS.find((g) => g.id === term.group)?.displayName ?? "Recognized"}: not linked to one organ, listed only`
+          : "Not in the app's terminology yet: listed, not shown on the body";
   const ocr = fromOcr(f);
   const id = `review-${f.id}`;
   return (
@@ -94,7 +96,7 @@ function ReviewRow({ f, checked, onToggle }: { f: RawFinding; checked: boolean; 
  * progress → review what was read → show on the body. Errors say what to try
  * and allow a retry; one unreadable page never fails the whole report.
  */
-export function ReportUploader({ onShown }: { onShown?: () => void }) {
+export function ReportUploader() {
   const { loadReport } = useReport();
   const { dispatch } = useAnatomy();
   const input = useRef<HTMLInputElement>(null);
@@ -153,8 +155,14 @@ export function ReportUploader({ onShown }: { onShown?: () => void }) {
 
   return (
     <>
-      <button type="button" onClick={choose} className="ui-btn ui-btn-accent md:w-full md:justify-start md:rounded-lg">
-        Upload report (PDF)
+      <button
+        type="button"
+        onClick={choose}
+        aria-label="Upload report (PDF)"
+        title="Upload a PDF report (read on this device)"
+        className="ui-btn ui-btn-accent min-h-10 shrink-0 px-3.5 text-sm md:min-h-9"
+      >
+        <span aria-hidden>⤒</span> Upload<span className="hidden sm:inline">report</span>
       </button>
       <input
         ref={input}
@@ -222,7 +230,6 @@ export function ReportUploader({ onShown }: { onShown?: () => void }) {
                   const keep = phase.keep;
                   dispatch({ type: "emphasize", meshes: [] });
                   loadReport(withFindings(phase.read.report, (f) => keep.has(f.id)));
-                  onShown?.();
                   close();
                 }}
               />

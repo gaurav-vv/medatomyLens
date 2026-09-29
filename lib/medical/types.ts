@@ -73,10 +73,20 @@ export interface Term {
   displayName: string;
   synonyms: string[];
   category: string;
+  /** Display group (terms.json "groups"): the organ or kind of test. */
+  group: string;
+  /** Structures highlighted for this test. Empty: recognized, but not linked to one organ (Section 89). */
   associatedStructures: string[];
   system: string;
   visualizationType: "association";
   mappingReason: string;
+}
+
+export interface TermGroup {
+  id: string;
+  displayName: string;
+  /** Shown when the group's tests are not highlighted. */
+  note?: string;
 }
 
 export interface Explanation {

@@ -14,10 +14,12 @@ import type {
   ResolvedFinding,
   ResolvedReport,
   Term,
+  TermGroup,
 } from "./types";
 
 /** Curated data (small, bundled): terminology, regions, explanations. */
 export const TERMS: Term[] = termsFile.terms as Term[];
+export const TERM_GROUPS: TermGroup[] = termsFile.groups as TermGroup[];
 export const REGIONS: Record<string, Region> = parseRegions(regionsFile.regions);
 
 /** Validate the region data file: only regions the viewer can display (Section 105). */
@@ -149,7 +151,48 @@ export function findingsForStructures(findings: ResolvedFinding[], ids: Iterable
 export function reportSummary(findings: ResolvedFinding[]) {
   const mapped = findings.filter((f) => f.structures.length > 0).length;
   const review = findings.filter((f) => f.status === "NOT_INTERPRETED").length;
-  return { total: findings.length, mapped, review, unmapped: findings.length - mapped - review };
+  // Recognized tests that are listed under their group but have no single organ.
+  const grouped = findings.filter((f) => f.status !== "NOT_INTERPRETED" && !f.structures.length && (f.term || f.raw.negated)).length;
+  return { total: findings.length, mapped, review, grouped, unmapped: findings.length - mapped - review - grouped };
+}
+
+export interface FindingSection {
+  id: string;
+  title: string;
+  /** Why nothing is highlighted for this section, when that is the case. */
+  note?: string;
+  findings: ResolvedFinding[];
+}
+
+/**
+ * Findings grouped for the list (organ first, then body-wide test groups,
+ * then report statements, unrecognized tests and rows that need review).
+ */
+export function groupFindings(findings: ResolvedFinding[], structureName: (id: string) => string): FindingSection[] {
+  const sections = new Map<string, FindingSection>();
+  const add = (id: string, title: string, f: ResolvedFinding, note?: string) => {
+    const s = sections.get(id) ?? { id, title, note, findings: [] };
+    s.findings.push(f);
+    sections.set(id, s);
+  };
+  const groupById = new Map(TERM_GROUPS.map((g) => [g.id, g]));
+  for (const f of findings) {
+    if (f.status === "NOT_INTERPRETED") add("review", "Needs review", f);
+    else if (f.raw.findingType === "report_statement") {
+      const where = f.structures.length ? f.structures.map(structureName).join(", ") : "Not marked";
+      add(`statement:${where}`, `Report statements · ${where}`, f, f.structures.length ? undefined : "Findings the report states were not found.");
+    } else if (f.term) {
+      const g = groupById.get(f.term.group);
+      add(`group:${f.term.group}`, g?.displayName ?? f.term.group, f, g?.note);
+    } else add("unknown", "Not in the app's terminology yet", f, "Listed from the report, not linked to a structure.");
+  }
+  // Within a section, results outside the reported range come first.
+  const outside = (f: ResolvedFinding) => (f.status === "ABOVE_RANGE" || f.status === "BELOW_RANGE" ? 0 : 1);
+  for (const s of sections.values()) s.findings.sort((a, b) => outside(a) - outside(b));
+  const order = (s: FindingSection) =>
+    s.id === "review" ? 4 : s.id === "unknown" ? 3 : s.id.startsWith("statement:") ? 1 : s.findings.some((f) => f.structures.length) ? 0 : 2;
+  const groupOrder = (s: FindingSection) => TERM_GROUPS.findIndex((g) => `group:${g.id}` === s.id);
+  return [...sections.values()].sort((a, b) => order(a) - order(b) || groupOrder(a) - groupOrder(b));
 }
 
 /** Human text for a reference range bar (accessibility, Section 110). */

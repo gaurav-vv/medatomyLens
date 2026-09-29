@@ -1,5 +1,62 @@
 {
-  "$comment": "Controlled terminology (AGENTS.md Sections 15, 64, 65). Each entry maps a normalized term to the body-model structures it is ASSOCIATED with (visualizationType: association, never disease). Structure ids are body-model structure or organ-group ids (public/anatomy/body/structures.json). Synonyms are matched case-insensitively after removing punctuation and spaces. Sources: docs/MEDICAL_SOURCES.md.",
+  "$comment": "Controlled terminology (AGENTS.md Sections 15, 64, 65). Each entry maps a normalized term to the body-model structures it is ASSOCIATED with (visualizationType: association, never disease). Structure ids are body-model structure or organ-group ids (public/anatomy/body/structures.json). Synonyms are matched case-insensitively after removing punctuation and spaces. Sources: docs/MEDICAL_SOURCES.md. Each term has a display group (groups). Structure ids 'layer:arteries', 'layer:veins' and 'layer:skeleton' stand for a whole layer: used for tests measured in blood (shown on the vessels, never as a problem in a vessel) or stored in bone. Terms with no associatedStructures are recognized tests that are not linked to one organ (Section 89) or whose organ is not in the model; they are listed under their group and never highlighted.",
+  "groups": [
+    {
+      "id": "kidneys",
+      "displayName": "Kidneys",
+      "note": "Tests linked to how the kidneys filter waste from the blood."
+    },
+    {
+      "id": "liver",
+      "displayName": "Liver",
+      "note": "Enzymes, proteins and bilirubin that the liver makes or processes."
+    },
+    {
+      "id": "pancreas",
+      "displayName": "Pancreas",
+      "note": "A digestive enzyme made mostly by the pancreas."
+    },
+    {
+      "id": "heart",
+      "displayName": "Heart",
+      "note": "Proteins found in heart muscle cells."
+    },
+    {
+      "id": "blood_pressure",
+      "displayName": "Blood pressure and pulse",
+      "note": "The heart pumps blood into the arteries: shown on the heart and arteries."
+    },
+    {
+      "id": "thyroid",
+      "displayName": "Thyroid",
+      "note": "The thyroid gland is not part of the current 3D model, so nothing is highlighted."
+    },
+    {
+      "id": "blood_sugar",
+      "displayName": "Blood sugar",
+      "note": "Sugar carried in the blood to the whole body: shown on the blood vessels."
+    },
+    {
+      "id": "blood_count",
+      "displayName": "Blood count",
+      "note": "Blood cells travel through the whole body: shown on the blood vessels."
+    },
+    {
+      "id": "blood_fats",
+      "displayName": "Blood fats (lipids)",
+      "note": "Fats carried in the blood: shown on the blood vessels."
+    },
+    {
+      "id": "electrolytes",
+      "displayName": "Electrolytes and minerals",
+      "note": "Salts and minerals in the blood: shown on the blood vessels (calcium and phosphorus also on the bones)."
+    },
+    {
+      "id": "blood_proteins",
+      "displayName": "Blood proteins",
+      "note": "Proteins carried in the blood: shown on the blood vessels."
+    }
+  ],
   "terms": [
     {
       "normalizedTerm": "creatinine",
@@ -9,7 +66,8 @@
       "associatedStructures": ["left_kidney", "right_kidney"],
       "system": "urinary",
       "visualizationType": "association",
-      "mappingReason": "Creatinine is filtered from the blood by the kidneys, so it is commonly used as a kidney-associated marker."
+      "mappingReason": "Creatinine is filtered from the blood by the kidneys, so it is commonly used as a kidney-associated marker.",
+      "group": "kidneys"
     },
     {
       "normalizedTerm": "estimated_glomerular_filtration_rate",
@@ -19,7 +77,8 @@
       "associatedStructures": ["left_kidney", "right_kidney"],
       "system": "urinary",
       "visualizationType": "association",
-      "mappingReason": "eGFR estimates how much blood the kidneys filter each minute."
+      "mappingReason": "eGFR estimates how much blood the kidneys filter each minute.",
+      "group": "kidneys"
     },
     {
       "normalizedTerm": "alanine_aminotransferase",
@@ -29,7 +88,8 @@
       "associatedStructures": ["liver"],
       "system": "digestive",
       "visualizationType": "association",
-      "mappingReason": "ALT is an enzyme found mainly in the liver, so it is commonly used as a liver-associated marker."
+      "mappingReason": "ALT is an enzyme found mainly in the liver, so it is commonly used as a liver-associated marker.",
+      "group": "liver"
     },
     {
       "normalizedTerm": "blood_urea_nitrogen",
@@ -39,7 +99,8 @@
       "associatedStructures": ["left_kidney", "right_kidney"],
       "system": "urinary",
       "visualizationType": "association",
-      "mappingReason": "Urea nitrogen is a waste product that the kidneys remove from the blood, so BUN is commonly used as a kidney-associated marker."
+      "mappingReason": "Urea nitrogen is a waste product that the kidneys remove from the blood, so BUN is commonly used as a kidney-associated marker.",
+      "group": "kidneys"
     },
     {
       "normalizedTerm": "urea",
@@ -49,7 +110,8 @@
       "associatedStructures": ["left_kidney", "right_kidney"],
       "system": "urinary",
       "visualizationType": "association",
-      "mappingReason": "Urea is a waste product that the kidneys remove from the blood, so it is commonly used as a kidney-associated marker."
+      "mappingReason": "Urea is a waste product that the kidneys remove from the blood, so it is commonly used as a kidney-associated marker.",
+      "group": "kidneys"
     },
     {
       "normalizedTerm": "aspartate_aminotransferase",
@@ -59,7 +121,8 @@
       "associatedStructures": ["liver"],
       "system": "digestive",
       "visualizationType": "association",
-      "mappingReason": "AST is an enzyme found mainly in the liver (and also in the heart and muscles), so it is commonly used as a liver-associated marker."
+      "mappingReason": "AST is an enzyme found mainly in the liver (and also in the heart and muscles), so it is commonly used as a liver-associated marker.",
+      "group": "liver"
     },
     {
       "normalizedTerm": "gamma_glutamyl_transferase",
@@ -69,7 +132,8 @@
       "associatedStructures": ["liver"],
       "system": "digestive",
       "visualizationType": "association",
-      "mappingReason": "GGT is an enzyme found mainly in the liver, so it is commonly used as a liver-associated marker."
+      "mappingReason": "GGT is an enzyme found mainly in the liver, so it is commonly used as a liver-associated marker.",
+      "group": "liver"
     },
     {
       "normalizedTerm": "bilirubin_total",
@@ -79,17 +143,19 @@
       "associatedStructures": ["liver"],
       "system": "digestive",
       "visualizationType": "association",
-      "mappingReason": "Bilirubin is removed from the blood by the liver, so it is commonly used as a liver-associated marker."
+      "mappingReason": "Bilirubin is removed from the blood by the liver, so it is commonly used as a liver-associated marker.",
+      "group": "liver"
     },
     {
       "normalizedTerm": "bilirubin_direct",
       "displayName": "Bilirubin, direct (conjugated)",
-      "synonyms": ["bilirubin direct", "direct bilirubin", "conjugated bilirubin", "d. bilirubin", "bilirubin conjugated"],
+      "synonyms": ["bilirubin direct", "direct bilirubin", "conjugated bilirubin", "d. bilirubin", "bilirubin conjugated", "bilirubin conjugated direct", "conjugated direct bilirubin"],
       "category": "laboratory_marker",
       "associatedStructures": ["liver"],
       "system": "digestive",
       "visualizationType": "association",
-      "mappingReason": "Direct bilirubin is bilirubin already processed by the liver, so it is commonly used as a liver-associated marker."
+      "mappingReason": "Direct bilirubin is bilirubin already processed by the liver, so it is commonly used as a liver-associated marker.",
+      "group": "liver"
     },
     {
       "normalizedTerm": "bilirubin_indirect",
@@ -99,7 +165,8 @@
       "associatedStructures": ["liver"],
       "system": "digestive",
       "visualizationType": "association",
-      "mappingReason": "Indirect bilirubin is bilirubin not yet processed by the liver; it is reported as part of liver-associated bilirubin testing."
+      "mappingReason": "Indirect bilirubin is bilirubin not yet processed by the liver; it is reported as part of liver-associated bilirubin testing.",
+      "group": "liver"
     },
     {
       "normalizedTerm": "lipase",
@@ -109,7 +176,8 @@
       "associatedStructures": ["pancreas"],
       "system": "digestive",
       "visualizationType": "association",
-      "mappingReason": "Most lipase in the blood is made by the pancreas, so it is commonly used as a pancreas-associated marker."
+      "mappingReason": "Most lipase in the blood is made by the pancreas, so it is commonly used as a pancreas-associated marker.",
+      "group": "pancreas"
     },
     {
       "normalizedTerm": "cardiac_troponin_i",
@@ -119,7 +187,8 @@
       "associatedStructures": ["heart"],
       "system": "cardiovascular",
       "visualizationType": "association",
-      "mappingReason": "Troponin is a protein found in heart muscle cells, so it is used as a heart-associated marker."
+      "mappingReason": "Troponin is a protein found in heart muscle cells, so it is used as a heart-associated marker.",
+      "group": "heart"
     },
     {
       "normalizedTerm": "cardiac_troponin_t",
@@ -129,7 +198,602 @@
       "associatedStructures": ["heart"],
       "system": "cardiovascular",
       "visualizationType": "association",
-      "mappingReason": "Troponin is a protein found in heart muscle cells, so it is used as a heart-associated marker."
+      "mappingReason": "Troponin is a protein found in heart muscle cells, so it is used as a heart-associated marker.",
+      "group": "heart"
+    },
+    {
+      "normalizedTerm": "albumin",
+      "displayName": "Albumin",
+      "synonyms": ["albumin", "serum albumin", "s. albumin", "albumin serum"],
+      "category": "laboratory_marker",
+      "group": "liver",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Albumin is a protein made by the liver, so it is commonly used as a liver-associated marker."
+    },
+    {
+      "normalizedTerm": "alkaline_phosphatase",
+      "displayName": "ALP (alkaline phosphatase)",
+      "synonyms": ["alkaline phosphatase", "alp", "serum alkaline phosphatase", "s. alkaline phosphatase", "alk phos", "alkaline phosphatase alp"],
+      "category": "laboratory_marker",
+      "group": "liver",
+      "associatedStructures": ["liver", "layer:skeleton"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "ALP is an enzyme found mainly in the liver and the bones, so both are shown."
+    },
+    {
+      "normalizedTerm": "ast_alt_ratio",
+      "displayName": "AST/ALT ratio",
+      "synonyms": ["ast alt ratio", "sgot sgpt ratio", "ast sgot alt sgpt ratio", "ast sgot alt sgpt ratio de", "ast sgot alt sgpt ratio de ritis", "de ritis ratio"],
+      "category": "laboratory_marker",
+      "group": "liver",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "This is the ratio of two liver-associated enzymes (AST and ALT)."
+    },
+    {
+      "normalizedTerm": "uric_acid",
+      "displayName": "Uric acid",
+      "synonyms": ["uric acid", "serum uric acid", "s. uric acid", "uric acid serum"],
+      "category": "laboratory_marker",
+      "group": "kidneys",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Uric acid is removed from the blood mainly by the kidneys, so it is shown with the kidneys."
+    },
+    {
+      "normalizedTerm": "total_protein",
+      "displayName": "Total protein",
+      "synonyms": ["protein total", "total protein", "serum total protein", "s. total protein", "total proteins"],
+      "category": "laboratory_marker",
+      "group": "blood_proteins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "globulin",
+      "displayName": "Globulin",
+      "synonyms": ["globulin", "serum globulin", "s. globulin"],
+      "category": "laboratory_marker",
+      "group": "blood_proteins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "albumin_globulin_ratio",
+      "displayName": "A/G ratio",
+      "synonyms": ["a g ratio", "albumin globulin ratio"],
+      "category": "laboratory_marker",
+      "group": "blood_proteins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "thyroid_stimulating_hormone",
+      "displayName": "TSH (thyroid-stimulating hormone)",
+      "synonyms": ["tsh", "thyroid stimulating hormone", "tsh ultrasensitive", "ultrasensitive tsh", "tsh ultrasensitive 4thgen", "tsh 3rd generation", "tsh 4th generation", "serum tsh"],
+      "category": "laboratory_marker",
+      "group": "thyroid",
+      "associatedStructures": [],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Thyroid-related test. The thyroid gland is not part of the current 3D model, so nothing is highlighted."
+    },
+    {
+      "normalizedTerm": "triiodothyronine_total",
+      "displayName": "T3, total",
+      "synonyms": ["t3", "total t3", "t3 total", "triiodothyronine", "tri iodothyronine t3 total", "triiodothyronine total"],
+      "category": "laboratory_marker",
+      "group": "thyroid",
+      "associatedStructures": [],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Thyroid-related test. The thyroid gland is not part of the current 3D model, so nothing is highlighted."
+    },
+    {
+      "normalizedTerm": "thyroxine_total",
+      "displayName": "T4, total",
+      "synonyms": ["t4", "total t4", "t4 total", "thyroxine", "thyroxine t4 total", "thyroxine total"],
+      "category": "laboratory_marker",
+      "group": "thyroid",
+      "associatedStructures": [],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Thyroid-related test. The thyroid gland is not part of the current 3D model, so nothing is highlighted."
+    },
+    {
+      "normalizedTerm": "triiodothyronine_free",
+      "displayName": "Free T3",
+      "synonyms": ["free t3", "ft3", "free triiodothyronine"],
+      "category": "laboratory_marker",
+      "group": "thyroid",
+      "associatedStructures": [],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Thyroid-related test. The thyroid gland is not part of the current 3D model, so nothing is highlighted."
+    },
+    {
+      "normalizedTerm": "thyroxine_free",
+      "displayName": "Free T4",
+      "synonyms": ["free t4", "ft4", "free thyroxine"],
+      "category": "laboratory_marker",
+      "group": "thyroid",
+      "associatedStructures": [],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Thyroid-related test. The thyroid gland is not part of the current 3D model, so nothing is highlighted."
+    },
+    {
+      "normalizedTerm": "glucose_fasting",
+      "displayName": "Glucose, fasting",
+      "synonyms": ["glucose fasting", "fasting glucose", "fasting blood sugar", "fbs", "blood sugar fasting", "plasma glucose fasting", "glucose fasting naf plasma", "fasting plasma glucose", "glucose fasting plasma"],
+      "category": "laboratory_marker",
+      "group": "blood_sugar",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "glucose_post_prandial",
+      "displayName": "Glucose, post-meal",
+      "synonyms": ["glucose pp", "glucose post prandial", "post prandial blood sugar", "ppbs", "post prandial glucose", "glucose pp naf plasma"],
+      "category": "laboratory_marker",
+      "group": "blood_sugar",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "glucose_random",
+      "displayName": "Glucose, random",
+      "synonyms": ["glucose random", "random blood sugar", "rbs", "random glucose", "glucose"],
+      "category": "laboratory_marker",
+      "group": "blood_sugar",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "hemoglobin_a1c",
+      "displayName": "HbA1c",
+      "synonyms": ["hba1c", "hba1c glycated hemoglobin", "glycated hemoglobin", "glycated haemoglobin", "glycosylated hemoglobin", "glycosylated haemoglobin", "a1c", "hemoglobin a1c", "haemoglobin a1c"],
+      "category": "laboratory_marker",
+      "group": "blood_sugar",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "estimated_average_glucose",
+      "displayName": "Estimated average glucose",
+      "synonyms": ["estimated average glucose", "eag", "mean blood glucose"],
+      "category": "laboratory_marker",
+      "group": "blood_sugar",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "hemoglobin",
+      "displayName": "Haemoglobin",
+      "synonyms": ["hemoglobin", "haemoglobin", "hb", "hgb"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "hematocrit",
+      "displayName": "PCV / haematocrit",
+      "synonyms": ["pcv", "packed cell volume", "hematocrit", "haematocrit", "hct"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "red_blood_cell_count",
+      "displayName": "RBC count",
+      "synonyms": ["rbc count", "rbc", "red blood cell count", "red cell count", "total rbc count"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "mean_corpuscular_volume",
+      "displayName": "MCV",
+      "synonyms": ["mcv", "mean corpuscular volume"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "mean_corpuscular_hemoglobin",
+      "displayName": "MCH",
+      "synonyms": ["mch", "mean corpuscular hemoglobin", "mean corpuscular haemoglobin"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "mean_corpuscular_hemoglobin_concentration",
+      "displayName": "MCHC",
+      "synonyms": ["mchc", "mean corpuscular hemoglobin concentration", "mean corpuscular haemoglobin concentration"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "red_cell_distribution_width_cv",
+      "displayName": "RDW-CV",
+      "synonyms": ["rdw cv", "rdw", "red cell distribution width"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "red_cell_distribution_width_sd",
+      "displayName": "RDW-SD",
+      "synonyms": ["rdw sd"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "white_blood_cell_count",
+      "displayName": "TLC / WBC count",
+      "synonyms": ["total leucocyte count tlc", "total leucocyte count", "total leukocyte count", "tlc", "wbc count", "wbc", "white blood cell count", "corrected tlc", "total wbc count"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "neutrophils",
+      "displayName": "Neutrophils",
+      "synonyms": ["neutrophils", "neutrophil", "neutrophils absolute", "absolute neutrophil count", "anc"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "lymphocytes",
+      "displayName": "Lymphocytes",
+      "synonyms": ["lymphocytes", "lymphocyte", "lymphocytes absolute", "absolute lymphocyte count", "alc"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "eosinophils",
+      "displayName": "Eosinophils",
+      "synonyms": ["eosinophils", "eosinophil", "eosinophils absolute", "absolute eosinophil count", "aec"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "monocytes",
+      "displayName": "Monocytes",
+      "synonyms": ["monocytes", "monocyte", "monocytes absolute", "absolute monocyte count"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "basophils",
+      "displayName": "Basophils",
+      "synonyms": ["basophils", "basophil", "basophils absolute", "absolute basophil count"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "neutrophil_lymphocyte_ratio",
+      "displayName": "Neutrophil/lymphocyte ratio",
+      "synonyms": ["neutrophil lymphocyte ratio nlr", "neutrophil lymphocyte ratio", "nlr"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "platelet_count",
+      "displayName": "Platelet count",
+      "synonyms": ["platelet count", "platelets", "plt", "platelet"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "mean_platelet_volume",
+      "displayName": "MPV",
+      "synonyms": ["mpv", "mean platelet volume"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "platelet_distribution_width",
+      "displayName": "PDW",
+      "synonyms": ["pdw", "platelet distribution width"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "cholesterol_total",
+      "displayName": "Total cholesterol",
+      "synonyms": ["total cholesterol", "cholesterol total", "cholesterol", "serum cholesterol", "s. cholesterol"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "triglycerides",
+      "displayName": "Triglycerides",
+      "synonyms": ["triglycerides", "triglyceride", "serum triglycerides", "tg"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "hdl_cholesterol",
+      "displayName": "HDL cholesterol",
+      "synonyms": ["hdl cholesterol", "hdl", "hdl c", "cholesterol hdl", "hdl cholesterol direct"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "ldl_cholesterol",
+      "displayName": "LDL cholesterol",
+      "synonyms": ["ldl cholesterol", "ldl", "ldl c", "cholesterol ldl", "ldl cholesterol direct", "ldl cholesterol calculated"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "vldl_cholesterol",
+      "displayName": "VLDL cholesterol",
+      "synonyms": ["vldl cholesterol", "vldl", "vldl c", "cholesterol vldl"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "non_hdl_cholesterol",
+      "displayName": "Non-HDL cholesterol",
+      "synonyms": ["non hdl cholesterol", "non hdl c"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "cholesterol_hdl_ratio",
+      "displayName": "Cholesterol/HDL ratio",
+      "synonyms": ["chol hdl ratio", "cholesterol hdl ratio", "total cholesterol hdl ratio", "tc hdl ratio"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "ldl_hdl_ratio",
+      "displayName": "LDL/HDL ratio",
+      "synonyms": ["ldl hdl ratio"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "atherogenic_index_of_plasma",
+      "displayName": "Atherogenic index (AIP)",
+      "synonyms": ["atherogenic index aip", "atherogenic index", "aip", "atherogenic index of plasma"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "sodium",
+      "displayName": "Sodium",
+      "synonyms": ["sodium", "serum sodium", "s. sodium", "na"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "potassium",
+      "displayName": "Potassium",
+      "synonyms": ["potassium", "serum potassium", "s. potassium", "k"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "chloride",
+      "displayName": "Chloride",
+      "synonyms": ["chloride", "serum chloride", "s. chloride", "cl"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "calcium",
+      "displayName": "Calcium",
+      "synonyms": ["calcium", "serum calcium", "s. calcium", "calcium total", "total calcium"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:skeleton", "layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Most of the body's calcium is stored in the bones and the rest is carried in the blood, so the bones and blood vessels are shown."
+    },
+    {
+      "normalizedTerm": "phosphorus",
+      "displayName": "Phosphorus",
+      "synonyms": ["phosphorus", "phosphorus inorganic", "inorganic phosphorus", "serum phosphorus", "phosphate"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:skeleton", "layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Most of the body's phosphorus is stored in the bones with calcium; the rest is in the blood, so the bones and blood vessels are shown."
+    },
+    {
+      "normalizedTerm": "magnesium",
+      "displayName": "Magnesium",
+      "synonyms": ["magnesium", "serum magnesium"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "bicarbonate",
+      "displayName": "Bicarbonate",
+      "synonyms": ["bicarbonate", "hco3", "total co2"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "systolic_blood_pressure",
+      "displayName": "Blood pressure, systolic",
+      "synonyms": ["systolic blood pressure", "systolic bp", "sbp", "bp systolic", "blood pressure systolic"],
+      "category": "vital_sign",
+      "group": "blood_pressure",
+      "associatedStructures": ["heart", "layer:arteries"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Blood pressure is the force of blood pushing against the artery walls as the heart pumps, so the heart and arteries are shown."
+    },
+    {
+      "normalizedTerm": "diastolic_blood_pressure",
+      "displayName": "Blood pressure, diastolic",
+      "synonyms": ["diastolic blood pressure", "diastolic bp", "dbp", "bp diastolic", "blood pressure diastolic"],
+      "category": "vital_sign",
+      "group": "blood_pressure",
+      "associatedStructures": ["heart", "layer:arteries"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Blood pressure is the force of blood pushing against the artery walls as the heart pumps, so the heart and arteries are shown."
+    },
+    {
+      "normalizedTerm": "pulse_rate",
+      "displayName": "Pulse / heart rate",
+      "synonyms": ["pulse", "pulse rate", "heart rate", "hr"],
+      "category": "vital_sign",
+      "group": "blood_pressure",
+      "associatedStructures": ["heart"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "The pulse is the number of heartbeats per minute, so the heart is shown."
     }
   ]
 }

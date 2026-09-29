@@ -34,7 +34,7 @@ function OrganViewModeToggle({ mode }: { mode: OrganViewMode }) {
   const { dispatch } = useAnatomy();
   const wide = useIsWide();
   return (
-    <div role="radiogroup" aria-label="Organ view mode" className="pointer-events-auto flex min-h-9 items-center rounded-full border border-border bg-surface p-0.5 backdrop-blur md:min-h-8">
+    <div role="radiogroup" aria-label="Organ view mode" className="pointer-events-auto flex min-h-10 items-center rounded-full border border-white/10 bg-white/[0.04] p-0.5 backdrop-blur-xl md:min-h-9">
       {MODES.filter((m) => wide || !m.wideOnly).map((m) => (
         <button
           key={m.id}

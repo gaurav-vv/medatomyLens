@@ -7,7 +7,7 @@ import { useAnatomy } from "./AnatomyContext";
 export function AnatomyLayerToggle() {
   const { state, dispatch } = useAnatomy();
   return (
-    <fieldset className="flex min-w-0 gap-1.5 overflow-x-auto md:flex-col md:overflow-visible">
+    <fieldset className="flex min-w-0 gap-1.5 overflow-x-auto md:grid md:grid-cols-2 md:overflow-visible">
       <legend className="sr-only">Anatomy layers</legend>
       {LAYER_IDS.map((layer) => {
         const on = state.visible[layer];
@@ -19,11 +19,11 @@ export function AnatomyLayerToggle() {
             role="switch"
             aria-checked={on}
             onClick={() => dispatch({ type: "toggleLayer", layer })}
-            className={`flex min-h-9 shrink-0 items-center justify-between gap-3 rounded-full border px-3 text-xs transition-colors md:min-h-8 md:rounded-lg ${
+            className={`flex min-h-10 shrink-0 items-center justify-between gap-3 rounded-full border px-3.5 text-[13px] transition-colors md:min-h-9 ${
               on
-                ? "border-teal-300/40 bg-teal-300/10 text-foreground"
-                : "border-border bg-surface text-muted hover:text-foreground"
-            } backdrop-blur focus-visible:outline-2 focus-visible:outline-teal-300`}
+                ? "border-teal-300/50 bg-teal-300/15 text-teal-50"
+                : "border-white/10 bg-white/[0.04] text-muted hover:text-foreground"
+            } backdrop-blur-xl focus-visible:outline-2 focus-visible:outline-teal-300`}
           >
             <span>{LAYER_LABELS[layer]}</span>
             <span className="text-[10px] text-muted" aria-live="polite">

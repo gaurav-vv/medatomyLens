@@ -102,7 +102,7 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
             {raw.size?.specified && <p>Size as reported: {raw.size.text}</p>}
           </>
         )}
-        {finding.status !== "NOT_INTERPRETED" && finding.structures.length > 0 && (
+        {finding.status !== "NOT_INTERPRETED" && finding.structures.some((s) => !s.startsWith("layer:")) && (
           <p className="text-muted">Location: {locationText(finding)}</p>
         )}
         <SourceView finding={finding} report={report} />
@@ -114,7 +114,7 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
         </Section>
       ) : raw.negated ? null : finding.structures.length === 0 ? (
         <Section title="Anatomy">
-          <p>This finding could not be confidently mapped to a specific anatomical structure.</p>
+          <p>{finding.term ? finding.term.mappingReason : "This finding could not be confidently mapped to a specific anatomical structure."}</p>
         </Section>
       ) : (
         <Section title="Why this is highlighted">

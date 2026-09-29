@@ -173,24 +173,43 @@ export function parseLabPages(pages: PageRows[]): ParseResult {
   let lowConfidenceRows = 0;
   for (const p of pages) {
     p.rows.forEach((row, r) => {
-      const parsed = parseRow(row.cells);
-      if (!parsed) return;
+      const bp = parseBloodPressure(row.cells);
+      const parsedRows = bp ?? (parseRow(row.cells) ? [parseRow(row.cells)!] : []);
+      if (!parsedRows.length) return;
       if (p.method === "ocr" && (row.minConfidence ?? 0) < MIN_OCR_CONFIDENCE) {
         lowConfidenceRows++;
         return;
       }
-      const confidence: Confidence = p.method === "ocr" ? "low" : parsed.layout === "table" ? "high" : "medium";
-      findings.push({
-        id: `p${p.page}_r${r + 1}`,
-        findingType: "lab_association",
-        name: parsed.name,
-        value: parsed.value,
-        unit: parsed.unit,
-        referenceRange: parsed.referenceRange,
-        source: { page: p.page, text: row.text },
-        confidence,
+      parsedRows.forEach((parsed, k) => {
+        const confidence: Confidence = p.method === "ocr" ? "low" : parsed.layout === "table" ? "high" : "medium";
+        findings.push({
+          id: `p${p.page}_r${r + 1}${parsedRows.length > 1 ? `_${k + 1}` : ""}`,
+          findingType: "lab_association",
+          name: parsed.name,
+          value: parsed.value,
+          unit: parsed.unit,
+          referenceRange: parsed.referenceRange,
+          source: { page: p.page, text: row.text },
+          confidence,
+        });
       });
     });
   }
   return { findings, lowConfidenceRows };
+}
+
+const BP_NAME = /^(bp|b\.p\.?|blood pressure)\b/i;
+const BP_VALUE = /^(\d{2,3})\s*\/\s*(\d{2,3})(?:\s*(mm\s?hg))?$/i;
+/** "BP | 140/90 | mmHg" → systolic and diastolic, both quoting the same row. No range is taken. */
+export function parseBloodPressure(cells: string[]): (ParsedRow & { layout: "table" | "text" })[] | null {
+  const [name, value, unitCell] = cells;
+  const oneCell = cells.length === 1 ? /^(bp|b\.p\.?|blood pressure)\s*:?\s*(\d{2,3}\s*\/\s*\d{2,3})\s*(mm\s?hg)?$/i.exec(name ?? "") : null;
+  const v = oneCell ? BP_VALUE.exec(oneCell[2]!) : value && BP_NAME.test(name ?? "") ? BP_VALUE.exec(value) : null;
+  if (!v?.[1] || !v[2]) return null;
+  const unit = v[3] ?? oneCell?.[3] ?? (unitCell && /^mm\s?hg$/i.test(unitCell) ? unitCell : null);
+  const base = { unit, referenceRange: null, flag: null, layout: oneCell ? ("text" as const) : ("table" as const) };
+  return [
+    { ...base, name: "Blood pressure (systolic)", value: Number(v[1]) },
+    { ...base, name: "Blood pressure (diastolic)", value: Number(v[2]) },
+  ];
 }

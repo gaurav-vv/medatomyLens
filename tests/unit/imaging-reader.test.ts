@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { parseStructureIndex } from "@/lib/anatomy/structures";
-import { structureExists } from "@/lib/medical/anatomyLink";
-import { findTerm, REGIONS, resolveReport, TERMS } from "@/lib/medical/report";
+import { meshesForStructure, structureExists, structureName } from "@/lib/medical/anatomyLink";
+import { findTerm, groupFindings, REGIONS, resolveReport, TERM_GROUPS, TERMS } from "@/lib/medical/report";
 import type { RawReport } from "@/lib/medical/types";
 import vocabulary from "@/data/medical/mappings/imaging_vocabulary.json";
-import { buildReport } from "@/lib/reports/buildReport";
+import { buildReport, dedupe } from "@/lib/reports/buildReport";
 import { readSentence, sentences } from "@/lib/reports/imagingParser";
 
 const index = parseStructureIndex(JSON.parse(readFileSync("public/anatomy/body/structures.json", "utf8")));
@@ -24,9 +24,59 @@ describe("terminology additions (Sections 15, 89, 92)", () => {
     expect(findTerm("hs-Troponin I")?.normalizedTerm).toBe("cardiac_troponin_i");
     expect(findTerm("Serum Lipase")?.associatedStructures).toEqual(["pancreas"]);
   });
-  it("keeps tests without a single organ, or without a model structure, unmapped", () => {
-    for (const t of ["TSH", "Free T4", "ALP", "Alkaline Phosphatase", "Amylase", "Glucose", "HbA1c", "Sodium", "Haemoglobin"])
-      expect(findTerm(t), t).toBeNull();
+  it("groups tests by body part; blood tests go on the vessels, bone minerals on the bones, thyroid is not drawn", () => {
+    const groups: [string, string, string[]][] = [
+      ["TSH (Ultrasensitive/4thGen)", "thyroid", []],
+      ["TRI-IODOTHYRONINE (T3, TOTAL)", "thyroid", []],
+      ["GLUCOSE, FASTING , NAF PLASMA", "blood_sugar", ["layer:arteries", "layer:veins"]],
+      ["HBA1C, GLYCATED HEMOGLOBIN", "blood_sugar", ["layer:arteries", "layer:veins"]],
+      ["TOTAL LEUCOCYTE COUNT (TLC)", "blood_count", ["layer:arteries", "layer:veins"]],
+      ["RDW-CV", "blood_count", ["layer:arteries", "layer:veins"]],
+      ["VLDL CHOLESTEROL", "blood_fats", ["layer:arteries", "layer:veins"]],
+      ["ATHEROGENIC INDEX (AIP)", "blood_fats", ["layer:arteries", "layer:veins"]],
+      ["PHOSPHORUS, INORGANIC", "electrolytes", ["layer:skeleton", "layer:arteries", "layer:veins"]],
+      ["CALCIUM", "electrolytes", ["layer:skeleton", "layer:arteries", "layer:veins"]],
+      ["SODIUM", "electrolytes", ["layer:arteries", "layer:veins"]],
+      ["GLOBULIN", "blood_proteins", ["layer:arteries", "layer:veins"]],
+    ];
+    for (const [name, group, structures] of groups) {
+      const t = findTerm(name);
+      expect(t?.group, name).toBe(group);
+      expect(t?.associatedStructures, name).toEqual(structures);
+    }
+    // Vessel wording never suggests a problem in a vessel.
+    expect(findTerm("Haemoglobin")!.mappingReason).toMatch(/does not point to any vessel or problem/);
+    expect(findTerm("ALKALINE PHOSPHATASE")!.associatedStructures).toEqual(["liver", "layer:skeleton"]);
+    expect(findTerm("Amylase")).toBeNull();
+  });
+  it("reads blood pressure as systolic and diastolic, shown on the heart and arteries", () => {
+    const rows = ["BP | 140/90 | mmHg", "Blood Pressure: 120/80 mmHg"].map((text) => ({ text, cells: text.split(" | ") }));
+    const { report } = buildReport({ pageCount: 1, pages: [{ page: 1, method: "text", rows }] }, "t");
+    expect(report.findings.map((f) => [f.name, f.value, f.source.text])).toEqual([
+      ["Blood pressure (systolic)", 140, "BP | 140/90 | mmHg"],
+      ["Blood pressure (diastolic)", 90, "BP | 140/90 | mmHg"],
+      ["Blood pressure (systolic)", 120, "Blood Pressure: 120/80 mmHg"],
+      ["Blood pressure (diastolic)", 80, "Blood Pressure: 120/80 mmHg"],
+    ]);
+    const resolved = resolveReport(report as RawReport, known).findings;
+    for (const f of resolved) expect(f.issues).toEqual([]);
+    expect(resolved[0]!.structures).toEqual(["heart", "layer:arteries"]);
+    expect(resolved[0]!.status).toBe("UNKNOWN"); // no range printed: none substituted
+  });
+
+  it("layer structure ids resolve to every mesh of that layer", () => {
+    expect(known("layer:arteries")).toBe(true);
+    expect(known("layer:nonsense")).toBe(false);
+    expect(meshesForStructure(index, "layer:skeleton").length).toBeGreaterThan(100);
+    expect(structureName(index, "layer:skeleton")).toBe("Bones");
+  });
+  it("maps the liver and kidney panel names printed by common labs", () => {
+    for (const n of ["BILIRUBIN CONJUGATED (DIRECT)", "ALBUMIN", "AST (SGOT) / ALT (SGPT) RATIO (DE"])
+      expect(findTerm(n)?.associatedStructures, n).toEqual(["liver"]);
+    expect(findTerm("URIC ACID")?.associatedStructures).toEqual(["left_kidney", "right_kidney"]);
+  });
+  it("every term belongs to a known group", () => {
+    for (const t of TERMS) expect(TERM_GROUPS.some((g) => g.id === t.group), t.normalizedTerm).toBe(true);
   });
   it("every term has its source recorded in docs/MEDICAL_SOURCES.md", () => {
     const doc = readFileSync("docs/MEDICAL_SOURCES.md", "utf8");
@@ -138,5 +188,33 @@ describe("imaging text (Sections 107, 111, 113)", () => {
     const rows = [{ text: "Right kidney: 1.8 cm cyst.", cells: ["Right kidney: 1.8 cm cyst."], minConfidence: 95 }];
     const { report } = buildReport({ pageCount: 1, pages: [{ page: 1, method: "ocr", rows }] }, "t");
     expect(report.findings).toEqual([]);
+  });
+});
+
+
+describe("finding list (grouping and repeats)", () => {
+  const rows = [
+    "CREATININE | 3.6 | mg/dL | 0.7 - 1.3",
+    "HAEMOGLOBIN | 12.1 | g/dL | 13 - 17",
+    "TSH (Ultrasensitive/4thGen) | 7.85 | μIU/mL | 0.55 - 4.78",
+    "VITAMIN D | 18 | ng/mL | 30 - 100",
+  ].map((text) => ({ text, cells: text.split(" | ") }));
+  const doc = (pages: number[]) => ({ pageCount: pages.length, pages: pages.map((page) => ({ page, method: "text" as const, rows })) });
+
+  it("keeps a repeated result once (summary pages repeat tests)", () => {
+    const { report } = buildReport(doc([1, 2]), "t");
+    expect(report.findings.filter((f) => f.name === "CREATININE")).toHaveLength(1);
+    expect(report.findings.find((f) => f.name === "CREATININE")!.source.page).toBe(1);
+  });
+  it("keeps different values for the same test (never picks one, Section 91)", () => {
+    const a = { id: "a", findingType: "lab_association" as const, name: "Creatinine", value: 1.1, unit: "mg/dL", source: { page: 1, text: "x" }, confidence: "high" as const };
+    expect(dedupe([a, { ...a, id: "b", value: 1.4 }])).toHaveLength(2);
+    expect(dedupe([a, { ...a, id: "b", name: "CREATININE" }])).toHaveLength(1);
+  });
+  it("groups by organ first, then body-wide tests, then unrecognized", () => {
+    const { report } = buildReport(doc([1]), "t");
+    const sections = groupFindings(resolveReport(report as RawReport, known).findings, (id) => id);
+    expect(sections.map((s) => s.title)).toEqual(["Kidneys", "Blood count", "Thyroid", "Not in the app's terminology yet"]);
+    expect(sections[2]!.note).toMatch(/not part of the current 3D model/);
   });
 });

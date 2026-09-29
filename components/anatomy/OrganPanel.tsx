@@ -43,7 +43,7 @@ export function OrganPanel() {
           type="button"
           onClick={() => dispatch({ type: "select", key: null })}
           aria-label="Close"
-          className="-m-1 rounded-full p-1 text-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-teal-300"
+          className="ui-icon-btn -m-2"
         >
           ✕
         </button>

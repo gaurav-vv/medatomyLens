@@ -43,7 +43,7 @@ export function AnatomySearch() {
   const total = state.index ? state.index.structures.size : 0;
 
   return (
-    <div className="relative w-full max-w-sm">
+    <div className="relative w-full">
       <input
         type="search"
         role="combobox"
@@ -63,7 +63,7 @@ export function AnatomySearch() {
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 120)}
         onKeyDown={onKeyDown}
-        className="h-10 w-full rounded-full border border-border bg-surface px-4 text-base md:h-9 md:text-sm text-foreground placeholder:text-muted backdrop-blur focus:outline-2 focus:outline-teal-300"
+        className="h-10 w-full rounded-full border border-white/10 bg-white/[0.04] px-4 text-base text-foreground placeholder:text-muted backdrop-blur-xl focus:outline-2 focus:outline-teal-300 md:h-9 md:text-sm"
       />
       {showList && (
         <ul
