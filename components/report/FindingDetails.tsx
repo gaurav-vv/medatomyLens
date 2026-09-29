@@ -3,6 +3,7 @@
 import { explanationFor, STATUS_LABEL } from "@/lib/medical/report";
 import type { ResolvedFinding, ResolvedReport } from "@/lib/medical/types";
 import { ReferenceRangeBar } from "./ReferenceRangeBar";
+import { DISCLAIMER_TEXT } from "@/components/layout/Disclaimer";
 
 export const NO_EXPLANATION_TEXT = "No explanation is available for this term yet.";
 export const NEXT_STEP_TEXT = "Discuss this result with your doctor.";
@@ -167,6 +168,8 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
       <Section title="Next step">
         <p>{explanation?.nextStep ?? NEXT_STEP_TEXT}</p>
       </Section>
+
+      <p className="text-[11px] leading-snug text-muted">{DISCLAIMER_TEXT}</p>
 
       {explanation && (
         <p className="text-[11px] leading-snug text-muted">

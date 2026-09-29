@@ -10,7 +10,7 @@ test("app shell loads with 3D canvas, disclaimer and manifest", async ({ page })
   await page.goto("/");
   await expect(page.getByText("AnatomyLens").first()).toBeVisible();
   await expect(page.getByTestId("anatomy-viewer").locator("canvas")).toBeVisible();
-  await expect(page.getByText(/does not provide a medical diagnosis/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "About" })).toBeVisible();
 
   const manifest = await page.request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBe(true);

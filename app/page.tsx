@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { AnatomyViewer } from "@/components/anatomy/AnatomyViewer";
-import { Disclaimer } from "@/components/layout/Disclaimer";
 
 export default function Home() {
   return (
@@ -8,7 +7,7 @@ export default function Home() {
       <header className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-3 pb-2 pt-[max(0.625rem,env(safe-area-inset-top))] md:p-4">
         <span className="text-sm font-semibold tracking-wide">AnatomyLens</span>
         <div className="flex items-center gap-2">
-          <span className="ui-tag hidden border-border bg-surface text-muted backdrop-blur md:inline-flex">
+          <span className="ui-tag hidden min-h-8 border-border bg-surface text-muted backdrop-blur md:inline-flex">
             Explore mode
           </span>
           <Link
@@ -24,7 +23,6 @@ export default function Home() {
         <AnatomyViewer />
       </section>
 
-      <Disclaimer />
     </main>
   );
 }

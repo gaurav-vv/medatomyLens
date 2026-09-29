@@ -46,3 +46,12 @@ body {
 @utility ui-tag {
   @apply inline-flex items-center rounded-full border px-2.5 py-1 text-[11px];
 }
+
+
+/* No visible scrollbars anywhere (user request); scrolling by touch, wheel and keyboard still works. */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}

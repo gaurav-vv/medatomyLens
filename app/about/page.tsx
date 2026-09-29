@@ -29,17 +29,17 @@ const linkClass = "underline underline-offset-2 hover:text-foreground";
 export default function AboutPage() {
   return (
     <main className="h-full overflow-y-auto">
-      <div className="mx-auto max-w-2xl space-y-8 px-5 py-8">
-        <header className="flex items-center justify-between gap-4">
-          <h1 className="text-xl font-semibold">About AnatomyLens</h1>
+      <div className="mx-auto max-w-2xl space-y-4 px-3 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(0.625rem,env(safe-area-inset-top))] md:px-4 md:pt-4">
+        <header className="flex min-h-10 items-center justify-between gap-3">
+          <h1 className="text-base font-semibold md:text-lg">About AnatomyLens</h1>
           <Link href="/" className="ui-btn shrink-0">
             ← Back to the viewer
           </Link>
         </header>
 
         <Section title="Important">
-          <p className="rounded-lg border border-border bg-surface p-3">{DISCLAIMER_TEXT}</p>
-          <p>{GENERIC_MODEL_LABEL}. The organs shown are a generic reference, not a picture of any person&apos;s body.</p>
+          <p className="font-medium">{DISCLAIMER_TEXT}</p>
+          <p className="text-muted">{GENERIC_MODEL_LABEL}. The organs shown are a generic reference, not a picture of any person&apos;s body.</p>
         </Section>
 
         <Section title="What it does">

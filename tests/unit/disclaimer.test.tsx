@@ -1,20 +1,18 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Disclaimer, DISCLAIMER_TEXT, GENERIC_MODEL_LABEL, MODEL_ATTRIBUTION } from "@/components/layout/Disclaimer";
+import AboutPage from "@/app/about/page";
+import { DISCLAIMER_TEXT, GENERIC_MODEL_LABEL, HRA_ATTRIBUTION, MODEL_ATTRIBUTION } from "@/components/layout/Disclaimer";
 
-describe("Disclaimer", () => {
-  it("shows the medical disclaimer and generic-model label", () => {
-    render(<Disclaimer />);
+describe("About page: disclaimer and credits", () => {
+  it("shows the medical disclaimer, generic-model label and both model credits", () => {
+    render(<AboutPage />);
     expect(screen.getByText(DISCLAIMER_TEXT)).toBeTruthy();
-    expect(screen.getByText(GENERIC_MODEL_LABEL)).toBeTruthy();
+    expect(screen.getByText(new RegExp(GENERIC_MODEL_LABEL))).toBeTruthy();
+    expect(screen.getByText(MODEL_ATTRIBUTION)).toBeTruthy();
+    expect(screen.getByText(HRA_ATTRIBUTION)).toBeTruthy();
   });
 
   it("states it is not a diagnosis", () => {
     expect(DISCLAIMER_TEXT).toMatch(/does not provide a medical diagnosis/);
-  });
-
-  it("credits the 3D model source (CC BY-SA attribution)", () => {
-    render(<Disclaimer />);
-    expect(screen.getAllByText(MODEL_ATTRIBUTION)[0]).toBeTruthy();
   });
 });

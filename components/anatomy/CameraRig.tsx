@@ -9,9 +9,11 @@ import { useIsWide, useOrganReport } from "@/components/report/useOrganReport";
 import { organBox } from "@/components/report/reportLook";
 import { SPLIT_PANEL_PX } from "@/components/report/SplitRenderer";
 
-/** Phone organ view: screen space covered by the top bar and the bottom sheet. */
-const PHONE_DETAIL_TOP_PX = 132;
-const PHONE_DETAIL_SHEET = 0.34;
+import { useInsets } from "@/lib/ui/insets";
+
+/** Whole body half-extents (m) used to fit the home view on phones. */
+const BODY_HALF_HEIGHT = 0.92;
+const BODY_HALF_WIDTH = 0.42;
 
 /** Home view: whole body, from the front. Metres, Y up. */
 export const HOME_TARGET = new Vector3(0, 0.8, 0.09);
@@ -41,35 +43,60 @@ export function CameraRig() {
   const wide = useIsWide();
   const { mode } = useOrganReport();
   const split = state.view === "detail" && mode === "side_by_side";
-  const phoneDetail = state.view === "detail" && !wide;
+  const phone = !wide;
+  const insets = useInsets();
+  const covered = phone ? Math.min(insets.top + insets.bottom, size.height * 0.7) : 0;
+  const userMoved = useRef(false);
 
-  // Phones: centre the organ in the area between the top bar and the sheet
-  // (a view offset keeps taps and rotation exact).
+  // Phones: centre the model in the space the controls leave free (measured
+  // from the real overlay elements). A view offset keeps taps and rotation exact.
   useEffect(() => {
     const cam = camera as PerspectiveCamera;
-    if (phoneDetail) {
-      const bottom = size.height * PHONE_DETAIL_SHEET;
-      cam.setViewOffset(size.width, size.height, 0, (bottom - PHONE_DETAIL_TOP_PX) / 2, size.width, size.height);
+    if (phone && covered > 0) {
+      cam.setViewOffset(size.width, size.height, 0, (insets.bottom - insets.top) / 2, size.width, size.height);
     } else cam.clearViewOffset();
     invalidate();
-  }, [phoneDetail, size, camera, invalidate]);
+  }, [phone, covered, insets.top, insets.bottom, size, camera, invalidate]);
+
+  /** Vertical and horizontal half field of view of the free area (radians). */
+  function halfFov() {
+    const cam = camera as PerspectiveCamera;
+    const t = Math.tan(((cam.fov ?? 35) * Math.PI) / 360);
+    const visible = Math.max(0.3, 1 - covered / size.height);
+    const width = split ? Math.max(size.width - SPLIT_PANEL_PX, size.width / 2) / 2 : size.width;
+    return { v: Math.atan(t * visible), h: Math.atan((t * width) / size.height), tv: t * visible, th: (t * width) / size.height };
+  }
 
   /** Distance that fits a sphere in the visible part of the view. */
   function fitDistance(radius: number) {
-    const cam = camera as PerspectiveCamera;
-    const fov = (cam.fov ?? 35) * (Math.PI / 180);
-    const visible = phoneDetail ? Math.max(0.3, 1 - PHONE_DETAIL_SHEET - PHONE_DETAIL_TOP_PX / size.height) : 1;
-    const vfov = 2 * Math.atan(Math.tan(fov / 2) * visible);
-    const width = split ? Math.max(size.width - SPLIT_PANEL_PX, size.width / 2) / 2 : size.width;
-    const aspect = width / size.height;
-    const hfov = 2 * Math.atan(Math.tan(fov / 2) * aspect);
-    return (radius / Math.sin(Math.min(vfov, hfov) / 2)) * 1.15;
+    const f = halfFov();
+    return (radius / Math.sin(Math.min(f.v, f.h))) * 1.15;
   }
+
+  /** Home view: desktop keeps the fixed framing; phones fit the body to the free area. */
+  function homeView() {
+    if (!phone) return { target: HOME_TARGET.clone(), position: HOME_POSITION.clone() };
+    const f = halfFov();
+    const d = Math.max(BODY_HALF_HEIGHT / f.tv, BODY_HALF_WIDTH / f.th) * 1.04 + 0.1;
+    return { target: HOME_TARGET.clone(), position: HOME_TARGET.clone().add(new Vector3(0, 0.05, d)) };
+  }
+
+  // Phones: re-fit the untouched home view whenever the free area changes.
+  useEffect(() => {
+    if (!controls || !phone || userMoved.current || state.view !== "body" || state.selected || flight.current) return;
+    const home = homeView();
+    controls.target.copy(home.target);
+    camera.position.copy(home.position);
+    controls.update();
+    invalidate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [controls, phone, covered, size.width, size.height]);
 
   useEffect(() => {
     if (!controls) return;
     const cancel = () => {
       flight.current = null;
+      userMoved.current = true;
     };
     controls.addEventListener("start", cancel);
     return () => controls.removeEventListener("start", cancel);
@@ -124,7 +151,7 @@ export function CameraRig() {
     if (box.isEmpty()) return;
     frameBox(box);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.view, state.detailStatus, split, phoneDetail]);
+  }, [state.view, state.detailStatus, split, covered]);
 
   function frameBox(box: Box3) {
     const center = box.getCenter(new Vector3());
@@ -156,7 +183,9 @@ export function CameraRig() {
       frameBox(box);
       return;
     }
-    fly(HOME_TARGET.clone(), HOME_POSITION.clone());
+    const home = homeView();
+    userMoved.current = false;
+    fly(home.target, home.position);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.resetSeq]);
 

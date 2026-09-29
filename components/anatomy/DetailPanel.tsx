@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useOverlayInsets } from "@/lib/ui/insets";
 import { GENERIC_MODEL_LABEL } from "@/components/layout/Disclaimer";
 import { detailOrganFor, isPartKey, partIdOf, partKey } from "@/lib/anatomy/detailOrgans";
 import { detailParts } from "@/lib/anatomy/structures";
@@ -103,7 +104,10 @@ function OrganFindings() {
  * view mode, generic-model label, findings with explanations, and the parts
  * the model really contains. Phones: top bar plus a bottom sheet.
  */
-export function DetailPanel() {
+export function DetailPanel({ viewer }: { viewer: RefObject<HTMLDivElement | null> }) {
+  const topBar = useRef<HTMLDivElement>(null);
+  const sheet = useRef<HTMLDivElement>(null);
+  useOverlayInsets(viewer, topBar, sheet);
   const { state, dispatch, selection } = useAnatomy();
   const { report } = useReport();
   const view = useOrganReport();
@@ -143,7 +147,7 @@ export function DetailPanel() {
 
   return (
     <>
-      <div className="pointer-events-none absolute inset-x-0 top-11 z-20 space-y-1.5 px-3 md:top-14 md:px-4">
+      <div ref={topBar} className="pointer-events-none absolute inset-x-0 top-14 z-20 space-y-1.5 px-3 md:px-4">
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -209,6 +213,7 @@ export function DetailPanel() {
       </p>
 
       <div
+        ref={sheet}
         className={`pointer-events-auto ui-panel absolute inset-x-0 bottom-0 z-20 flex flex-col rounded-b-none md:rounded-b-2xl md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-7rem)] md:w-[21rem] ${
           sheetOpen ? "h-[72%]" : "h-[34%]"
         } md:h-auto`}

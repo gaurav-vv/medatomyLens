@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type RefObject } from "react";
 import { useAnatomy } from "@/components/anatomy/AnatomyContext";
 import { selectionKeyFor, structureName } from "@/lib/medical/anatomyLink";
 import { reportSummary, STATUS_LABEL } from "@/lib/medical/report";
@@ -57,7 +57,8 @@ function FindingRow({ f, active, onOpen }: { f: ResolvedFinding; active: boolean
  * Report entry point and finding list for the body view. Desktop: a card in
  * the left column. Phone: a compact bar that expands into a list.
  */
-export function ReportCard() {
+/** `measureRef`: the always-visible part (button or header bar), used to keep the 3D model below it on phones. */
+export function ReportCard({ measureRef }: { measureRef?: RefObject<HTMLDivElement | null> }) {
   const { report, selectedFinding, loadDemo, closeReport } = useReport();
   const { dispatch } = useAnatomy();
   const open = useOpenFinding();
@@ -65,6 +66,7 @@ export function ReportCard() {
 
   if (!report) {
     return (
+      <div ref={measureRef}>
       <button
         type="button"
         onClick={() => {
@@ -75,6 +77,7 @@ export function ReportCard() {
       >
         Try the demo report
       </button>
+      </div>
     );
   }
 
@@ -84,7 +87,7 @@ export function ReportCard() {
       aria-label="Report findings"
       className="ui-panel"
     >
-      <div className="flex items-center gap-2 px-3 pt-2.5">
+      <div ref={measureRef} className="flex items-center gap-2 px-3 py-2 md:pb-0 md:pt-2.5">
         <span className="rounded bg-amber-200/90 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-black">
           {DEMO_LABEL}
         </span>
