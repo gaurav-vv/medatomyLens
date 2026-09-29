@@ -3,7 +3,7 @@
 > Read this first when you pick up the project (human or AI), then read `AGENTS.md`, which holds the binding rules.
 > Update this file at the end of every work session: change **Current status**, **Next steps** and **Open decisions**, and add a line to the **Log**.
 
-Last updated: 2026-09-29 (evening)
+Last updated: 2026-09-29 (night)
 
 ---
 
@@ -32,7 +32,7 @@ Open app → Explore mode (whole body, education)
 | 1.6 | Detailed view for any structure (body → detail → back) | Done: internal parts for kidneys, heart, liver, lungs, brain, eyes (HRA atlas) |
 | 1.7 | Rendering polish, About screen, deploy | Done: live at https://gaurav-vv.github.io/medatomyLens/ |
 | 1.8 | AGENTS.md build order 2–5: demo report, organ view Reported/Normal/Side by side, region marker, range bar, curated explanations (3 terms) | Done (explanations pending medical review) |
-| 2 | PDF reading: pdf.js, table parser, OCR fallback, AI fallback with exact-quote check, review screen | Not started |
+| 2 | PDF reading: pdf.js, table parser, OCR fallback, AI fallback with exact-quote check, review screen | Done except the AI fallback (waiting on provider choice) |
 | 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | Not started |
 | 4 | Adding medical content region by region (reviewed sources only) | Not started |
 
@@ -55,6 +55,7 @@ What works now (verified by tests and screenshots, desktop and mobile Chromium):
 - **Detail view** for any selected structure or organ: "Open detailed view" isolates it using the high-detail GLB (loaded lazily, with a real "Loading detailed model..." state). The body layers are hidden, not unloaded, so "Back to body" is instant. The camera frames the structure and returns to the exact body view. There's a parts list of what the model really contains (for example, 22 parts for the heart); tapping a part in the list or in 3D highlights it and fades the rest, so parts inside the organ stay visible. Escape clears the part first, then goes back. The view is labeled "Generic normal reference" and "Generic anatomical model — not your actual anatomy". Kidneys (9 parts each), heart (16), liver (30), lungs (61), brain (237) and each eye (23) use detailed HuBMAP atlas organs with a "See inside" switch that makes the outer layers see-through. Other single-mesh structures say they have no separate internal parts.
 - Disclaimer and full model credits are on the About page (linked from the header on every screen); the user asked to remove the footer from the main page. The disclaimer also appears under every report finding, and the organ view always shows "Generic anatomical model — not your actual anatomy".
 - No third-party network requests (checked in e2e).
+- **PDF upload (Phase 2):** "Upload report (PDF)" reads the file on the device (pdf.js), rebuilds table rows, and parses numeric lab rows (name, value, unit as printed, the report's own range). Scanned pages go to on-device OCR (tesseract.js, self-hosted). A review screen lists every row read, with its quote, page and mapping; OCR rows are unticked by default. Only then is the report shown on the body, labeled "YOUR REPORT � ON THIS DEVICE". Limits: 20 MB, 30 pages, 10 OCR pages, 180 s. Errors (not a PDF, password, corrupted, too many pages, no text) say what to try, with retry.
 
 Not done or known gaps:
 
@@ -86,7 +87,7 @@ Not done or known gaps:
 3. Fix the CI e2e step on GitHub (read the run log, then raise timeouts or run a smaller e2e set in CI).
 4. Optional rendering extras that need a post-processing dependency (ambient occlusion, depth of field in the detail view): only after real-phone numbers, high tier only.
 5. **Medical review:** someone qualified should review the 3 explanations in `data/medical/explanations/` (status "pending"), then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
-6. Then Phase 2 (PDF, AGENTS.md step 6): pdf.js text extraction, table parser, same exact-quote validation as the demo.
+6. Phase 2 is done except the AI fallback. Next: test uploads with real-layout (synthetic or de-identified) reports from the labs users will use, and tune the parser. Then Phase 3 (terminology growth, imaging text).
 
 ## 6. Open decisions (waiting on the user)
 
@@ -157,3 +158,4 @@ docs/                         ARCHITECTURE, THIRD_PARTY_ASSETS, MEDICAL_SOURCES,
 | 2026-09-29 | User chose to follow AGENTS.md build order (steps 2–5 before PDF). Added demo report (synthetic), terminology for creatinine/eGFR/ALT with MedlinePlus-sourced explanations (review pending), regions (kidney poles as overlay pins, kidney cortex and liver lobes as model parts), finding validation (exact quotes), body highlight + finding panel, organ view modes with region marker and side-by-side, reference range bar, View source. Mobile layout reworked: compact header/footer, organ view bottom sheet, camera view offset. 152 unit tests, 12 e2e (desktop + mobile) passing. |
 | 2026-09-29 | Zoom goes to the part under the mouse wheel or between pinching fingers (ZoomToPointer, unit + e2e tested) instead of the body centre. Shared UI primitives in globals.css (ui-panel, ui-btn, ui-btn-accent, ui-btn-report, ui-tag) used across viewer, panels and About; 36 px touch targets on phones; 16 px search text (no iOS auto-zoom). 156 unit, 13 e2e passing. |
 | 2026-09-29 | Phone layout: overlay insets measured from the real controls, camera view offset + fitted home view so the body stays clear of search and layer chips; organ view top bar moved below the header. Disclaimer/credits footer removed from the main page (user request) and kept on About (plus under each finding). Scrollbars hidden. About page and header aligned. Pushed 2d2081f; live on GitHub Pages. 156 unit tests pass; full mobile e2e passed. |
+| 2026-09-29 | Phase 2: on-device PDF reading (pdfjs-dist 6.3.289), row/cell rebuilding, rule-based lab-row parser, OCR fallback (tesseract.js 7.0.0, self-hosted via scripts/copy-vendor.mjs), review screen, upload errors with retry, uploaded-report labels. Fixed the phone page being zoomed out (layer chip fieldset had min-width: min-content). Synthetic PDF writer for tests. 182 unit tests; 6 new e2e upload tests (desktop + mobile, incl. OCR) pass. |

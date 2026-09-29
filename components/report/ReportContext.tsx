@@ -13,6 +13,8 @@ interface ReportContextValue {
   /** Meshes of every mapped finding: drawn in the "Reported" look. */
   reportedMeshes: Set<string>;
   loadDemo: () => void;
+  /** Show a report read from the user's PDF (after the review screen). Memory only. */
+  loadReport: (report: RawReport) => void;
   closeReport: () => void;
   selectFinding: (id: string | null) => void;
   meshesOf: (finding: ResolvedFinding) => string[];
@@ -27,12 +29,12 @@ const ReportContext = createContext<ReportContextValue | null>(null);
 export function ReportProvider({ children }: { children: ReactNode }) {
   const { state } = useAnatomy();
   const index = state.index;
-  const [loaded, setLoaded] = useState(false);
+  const [raw, setRaw] = useState<RawReport | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const report = useMemo(
-    () => (loaded && index ? resolveReport(demoReport as RawReport, (id) => structureExists(index, id)) : null),
-    [loaded, index],
+    () => (raw && index ? resolveReport(raw, (id) => structureExists(index, id)) : null),
+    [raw, index],
   );
 
   const meshesOf = useCallback(
@@ -50,9 +52,16 @@ export function ReportProvider({ children }: { children: ReactNode }) {
       report,
       selectedFinding: report?.findings.find((f) => f.raw.id === selectedId) ?? null,
       reportedMeshes,
-      loadDemo: () => setLoaded(true),
+      loadDemo: () => {
+        setSelectedId(null);
+        setRaw(demoReport as RawReport);
+      },
+      loadReport: (r: RawReport) => {
+        setSelectedId(null);
+        setRaw(r);
+      },
       closeReport: () => {
-        setLoaded(false);
+        setRaw(null);
         setSelectedId(null);
       },
       selectFinding: setSelectedId,

@@ -7,7 +7,7 @@ import { useAnatomy } from "./AnatomyContext";
 export function AnatomyLayerToggle() {
   const { state, dispatch } = useAnatomy();
   return (
-    <fieldset className="flex gap-1.5 overflow-x-auto md:flex-col md:overflow-visible">
+    <fieldset className="flex min-w-0 gap-1.5 overflow-x-auto md:flex-col md:overflow-visible">
       <legend className="sr-only">Anatomy layers</legend>
       {LAYER_IDS.map((layer) => {
         const on = state.visible[layer];

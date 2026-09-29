@@ -7,6 +7,8 @@ import { DISCLAIMER_TEXT } from "@/components/layout/Disclaimer";
 
 export const NO_EXPLANATION_TEXT = "No explanation is available for this term yet.";
 export const NEXT_STEP_TEXT = "Discuss this result with your doctor.";
+export const OCR_FINDING_NOTE =
+  "Read from a scanned page by text recognition, which can misread characters. Compare this value with your report.";
 
 export function locationText(f: ResolvedFinding): string {
   const loc = f.location;
@@ -80,6 +82,9 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
           {report.title} · page {raw.source.page}
           {report.isDemo && " · DEMO / SAMPLE DATA"}
         </p>
+        {raw.confidence === "low" && (
+          <p className="rounded-lg bg-amber-200/10 px-2.5 py-1.5 text-[11px] text-amber-100">{OCR_FINDING_NOTE}</p>
+        )}
         {isLab ? (
           <>
             <p>

@@ -8,7 +8,7 @@ import { detailParts } from "@/lib/anatomy/structures";
 import { LAYER_LABELS } from "@/lib/anatomy/types";
 import { structureName } from "@/lib/medical/anatomyLink";
 import { FindingDetails } from "@/components/report/FindingDetails";
-import { DEMO_LABEL, findingSubtitle } from "@/components/report/ReportPanels";
+import { findingSubtitle, reportLabel } from "@/components/report/ReportPanels";
 import { useReport } from "@/components/report/ReportContext";
 import { useIsWide, useOrganReport } from "@/components/report/useOrganReport";
 import { useAnatomy, type OrganViewMode } from "./AnatomyContext";
@@ -62,7 +62,7 @@ function OrganFindings() {
   return (
     <section aria-label="Organ findings" className="space-y-2">
       <h3 className="text-xs font-semibold uppercase tracking-wide text-muted">
-        Reported findings <span className="font-bold text-amber-200">· {DEMO_LABEL}</span>
+        Reported findings <span className="font-bold text-amber-200">· {reportLabel(report)}</span>
       </h3>
       <ul className="-mx-2 space-y-0.5">
         {findings.map((f) => (
@@ -143,7 +143,7 @@ export function DetailPanel({ viewer }: { viewer: RefObject<HTMLDivElement | nul
     ? organ?.parts.find((p) => p.id === partIdOf(state.detailPart!))?.name
     : undefined;
   const hasFindings = view.findings.length > 0;
-  const modeLabel = view.mode === "normal" ? NORMAL_REFERENCE_LABEL : `${REPORTED_VIEW_LABEL} view · ${DEMO_LABEL}`;
+  const modeLabel = view.mode === "normal" ? NORMAL_REFERENCE_LABEL : `${REPORTED_VIEW_LABEL} view · ${reportLabel(report)}`;
 
   return (
     <>
@@ -200,7 +200,7 @@ export function DetailPanel({ viewer }: { viewer: RefObject<HTMLDivElement | nul
       {view.mode === "side_by_side" && (
         <div className="pointer-events-none absolute inset-x-0 top-32 z-10 hidden grid-cols-2 text-center md:grid md:pr-[23rem]">
           <span className="ui-tag mx-auto border-violet-300/40 bg-violet-300/10 text-violet-100">
-            {REPORTED_VIEW_LABEL} · {DEMO_LABEL}
+            {REPORTED_VIEW_LABEL} · {reportLabel(report)}
           </span>
           <span className="ui-tag mx-auto border-teal-300/30 bg-teal-300/10 text-teal-100">
             {NORMAL_REFERENCE_LABEL}

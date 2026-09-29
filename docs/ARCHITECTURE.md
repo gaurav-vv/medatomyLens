@@ -74,3 +74,28 @@ app/page.tsx
 - **Body view**: report-associated structures get a violet "Reported" tint with a legend; a finding emphasises and frames its structures; the organ panel lists the structure's findings (both directions of Section 88).
 - **Organ view**: `useOrganReport` derives findings, active finding, effective mode and location. `RegionMarker` draws a fixed-size pin + ring (never size or shape) with a "Reported area" label; without a region the whole organ gets the reported tint and the panel says so. Normal hides markers and tint. Side by side (`SplitRenderer`, desktop/tablet only) renders the same scene twice with one camera into two viewports left of the panel, toggling only uniforms and visibility per half, so rotation and zoom are shared and no shaders recompile.
 - **Phones**: the organ view uses a compact top bar and a draggable-height bottom sheet; the camera uses a view offset so the organ is centred in the visible area; side by side is replaced by the Reported/Normal toggle; the footer is shortened with full credits on /about.
+
+## PDF report reading (Phase 2, AGENTS.md Sections 16-19, 37-39, 51-52)
+
+Everything runs in the browser; the PDF is read into memory and never uploaded, stored or logged.
+
+```text
+pick file -> checkFile (size, starts with %PDF-) -> pdf.js text with positions (per page)
+  -> page has < 40 chars of text? -> OCR (tesseract.js, <= 10 pages) -> buildRows (rows + cells)
+  -> parseLabPages (rule-based) -> review screen (user unticks rows) -> RawReport -> resolveReport (existing)
+```
+
+| File | Role |
+|---|---|
+| `lib/reports/validate.ts` | Limits (20 MB, 30 pages, 10 OCR pages, 180 s), error codes and user messages |
+| `lib/reports/pdfText.ts` | pdf.js extraction (any build: browser in the app, legacy build in tests), OCR hand-off, cancel/timeout |
+| `lib/reports/layout.ts` | Positioned text -> rows and cells (column gaps); the same code for PDF text and OCR words |
+| `lib/reports/labParser.ts` | Row -> name, value, unit as printed, the report's own range. Headers, patient details, censored values (`<0.5`) and rows with unplaceable cells are skipped, not guessed |
+| `lib/reports/buildReport.ts` | Pages -> `RawReport`. Page lines are the rebuilt rows, so each finding quote is a real line and passes the exact-quote check |
+| `lib/reports/ocr.ts`, `readReport.ts` | Browser only: lazy pdf.js and OCR, progress |
+| `components/report/ReportUploader.tsx` | Upload button, real progress, errors with retry, review screen |
+
+- Rows read by OCR get `confidence: "low"`, are **not ticked by default** on the review screen, and carry a "compare with your report" note in the finding panel. OCR rows with any word below 60% confidence are left out.
+- Only numeric lab rows are read. Imaging text is shown as page text but not interpreted yet (Phase 3).
+- Runtime files (pdf.js worker, image decoders, fonts; tesseract worker, LSTM WebAssembly cores, English model) are copied from `node_modules` to `public/vendor/` by `scripts/copy-vendor.mjs` (runs before `dev` and `build`; git-ignored). No CDN. The service worker fetches `/vendor/` network-first with an offline copy.
+- Tests use synthetic PDFs written by `tests/fixtures/makePdf.ts` (text, image-only "scanned" pages, password-protected).

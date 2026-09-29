@@ -1,6 +1,6 @@
 /* AnatomyLens service worker: offline app shell + cache-first static anatomy assets.
  * Never caches user reports: they are processed in memory and never fetched from the network. */
-const VERSION = "v2";
+const VERSION = "v3";
 // Served from the site root or a sub-path (GitHub Pages): derive it from the scope.
 const BASE = new URL(self.registration.scope).pathname.replace(/\/$/, "");
 const SHELL_CACHE = `shell-${VERSION}`;
@@ -41,6 +41,23 @@ self.addEventListener("fetch", (event) => {
           return res;
         })
         .catch(() => caches.match(request).then((r) => r || caches.match(`${BASE}/`))),
+    );
+    return;
+  }
+
+  // Report readers (pdf.js worker, OCR engine and model): file names carry no version,
+  // so network first (always matches the app build), cached copy when offline.
+  // Public static files only; the user's PDF is never fetched, so it never lands here.
+  if (url.pathname.startsWith(`${BASE}/vendor/`)) {
+    event.respondWith(
+      caches.open(ASSET_CACHE).then((cache) =>
+        fetch(request)
+          .then((res) => {
+            if (res.ok) cache.put(request, res.clone());
+            return res;
+          })
+          .catch(() => cache.match(request).then((hit) => hit || Response.error())),
+      ),
     );
     return;
   }

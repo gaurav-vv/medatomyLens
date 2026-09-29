@@ -7,9 +7,17 @@ import { reportSummary, STATUS_LABEL } from "@/lib/medical/report";
 import type { ResolvedFinding } from "@/lib/medical/types";
 import { FindingDetails } from "./FindingDetails";
 import { useReport } from "./ReportContext";
+import { ReportUploader } from "./ReportUploader";
 
 export const DEMO_LABEL = "DEMO / SAMPLE DATA";
+export const UPLOADED_LABEL = "YOUR REPORT · ON THIS DEVICE";
 export const REPORTED_LEGEND = "Highlighted: structures associated with findings in this report";
+
+/** Label that says where the shown findings come from (Section 74: demo data is always labeled). */
+export function reportLabel(report: { isDemo: boolean } | null): string {
+  if (!report) return "";
+  return report.isDemo ? DEMO_LABEL : UPLOADED_LABEL;
+}
 
 /** Short status line for a finding in lists. */
 export function findingSubtitle(f: ResolvedFinding): string {
@@ -66,17 +74,18 @@ export function ReportCard({ measureRef }: { measureRef?: RefObject<HTMLDivEleme
 
   if (!report) {
     return (
-      <div ref={measureRef}>
-      <button
-        type="button"
-        onClick={() => {
-          loadDemo();
-          setExpanded(true);
-        }}
-        className="ui-btn ui-btn-report md:w-full md:justify-start md:rounded-lg"
-      >
-        Try the demo report
-      </button>
+      <div ref={measureRef} className="flex flex-wrap gap-2 md:flex-col">
+        <ReportUploader onShown={() => setExpanded(true)} />
+        <button
+          type="button"
+          onClick={() => {
+            loadDemo();
+            setExpanded(true);
+          }}
+          className="ui-btn ui-btn-report md:w-full md:justify-start md:rounded-lg"
+        >
+          Try the demo report
+        </button>
       </div>
     );
   }
@@ -88,8 +97,12 @@ export function ReportCard({ measureRef }: { measureRef?: RefObject<HTMLDivEleme
       className="ui-panel"
     >
       <div ref={measureRef} className="flex items-center gap-2 px-3 py-2 md:pb-0 md:pt-2.5">
-        <span className="rounded bg-amber-200/90 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-black">
-          {DEMO_LABEL}
+        <span
+          className={`rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-black ${
+            report.isDemo ? "bg-amber-200/90" : "bg-teal-200/90"
+          }`}
+        >
+          {reportLabel(report)}
         </span>
         <button
           type="button"
@@ -105,7 +118,7 @@ export function ReportCard({ measureRef }: { measureRef?: RefObject<HTMLDivEleme
             closeReport();
             dispatch({ type: "emphasize", meshes: [] });
           }}
-          aria-label="Close demo report"
+          aria-label={report.isDemo ? "Close demo report" : "Close report"}
           className="rounded-full p-1 text-xs text-muted hover:text-foreground md:ml-auto"
         >
           ✕
@@ -174,7 +187,9 @@ export function BodyFindingPanel() {
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-[10px] font-bold tracking-wide text-amber-200">{DEMO_LABEL}</p>
+          <p className={`text-[10px] font-bold tracking-wide ${report.isDemo ? "text-amber-200" : "text-teal-200"}`}>
+            {reportLabel(report)}
+          </p>
           <h2 className="text-base font-semibold leading-tight">{selectedFinding.raw.name}</h2>
         </div>
         <button
@@ -212,11 +227,11 @@ export function StructureFindings({ ids }: { ids: string[] }) {
   }
   const set = new Set(ids);
   const list = report.findings.filter((f) => f.structures.some((s) => set.has(s)));
-  if (!list.length) return <p className="mt-2 text-xs text-muted">No findings in the demo report are associated with this structure.</p>;
+  if (!list.length) return <p className="mt-2 text-xs text-muted">No findings in this report are associated with this structure.</p>;
   return (
     <div className="mt-3">
       <h3 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
-        Reported findings <span className="font-bold text-amber-200">· {DEMO_LABEL}</span>
+        Reported findings <span className="font-bold text-amber-200">· {reportLabel(report)}</span>
       </h3>
       <ul className="mt-1 -mx-2">
         {list.map((f) => (

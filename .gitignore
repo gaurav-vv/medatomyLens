@@ -42,6 +42,9 @@ yarn-error.log*
 # raw third-party model sources (large; processed output goes to public/anatomy)
 /assets-src/
 
+# report reader runtime files, copied from node_modules by scripts/copy-vendor.mjs
+/public/vendor/
+
 # real patient data must never be committed (AGENTS.md Section 75)
 /private-reports/
 

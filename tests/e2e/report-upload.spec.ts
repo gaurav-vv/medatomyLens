@@ -1,0 +1,138 @@
+import { expect, test, type Page } from "@playwright/test";
+import { labTablePage, makePdf } from "../fixtures/makePdf";
+
+/**
+ * PDF report reading (Phase 2), with SYNTHETIC PDFs generated in the test
+ * (AGENTS.md Section 75). Everything must run on the device: the test fails
+ * on any request that leaves localhost.
+ */
+
+const layersReady = (page: Page) =>
+  expect(page.locator("[data-layers-ready]")).toHaveAttribute("data-layers-ready", "true", { timeout: 90_000 });
+
+const ROWS = [
+  ["Test", "Result", "Unit", "Reference range"],
+  ["Creatinine", "1.9", "mg/dL", "0.7 - 1.3"],
+  ["ALT (SGPT)", "28", "U/L", "7 - 56"],
+  ["Vitamin B12", "450", "pg/mL", "200 - 900"],
+];
+
+function watch(page: Page) {
+  const errors: string[] = [];
+  const external: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("request", (r) => {
+    if (!r.url().startsWith("http://localhost")) external.push(r.url());
+  });
+  return { errors, external };
+}
+
+async function upload(page: Page, name: string, data: Uint8Array | Buffer, mimeType = "application/pdf") {
+  await page.getByTestId("report-file-input").setInputFiles({ name, mimeType, buffer: Buffer.from(data) });
+}
+
+test("text PDF: read, review, show on the body, open a finding", async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  const { errors, external } = watch(page);
+  await page.goto("/");
+  await layersReady(page);
+
+  await upload(page, "synthetic-lab.pdf", makePdf([labTablePage("SYNTHETIC TEST REPORT - not a real patient", ROWS)]));
+  const dialog = page.getByRole("dialog", { name: "Check what was read" });
+  await expect(dialog).toBeVisible({ timeout: 60_000 });
+  await expect(dialog.getByTestId("review-summary")).toHaveText("3 test results found on 1 page.");
+  await expect(dialog).toContainText("Creatinine | 1.9 | mg/dL | 0.7 - 1.3");
+  await expect(dialog).toContainText("Associated with: Left kidney, Right kidney");
+  await expect(dialog).toContainText("Not in the app's terminology yet");
+  await expect(dialog).toContainText("not uploaded or saved");
+  await page.screenshot({ path: testInfo.outputPath("upload-1-review.png") });
+
+  // Untick one row: it is left out of the report.
+  await dialog.getByRole("checkbox", { name: /Vitamin B12/ }).uncheck();
+  await dialog.getByRole("button", { name: "Show results (2)" }).click();
+  await expect(dialog).toBeHidden();
+
+  const card = page.getByRole("region", { name: "Report findings" });
+  await expect(card).toContainText("YOUR REPORT · ON THIS DEVICE");
+  await expect(card).not.toContainText("DEMO");
+  await expect(card).toContainText("2 findings · 2 shown on the body");
+  await card.getByRole("button", { name: /Creatinine/ }).click();
+  const finding = page.getByRole("complementary", { name: "Finding details" });
+  await expect(finding).toContainText("Creatinine | 1.9 | mg/dL | 0.7 - 1.3");
+  await expect(finding).toContainText("Uploaded report · page 1");
+  await expect(finding).toContainText("Above reported range");
+  await page.screenshot({ path: testInfo.outputPath("upload-2-finding.png") });
+
+  await page.getByRole("button", { name: "Close report" }).click();
+  await expect(page.getByRole("button", { name: "Upload report (PDF)" }).first()).toBeVisible();
+  expect(external).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
+test("upload errors are explained and recoverable", async ({ page }) => {
+  test.setTimeout(120_000);
+  const { errors } = watch(page);
+  await page.goto("/");
+  await expect(page.getByRole("button", { name: "Upload report (PDF)" }).first()).toBeVisible();
+
+  // A renamed non-PDF file: checked by content, not by name or MIME type.
+  await upload(page, "fake.pdf", Buffer.from("PK\u0003\u0004 not a pdf"));
+  const dialog = page.getByRole("dialog", { name: "The report could not be read" });
+  await expect(dialog).toContainText("This file is not a PDF");
+  await expect(dialog.getByRole("button", { name: "Choose another file" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+
+  // Password-protected: a clear next step, and retry is offered.
+  await upload(page, "locked.pdf", makePdf([labTablePage("SYNTHETIC", ROWS)], { passwordProtected: true }));
+  await expect(dialog).toContainText("password-protected", { timeout: 60_000 });
+  await expect(dialog.getByRole("button", { name: "Try again" })).toBeVisible();
+  await dialog.getByRole("button", { name: "Close" }).click();
+  await expect(dialog).toBeHidden();
+  expect(errors).toEqual([]);
+});
+
+test("scanned PDF: text recognition runs on the device and is labeled", async ({ page }, testInfo) => {
+  test.setTimeout(300_000);
+  const { errors, external } = watch(page);
+  await page.goto("/");
+  await expect(page.getByRole("button", { name: "Upload report (PDF)" }).first()).toBeVisible();
+
+  // Draw a synthetic table into pixels in the browser, then wrap it as an image-only PDF page.
+  const W = 1400;
+  const H = 360;
+  const b64 = await page.evaluate(
+    ({ W, H, rows }) => {
+      const c = document.createElement("canvas");
+      c.width = W;
+      c.height = H;
+      const ctx = c.getContext("2d")!;
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = "#000";
+      ctx.font = "34px Arial, Helvetica, sans-serif";
+      const cols = [40, 520, 760, 1020];
+      rows.forEach((cells, r) => cells.forEach((t, i) => ctx.fillText(t, cols[i]!, 70 + r * 80)));
+      const px = ctx.getImageData(0, 0, W, H).data;
+      const gray = new Uint8Array(W * H);
+      for (let i = 0; i < gray.length; i++) gray[i] = px[i * 4]!;
+      let s = "";
+      for (let i = 0; i < gray.length; i += 0x8000) s += String.fromCharCode(...gray.subarray(i, i + 0x8000));
+      return btoa(s);
+    },
+    { W, H, rows: ROWS },
+  );
+  const gray = new Uint8Array(Buffer.from(b64, "base64"));
+  await upload(page, "synthetic-scan.pdf", makePdf([{ image: { gray, width: W, height: H, x: 20, y: 60, w: 555, h: (555 * H) / W } }]));
+
+  const dialog = page.getByRole("dialog", { name: "Check what was read" });
+  await expect(dialog).toBeVisible({ timeout: 240_000 });
+  await expect(dialog).toContainText("was a scanned image, read by text recognition");
+  await expect(dialog).toContainText("Creatinine");
+  // OCR values are never pre-selected: the user compares them with the report first.
+  await expect(dialog.getByRole("checkbox", { name: /Creatinine/ })).not.toBeChecked();
+  await expect(dialog).toContainText("tick only if it matches your report");
+  await page.screenshot({ path: testInfo.outputPath("upload-3-ocr-review.png") });
+  expect(external).toEqual([]);
+  expect(errors).toEqual([]);
+});

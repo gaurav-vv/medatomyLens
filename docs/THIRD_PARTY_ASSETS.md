@@ -69,3 +69,14 @@ What it doesn't contain: the inner ear or cochlea, peripheral limb nerves, lymph
 ## Fonts
 
 - Geist and Geist Mono (via `next/font`, self-hosted at build time), SIL Open Font License 1.1.
+
+## In use: report reading libraries (code and data, not anatomy)
+
+Copied to `public/vendor/` at build time by `scripts/copy-vendor.mjs`; licence files are copied with them. All run on the device.
+
+| Package | Version | Licence | Used for |
+|---|---|---|---|
+| pdfjs-dist (Mozilla pdf.js) | 6.3.289 | Apache-2.0 (bundled decoders: see `pdfjs-dist/wasm/LICENSE_*`) | PDF text extraction, rendering scanned pages for OCR |
+| tesseract.js | 7.0.0 | Apache-2.0 | Text recognition worker |
+| tesseract.js-core | 7.0.0 | Apache-2.0 | Tesseract OCR engine compiled to WebAssembly |
+| @tesseract.js-data/eng (`4.0.0_best_int`) | 1.0.0 | package MIT; model from tesseract-ocr/tessdata_best, Apache-2.0 | English OCR model (about 3 MB, downloaded only when a scanned page is read) |
