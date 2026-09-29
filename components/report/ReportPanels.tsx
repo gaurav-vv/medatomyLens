@@ -58,6 +58,15 @@ const TONE: Record<"out" | "in" | "none", string> = {
   none: "border-white/10 text-muted",
 };
 
+type Filter = "all" | "out" | "in";
+
+/** Summary-chip filters; they use the same rule as the result tags. */
+const FILTERS: Record<Filter, (f: ResolvedFinding) => boolean> = {
+  all: () => true,
+  out: (f) => statusTag(f).tone === "out",
+  in: (f) => statusTag(f).tone === "in",
+};
+
 function FindingRow({ f, active, onOpen }: { f: ResolvedFinding; active: boolean; onOpen: () => void }) {
   const tag = statusTag(f);
   const isLab = f.raw.findingType === "lab_association";
@@ -131,11 +140,36 @@ export function ReportCard({ measureRef }: { measureRef?: RefObject<HTMLDivEleme
     [report, state.index],
   );
 
+  // The filter belongs to one report; a new report starts on "all".
+  const [filterState, setFilterState] = useState<{ report: unknown; filter: Filter }>({ report: null, filter: "all" });
+  const filter = filterState.report === report ? filterState.filter : "all";
+  const setFilter = (f: Filter) => setFilterState({ report, filter: f });
+
   if (!report) return null;
 
   const s = reportSummary(report.findings);
-  const outsideCount = report.findings.filter((f) => f.status === "ABOVE_RANGE" || f.status === "BELOW_RANGE").length;
-  const inCount = report.findings.filter((f) => f.status === "NORMAL").length;
+  const all = sections.flatMap((sec) => sec.findings);
+  const outsideCount = all.filter((f) => FILTERS.out(f)).length;
+  const inCount = all.filter((f) => FILTERS.in(f)).length;
+  const shownSections = sections
+    .map((sec) => ({ ...sec, findings: sec.findings.filter(FILTERS[filter]) }))
+    .filter((sec) => sec.findings.length > 0);
+  // Three equal filter tiles in one row: count on top, label below.
+  const chip = (f: Filter, count: number, label: string, tone: string) => (
+    <button
+      type="button"
+      aria-pressed={filter === f}
+      aria-label={`${count} ${label}`}
+      disabled={count === 0}
+      onClick={() => setFilter(filter === f && f !== "all" ? "all" : f)}
+      className={`flex min-h-11 min-w-0 flex-col items-center justify-center rounded-xl border px-1 py-1 leading-tight transition focus-visible:outline-2 focus-visible:outline-teal-300 disabled:cursor-default disabled:opacity-40 ${tone} ${
+        filter === f ? "ring-2 ring-white/80 ring-offset-2 ring-offset-[#10161e]" : "opacity-75 hover:opacity-100"
+      }`}
+    >
+      <span className="text-[15px] font-semibold tabular-nums">{count}</span>
+      <span className="truncate text-[11px]">{label}</span>
+    </button>
+  );
   return (
     <section aria-label="Report findings" className="ui-panel">
       <div ref={measureRef} className="flex items-center gap-2 px-3 py-2 md:pb-0 md:pt-2.5">
@@ -167,20 +201,26 @@ export function ReportCard({ measureRef }: { measureRef?: RefObject<HTMLDivEleme
         </button>
       </div>
       <div className={`${expanded ? "block" : "hidden"} md:block`}>
-        <div className="flex flex-wrap gap-1.5 px-3 pt-2">
-          <span className="ui-tag border-border text-foreground">{s.total} results</span>
-          {outsideCount > 0 && <span className="ui-tag border-red-500 bg-red-600 text-white">{outsideCount} outside range</span>}
-          {inCount > 0 && <span className="ui-tag border-green-500 bg-green-600 text-white">{inCount} in range</span>}
-          <span className="ui-tag border-border text-muted">{s.mapped} shown on the body</span>
-          {s.unmapped + s.grouped > 0 && <span className="ui-tag border-border text-muted">{s.unmapped + s.grouped} listed only</span>}
-          {s.review > 0 && <span className="ui-tag border-border text-muted">{s.review} need review</span>}
+        <div className="grid grid-cols-3 gap-2 px-3 pt-2">
+          {chip("all", all.length, "All results", "border-white/15 bg-white/5 text-foreground")}
+          {chip("out", outsideCount, "Outside range", "border-red-500 bg-red-600 text-white")}
+          {chip("in", inCount, "In range", "border-green-500 bg-green-600 text-white")}
         </div>
+        {s.review > 0 && <p className="px-3 pt-1.5 text-[11px] text-muted">{s.review} need review</p>}
         <p className="sr-only">
           {s.total} findings · {s.mapped} shown on the body
           {s.unmapped ? ` · ${s.unmapped} not recognized yet` : ""}
         </p>
         <ul className="mt-2 max-h-[34dvh] space-y-1.5 overflow-y-auto px-2 pb-2 md:max-h-[calc(100dvh-24rem)]">
-          {sections.map((sec) => (
+          {filter !== "all" && (
+            <li className="px-1 text-[11px] text-muted" role="status">
+              Showing {filter === "out" ? "results outside the reported range" : "results within the reported range"}, by body part.{" "}
+              <button type="button" onClick={() => setFilter("all")} className="text-teal-200 underline underline-offset-2">
+                Show all
+              </button>
+            </li>
+          )}
+          {shownSections.map((sec) => (
             <Section
               key={sec.id}
               section={sec}

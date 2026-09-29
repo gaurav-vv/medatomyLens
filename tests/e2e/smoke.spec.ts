@@ -233,6 +233,15 @@ test("uploaded report: body highlight, organ view modes, region marker, explanat
   await expect(card).toContainText("5 findings · 4 shown on the body · 1 not recognized yet");
   await expect(card).toContainText("Kidneys");
   await expect(card).toContainText("2 outside range");
+  // Summary chips filter the grouped list.
+  await card.getByRole("button", { name: "2 outside range" }).click();
+  await expect(card.getByRole("button", { name: /ALT/ })).toHaveCount(0);
+  await expect(card.getByRole("button", { name: /Creatinine/ })).toBeVisible();
+  await card.getByRole("button", { name: /^\d+ In range$/ }).click();
+  await expect(card.getByRole("button", { name: /Creatinine/ })).toHaveCount(0);
+  await expect(card.getByRole("button", { name: /ALT/ })).toBeVisible();
+  await card.getByRole("button", { name: /^\d+ All results$/ }).click();
+  await expect(card.getByRole("button", { name: /Creatinine/ })).toBeVisible();
   await shot("demo-1-list.png");
 
   // Finding → anatomy: creatinine emphasises both kidneys.
