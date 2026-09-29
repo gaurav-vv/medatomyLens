@@ -3,7 +3,7 @@
 > Read this first when you pick up the project (human or AI), then read `AGENTS.md`, which holds the binding rules.
 > Update this file at the end of every work session: change **Current status**, **Next steps** and **Open decisions**, and add a line to the **Log**.
 
-Last updated: 2026-09-29
+Last updated: 2026-09-29 (evening)
 
 ---
 
@@ -30,7 +30,7 @@ Open app → Explore mode (whole body, education)
 | 1.4 | Realistic rendering (tissue materials, lighting) | Basic version done; polish pending |
 | 1.5 | Explore UI: layers, search, select, focus, mobile sheet | Done |
 | 1.6 | Detailed view for any structure (body → detail → back) | Done: internal parts for kidneys, heart, liver, lungs, brain, eyes (HRA atlas) |
-| 1.7 | Rendering polish, About screen, deploy | Done locally (polish, About, first commit, Pages workflow); going live waits on GitHub login |
+| 1.7 | Rendering polish, About screen, deploy | Done: live at https://gaurav-vv.github.io/medatomyLens/ |
 | 1.8 | AGENTS.md build order 2–5: demo report, organ view Reported/Normal/Side by side, region marker, range bar, curated explanations (3 terms) | Done (explanations pending medical review) |
 | 2 | PDF reading: pdf.js, table parser, OCR fallback, AI fallback with exact-quote check, review screen | Not started |
 | 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | Not started |
@@ -48,9 +48,12 @@ What works now (verified by tests and screenshots, desktop and mobile Chromium):
 - Search across all structures and organ groups, with keyboard support.
 - Organ groups (heart, lungs, liver, brain, eyes, intestines, pancreas, nose, thymus): the first tap selects the organ, the second tap drills into the tapped part, and a third deselects.
 - The selection glows and the surrounding anatomy fades. There are Focus and Reset camera flights, and Escape deselects.
-- Mobile layout: top search, layer chips, and a bottom-sheet panel.
+- Mobile layout: top search, layer chips, and a bottom-sheet panel. The camera keeps the model inside the space the controls leave free (`lib/ui/insets.ts` measures the real overlay elements; CameraRig applies a view offset and fits the home view), so the skull no longer sits under the search bar.
+- Zoom goes to the point under the mouse wheel or between pinching fingers (`ZoomToPointer.tsx`), not the body centre.
+- Demo report (clearly labeled DEMO / SAMPLE DATA): associated organs highlighted, finding panel with quote, page, View source, reference range bar and curated explanation; organ view with Reported / Normal / Side by side (desktop) and a pin marker for the reported region.
+- One shared UI style (`ui-panel`, `ui-btn`, `ui-btn-accent`, `ui-btn-report`, `ui-tag` in `app/globals.css`); 36 px touch targets on phones; scrollbars hidden app-wide (user request; scrolling still works).
 - **Detail view** for any selected structure or organ: "Open detailed view" isolates it using the high-detail GLB (loaded lazily, with a real "Loading detailed model..." state). The body layers are hidden, not unloaded, so "Back to body" is instant. The camera frames the structure and returns to the exact body view. There's a parts list of what the model really contains (for example, 22 parts for the heart); tapping a part in the list or in 3D highlights it and fades the rest, so parts inside the organ stay visible. Escape clears the part first, then goes back. The view is labeled "Generic normal reference" and "Generic anatomical model — not your actual anatomy". Kidneys (9 parts each), heart (16), liver (30), lungs (61), brain (237) and each eye (23) use detailed HuBMAP atlas organs with a "See inside" switch that makes the outer layers see-through. Other single-mesh structures say they have no separate internal parts.
-- The disclaimer, the "Generic anatomical model" label and the model attribution are always visible.
+- Disclaimer and full model credits are on the About page (linked from the header on every screen); the user asked to remove the footer from the main page. The disclaimer also appears under every report finding, and the organ view always shows "Generic anatomical model — not your actual anatomy".
 - No third-party network requests (checked in e2e).
 
 Not done or known gaps:
@@ -79,7 +82,7 @@ Not done or known gaps:
 
 1. **User:** test on a real phone and report how smooth it is and how long it takes to load. If it stutters, merge meshes per layer or reduce the draw calls.
 2. **Detailed organs (HRA): done** for kidneys, heart, liver, lungs, brain and eyes. Pipeline: `npm run anatomy:fetch-organs` then `npm run anatomy:organs`, configured in `data/anatomy/detail_organs.json`; part colours in `appearance.json` "parts". Brain L/R labels in the source are mirrored and are set from geometry (`lateralityFromGeometry`, see THIRD_PARTY_ASSETS). Candidates to add later: spleen, pancreas, stomach, bladder, thyroid (check each source the same way).
-3. **Go live (user):** run `gh auth login`, then `gh repo create AnatomyLens --public --source . --push`, then in the repo Settings → Pages → Source: GitHub Actions. The site appears at https://<user>.github.io/AnatomyLens/.
+3. Fix the CI e2e step on GitHub (read the run log, then raise timeouts or run a smaller e2e set in CI).
 4. Optional rendering extras that need a post-processing dependency (ambient occlusion, depth of field in the detail view): only after real-phone numbers, high tier only.
 5. **Medical review:** someone qualified should review the 3 explanations in `data/medical/explanations/` (status "pending"), then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
 6. Then Phase 2 (PDF, AGENTS.md step 6): pdf.js text extraction, table parser, same exact-quote validation as the demo.
@@ -87,11 +90,13 @@ Not done or known gaps:
 ## 6. Open decisions (waiting on the user)
 
 - [ ] May AGENTS.md be updated to whole-body scope, the new phase order, PWA and the AI rules? (Asked; not answered yet.)
-- [ ] Which Git host and hosting provider?
+- [x] Git host and hosting: GitHub + GitHub Pages (https://github.com/gaurav-vv/medatomyLens).
+- [x] Build order: follow AGENTS.md Section 115 (demo report and organ view before PDF). Chosen by the user ("b").
 - [ ] Who reviews the medical content (mappings and explanations) before it's committed?
 - [ ] UI language: English only for V1?
 - [ ] Which AI provider for Phase 2 extraction: in-browser (WebLLM), self-hosted, or a cloud free tier with opt-in?
-- [ ] May the 38 MB of model files go into git, or should Git LFS or a release asset be used?
+- [x] Model files are in git directly (largest 13.8 MB, under GitHub's 100 MB limit).
+- [ ] "Remove every slide bar": scrollbars were hidden. Did the user also mean the reference range bar? (Asked.)
 
 ## 7. How to run and verify
 
@@ -150,3 +155,4 @@ docs/                         ARCHITECTURE, THIRD_PARTY_ASSETS, MEDICAL_SOURCES,
 | 2026-09-29 | Pushed to https://github.com/gaurav-vv/medatomyLens; GitHub Pages enabled (Source: GitHub Actions). |
 | 2026-09-29 | User chose to follow AGENTS.md build order (steps 2–5 before PDF). Added demo report (synthetic), terminology for creatinine/eGFR/ALT with MedlinePlus-sourced explanations (review pending), regions (kidney poles as overlay pins, kidney cortex and liver lobes as model parts), finding validation (exact quotes), body highlight + finding panel, organ view modes with region marker and side-by-side, reference range bar, View source. Mobile layout reworked: compact header/footer, organ view bottom sheet, camera view offset. 152 unit tests, 12 e2e (desktop + mobile) passing. |
 | 2026-09-29 | Zoom goes to the part under the mouse wheel or between pinching fingers (ZoomToPointer, unit + e2e tested) instead of the body centre. Shared UI primitives in globals.css (ui-panel, ui-btn, ui-btn-accent, ui-btn-report, ui-tag) used across viewer, panels and About; 36 px touch targets on phones; 16 px search text (no iOS auto-zoom). 156 unit, 13 e2e passing. |
+| 2026-09-29 | Phone layout: overlay insets measured from the real controls, camera view offset + fitted home view so the body stays clear of search and layer chips; organ view top bar moved below the header. Disclaimer/credits footer removed from the main page (user request) and kept on About (plus under each finding). Scrollbars hidden. About page and header aligned. Pushed 2d2081f; live on GitHub Pages. 156 unit tests pass; full mobile e2e passed. |
