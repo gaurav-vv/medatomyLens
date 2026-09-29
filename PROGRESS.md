@@ -60,8 +60,9 @@ Not done or known gaps:
 
 - Performance on a **real phone hasn't been measured yet**. The test browser renders without a GPU, so its load times mean nothing. Each mesh is a separate draw call (about 650 for the default view); merging meshes per layer is the planned fix if phones stutter.
 - The structure panel shows only the name, layer, side and parent organ. There's no educational text yet; it needs reviewed sources (AGENTS.md Section 116).
-- About screen (`/about`): disclaimer, what the app does and does not do, privacy, full model credits and HRA citation.
-- First commit made on `main` (local only, no remote yet).
+- CI on GitHub: `npm run check` passes, but the e2e step fails on the GitHub runner (logs need a GitHub login to read; likely timeouts on the slower software-rendered runner). The website deploy is separate and succeeds.
+- The full desktop e2e run was not repeated after the last phone-layout change (stopped on request); the full mobile run passed.
+- Explanations for creatinine, eGFR and ALT are drafted from MedlinePlus and marked "Pending review by a medical professional".
 - Hosted on GitHub Pages: https://gaurav-vv.github.io/medatomyLens/ (repo https://github.com/gaurav-vv/medatomyLens). Every push to `main` redeploys via `.github/workflows/pages.yml` (GitHub Pages, sub-path handled by `NEXT_PUBLIC_BASE_PATH` / `lib/basePath.ts`).
 
 ## 4. Key decisions (and why)
