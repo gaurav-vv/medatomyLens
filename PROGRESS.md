@@ -31,6 +31,7 @@ Open app → Explore mode (whole body, education)
 | 1.5 | Explore UI: layers, search, select, focus, mobile sheet | Done |
 | 1.6 | Detailed view for any structure (body → detail → back) | Done: internal parts for kidneys, heart, liver, lungs, brain, eyes (HRA atlas) |
 | 1.7 | Rendering polish, About screen, deploy | Done locally (polish, About, first commit, Pages workflow); going live waits on GitHub login |
+| 1.8 | AGENTS.md build order 2–5: demo report, organ view Reported/Normal/Side by side, region marker, range bar, curated explanations (3 terms) | Done (explanations pending medical review) |
 | 2 | PDF reading: pdf.js, table parser, OCR fallback, AI fallback with exact-quote check, review screen | Not started |
 | 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | Not started |
 | 4 | Adding medical content region by region (reviewed sources only) | Not started |
@@ -80,7 +81,8 @@ Not done or known gaps:
 2. **Detailed organs (HRA): done** for kidneys, heart, liver, lungs, brain and eyes. Pipeline: `npm run anatomy:fetch-organs` then `npm run anatomy:organs`, configured in `data/anatomy/detail_organs.json`; part colours in `appearance.json` "parts". Brain L/R labels in the source are mirrored and are set from geometry (`lateralityFromGeometry`, see THIRD_PARTY_ASSETS). Candidates to add later: spleen, pancreas, stomach, bladder, thyroid (check each source the same way).
 3. **Go live (user):** run `gh auth login`, then `gh repo create AnatomyLens --public --source . --push`, then in the repo Settings → Pages → Source: GitHub Actions. The site appears at https://<user>.github.io/AnatomyLens/.
 4. Optional rendering extras that need a post-processing dependency (ambient occlusion, depth of field in the detail view): only after real-phone numbers, high tier only.
-5. Then Phase 2 (PDF). The Reported and Side-by-side modes of the detail view come in Phase 3, when there are findings to show.
+5. **Medical review:** someone qualified should review the 3 explanations in `data/medical/explanations/` (status "pending"), then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
+6. Then Phase 2 (PDF, AGENTS.md step 6): pdf.js text extraction, table parser, same exact-quote validation as the demo.
 
 ## 6. Open decisions (waiting on the user)
 
@@ -146,3 +148,4 @@ docs/                         ARCHITECTURE, THIRD_PARTY_ASSETS, MEDICAL_SOURCES,
 | 2026-09-29 | Added HRA heart, liver, lungs, brain and both eyes (detailed parts, colours, laterality checks; brain labels mirrored in source and fixed from geometry; eyes simplified 4.5 to 0.35 MB). Brain white matter and cerebellar hemispheres now fade with See inside. Material recompile only when transparency flips (faster toggles). fetch-organs script lists all 10 sources. Removed survey_hra.py. 95 unit tests and 8 e2e tests (desktop and mobile) passing; screenshots checked. |
 | 2026-09-29 | Phase 1.7: rendering polish without new dependencies (rim light, CSS studio backdrop, adaptive resolution while the camera moves via drei AdaptiveDpr + OrbitControls regress). About page with disclaimer, privacy and full credits; header link. Optional sub-path hosting (`lib/basePath.ts`, basePath in next.config, service worker scope-relative, v2 cache). GitHub Pages workflow. 98 unit tests and 10 e2e tests (desktop and mobile) passing. First git commit. |
 | 2026-09-29 | Pushed to https://github.com/gaurav-vv/medatomyLens; GitHub Pages enabled (Source: GitHub Actions). |
+| 2026-09-29 | User chose to follow AGENTS.md build order (steps 2–5 before PDF). Added demo report (synthetic), terminology for creatinine/eGFR/ALT with MedlinePlus-sourced explanations (review pending), regions (kidney poles as overlay pins, kidney cortex and liver lobes as model parts), finding validation (exact quotes), body highlight + finding panel, organ view modes with region marker and side-by-side, reference range bar, View source. Mobile layout reworked: compact header/footer, organ view bottom sheet, camera view offset. 152 unit tests, 12 e2e (desktop + mobile) passing. |

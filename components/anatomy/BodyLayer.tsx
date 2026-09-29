@@ -9,12 +9,15 @@ import { layerUrl } from "@/lib/anatomy/quality";
 import { selectionForTap } from "@/lib/anatomy/structures";
 import type { LayerId, QualityTier } from "@/lib/anatomy/types";
 import { useAnatomy } from "./AnatomyContext";
+import { useReport } from "@/components/report/ReportContext";
 
 /** Pointer travel (px) above which a click is treated as a drag, not a tap. */
 const TAP_TOLERANCE_PX = 6;
 
 const SELECTED_EMISSIVE = new Color("#2dd4bf");
 const NO_EMISSIVE = new Color("#000000");
+/** "Reported" semantic state (Section 23): associated with a report finding. Always labelled in the UI. */
+export const REPORTED_EMISSIVE = new Color("#a78bfa");
 
 interface MeshMaterials {
   base: MeshPhysicalMaterial;
@@ -66,7 +69,10 @@ export function BodyLayer({ layer, tier, visible }: BodyLayerProps) {
   const { state, dispatch, selection, meshes } = useAnatomy();
   const invalidate = useThree((s) => s.invalidate);
   const { index, selected } = state;
-  const highlighted = useMemo(() => new Set(selection?.meshes ?? []), [selection]);
+  const { reportedMeshes } = useReport();
+  const emphasis = state.emphasis;
+  const highlighted = useMemo(() => new Set(selection?.meshes ?? emphasis), [selection, emphasis]);
+  const emphasised = !selection && emphasis.length > 0;
 
   // Tissue materials, built once per mesh (names come from the index).
   useEffect(() => {
@@ -98,16 +104,20 @@ export function BodyLayer({ layer, tier, visible }: BodyLayerProps) {
     for (const mesh of meshesOf(root.current)) {
       const mats = mesh.userData.materials as MeshMaterials | undefined;
       if (!mats) continue;
-      const isSelected = highlighted.has(mesh.userData.mesh as string);
-      mats.base.emissive.copy(isSelected ? SELECTED_EMISSIVE : NO_EMISSIVE);
+      const id = mesh.userData.mesh as string;
+      const isSelected = highlighted.has(id);
+      const reported = reportedMeshes.has(id);
+      // Selected: teal. Report-associated (or a finding's organs): violet.
       // Low intensity: the tissue keeps its real colour, with a clear tint.
-      mats.base.emissiveIntensity = isSelected ? 0.14 : 0;
+      const tint = isSelected ? (emphasised ? REPORTED_EMISSIVE : SELECTED_EMISSIVE) : !anySelected && reported ? REPORTED_EMISSIVE : NO_EMISSIVE;
+      mats.base.emissive.copy(tint);
+      mats.base.emissiveIntensity = isSelected ? (emphasised ? 0.3 : 0.14) : tint === NO_EMISSIVE ? 0 : 0.28;
       const faded = anySelected && !isSelected;
       mesh.material = faded ? mats.ghost : mats.base;
       mesh.renderOrder = faded ? 1 : 0;
     }
     invalidate();
-  }, [scene, highlighted, index, invalidate]);
+  }, [scene, highlighted, emphasised, reportedMeshes, index, invalidate]);
 
   useEffect(() => {
     invalidate();

@@ -65,3 +65,12 @@ app/page.tsx
 
 - The service worker caches only static app files and anatomy assets, never report data.
 - No analytics and no third-party requests. The e2e test checks that no request leaves localhost.
+
+## Demo report and organ view modes (AGENTS.md build order steps 2–5)
+
+- **Data** (`data/medical/`): `mappings/terms.json` (terminology → structure ids), `regions.json` (sub-organ regions: detailed-model parts or overlay pins), `explanations/<term>.json` (curated, sourced), `demo/demo_report.json` (synthetic, labeled DEMO / SAMPLE DATA). See `docs/MEDICAL_MAPPINGS.md`.
+- **Logic** (`lib/medical/`): `report.ts` validates every finding (exact quote on its page, location words inside the quote, known structures), computes range status from the report's own range, and resolves the location display (whole organ / region / region unavailable). `anatomyLink.ts` maps structure ids to body meshes and selection keys. Failed checks → `NOT_INTERPRETED`, never drawn.
+- **State**: report state lives in `components/report/ReportContext.tsx` (in memory only). The anatomy context gained `viewMode` (`reported | normal | side_by_side`) and `emphasis` (meshes of a finding, several organs at once).
+- **Body view**: report-associated structures get a violet "Reported" tint with a legend; a finding emphasises and frames its structures; the organ panel lists the structure's findings (both directions of Section 88).
+- **Organ view**: `useOrganReport` derives findings, active finding, effective mode and location. `RegionMarker` draws a fixed-size pin + ring (never size or shape) with a "Reported area" label; without a region the whole organ gets the reported tint and the panel says so. Normal hides markers and tint. Side by side (`SplitRenderer`, desktop/tablet only) renders the same scene twice with one camera into two viewports left of the panel, toggling only uniforms and visibility per half, so rotation and zoom are shared and no shaders recompile.
+- **Phones**: the organ view uses a compact top bar and a draggable-height bottom sheet; the camera uses a view offset so the organ is centred in the visible area; side by side is replaced by the Reported/Normal toggle; the footer is shortened with full credits on /about.

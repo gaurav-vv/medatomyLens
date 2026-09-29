@@ -1,0 +1,92 @@
+{
+  "$comment": "DEMO / SAMPLE DATA (AGENTS.md Sections 74 and 75). Fully synthetic: no real patient, laboratory or hospital. Pages hold the report text as it would be extracted; every finding's source.text must appear verbatim on its page (checked by lib/medical/report.ts, the same exact-quote rule later applied to extracted reports). Lab findings do not name organs: the app's terminology data decides associations. The imaging statement carries the location words the report itself uses.",
+  "documentId": "demo_001",
+  "title": "Demo Medical Report",
+  "isDemo": true,
+  "date": "2026-01-15",
+  "pages": [
+    {
+      "page": 1,
+      "heading": "Laboratory results",
+      "lines": [
+        "DEMO / SAMPLE DATA - not a real patient",
+        "Test | Result | Unit | Reference range",
+        "Creatinine | 1.9 | mg/dL | 0.7 - 1.3",
+        "eGFR | 42 | mL/min/1.73m2 | > 60",
+        "ALT (SGPT) | 28 | U/L | 7 - 56",
+        "Vitamin B12 | 450 | pg/mL | 200 - 900"
+      ]
+    },
+    {
+      "page": 2,
+      "heading": "Ultrasound abdomen",
+      "lines": [
+        "DEMO / SAMPLE DATA - not a real patient",
+        "Right kidney: 1.8 cm simple cortical cyst at the lower pole.",
+        "Left kidney: normal in size and echotexture.",
+        "Liver: normal in size.",
+        "Impression: Simple cyst, lower pole, right kidney."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "finding_001",
+      "findingType": "lab_association",
+      "name": "Creatinine",
+      "value": 1.9,
+      "unit": "mg/dL",
+      "referenceRange": { "low": 0.7, "high": 1.3, "text": "0.7 - 1.3" },
+      "source": { "page": 1, "text": "Creatinine | 1.9 | mg/dL | 0.7 - 1.3" },
+      "confidence": "high"
+    },
+    {
+      "id": "finding_002",
+      "findingType": "lab_association",
+      "name": "eGFR",
+      "value": 42,
+      "unit": "mL/min/1.73m2",
+      "referenceRange": { "low": 60, "high": null, "text": "> 60" },
+      "source": { "page": 1, "text": "eGFR | 42 | mL/min/1.73m2 | > 60" },
+      "confidence": "high"
+    },
+    {
+      "id": "finding_003",
+      "findingType": "lab_association",
+      "name": "ALT (SGPT)",
+      "value": 28,
+      "unit": "U/L",
+      "referenceRange": { "low": 7, "high": 56, "text": "7 - 56" },
+      "source": { "page": 1, "text": "ALT (SGPT) | 28 | U/L | 7 - 56" },
+      "confidence": "high"
+    },
+    {
+      "id": "finding_004",
+      "findingType": "lab_association",
+      "name": "Vitamin B12",
+      "value": 450,
+      "unit": "pg/mL",
+      "referenceRange": { "low": 200, "high": 900, "text": "200 - 900" },
+      "source": { "page": 1, "text": "Vitamin B12 | 450 | pg/mL | 200 - 900" },
+      "confidence": "high"
+    },
+    {
+      "id": "finding_005",
+      "findingType": "report_statement",
+      "name": "Right kidney (ultrasound)",
+      "statedBy": "report",
+      "statementText": "Right kidney: 1.8 cm simple cortical cyst at the lower pole.",
+      "anatomicalStructures": ["right_kidney"],
+      "location": {
+        "structure": "right_kidney",
+        "region": "right_kidney_lower_pole",
+        "laterality": "right",
+        "specified": true,
+        "textEvidence": "Right kidney: 1.8 cm simple cortical cyst at the lower pole"
+      },
+      "size": { "text": "1.8 cm", "specified": true },
+      "source": { "page": 2, "text": "Right kidney: 1.8 cm simple cortical cyst at the lower pole." },
+      "confidence": "medium"
+    }
+  ]
+}

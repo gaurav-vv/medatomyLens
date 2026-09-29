@@ -9,6 +9,8 @@ import { BodyLayer } from "./BodyLayer";
 import { CameraRig, HOME_POSITION, HOME_TARGET } from "./CameraRig";
 import { DetailModel } from "./DetailModel";
 import { ViewerStatus } from "./ViewerStatus";
+import { SplitRenderer } from "@/components/report/SplitRenderer";
+import { useOrganReport } from "@/components/report/useOrganReport";
 
 /** Reports a layer's load failure instead of crashing the viewer (Section 37). */
 class LayerErrorBoundary extends Component<
@@ -74,6 +76,8 @@ export function AnatomyCanvas() {
   const { state, dispatch } = useAnatomy();
   const tier = state.tier;
   const inDetail = state.view === "detail";
+  const { mode } = useOrganReport();
+  const split = inDetail && mode === "side_by_side";
   const anyLoading = !inDetail && LAYER_IDS.some((l) => state.visible[l] && state.status[l] === "loading");
   const failed = LAYER_IDS.filter((l) => state.status[l] === "error");
   const allReady = tier !== null && LAYER_IDS.every((l) => !state.visible[l] || state.status[l] === "ready");
@@ -85,6 +89,7 @@ export function AnatomyCanvas() {
       style={{ background: "radial-gradient(ellipse at 50% 40%, #1b2430 0%, #0e131a 55%, #080b0f 100%)" }}
       data-layers-ready={allReady ? "true" : "false"}
       data-detail-status={inDetail ? state.detailStatus : "closed"}
+      data-view-mode={inDetail ? mode : undefined}
     >
       <Canvas
         // Render only when something changes: saves battery on phones.
@@ -126,6 +131,7 @@ export function AnatomyCanvas() {
           regress
         />
         <CameraRig />
+        {split && <SplitRenderer />}
       </Canvas>
       {anyLoading && <ViewerStatus text="Loading anatomy..." />}
       {inDetail && state.detailStatus === "loading" && <ViewerStatus text="Loading detailed model..." />}

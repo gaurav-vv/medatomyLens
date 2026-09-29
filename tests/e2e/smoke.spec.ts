@@ -110,7 +110,7 @@ test("detail view: open from body, parts, Escape back to body with selection kep
   await detailReady();
   await expect(page.getByRole("button", { name: /Back to body/ })).toBeVisible();
   await expect(page.getByText("Generic normal reference")).toBeVisible();
-  await expect(page.getByText(/not your actual anatomy/).first()).toBeVisible();
+  await expect(page.getByText(/not your actual anatomy/).locator("visible=true").first()).toBeVisible();
   await expect(parts).toContainText(/Parts in this model \(\d+\)/);
   await expect(search).toHaveCount(0); // body controls hidden in detail
   await shot("6-heart-detail.png");
@@ -191,5 +191,68 @@ test("detailed atlas organs open with their internal parts", async ({ page }, te
     await page.getByRole("button", { name: /Back to body/ }).click();
     await expect(detailStatus).toHaveAttribute("data-detail-status", "closed");
   }
+  expect(errors).toEqual([]);
+});
+
+test("demo report: body highlight, organ view modes, region marker, explanation", async ({ page }, testInfo) => {
+  test.setTimeout(300_000);
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  const shot = async (name: string) => {
+    await page.waitForTimeout(900);
+    await page.screenshot({ path: testInfo.outputPath(name), timeout: 30_000 });
+  };
+  const wide = (page.viewportSize()?.width ?? 0) >= 768;
+  const detailStatus = page.locator("[data-detail-status]");
+
+  await page.goto("/");
+  await layersReady(page);
+  await page.getByRole("button", { name: "Try the demo report" }).click();
+  const card = page.getByRole("region", { name: "Report findings" });
+  await expect(card).toContainText("DEMO / SAMPLE DATA");
+  await expect(card).toContainText("5 findings · 4 shown on the body · 1 not mapped");
+  await shot("demo-1-list.png");
+
+  // Finding → anatomy: creatinine emphasises both kidneys.
+  await card.getByRole("button", { name: /Creatinine/ }).click();
+  const finding = page.getByRole("complementary", { name: "Finding details" });
+  await expect(finding).toContainText("Creatinine | 1.9 | mg/dL | 0.7 - 1.3");
+  await expect(finding).toContainText("Above reported range");
+  await expect(finding).toContainText("Location not specified in the report");
+  await expect(finding.getByRole("img", { name: /above reported range/ })).toBeVisible();
+  await shot("demo-2-creatinine.png");
+
+  // Open the right kidney from the finding, then its organ view.
+  await finding.getByRole("button", { name: /Right kidney/ }).click();
+  const panel = page.getByRole("complementary", { name: "Selected structure" });
+  await expect(panel).toContainText("Reported findings");
+  await panel.getByRole("button", { name: "Open detailed view" }).click();
+  await expect(detailStatus).toHaveAttribute("data-detail-status", "ready", { timeout: 90_000 });
+  const organFindings = page.getByRole("region", { name: "Organ findings" });
+  await organFindings.getByRole("button", { name: /Right kidney \(ultrasound\)/ }).click();
+  await expect(page.getByText("Reported area", { exact: false }).first()).toBeVisible();
+  await expect(organFindings).toContainText("Right kidney, lower pole");
+  await expect(organFindings).toContainText("Size as reported: 1.8 cm");
+  await expect(page.getByText(/not your actual anatomy/).locator("visible=true").first()).toBeVisible();
+  await shot("demo-3-reported.png");
+
+  await page.getByRole("radio", { name: "Normal" }).click();
+  await expect(page.locator("[data-view-mode]")).toHaveAttribute("data-view-mode", "normal");
+  await expect(page.getByText("Generic normal reference").first()).toBeVisible();
+  await shot("demo-4-normal.png");
+
+  if (wide) {
+    await page.getByRole("radio", { name: "Side by side" }).click();
+    await expect(page.locator("[data-view-mode]")).toHaveAttribute("data-view-mode", "side_by_side");
+    await shot("demo-5-side-by-side.png");
+  } else {
+    await expect(page.getByRole("radio", { name: "Side by side" })).toHaveCount(0);
+    await page.getByRole("button", { name: "Expand details" }).click();
+    await shot("demo-5-sheet.png");
+  }
+
+  await page.getByRole("button", { name: /Back to body/ }).click();
+  await expect(detailStatus).toHaveAttribute("data-detail-status", "closed");
+  await expect(panel).toContainText("Right kidney");
   expect(errors).toEqual([]);
 });

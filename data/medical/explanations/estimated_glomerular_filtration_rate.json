@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "estimated_glomerular_filtration_rate",
+  "title": "eGFR (estimated glomerular filtration rate)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-gfr", "title": "MedlinePlus: Glomerular Filtration Rate (GFR) Test", "url": "https://medlineplus.gov/lab-tests/glomerular-filtration-rate-gfr-test/", "accessed": "2026-09-29" }
+  ],
+  "measures": "eGFR is an estimate of how much blood the kidneys filter each minute. It is usually calculated from blood creatinine together with information such as age and sex, and sometimes from cystatin C.",
+  "context": "eGFR is an estimate and is not a perfect test. A result outside the reported range can occur for several reasons, and it is interpreted together with other tests.",
+  "aboveRange": [],
+  "belowRange": [
+    "Kidneys filtering less blood per minute than the reported range",
+    "Factors that change blood creatinine, such as dehydration, muscle mass or certain medicines, which affect the estimate"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -44,7 +44,16 @@ export interface AnatomyState {
   detailOrgans: DetailOrganIndex | null;
   /** Detail view: outer layers see-through to show internal parts. */
   seeInside: boolean;
+  /** Organ view mode (Section 109). Side by side falls back to a toggle on phones. */
+  viewMode: OrganViewMode;
+  /**
+   * Meshes emphasised without a single selection, e.g. both kidneys for a
+   * creatinine finding (Section 89). Cleared by any structure selection.
+   */
+  emphasis: string[];
 }
+
+export type OrganViewMode = "reported" | "normal" | "side_by_side";
 
 export type ViewLevel = "body" | "detail";
 
@@ -62,7 +71,9 @@ export type AnatomyAction =
   | { type: "detailPart"; key: SelectionKey | null }
   | { type: "detailStatus"; status: LayerStatus }
   | { type: "detailOrgans"; organs: DetailOrganIndex }
-  | { type: "toggleSeeInside" };
+  | { type: "toggleSeeInside" }
+  | { type: "viewMode"; mode: OrganViewMode }
+  | { type: "emphasize"; meshes: string[]; focus?: boolean };
 
 /** Layers shown on first open: the view people expect from an anatomy atlas. */
 export const DEFAULT_VISIBLE: LayerId[] = ["skeleton", "organs"];
@@ -88,6 +99,8 @@ export function initialAnatomyState(): AnatomyState {
     detailStatus: "idle",
     detailOrgans: null,
     seeInside: false,
+    viewMode: "reported",
+    emphasis: [],
   };
 }
 
@@ -114,6 +127,7 @@ export function anatomyReducer(state: AnatomyState, action: AnatomyAction): Anat
         ...state,
         visible,
         selected: action.key,
+        emphasis: [],
         focusSeq: action.focus ? state.focusSeq + 1 : state.focusSeq,
       };
     }
@@ -129,7 +143,7 @@ export function anatomyReducer(state: AnatomyState, action: AnatomyAction): Anat
       return { ...state, indexError: action.message };
     case "openDetail":
       if (!state.selected) return state;
-      return { ...state, view: "detail", detailPart: null, detailStatus: "loading", seeInside: false };
+      return { ...state, view: "detail", detailPart: null, detailStatus: "loading", seeInside: false, viewMode: "reported" };
     case "closeDetail":
       // Selection is kept so the body view comes back as it was (Section 103).
       return { ...state, view: "body", detailPart: null };
@@ -142,6 +156,25 @@ export function anatomyReducer(state: AnatomyState, action: AnatomyAction): Anat
       return { ...state, detailOrgans: action.organs };
     case "toggleSeeInside":
       return state.view === "detail" ? { ...state, seeInside: !state.seeInside } : state;
+    case "viewMode":
+      return state.viewMode === action.mode ? state : { ...state, viewMode: action.mode };
+    case "emphasize": {
+      if (state.view !== "body") return state;
+      // Emphasised structures must be visible, like a search selection.
+      const layers = new Set(action.meshes.map((m) => state.index?.structures.get(m)?.layer).filter((l) => !!l));
+      let visible = state.visible;
+      if (layers.size && ![...layers].some((l) => visible[l!])) {
+        visible = { ...visible };
+        for (const l of layers) visible[l!] = true;
+      }
+      return {
+        ...state,
+        visible,
+        selected: null,
+        emphasis: action.meshes,
+        focusSeq: action.focus && action.meshes.length ? state.focusSeq + 1 : state.focusSeq,
+      };
+    }
   }
 }
 

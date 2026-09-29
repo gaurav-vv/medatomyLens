@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "alanine_aminotransferase",
+  "title": "ALT (alanine aminotransferase)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-alt", "title": "MedlinePlus: ALT Blood Test", "url": "https://medlineplus.gov/lab-tests/alt-blood-test/", "accessed": "2026-09-29" }
+  ],
+  "measures": "ALT is an enzyme found mainly in the liver. Blood usually contains low levels of it. It is often measured together with other liver tests to help check the liver.",
+  "context": "Many things can affect ALT results, including age, sex, weight, medicines and supplements. A result outside the reported range does not always mean there is a condition that needs treatment.",
+  "aboveRange": [
+    "Irritation or inflammation of liver cells, from several possible causes",
+    "Certain medicines or dietary supplements",
+    "Intense exercise",
+    "Reduced blood flow to the liver"
+  ],
+  "belowRange": [
+    "Low vitamin B6",
+    "Some kidney conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "creatinine",
+  "title": "Creatinine",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-creatinine", "title": "MedlinePlus: Creatinine Test", "url": "https://medlineplus.gov/lab-tests/creatinine-test/", "accessed": "2026-09-29" }
+  ],
+  "measures": "Creatinine is a normal waste product made when muscles are used. The kidneys usually filter it out of the blood and remove it in urine, so a blood creatinine test is commonly used to help check how well the kidneys filter.",
+  "context": "Normal levels depend on muscle mass, diet, age and activity. A single result on its own cannot identify a specific condition, and results are often used together with other tests such as eGFR.",
+  "aboveRange": [
+    "Changes in how well the kidneys filter, or reduced blood flow to the kidneys",
+    "Dehydration",
+    "Intense exercise, or a diet high in meat",
+    "Muscle injury or muscle conditions",
+    "Certain medicines"
+  ],
+  "belowRange": [
+    "Low muscle mass, for example from ageing or a long illness",
+    "Poor nutrition",
+    "Some liver conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

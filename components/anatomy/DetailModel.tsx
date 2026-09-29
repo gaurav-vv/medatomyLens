@@ -17,6 +17,9 @@ import {
 import { layerUrl } from "@/lib/anatomy/quality";
 import type { LayerId } from "@/lib/anatomy/types";
 import { useAnatomy } from "./AnatomyContext";
+import { useOrganReport } from "@/components/report/useOrganReport";
+import { setMeshReportState } from "@/components/report/reportLook";
+import { RegionMarker } from "@/components/report/RegionMarker";
 
 const TAP_TOLERANCE_PX = 6;
 const PART_EMISSIVE = new Color("#2dd4bf");
@@ -41,6 +44,7 @@ export function DetailModel() {
         ) : (
           selection.layers.map((layer) => <DetailLayer key={layer} layer={layer} meshIds={selection.meshes} />)
         )}
+        <RegionMarker organ={organ} />
       </group>
       <DetailStatusMarker status="ready" />
     </Suspense>
@@ -71,6 +75,8 @@ function DetailOrganModel({ organ }: { organ: DetailOrgan }) {
   const { state, dispatch } = useAnatomy();
   const invalidate = useThree((s) => s.invalidate);
   const { detailPart, seeInside } = state;
+  const { wholeOrgan, mode } = useOrganReport();
+  const tint = wholeOrgan && mode !== "normal";
 
   const meshInfo = useMemo(() => {
     const info = new Map<string, { part: DetailOrganPart; shell: boolean }>();
@@ -122,12 +128,15 @@ function DetailOrganModel({ organ }: { organ: DetailOrgan }) {
       m.opacity = faded ? (part ? 0.14 : 0.1) : 1;
       m.depthWrite = !faded;
       c.renderOrder = faded ? 1 : 0;
+      // Whole-organ "Reported" tint when the report gives no region (Section 107).
+      setMeshReportState(c, tint && !on);
     }
     invalidate();
-  }, [copies, detailPart, seeInside, organ, invalidate]);
+  }, [copies, detailPart, seeInside, organ, tint, invalidate]);
 
   const onClick = (e: ThreeEvent<MouseEvent>) => {
-    if (e.delta > TAP_TOLERANCE_PX) return;
+    // Side by side: the halves share one camera, so screen taps are ambiguous.
+    if (e.delta > TAP_TOLERANCE_PX || mode === "side_by_side") return;
     const c = e.object as Mesh;
     // Taps pass through see-through layers to the part behind them.
     if ((c.material as MeshPhysicalMaterial).transparent) return;
@@ -170,6 +179,8 @@ function DetailLayer({ layer, meshIds }: { layer: LayerId; meshIds: string[] }) 
   const { state, dispatch } = useAnatomy();
   const invalidate = useThree((s) => s.invalidate);
   const { index, detailPart } = state;
+  const { wholeOrgan, mode } = useOrganReport();
+  const tint = wholeOrgan && mode !== "normal";
 
   // Copies of the wanted meshes. Geometry is shared with the cached GLB;
   // materials are owned here and disposed on unmount.
@@ -222,17 +233,18 @@ function DetailLayer({ layer, meshIds }: { layer: LayerId; meshIds: string[] }) 
       m.emissive.copy(on ? PART_EMISSIVE : NO_EMISSIVE);
       m.emissiveIntensity = on ? 0.18 : 0;
       const faded = anyLit && !on;
+      if (m.transparent !== faded) m.needsUpdate = true;
       m.transparent = faded;
       m.opacity = faded ? 0.16 : 1;
       m.depthWrite = !faded;
-      m.needsUpdate = true;
       c.renderOrder = faded ? 1 : 0;
+      setMeshReportState(c, tint && !on);
     }
     invalidate();
-  }, [copies, detailPart, index, invalidate]);
+  }, [copies, detailPart, index, tint, invalidate]);
 
   const onClick = (e: ThreeEvent<MouseEvent>) => {
-    if (e.delta > TAP_TOLERANCE_PX) return;
+    if (e.delta > TAP_TOLERANCE_PX || mode === "side_by_side") return;
     e.stopPropagation();
     const id = e.object.userData.mesh as string | undefined;
     if (!id || !index) return;

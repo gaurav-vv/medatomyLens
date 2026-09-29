@@ -5,6 +5,13 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { Box3, Vector3, type PerspectiveCamera } from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { useAnatomy } from "./AnatomyContext";
+import { useIsWide, useOrganReport } from "@/components/report/useOrganReport";
+import { organBox } from "@/components/report/reportLook";
+import { SPLIT_PANEL_PX } from "@/components/report/SplitRenderer";
+
+/** Phone organ view: screen space covered by the top bar and the bottom sheet. */
+const PHONE_DETAIL_TOP_PX = 132;
+const PHONE_DETAIL_SHEET = 0.34;
 
 /** Home view: whole body, from the front. Metres, Y up. */
 export const HOME_TARGET = new Vector3(0, 0.8, 0.09);
@@ -30,6 +37,34 @@ export function CameraRig() {
   const invalidate = useThree((s) => s.invalidate);
   const flight = useRef<Flight | null>(null);
   const saved = useRef<{ target: Vector3; position: Vector3 } | null>(null);
+  const size = useThree((s) => s.size);
+  const wide = useIsWide();
+  const { mode } = useOrganReport();
+  const split = state.view === "detail" && mode === "side_by_side";
+  const phoneDetail = state.view === "detail" && !wide;
+
+  // Phones: centre the organ in the area between the top bar and the sheet
+  // (a view offset keeps taps and rotation exact).
+  useEffect(() => {
+    const cam = camera as PerspectiveCamera;
+    if (phoneDetail) {
+      const bottom = size.height * PHONE_DETAIL_SHEET;
+      cam.setViewOffset(size.width, size.height, 0, (bottom - PHONE_DETAIL_TOP_PX) / 2, size.width, size.height);
+    } else cam.clearViewOffset();
+    invalidate();
+  }, [phoneDetail, size, camera, invalidate]);
+
+  /** Distance that fits a sphere in the visible part of the view. */
+  function fitDistance(radius: number) {
+    const cam = camera as PerspectiveCamera;
+    const fov = (cam.fov ?? 35) * (Math.PI / 180);
+    const visible = phoneDetail ? Math.max(0.3, 1 - PHONE_DETAIL_SHEET - PHONE_DETAIL_TOP_PX / size.height) : 1;
+    const vfov = 2 * Math.atan(Math.tan(fov / 2) * visible);
+    const width = split ? Math.max(size.width - SPLIT_PANEL_PX, size.width / 2) / 2 : size.width;
+    const aspect = width / size.height;
+    const hfov = 2 * Math.atan(Math.tan(fov / 2) * aspect);
+    return (radius / Math.sin(Math.min(vfov, hfov) / 2)) * 1.15;
+  }
 
   useEffect(() => {
     if (!controls) return;
@@ -53,7 +88,7 @@ export function CameraRig() {
   };
 
   useEffect(() => {
-    if (state.focusSeq === 0 || !selection) return;
+    if (state.focusSeq === 0 || (!selection && !state.emphasis.length)) return;
     const box = selectionBox();
     if (!box) return;
     const center = box.getCenter(new Vector3());
@@ -73,10 +108,7 @@ export function CameraRig() {
       if (!box) return;
       const center = box.getCenter(new Vector3());
       const radius = Math.max(box.getSize(new Vector3()).length() / 2, 0.02);
-      // Fit the bounding sphere in the vertical field of view, with margin.
-      const fov = ((camera as PerspectiveCamera).fov ?? 35) * (Math.PI / 180);
-      const distance = (radius / Math.sin(fov / 2)) * 1.15;
-      fly(center, center.clone().add(new Vector3(0, 0, distance)));
+      fly(center, center.clone().add(new Vector3(0, 0, fitDistance(radius))));
     } else if (saved.current) {
       fly(saved.current.target, saved.current.position);
       saved.current = null;
@@ -88,27 +120,27 @@ export function CameraRig() {
   // example both lungs when one lung was selected).
   useEffect(() => {
     if (state.view !== "detail" || state.detailStatus !== "ready" || !detailRoot.current) return;
-    const box = new Box3().setFromObject(detailRoot.current);
+    const box = organBox(detailRoot.current);
     if (box.isEmpty()) return;
     frameBox(box);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.view, state.detailStatus]);
+  }, [state.view, state.detailStatus, split, phoneDetail]);
 
   function frameBox(box: Box3) {
     const center = box.getCenter(new Vector3());
     const radius = Math.max(box.getSize(new Vector3()).length() / 2, 0.02);
-    const fov = ((camera as PerspectiveCamera).fov ?? 35) * (Math.PI / 180);
-    fly(center, center.clone().add(new Vector3(0, 0, (radius / Math.sin(fov / 2)) * 1.15)));
+    fly(center, center.clone().add(new Vector3(0, 0, fitDistance(radius))));
   }
 
   function selectionBox() {
     if (state.view === "detail" && state.detailStatus === "ready" && detailRoot.current) {
-      const shown = new Box3().setFromObject(detailRoot.current);
+      const shown = organBox(detailRoot.current);
       if (!shown.isEmpty()) return shown;
     }
-    if (!selection) return null;
+    const ids = selection?.meshes ?? state.emphasis;
+    if (!ids.length) return null;
     const box = new Box3();
-    for (const id of selection.meshes) {
+    for (const id of ids) {
       const mesh = meshes.current.get(id);
       if (mesh) box.expandByObject(mesh);
     }
@@ -121,10 +153,7 @@ export function CameraRig() {
     if (state.view === "detail") {
       const box = selectionBox();
       if (!box) return;
-      const center = box.getCenter(new Vector3());
-      const radius = Math.max(box.getSize(new Vector3()).length() / 2, 0.02);
-      const fov = ((camera as PerspectiveCamera).fov ?? 35) * (Math.PI / 180);
-      fly(center, center.clone().add(new Vector3(0, 0, (radius / Math.sin(fov / 2)) * 1.15)));
+      frameBox(box);
       return;
     }
     fly(HOME_TARGET.clone(), HOME_POSITION.clone());

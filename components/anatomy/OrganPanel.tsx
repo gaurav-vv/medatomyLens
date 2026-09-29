@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import { LAYER_LABELS, groupKey } from "@/lib/anatomy/types";
+import { structureIdsOfSelection } from "@/lib/medical/anatomyLink";
+import { StructureFindings } from "@/components/report/ReportPanels";
 import { useAnatomy } from "./AnatomyContext";
 
 const SIDE_LABEL = {
@@ -31,7 +33,7 @@ export function OrganPanel() {
   return (
     <aside
       aria-label="Selected structure"
-      className="pointer-events-auto absolute inset-x-2 bottom-2 z-20 rounded-2xl border border-border bg-[#121820]/90 p-4 shadow-xl backdrop-blur md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:w-80"
+      className="pointer-events-auto absolute inset-x-2 bottom-2 z-20 max-h-[50dvh] overflow-y-auto rounded-2xl border border-border bg-[#121820]/90 p-4 shadow-xl backdrop-blur md:inset-x-auto md:bottom-auto md:right-4 md:top-20 md:max-h-[calc(100%-6rem)] md:w-80"
     >
       <div className="flex items-start justify-between gap-3">
         <h2 className="text-base font-semibold leading-tight" aria-live="polite">
@@ -79,9 +81,7 @@ export function OrganPanel() {
       {selection.isGroup && (
         <p className="mt-3 text-xs text-muted">Tap the organ again to select one of its parts.</p>
       )}
-      <p className="mt-2 text-xs text-muted">
-        No findings are linked to this structure. Educational descriptions will be added from reviewed sources.
-      </p>
+      <StructureFindings ids={state.index ? structureIdsOfSelection(state.index, selection) : []} />
 
       <div className="mt-4 flex gap-2">
         <button

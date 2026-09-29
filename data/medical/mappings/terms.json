@@ -1,0 +1,35 @@
+{
+  "$comment": "Controlled terminology (AGENTS.md Sections 15, 64, 65). Each entry maps a normalized term to the body-model structures it is ASSOCIATED with (visualizationType: association, never disease). Structure ids are body-model structure or organ-group ids (public/anatomy/body/structures.json). Synonyms are matched case-insensitively after removing punctuation and spaces. Sources: docs/MEDICAL_SOURCES.md.",
+  "terms": [
+    {
+      "normalizedTerm": "creatinine",
+      "displayName": "Creatinine",
+      "synonyms": ["creatinine", "serum creatinine", "blood creatinine", "s. creatinine", "creat"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Creatinine is filtered from the blood by the kidneys, so it is commonly used as a kidney-associated marker."
+    },
+    {
+      "normalizedTerm": "estimated_glomerular_filtration_rate",
+      "displayName": "eGFR (estimated glomerular filtration rate)",
+      "synonyms": ["egfr", "estimated gfr", "estimated glomerular filtration rate", "gfr estimated"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "eGFR estimates how much blood the kidneys filter each minute."
+    },
+    {
+      "normalizedTerm": "alanine_aminotransferase",
+      "displayName": "ALT (alanine aminotransferase)",
+      "synonyms": ["alt", "alanine aminotransferase", "alanine transaminase", "sgpt", "alt sgpt", "sgpt alt"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "ALT is an enzyme found mainly in the liver, so it is commonly used as a liver-associated marker."
+    }
+  ]
+}

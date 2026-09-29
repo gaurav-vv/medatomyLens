@@ -1,0 +1,53 @@
+{
+  "$comment": "Sub-organ regions (AGENTS.md Section 105). Each region is displayed either by real parts of the detailed organ model (supportedBy: mesh, parts = HRA part ids in public/anatomy/organs/index.json) or by a documented overlay marker (supportedBy: overlay). Overlay position is in the organ model's bounding box, each axis from -1 to 1 (x: patient's right -1 to left +1, y: inferior -1 to superior +1, z: posterior -1 to anterior +1). The marker shows only WHERE the report places a finding, never its size, shape or extent (Section 107). Poles are approximations: the box follows the model axes, and the kidney's long axis is close to vertical in this model.",
+  "regions": {
+    "left_kidney_upper_pole": {
+      "parentStructure": "left_kidney",
+      "displayName": "Left kidney, upper pole",
+      "supportedBy": "overlay",
+      "overlay": { "type": "pin_marker", "position": [0, 0.7, 0] }
+    },
+    "left_kidney_lower_pole": {
+      "parentStructure": "left_kidney",
+      "displayName": "Left kidney, lower pole",
+      "supportedBy": "overlay",
+      "overlay": { "type": "pin_marker", "position": [0, -0.7, 0] }
+    },
+    "right_kidney_upper_pole": {
+      "parentStructure": "right_kidney",
+      "displayName": "Right kidney, upper pole",
+      "supportedBy": "overlay",
+      "overlay": { "type": "pin_marker", "position": [0, 0.7, 0] }
+    },
+    "right_kidney_lower_pole": {
+      "parentStructure": "right_kidney",
+      "displayName": "Right kidney, lower pole",
+      "supportedBy": "overlay",
+      "overlay": { "type": "pin_marker", "position": [0, -0.7, 0] }
+    },
+    "left_kidney_cortex": {
+      "parentStructure": "left_kidney",
+      "displayName": "Left kidney, cortex",
+      "supportedBy": "mesh",
+      "parts": ["cortex_of_kidney", "outer_cortex_of_kidney"]
+    },
+    "right_kidney_cortex": {
+      "parentStructure": "right_kidney",
+      "displayName": "Right kidney, cortex",
+      "supportedBy": "mesh",
+      "parts": ["cortex_of_kidney", "outer_cortex_of_kidney"]
+    },
+    "liver_right_lobe": {
+      "parentStructure": "liver",
+      "displayName": "Liver, right lobe",
+      "supportedBy": "mesh",
+      "parts": ["right_lobe_of_liver"]
+    },
+    "liver_left_lobe": {
+      "parentStructure": "liver",
+      "displayName": "Liver, left lobe",
+      "supportedBy": "mesh",
+      "parts": ["left_lobe_of_liver"]
+    }
+  }
+}

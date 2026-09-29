@@ -85,3 +85,34 @@ describe("body ⇄ detail view (Section 103)", () => {
     expect(s.detailPart).toBeNull();
   });
 });
+
+describe("report-related viewer state (Sections 50, 89, 109)", () => {
+  it("emphasis highlights several structures and clears the single selection", () => {
+    let s = anatomyReducer(withIndex(), { type: "select", key: kidney.mesh });
+    s = anatomyReducer(s, { type: "emphasize", meshes: [kidney.mesh, biceps.mesh], focus: true });
+    expect(s.selected).toBeNull();
+    expect(s.emphasis).toEqual([kidney.mesh, biceps.mesh]);
+    expect(s.focusSeq).toBe(1);
+  });
+  it("emphasis turns on a hidden layer, and a selection clears emphasis", () => {
+    let s = anatomyReducer(withIndex(), { type: "emphasize", meshes: [biceps.mesh] });
+    expect(s.visible.muscles).toBe(true);
+    s = anatomyReducer(s, { type: "select", key: kidney.mesh });
+    expect(s.emphasis).toEqual([]);
+  });
+  it("organ view mode lives in the anatomy state and resets on open", () => {
+    let s = anatomyReducer(withIndex(), { type: "select", key: kidney.mesh });
+    s = anatomyReducer(s, { type: "openDetail" });
+    expect(s.viewMode).toBe("reported");
+    s = anatomyReducer(s, { type: "viewMode", mode: "side_by_side" });
+    expect(s.viewMode).toBe("side_by_side");
+    s = anatomyReducer(s, { type: "closeDetail" });
+    s = anatomyReducer(s, { type: "openDetail" });
+    expect(s.viewMode).toBe("reported");
+  });
+  it("emphasis is ignored inside the organ view", () => {
+    let s = anatomyReducer(withIndex(), { type: "select", key: kidney.mesh });
+    s = anatomyReducer(s, { type: "openDetail" });
+    expect(anatomyReducer(s, { type: "emphasize", meshes: [biceps.mesh] })).toBe(s);
+  });
+});
