@@ -1,0 +1,48 @@
+{
+  "name": "anatomy-lens",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "anatomy:index": "python scripts/anatomy/index_elements.py",
+    "anatomy:registry": "python scripts/anatomy/build_registry.py",
+    "anatomy:glb": "node scripts/anatomy/build_glb.mjs",
+    "anatomy:organs": "node scripts/anatomy/build_detail_organs.mjs",
+    "anatomy:fetch-organs": "python scripts/anatomy/fetch_hra.py kidney-male-left kidney-male-right renal-pelvis-male-left renal-pelvis-male-right heart-male liver-male lung-male brain-male eye-male-left eye-male-right"
+  },
+  "dependencies": {
+    "@react-three/drei": "10.7.9",
+    "@react-three/fiber": "9.8.1",
+    "next": "16.3.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "4.5.1",
+    "@gltf-transform/extensions": "4.5.1",
+    "@gltf-transform/functions": "4.5.1",
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "24.19.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "0.186.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "jsdom": "30.1.1",
+    "meshoptimizer": "1.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "5.0.2"
+  }
+}

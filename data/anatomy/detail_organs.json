@@ -1,0 +1,77 @@
+{
+  "$comment": "Detailed organ models with real internal parts, shown in the detail view instead of the body mesh. Source: HuBMAP Human Reference Atlas 3D Reference Organs (CC BY 4.0, see docs/THIRD_PARTY_ASSETS.md). bodyIds: body-model structure or group ids this organ is used for. anchor: body-model structures/groups the organ is aligned to (centre of their combined bounds); anchorSources: HRA sources whose bounds are matched to it. HRA files use metres, Y up, patient's left = +X, anterior = +Z (verified in tests/unit/detail-organs.test.ts), so only a translation is applied: never rotated, scaled or mirrored. excludeLabels: whole-organ labels that are not listed as parts. shellMatch: outer layers that 'See inside' makes see-through. simplify: fraction of triangles kept (1 = all). lateralParts: check every left/right part name against its geometry (build fails on a mismatch). lateralityFromGeometry: the source's L/R labels are known to contradict its geometry (HRA brain-male v1.4: all 261 L/R meshes lie on the opposite side from their label, while every other HRA organ agrees), so parts are named by the side they are actually on. dropNormals: source normals are split per face; removed so the mesh can be simplified, and recomputed smooth in the app.",
+  "organs": [
+    {
+      "id": "left_kidney", "name": "Left kidney", "side": "left", "lateralParts": true, "family": "kidney",
+      "bodyIds": ["left_kidney"],
+      "anchor": { "structures": ["Left kidney"] }, "anchorSources": ["kidney-male-left"],
+      "sources": ["kidney-male-left", "renal-pelvis-male-left"],
+      "excludeLabels": ["left kidney"],
+      "shellMatch": ["kidney capsule", "outer cortex of kidney", "cortex of kidney"],
+      "simplify": 1
+    },
+    {
+      "id": "right_kidney", "name": "Right kidney", "side": "right", "lateralParts": true, "family": "kidney",
+      "bodyIds": ["right_kidney"],
+      "anchor": { "structures": ["Right kidney"] }, "anchorSources": ["kidney-male-right"],
+      "sources": ["kidney-male-right", "renal-pelvis-male-right"],
+      "excludeLabels": ["right kidney"],
+      "shellMatch": ["kidney capsule", "outer cortex of kidney", "cortex of kidney"],
+      "simplify": 1
+    },
+    {
+      "id": "heart", "name": "Heart", "side": "midline", "lateralParts": false, "family": "heart",
+      "bodyIds": ["heart"],
+      "anchor": { "groups": ["heart"] }, "anchorSources": ["heart-male"],
+      "sources": ["heart-male"],
+      "excludeLabels": ["heart"],
+      "shellMatch": ["cardiac atrium", "heart left ventricle", "heart right ventricle"],
+      "simplify": 0.5
+    },
+    {
+      "id": "liver", "name": "Liver", "side": "midline", "lateralParts": false, "family": "liver",
+      "bodyIds": ["liver"],
+      "anchor": { "groups": ["liver"] }, "anchorSources": ["liver-male"],
+      "sources": ["liver-male"],
+      "excludeLabels": ["liver"],
+      "shellMatch": ["capsule of the liver", "diaphragmatic surface", "bare area", "impression of liver"],
+      "simplify": 1
+    },
+    {
+      "id": "lungs", "name": "Lungs", "side": "midline", "lateralParts": true, "family": "lung",
+      "bodyIds": ["left_lung", "right_lung"],
+      "anchor": { "groups": ["left_lung", "right_lung"] }, "anchorSources": ["lung-male"],
+      "sources": ["lung-male"],
+      "excludeLabels": ["respiratory system", "lung"],
+      "shellMatch": ["bronchopulmonary segment", "hilus"],
+      "simplify": 0.5
+    },
+    {
+      "id": "brain", "name": "Brain", "side": "midline", "lateralParts": true, "family": "brain",
+      "bodyIds": ["brain"],
+      "anchor": { "groups": ["brain"] }, "anchorSources": ["brain-male"],
+      "sources": ["brain-male"],
+      "excludeLabels": ["brain"],
+      "shellMatch": ["gyrus", "gyri", "cortex", "lobule", "pole", "operculum", "planum", "cuneus", "subcallosal", "insul", "cortical area", "cerebral hemisphere", "white matter of", "lateral hemisphere of cerebellum", "paravermis"],
+      "simplify": 0.3, "simplifyError": 0.004, "lateralityFromGeometry": true
+    },
+    {
+      "id": "left_eye", "name": "Left eyeball", "side": "left", "lateralParts": true, "family": "eye",
+      "bodyIds": ["left_eyeball"],
+      "anchor": { "groups": ["left_eyeball"] }, "anchorSources": ["eye-male-left"],
+      "sources": ["eye-male-left"],
+      "excludeLabels": ["left eye"],
+      "shellMatch": ["sclera", "bulbar conjunctiva", "palpebral conjunctiva", "choroid", "corneoscleral", "ora serrata"],
+      "simplify": 0.25, "simplifyError": 0.004, "dropNormals": true
+    },
+    {
+      "id": "right_eye", "name": "Right eyeball", "side": "right", "lateralParts": true, "family": "eye",
+      "bodyIds": ["right_eyeball"],
+      "anchor": { "groups": ["right_eyeball"] }, "anchorSources": ["eye-male-right"],
+      "sources": ["eye-male-right"],
+      "excludeLabels": ["right eye"],
+      "shellMatch": ["sclera", "bulbar conjunctiva", "palpebral conjunctiva", "choroid", "corneoscleral", "ora serrata"],
+      "simplify": 0.25, "simplifyError": 0.004, "dropNormals": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$comment": "Corrections to HRA crosswalk labels that contradict the source's own node name. Applied by scripts/anatomy/build_detail_organs.mjs; the build fails if the source label no longer matches (so fixed upstream data is noticed). The ontology id is cleared when corrected rather than guessed.",
+  "corrections": [
+    {
+      "source": "lung-male",
+      "node": "VH_M_right_apical_bronchus",
+      "sourceLabel": "Right superior segmental bronchus",
+      "label": "Right apical segmental bronchus",
+      "evidence": "Node name says apical. The same label is also used for VH_M_right_superior_bronchus, and the right superior segmental bronchus belongs to the lower lobe, while the apical bronchus supplies the upper lobe."
+    },
+    {
+      "source": "lung-male",
+      "node": "VH_M_right_anterior_basal_bronchus",
+      "sourceLabel": "Right posterior segmental bronchus",
+      "label": "Right anterior basal segmental bronchus",
+      "evidence": "Node name says anterior basal. The same label is also used for VH_M_right_posterior_bronchus."
+    },
+    {
+      "source": "lung-male",
+      "node": "VH_M_left_posetrior_basal_bronchopulmonary_segment",
+      "sourceLabel": "Left posterior basal segmental bronchus",
+      "label": "Left posterior basal bronchopulmonary segment",
+      "evidence": "Node is a lung segment (sibling of the other basal bronchopulmonary segments), not a bronchus. The bronchus label is already used by VH_M_left_posterior_basal_bronchus."
+    }
+  ]
+}

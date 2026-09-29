@@ -1,0 +1,23 @@
+{
+  "$comment": "Corrections to laterality labels in BodyParts3D 4.0 where the source name contradicts the geometry. Patient's left is x > 0 (BodyParts3D coordinate_system.png). Each entry is applied by scripts/anatomy/build_registry.py and must record its evidence. Never add an entry without a geometric check.",
+  "corrections": [
+    {
+      "mesh": "FJ1469",
+      "sourceName": "Left flexor pollicis brevis",
+      "correctedSide": "right",
+      "evidence": "Centre x = -279 mm (patient's right hand). Its superficial head FJ1514 'right' is at x = -281 mm. Mirror mesh FJ1469M carries the opposite label at x = +279 mm."
+    },
+    {
+      "mesh": "FJ1469M",
+      "sourceName": "Right flexor pollicis brevis",
+      "correctedSide": "left",
+      "evidence": "Centre x = +279 mm (patient's left hand). Mirror of FJ1469. Superficial head FJ1514M 'left' is at x = +281 mm."
+    },
+    {
+      "mesh": "FJ2190",
+      "sourceName": "Right fibular vein",
+      "correctedSide": "left",
+      "evidence": "Bounds x = +63.9..+90.9 mm, z = 540..718 mm (patient's left leg). The other 'right fibular vein' meshes FJ2194 and FJ2200 are at negative x, and the 'left' ones FJ2184 and FJ2187 are at positive x."
+    }
+  ]
+}

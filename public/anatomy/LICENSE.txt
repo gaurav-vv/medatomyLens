@@ -1,0 +1,24 @@
+3D anatomy model files in this directory (public/anatomy/)
+===========================================================
+
+The .glb files and structures.json in this directory are derived from:
+
+  BodyParts3D, (c) The Database Center for Life Science,
+  licensed under Creative Commons Attribution-Share Alike 2.1 Japan.
+  https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html
+  Source: https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/ (version 4.0)
+
+Citation:
+  Mitsuhashi N, Fujieda K, Tamura T, Kawamoto S, Takagi T, Okubo K.
+  BodyParts3D: 3D structure database for anatomical concepts.
+  Nucleic Acids Res. 2009;37(Database issue):D782-5. doi:10.1093/nar/gkn613
+
+Changes made (by scripts/anatomy/ in this repository):
+  - Converted from Wavefront OBJ to glTF binary (GLB), millimetres to metres, Z-up to Y-up.
+  - Grouped into render layers; a reduced-detail copy (about 25% of triangles) was made.
+  - Quantised and compressed with meshopt.
+  - Three source left/right labels were corrected (see data/anatomy/laterality_corrections.json).
+
+These derived model files are distributed under the same license,
+CC BY-SA 2.1 JP: https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en
+This license applies to the model files only, not to the application's source code.

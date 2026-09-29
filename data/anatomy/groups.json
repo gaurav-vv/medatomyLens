@@ -1,0 +1,17 @@
+{
+  "$comment": "Multi-mesh organs selected as one structure in the body view. Values are BodyParts3D PART-OF compound concepts (FMA ids). Tapping any member mesh selects the group; its parts stay individually searchable. Elements not in a group are selected on their own.",
+  "groups": [
+    { "id": "heart", "fma": "FMA7088", "name": "Heart" },
+    { "id": "right_lung", "fma": "FMA7309", "name": "Right lung", "side": "right" },
+    { "id": "left_lung", "fma": "FMA7310", "name": "Left lung", "side": "left" },
+    { "id": "liver", "fma": "FMA7197", "name": "Liver" },
+    { "id": "brain", "fma": "FMA50801", "name": "Brain" },
+    { "id": "right_eyeball", "fma": "FMA12514", "name": "Right eyeball", "side": "right" },
+    { "id": "left_eyeball", "fma": "FMA12515", "name": "Left eyeball", "side": "left" },
+    { "id": "small_intestine", "fma": "FMA7200", "name": "Small intestine" },
+    { "id": "large_intestine", "fma": "FMA7201", "name": "Large intestine" },
+    { "id": "pancreas", "fma": "FMA7198", "name": "Pancreas" },
+    { "id": "external_nose", "fma": "FMA59515", "name": "External nose" },
+    { "id": "thymus", "fma": "FMA9607", "name": "Thymus" }
+  ]
+}

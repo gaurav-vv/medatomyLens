@@ -1,0 +1,819 @@
+{
+  "$comment": "Anatomical appearance only (tissue colour and surface). Colours carry no medical meaning (AGENTS.md Sections 23, 93). Overrides: first match wins, matched case-insensitively against the structure name within the given layer.",
+  "layers": {
+    "skin": {
+      "color": "#d9a68a",
+      "roughness": 0.62,
+      "clearcoat": 0.05,
+      "sheen": 0.35,
+      "sheenColor": "#f2c9b3"
+    },
+    "muscles": {
+      "color": "#9b2f2a",
+      "roughness": 0.52,
+      "clearcoat": 0.18,
+      "clearcoatRoughness": 0.45,
+      "sheen": 0.25,
+      "sheenColor": "#d25a4f"
+    },
+    "skeleton": {
+      "color": "#e6dac1",
+      "roughness": 0.78,
+      "clearcoat": 0.0
+    },
+    "organs": {
+      "color": "#b3584f",
+      "roughness": 0.34,
+      "clearcoat": 0.55,
+      "clearcoatRoughness": 0.28
+    },
+    "arteries": {
+      "color": "#b0161d",
+      "roughness": 0.36,
+      "clearcoat": 0.45,
+      "clearcoatRoughness": 0.3
+    },
+    "veins": {
+      "color": "#34498c",
+      "roughness": 0.38,
+      "clearcoat": 0.4,
+      "clearcoatRoughness": 0.32
+    },
+    "nervous": {
+      "color": "#e1c26a",
+      "roughness": 0.5,
+      "clearcoat": 0.2
+    }
+  },
+  "overrides": [
+    {
+      "layer": "skin",
+      "match": [
+        "hair",
+        "eyebrow"
+      ],
+      "color": "#2b1d16",
+      "roughness": 0.85,
+      "clearcoat": 0,
+      "sheen": 0.6,
+      "sheenColor": "#6b4a36"
+    },
+    {
+      "layer": "nervous",
+      "match": [
+        "gyrus",
+        "cortex",
+        "cerebell",
+        "thalam",
+        "nucleus",
+        "putamen",
+        "pallid",
+        "caudate",
+        "hippocamp",
+        "amygdal",
+        "brainstem",
+        "pons",
+        "medulla oblongata",
+        "midbrain",
+        "colliculus",
+        "geniculate",
+        "corpus callosum",
+        "white matter",
+        "fornix",
+        "insula",
+        "lobe",
+        "peduncle",
+        "spinal cord",
+        "hemisphere",
+        "pulvinar",
+        "claustrum",
+        "cuneus",
+        "precuneus",
+        "lobule",
+        "pole",
+        "sulcus",
+        "septum",
+        "commissure",
+        "vermis",
+        "flocculus",
+        "tonsil",
+        "olive",
+        "tegmentum",
+        "hypothalam",
+        "mammillary",
+        "pineal",
+        "chiasm",
+        "optic tract"
+      ],
+      "color": "#d6b3a6",
+      "roughness": 0.42,
+      "clearcoat": 0.35
+    },
+    {
+      "layer": "skeleton",
+      "match": [
+        "tooth",
+        "incisor",
+        "canine",
+        "molar",
+        "premolar"
+      ],
+      "color": "#f2ead6",
+      "roughness": 0.3,
+      "clearcoat": 0.6
+    },
+    {
+      "layer": "skeleton",
+      "match": [
+        "cartilage",
+        "disk",
+        "meniscus",
+        "labrum"
+      ],
+      "color": "#cfd9d4",
+      "roughness": 0.45,
+      "clearcoat": 0.35
+    },
+    {
+      "layer": "skeleton",
+      "match": [
+        "ligament",
+        "membrane"
+      ],
+      "color": "#ddd1b8",
+      "roughness": 0.55
+    },
+    {
+      "layer": "muscles",
+      "match": [
+        "tendon",
+        "aponeurosis",
+        "retinaculum"
+      ],
+      "color": "#e3d8c2",
+      "roughness": 0.45,
+      "clearcoat": 0.3
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "gallbladder",
+        "cystic duct",
+        "bile",
+        "biliary",
+        "hepatic duct"
+      ],
+      "color": "#5f7f3a",
+      "roughness": 0.3,
+      "clearcoat": 0.6
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "liver",
+        "hepat",
+        "caudate lobe"
+      ],
+      "color": "#6b271d"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "kidney",
+        "renal",
+        "ureter"
+      ],
+      "color": "#7c2f29"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "adrenal",
+        "suprarenal"
+      ],
+      "color": "#c98f4a"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "bronch",
+        "trachea"
+      ],
+      "color": "#e3c3b6",
+      "roughness": 0.4
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "lung",
+        "pulmonary"
+      ],
+      "color": "#d8948f",
+      "roughness": 0.45
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "atrium",
+        "ventricle",
+        "heart",
+        "auricle",
+        "papillary",
+        "valve",
+        "cusp"
+      ],
+      "color": "#92241f"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "spleen",
+        "splenic"
+      ],
+      "color": "#5b2130"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "pancrea"
+      ],
+      "color": "#d5a077",
+      "roughness": 0.45
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "stomach",
+        "gastric",
+        "pylor",
+        "cardia",
+        "fundus"
+      ],
+      "color": "#c9766c"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "esophag",
+        "pharyn"
+      ],
+      "color": "#c47a6e"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "duoden",
+        "jejun",
+        "ileum",
+        "ileal",
+        "small intestine"
+      ],
+      "color": "#cf8d7a"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "colon",
+        "cecum",
+        "caecum",
+        "rectum",
+        "appendix",
+        "sigmoid",
+        "anal"
+      ],
+      "color": "#b9786a"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "thyroid",
+        "parathyroid"
+      ],
+      "color": "#8e3638"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "bladder",
+        "urethra"
+      ],
+      "color": "#d3a092"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "testis",
+        "epididym",
+        "prostate",
+        "seminal",
+        "penis",
+        "scrot",
+        "deferens"
+      ],
+      "color": "#c38d7e"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "tongue"
+      ],
+      "color": "#c05f5b"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "gingiva"
+      ],
+      "color": "#d8837d"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "larynx",
+        "epiglott",
+        "vocal",
+        "arytenoid"
+      ],
+      "color": "#dcc7b9"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "sclera"
+      ],
+      "color": "#f0ebe3",
+      "roughness": 0.25,
+      "clearcoat": 0.8
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "cornea"
+      ],
+      "color": "#dfeaf0",
+      "roughness": 0.05,
+      "clearcoat": 1.0,
+      "transmission": 0.6
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "iris"
+      ],
+      "color": "#5b3b27",
+      "roughness": 0.5
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "lens"
+      ],
+      "color": "#ebe4c8",
+      "roughness": 0.1,
+      "clearcoat": 1.0,
+      "transmission": 0.5
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "vitreous",
+        "chamber",
+        "lacrimal lake"
+      ],
+      "color": "#dfe9ee",
+      "roughness": 0.05,
+      "transmission": 0.8
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "retina",
+        "choroid",
+        "ciliary",
+        "corona ciliaris"
+      ],
+      "color": "#8a3a3a"
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "diaphragm"
+      ],
+      "color": "#9b2f2a",
+      "roughness": 0.5
+    },
+    {
+      "layer": "organs",
+      "match": [
+        "cavity"
+      ],
+      "color": "#5a1c1a",
+      "roughness": 0.6
+    }
+  ],
+  "parts": [
+    {
+      "match": [
+        "kidney capsule"
+      ],
+      "color": "#8c3c33",
+      "roughness": 0.28,
+      "clearcoat": 0.8,
+      "clearcoatRoughness": 0.18,
+      "sheen": 0.3,
+      "sheenColor": "#c47a6c"
+    },
+    {
+      "match": [
+        "outer cortex of kidney",
+        "cortex of kidney",
+        "renal column"
+      ],
+      "color": "#8e3a31",
+      "roughness": 0.45,
+      "clearcoat": 0.3
+    },
+    {
+      "match": [
+        "renal pyramid",
+        "renal medulla"
+      ],
+      "color": "#5e1f1d",
+      "roughness": 0.55,
+      "clearcoat": 0.2
+    },
+    {
+      "match": [
+        "renal papilla"
+      ],
+      "color": "#b0675b",
+      "roughness": 0.4,
+      "clearcoat": 0.4
+    },
+    {
+      "match": [
+        "renal pelvis"
+      ],
+      "color": "#e0c4ad",
+      "roughness": 0.35,
+      "clearcoat": 0.5
+    },
+    {
+      "match": [
+        "hilum of kidney"
+      ],
+      "color": "#d9b98c",
+      "roughness": 0.6
+    },
+    {
+      "match": [
+        "valve"
+      ],
+      "color": "#e8d6c4",
+      "roughness": 0.35,
+      "clearcoat": 0.5
+    },
+    {
+      "match": [
+        "papillary muscle"
+      ],
+      "color": "#a8322b",
+      "roughness": 0.45,
+      "clearcoat": 0.3
+    },
+    {
+      "match": [
+        "interventricular septum"
+      ],
+      "color": "#7d201c",
+      "roughness": 0.45,
+      "clearcoat": 0.35
+    },
+    {
+      "match": [
+        "cardiac atrium"
+      ],
+      "color": "#9a2d27",
+      "roughness": 0.38,
+      "clearcoat": 0.55
+    },
+    {
+      "match": [
+        "heart left ventricle",
+        "heart right ventricle"
+      ],
+      "color": "#86231e",
+      "roughness": 0.36,
+      "clearcoat": 0.6
+    },
+    {
+      "match": [
+        "bronchopulmonary segment",
+        "lobe of left lung",
+        "lobe of right lung",
+        "left lung",
+        "right lung"
+      ],
+      "color": "#d9928c",
+      "roughness": 0.5,
+      "clearcoat": 0.35,
+      "sheen": 0.3,
+      "sheenColor": "#f0b8b0"
+    },
+    {
+      "match": [
+        "cartilage"
+      ],
+      "color": "#dfe6e1",
+      "roughness": 0.4,
+      "clearcoat": 0.4
+    },
+    {
+      "match": [
+        "bronch"
+      ],
+      "color": "#e7c8bb",
+      "roughness": 0.4,
+      "clearcoat": 0.4
+    },
+    {
+      "match": [
+        "hilus"
+      ],
+      "color": "#b8746a",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "sclera",
+        "corneoscleral"
+      ],
+      "color": "#f1ece4",
+      "roughness": 0.3,
+      "clearcoat": 0.8
+    },
+    {
+      "match": [
+        "cornea"
+      ],
+      "color": "#dce9f0",
+      "roughness": 0.05,
+      "clearcoat": 1.0,
+      "transmission": 0.6
+    },
+    {
+      "match": [
+        "aqueous humor",
+        "vitreous"
+      ],
+      "color": "#e4eef2",
+      "roughness": 0.05,
+      "transmission": 0.8
+    },
+    {
+      "match": [
+        "suspensory ligament of"
+      ],
+      "color": "#e9dfcf",
+      "roughness": 0.4,
+      "clearcoat": 0.4
+    },
+    {
+      "match": [
+        "lens"
+      ],
+      "color": "#ece5c9",
+      "roughness": 0.1,
+      "clearcoat": 1.0,
+      "transmission": 0.5
+    },
+    {
+      "match": [
+        "pupil"
+      ],
+      "color": "#0d0b0a",
+      "roughness": 0.3
+    },
+    {
+      "match": [
+        "iris"
+      ],
+      "color": "#5b3b27",
+      "roughness": 0.55
+    },
+    {
+      "match": [
+        "macula"
+      ],
+      "color": "#c9a24a",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "fovea"
+      ],
+      "color": "#8f5a2a",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "optic disc"
+      ],
+      "color": "#f0cfae",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "retina",
+        "ora serrata"
+      ],
+      "color": "#c66a52",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "choroid plexus"
+      ],
+      "color": "#b86a6a",
+      "roughness": 0.4,
+      "clearcoat": 0.4
+    },
+    {
+      "match": [
+        "choroid"
+      ],
+      "color": "#6e2626",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "ciliary",
+        "trabecular",
+        "scleral venous sinus"
+      ],
+      "color": "#7a3f33",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "conjunctiva"
+      ],
+      "color": "#e6b3aa",
+      "roughness": 0.3,
+      "clearcoat": 0.6
+    },
+    {
+      "match": [
+        "ligament",
+        "ligamentum"
+      ],
+      "color": "#e4d6c0",
+      "roughness": 0.5,
+      "clearcoat": 0.3
+    },
+    {
+      "match": [
+        "porta hepatis"
+      ],
+      "color": "#c9a37c",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "impression of liver",
+        "bare area",
+        "diaphragmatic surface"
+      ],
+      "color": "#6e2a20",
+      "roughness": 0.35,
+      "clearcoat": 0.55
+    },
+    {
+      "match": [
+        "capsule of the liver"
+      ],
+      "color": "#6b271d",
+      "roughness": 0.3,
+      "clearcoat": 0.65
+    },
+    {
+      "match": [
+        "lobe of liver",
+        "liver left",
+        "caudate lobe",
+        "quadrate",
+        "posteroinferior segment",
+        "posterosuperior segment",
+        "anterosuperior segment",
+        "anteroinferior segment",
+        "anterolateral segment",
+        "posterolateral segment",
+        "superiomedial segment",
+        "inferomedial segment"
+      ],
+      "color": "#7a3024",
+      "roughness": 0.4,
+      "clearcoat": 0.45
+    },
+    {
+      "match": [
+        "ventricle",
+        "aqueduct",
+        "central canal"
+      ],
+      "color": "#a9c7d6",
+      "roughness": 0.3,
+      "clearcoat": 0.5
+    },
+    {
+      "match": [
+        "corpus callosum",
+        "fornix",
+        "commissure",
+        "optic",
+        "white matter",
+        "radiation",
+        "capsule",
+        "tract",
+        "peduncle",
+        "pyramidal part"
+      ],
+      "color": "#efe6dc",
+      "roughness": 0.45,
+      "clearcoat": 0.3
+    },
+    {
+      "match": [
+        "substantia nigra"
+      ],
+      "color": "#4a3a34",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "red nucleus"
+      ],
+      "color": "#a45a4f",
+      "roughness": 0.5
+    },
+    {
+      "match": [
+        "nucleus",
+        "nuclei",
+        "nuclear",
+        "putamen",
+        "caudate",
+        "pallidus",
+        "thalam",
+        "amygdal",
+        "claustrum",
+        "accumbens",
+        "hypothalamus",
+        "hth",
+        "colliculus",
+        "pineal",
+        "tegment",
+        "pontine",
+        "basal forebrain",
+        "septal",
+        "olive",
+        "pretectal",
+        "zona incerta",
+        "medulla oblongata"
+      ],
+      "color": "#c9a097",
+      "roughness": 0.45,
+      "clearcoat": 0.3
+    },
+    {
+      "match": [
+        "cerebell",
+        "vermis"
+      ],
+      "color": "#cf9f93",
+      "roughness": 0.45,
+      "clearcoat": 0.35
+    },
+    {
+      "match": [
+        "gyrus",
+        "gyri",
+        "cortex",
+        "lobule",
+        "pole",
+        "operculum",
+        "planum",
+        "cuneus",
+        "subcallosal",
+        "insul",
+        "hippocamp",
+        "olfactory",
+        "piriform",
+        "cerebral hemisphere"
+      ],
+      "color": "#d6aba0",
+      "roughness": 0.42,
+      "clearcoat": 0.35
+    }
+  ]
+}

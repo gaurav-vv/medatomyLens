@@ -1,0 +1,27 @@
+{
+  "$comment": "Layer assignments for structures whose BodyParts3D IS-A classes don't identify their tissue. Matched on the exact source name, case-insensitive. Reviewed by hand; keep this list short and justified.",
+  "overrides": {
+    "Body of sternum": "skeleton",
+    "Manubrium": "skeleton",
+    "Xiphoid process": "skeleton",
+    "Ascending part of left trapezius": "muscles",
+    "Ascending part of right trapezius": "muscles",
+    "Descending part of left trapezius": "muscles",
+    "Descending part of right trapezius": "muscles",
+    "Left deep palmar arch": "arteries",
+    "Right deep palmar arch": "arteries",
+    "Left superficial palmar arterial arch": "arteries",
+    "Right superficial palmar arterial arch": "arteries",
+    "Left deep palmar venous arch": "veins",
+    "Right deep palmar venous arch": "veins",
+    "Left superficial palmar venous arch": "veins",
+    "Right superficial palmar venous arch": "veins",
+    "Left inferior pulmonary vein": "veins",
+    "Left superior pulmonary vein": "veins",
+    "Right inferior pulmonary vein": "veins",
+    "Right superior pulmonary vein": "veins",
+    "Short ciliary nerve": "nervous",
+    "Tentorium cerebelli": "nervous",
+    "Eyebrow": "skin"
+  }
+}

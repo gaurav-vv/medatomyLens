@@ -1,0 +1,4768 @@
+{
+ "attribution": "HuBMAP Human Reference Atlas, 3D Reference Object Library (Browne, Schlehlein, Herr, Quardokus, Bueckle, Börner), CC BY 4.0, https://humanatlas.io/3d-reference-library. Built from NLM Visible Human data; brain informed by Ding et al. 2016.",
+ "organs": [
+  {
+   "id": "left_kidney",
+   "name": "Left kidney",
+   "side": "left",
+   "family": "kidney",
+   "bodyIds": [
+    "left_kidney"
+   ],
+   "file": "left_kidney.glb",
+   "bytes": 428436,
+   "offset": [
+    -0.00997,
+    0.73436,
+    0.10733
+   ],
+   "parts": [
+    {
+     "id": "cortex_of_kidney",
+     "name": "Cortex of kidney",
+     "ontology": "UBERON:0001225",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_outer_cortex_of_kidney_L",
+      "VH_M_renal_column_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "hilum_of_kidney",
+     "name": "Hilum of kidney",
+     "ontology": "UBERON:0008716",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_of_kidney_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "kidney_capsule",
+     "name": "Kidney capsule",
+     "ontology": "UBERON:0002015",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_kidney_capsule_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_renal_pelvis",
+     "name": "Left renal pelvis",
+     "ontology": "UBERON:0018115",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_pelvis_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "outer_cortex_of_kidney",
+     "name": "Outer cortex of kidney",
+     "ontology": "UBERON:0002189",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_outer_cortex_of_kidney_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "renal_column",
+     "name": "Renal column",
+     "ontology": "UBERON:0001284",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_column_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "renal_medulla",
+     "name": "Renal medulla",
+     "ontology": "UBERON:0000362",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_papilla_L_a",
+      "VH_M_renal_papilla_L_b",
+      "VH_M_renal_papilla_L_c",
+      "VH_M_renal_papilla_L_d",
+      "VH_M_renal_papilla_L_e",
+      "VH_M_renal_papilla_L_f",
+      "VH_M_renal_papilla_L_g",
+      "VH_M_renal_papilla_L_h",
+      "VH_M_renal_papilla_L_i",
+      "VH_M_renal_pyramid_L_a",
+      "VH_M_renal_pyramid_L_b",
+      "VH_M_renal_pyramid_L_c",
+      "VH_M_renal_pyramid_L_d",
+      "VH_M_renal_pyramid_L_e",
+      "VH_M_renal_pyramid_L_f",
+      "VH_M_renal_pyramid_L_g",
+      "VH_M_renal_pyramid_L_h",
+      "VH_M_renal_pyramid_L_i"
+     ],
+     "shell": false
+    },
+    {
+     "id": "renal_papilla",
+     "name": "Renal papilla",
+     "ontology": "UBERON:0001228",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_papilla_L_a",
+      "VH_M_renal_papilla_L_b",
+      "VH_M_renal_papilla_L_c",
+      "VH_M_renal_papilla_L_d",
+      "VH_M_renal_papilla_L_e",
+      "VH_M_renal_papilla_L_f",
+      "VH_M_renal_papilla_L_g",
+      "VH_M_renal_papilla_L_h",
+      "VH_M_renal_papilla_L_i"
+     ],
+     "shell": false
+    },
+    {
+     "id": "renal_pyramid",
+     "name": "Renal pyramid",
+     "ontology": "UBERON:0004200",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_pyramid_L_a",
+      "VH_M_renal_pyramid_L_b",
+      "VH_M_renal_pyramid_L_c",
+      "VH_M_renal_pyramid_L_d",
+      "VH_M_renal_pyramid_L_e",
+      "VH_M_renal_pyramid_L_f",
+      "VH_M_renal_pyramid_L_g",
+      "VH_M_renal_pyramid_L_h",
+      "VH_M_renal_pyramid_L_i"
+     ],
+     "shell": false
+    }
+   ]
+  },
+  {
+   "id": "right_kidney",
+   "name": "Right kidney",
+   "side": "right",
+   "family": "kidney",
+   "bodyIds": [
+    "right_kidney"
+   ],
+   "file": "right_kidney.glb",
+   "bytes": 431352,
+   "offset": [
+    0.00518,
+    0.73375,
+    0.10148
+   ],
+   "parts": [
+    {
+     "id": "cortex_of_kidney",
+     "name": "Cortex of kidney",
+     "ontology": "UBERON:0001225",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_outer_cortex_of_kidney_R",
+      "VH_M_renal_column_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "hilum_of_kidney",
+     "name": "Hilum of kidney",
+     "ontology": "UBERON:0008716",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_of_kidney_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "kidney_capsule",
+     "name": "Kidney capsule",
+     "ontology": "UBERON:0002015",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_kidney_capsule_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "outer_cortex_of_kidney",
+     "name": "Outer cortex of kidney",
+     "ontology": "UBERON:0002189",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_outer_cortex_of_kidney_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "renal_column",
+     "name": "Renal column",
+     "ontology": "UBERON:0001284",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_column_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "renal_medulla",
+     "name": "Renal medulla",
+     "ontology": "UBERON:0000362",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_papilla_R_a",
+      "VH_M_renal_papilla_R_b",
+      "VH_M_renal_papilla_R_c",
+      "VH_M_renal_papilla_R_d",
+      "VH_M_renal_papilla_R_e",
+      "VH_M_renal_papilla_R_f",
+      "VH_M_renal_papilla_R_g",
+      "VH_M_renal_papilla_R_h",
+      "VH_M_renal_papilla_R_i",
+      "VH_M_renal_papilla_R_j",
+      "VH_M_renal_pyramid_a",
+      "VH_M_renal_pyramid_b",
+      "VH_M_renal_pyramid_c",
+      "VH_M_renal_pyramid_d",
+      "VH_M_renal_pyramid_e",
+      "VH_M_renal_pyramid_f",
+      "VH_M_renal_pyramid_g",
+      "VH_M_renal_pyramid_h",
+      "VH_M_renal_pyramid_i",
+      "VH_M_renal_pyramid_j"
+     ],
+     "shell": false
+    },
+    {
+     "id": "renal_papilla",
+     "name": "Renal papilla",
+     "ontology": "UBERON:0001228",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_papilla_R_a",
+      "VH_M_renal_papilla_R_b",
+      "VH_M_renal_papilla_R_c",
+      "VH_M_renal_papilla_R_d",
+      "VH_M_renal_papilla_R_e",
+      "VH_M_renal_papilla_R_f",
+      "VH_M_renal_papilla_R_g",
+      "VH_M_renal_papilla_R_h",
+      "VH_M_renal_papilla_R_i",
+      "VH_M_renal_papilla_R_j"
+     ],
+     "shell": false
+    },
+    {
+     "id": "renal_pyramid",
+     "name": "Renal pyramid",
+     "ontology": "UBERON:0004200",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_pyramid_a",
+      "VH_M_renal_pyramid_b",
+      "VH_M_renal_pyramid_c",
+      "VH_M_renal_pyramid_d",
+      "VH_M_renal_pyramid_e",
+      "VH_M_renal_pyramid_f",
+      "VH_M_renal_pyramid_g",
+      "VH_M_renal_pyramid_h",
+      "VH_M_renal_pyramid_i",
+      "VH_M_renal_pyramid_j"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_renal_pelvis",
+     "name": "Right renal pelvis",
+     "ontology": "UBERON:0018116",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_pelvis_R"
+     ],
+     "shell": false
+    }
+   ]
+  },
+  {
+   "id": "heart",
+   "name": "Heart",
+   "side": "midline",
+   "family": "heart",
+   "bodyIds": [
+    "heart"
+   ],
+   "file": "heart.glb",
+   "bytes": 400948,
+   "offset": [
+    0.00039,
+    0.75288,
+    0.08421
+   ],
+   "parts": [
+    {
+     "id": "anterior_papillary_muscle_of_left_ventricle",
+     "name": "Anterior papillary muscle of left ventricle",
+     "ontology": "FMA:7264",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_papillary_muscle_of_heart_anterior"
+     ],
+     "shell": false
+    },
+    {
+     "id": "anterolateral_head_of_lateral_papillary_muscle_of_left_ventricle",
+     "name": "Anterolateral head of lateral papillary muscle of left ventricle",
+     "ontology": "FMA:7265",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_papillary_muscle_of_heart_anterolateral"
+     ],
+     "shell": false
+    },
+    {
+     "id": "aortic_valve",
+     "name": "Aortic valve",
+     "ontology": "UBERON:0002137",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_aortic_valve"
+     ],
+     "shell": false
+    },
+    {
+     "id": "heart_left_ventricle",
+     "name": "Heart left ventricle",
+     "ontology": "UBERON:0002084",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_heart_left_ventricle"
+     ],
+     "shell": true
+    },
+    {
+     "id": "heart_right_ventricle",
+     "name": "Heart right ventricle",
+     "ontology": "UBERON:0002080",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_heart_right_ventricle"
+     ],
+     "shell": true
+    },
+    {
+     "id": "interventricular_septum",
+     "name": "Interventricular septum",
+     "ontology": "UBERON:0002094",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_interventricular_septum"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_cardiac_atrium",
+     "name": "Left cardiac atrium",
+     "ontology": "UBERON:0002079",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_cardiac_atrium"
+     ],
+     "shell": true
+    },
+    {
+     "id": "mitral_valve",
+     "name": "Mitral valve",
+     "ontology": "UBERON:0002135",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_mitral_valve"
+     ],
+     "shell": false
+    },
+    {
+     "id": "papillary_muscle_of_heart",
+     "name": "Papillary muscle of heart",
+     "ontology": "UBERON:0002494",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_papillary_muscle_of_heart_anterior",
+      "VH_M_papillary_muscle_of_heart_anterolateral",
+      "VH_M_papillary_muscle_of_heart_medial",
+      "VH_M_papillary_muscle_of_heart_posterior",
+      "VH_M_papillary_muscle_of_heart_posteromedial"
+     ],
+     "shell": false
+    },
+    {
+     "id": "posterior_papillary_muscle_of_right_ventricle",
+     "name": "Posterior papillary muscle of right ventricle",
+     "ontology": "FMA:7261",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_papillary_muscle_of_heart_posterior"
+     ],
+     "shell": false
+    },
+    {
+     "id": "posteromedial_head_of_posterior_papillary_muscle_of_left_ventricle",
+     "name": "Posteromedial head of posterior papillary muscle of left ventricle",
+     "ontology": "FMA:7267",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_papillary_muscle_of_heart_posteromedial"
+     ],
+     "shell": false
+    },
+    {
+     "id": "pulmonary_valve",
+     "name": "Pulmonary valve",
+     "ontology": "UBERON:0002146",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_pulmonary_valve"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_cardiac_atrium",
+     "name": "Right cardiac atrium",
+     "ontology": "UBERON:0002078",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_cardiac_atrium"
+     ],
+     "shell": true
+    },
+    {
+     "id": "septal_papillary_muscle_of_right_ventricle",
+     "name": "Septal papillary muscle of right ventricle",
+     "ontology": "FMA:7262",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_papillary_muscle_of_heart_medial"
+     ],
+     "shell": false
+    },
+    {
+     "id": "tricuspid_valve",
+     "name": "Tricuspid valve",
+     "ontology": "UBERON:0002134",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_tricuspid_valve"
+     ],
+     "shell": false
+    },
+    {
+     "id": "valve",
+     "name": "Valve",
+     "ontology": "UBERON:0003978",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_aortic_valve",
+      "VH_M_mitral_valve",
+      "VH_M_pulmonary_valve",
+      "VH_M_tricuspid_valve"
+     ],
+     "shell": false
+    }
+   ]
+  },
+  {
+   "id": "liver",
+   "name": "Liver",
+   "side": "midline",
+   "family": "liver",
+   "bodyIds": [
+    "liver"
+   ],
+   "file": "liver.glb",
+   "bytes": 305504,
+   "offset": [
+    0.02724,
+    0.73829,
+    0.11157
+   ],
+   "parts": [
+    {
+     "id": "bare_area_of_liver",
+     "name": "Bare area of liver",
+     "ontology": "UBERON:0001149",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_bare_area_of_liver"
+     ],
+     "shell": true
+    },
+    {
+     "id": "capsule_of_the_liver",
+     "name": "Capsule of the liver",
+     "ontology": "UBERON:0016479",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_liver_capsule"
+     ],
+     "shell": true
+    },
+    {
+     "id": "caudate_lobe_of_liver",
+     "name": "Caudate lobe of liver",
+     "ontology": "UBERON:0001117",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_caudate_lobe_of_liver"
+     ],
+     "shell": false
+    },
+    {
+     "id": "colic_impression_of_liver",
+     "name": "Colic impression of liver",
+     "ontology": "FMA:14484",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_colic_impression_of_liver"
+     ],
+     "shell": true
+    },
+    {
+     "id": "coronary_ligament_of_liver",
+     "name": "Coronary ligament of liver",
+     "ontology": "UBERON:0013138",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_coronary_ligament_of_liver"
+     ],
+     "shell": false
+    },
+    {
+     "id": "diaphragmatic_surface_of_liver",
+     "name": "Diaphragmatic surface of liver",
+     "ontology": "FMA:15729",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_diaphragmatic_surface"
+     ],
+     "shell": true
+    },
+    {
+     "id": "duodenal_impression_of_liver",
+     "name": "Duodenal impression of liver",
+     "ontology": "FMA:14485",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_duodenal_impression_of_liver"
+     ],
+     "shell": true
+    },
+    {
+     "id": "esophageal_impression_of_liver",
+     "name": "Esophageal impression of liver",
+     "ontology": "FMA:14486",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_esophageal_impression_of_liver"
+     ],
+     "shell": true
+    },
+    {
+     "id": "falciform_ligament",
+     "name": "Falciform ligament",
+     "ontology": "UBERON:0001247",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_falciform_ligament"
+     ],
+     "shell": false
+    },
+    {
+     "id": "gastric_impression_of_liver",
+     "name": "Gastric impression of liver",
+     "ontology": "FMA:14487",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_gastric_impression_of_liver"
+     ],
+     "shell": true
+    },
+    {
+     "id": "hepatoduodenal_ligament",
+     "name": "Hepatoduodenal ligament",
+     "ontology": "UBERON:0012472",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hepataduodenal_ligament"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_anterolateral_segment",
+     "name": "Left anterolateral segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_left_anterolateral_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_inferomedial_segment",
+     "name": "Left inferomedial segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_left_inferomedial_segment",
+      "VH_M_quadrate_lobe_of_liver"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lobe_of_liver",
+     "name": "Left lobe of liver",
+     "ontology": "UBERON:0001115",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_anterolateral_segment",
+      "VH_M_left_inferomedial_segment",
+      "VH_M_left_posterolateral_segment",
+      "VH_M_left_superiomedial_segment",
+      "VH_M_quadrate_lobe_of_liver"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_posterolateral_segment",
+     "name": "Left posterolateral segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_left_posterolateral_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_superiomedial_segment",
+     "name": "Left superiomedial segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_left_superiomedial_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "ligamentum_venosum",
+     "name": "Ligamentum venosum",
+     "ontology": "UBERON:0006587",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ligamentum_venosum"
+     ],
+     "shell": false
+    },
+    {
+     "id": "liver_left_lateral_lobe",
+     "name": "Liver left lateral lobe",
+     "ontology": "UBERON:0006727",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_anterolateral_segment",
+      "VH_M_left_posterolateral_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "liver_left_medial_lobe",
+     "name": "Liver left medial lobe",
+     "ontology": "UBERON:0006728",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_inferomedial_segment",
+      "VH_M_left_superiomedial_segment",
+      "VH_M_quadrate_lobe_of_liver"
+     ],
+     "shell": false
+    },
+    {
+     "id": "porta_hepatis",
+     "name": "Porta hepatis",
+     "ontology": "FMA:15758",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_porta_hepatis"
+     ],
+     "shell": false
+    },
+    {
+     "id": "quadrate_lobe_of_liver",
+     "name": "Quadrate lobe of liver",
+     "ontology": "UBERON:0001116",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_quadrate_lobe_of_liver"
+     ],
+     "shell": false
+    },
+    {
+     "id": "renal_impression_of_liver",
+     "name": "Renal impression of liver",
+     "ontology": "FMA:14488",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_renal_impression_of_liver"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_anteroinferior_segment",
+     "name": "Right anteroinferior segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_right_anteroinferior_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_anterosuperior_segment",
+     "name": "Right anterosuperior segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_right_anterosuperior_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lobe_of_liver",
+     "name": "Right lobe of liver",
+     "ontology": "UBERON:0001114",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_anteroinferior_segment",
+      "VH_M_right_anterosuperior_segment",
+      "VH_M_right_posteroinferior_segment",
+      "VH_M_right_posterosuperior_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_posteroinferior_segment",
+     "name": "Right posteroinferior segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_right_posteroinferior_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_posterosuperior_segment",
+     "name": "Right posterosuperior segment",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_right_posterosuperior_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "round_ligament_of_liver",
+     "name": "Round ligament of liver",
+     "ontology": "UBERON:0006588",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_round_ligament_of_liver"
+     ],
+     "shell": false
+    },
+    {
+     "id": "suprarenal_impression_of_liver",
+     "name": "Suprarenal impression of liver",
+     "ontology": "FMA:14489",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_suprarenal_impression_of_liver"
+     ],
+     "shell": true
+    },
+    {
+     "id": "triangular_ligament_of_liver",
+     "name": "Triangular ligament of liver",
+     "ontology": "UBERON:0035444",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_triangular_ligament_of_liver"
+     ],
+     "shell": false
+    }
+   ]
+  },
+  {
+   "id": "lungs",
+   "name": "Lungs",
+   "side": "midline",
+   "family": "lung",
+   "bodyIds": [
+    "left_lung",
+    "right_lung"
+   ],
+   "file": "lungs.glb",
+   "bytes": 1683924,
+   "offset": [
+    -0.00156,
+    0.73881,
+    0.09647
+   ],
+   "parts": [
+    {
+     "id": "bronchus",
+     "name": "Bronchus",
+     "ontology": "UBERON:0002185",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_bronchus",
+      "VH_M_cartilage_of_the_lobar_bronchus_L",
+      "VH_M_cartilage_of_the_lobar_bronchus_R",
+      "VH_M_cartilage_of_the_tertiary_bronchus_L",
+      "VH_M_cartilage_of_the_tertiary_bronchus_R",
+      "VH_M_left_anterior_basal_bronchus",
+      "VH_M_left_anterior_bronchus",
+      "VH_M_left_apical_bronchus",
+      "VH_M_left_inferior_lobar_bronchus",
+      "VH_M_left_lateral_basal_bronchus",
+      "VH_M_left_lingula_inferior_bronchus",
+      "VH_M_left_lingula_superior_bronchus",
+      "VH_M_left_lingular_bronchus",
+      "VH_M_left_medial_basal_bronchus",
+      "VH_M_left_posterior_basal_bronchus",
+      "VH_M_left_superior_bronchus",
+      "VH_M_left_superior_lobar_bronchus",
+      "VH_M_right_anterior_basal_bronchus",
+      "VH_M_right_anterior_bronchus",
+      "VH_M_right_apical_bronchus",
+      "VH_M_right_intermediate_bronchus",
+      "VH_M_right_lateral_basal_bronchus",
+      "VH_M_right_lateral_bronchus",
+      "VH_M_right_lower_lobar_bronchus",
+      "VH_M_right_medial_basal_bronchus",
+      "VH_M_right_medial_bronchus",
+      "VH_M_right_middle_lobar_bronchus",
+      "VH_M_right_posterior_basal",
+      "VH_M_right_posterior_bronchus",
+      "VH_M_right_superior_bronchus",
+      "VH_M_right_superior_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "cartilage_of_lobar_bronchus",
+     "name": "Cartilage of lobar bronchus",
+     "ontology": "FMA:62659",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_cartilage_of_the_lobar_bronchus_L",
+      "VH_M_cartilage_of_the_lobar_bronchus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "cartilage_of_segmental_bronchus",
+     "name": "Cartilage of segmental bronchus",
+     "ontology": "FMA:62662",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_cartilage_of_the_tertiary_bronchus_L",
+      "VH_M_cartilage_of_the_tertiary_bronchus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "inferior_lingular_bronchopulmonary_segment",
+     "name": "Inferior lingular bronchopulmonary segment",
+     "ontology": "FMA:7375",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_lingula_inferior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "inferior_lingular_bronchus",
+     "name": "Inferior lingular bronchus",
+     "ontology": "FMA:7431",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_lingula_inferior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "interlobar_bronchus",
+     "name": "Interlobar bronchus",
+     "ontology": "FMA:7415",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_intermediate_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lateral_segmental_bronchus",
+     "name": "Lateral segmental bronchus",
+     "ontology": "FMA:7402",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_lateral_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_anterior_basal_bronchopulmonary_segment",
+     "name": "Left anterior basal bronchopulmonary segment",
+     "ontology": "FMA:7378",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_anterior_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_anterior_basal_segmental_bronchus",
+     "name": "Left anterior basal segmental bronchus",
+     "ontology": "FMA:7506",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_anterior_basal_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_anterior_bronchopulmonary_segment",
+     "name": "Left Anterior Bronchopulmonary Segment",
+     "ontology": "FMA:7373",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_anterior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_anterior_segmental_bronchus",
+     "name": "Left anterior segmental bronchus",
+     "ontology": "FMA:7428",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_anterior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_apical_bronchopulmonary_segment",
+     "name": "Left apical bronchopulmonary segment",
+     "ontology": "FMA:7385",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_apical_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_apical_segmental_bronchus",
+     "name": "Left apical segmental bronchus",
+     "ontology": "FMA:7426",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_apical_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lateral_basal_bronchopulmonary_segment",
+     "name": "Left Lateral Basal Bronchopulmonary Segment",
+     "ontology": "FMA:7379",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_lateral_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_lateral_basal_segmental_bronchus",
+     "name": "Left lateral basal segmental bronchus",
+     "ontology": "FMA:7507",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_lateral_basal_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lingular_bronchus",
+     "name": "Left lingular bronchus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "VH_M_left_lingular_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lung",
+     "name": "Left lung",
+     "ontology": "UBERON:0002168",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_L",
+      "VH_M_hilum_lower_L",
+      "VH_M_hilum_upper_L",
+      "VH_M_left_anterior_basal_bronchopulmonary_segment",
+      "VH_M_left_anterior_bronchopulmonary_segment",
+      "VH_M_left_apical_bronchopulmonary_segment",
+      "VH_M_left_lateral_basal_bronchopulmonary_segment",
+      "VH_M_left_lingula_inferior_bronchopulmonary_segment",
+      "VH_M_left_lingula_superior_bronchopulmonary_segment",
+      "VH_M_left_medial_basal_bronchopulmonary_segment",
+      "VH_M_left_posetrior_basal_bronchopulmonary_segment",
+      "VH_M_left_posterior_bronchopulmonary_segment",
+      "VH_M_left_superior_bronchopulmonary_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lung_hilus",
+     "name": "Left lung hilus",
+     "ontology": "UBERON:0004887",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_L",
+      "VH_M_hilum_lower_L",
+      "VH_M_hilum_upper_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_medial_basal_bronchopulmonary_segment",
+     "name": "Left Medial Basal Bronchopulmonary Segment",
+     "ontology": "FMA:7377",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_medial_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_medial_basal_segmental_bronchus",
+     "name": "Left medial basal segmental bronchus",
+     "ontology": "FMA:7505",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_medial_basal_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_posterior_basal_bronchopulmonary_segment",
+     "name": "Left posterior basal bronchopulmonary segment",
+     "ontology": "",
+     "labelSource": "corrected",
+     "meshes": [
+      "VH_M_left_posetrior_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_posterior_basal_segmental_bronchus",
+     "name": "Left posterior basal segmental bronchus",
+     "ontology": "FMA:7508",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_posterior_basal_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_posterior_bronchopulmonary_segment",
+     "name": "Left posterior bronchopulmonary segment",
+     "ontology": "FMA:7386",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_posterior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_superior_bronchopulmonary_segment",
+     "name": "Left superior bronchopulmonary segment",
+     "ontology": "FMA:7376",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_superior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_superior_segmental_bronchus",
+     "name": "Left superior segmental bronchus",
+     "ontology": "FMA:7504",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_superior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lobar_bronchus_of_left_lung",
+     "name": "Lobar bronchus of left lung",
+     "ontology": "UBERON:0003405",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_inferior_lobar_bronchus",
+      "VH_M_left_superior_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lobar_bronchus_of_left_lung_lower_lobe",
+     "name": "Lobar bronchus of left lung lower lobe",
+     "ontology": "UBERON:0012066",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_inferior_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lobar_bronchus_of_left_lung_upper_lobe",
+     "name": "Lobar bronchus of left lung upper lobe",
+     "ontology": "UBERON:0012065",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_superior_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lobar_bronchus_of_right_lung",
+     "name": "Lobar bronchus of right lung",
+     "ontology": "UBERON:0003404",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_intermediate_bronchus",
+      "VH_M_right_middle_lobar_bronchus",
+      "VH_M_right_superior_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lower_lobe_of_left_lung",
+     "name": "Lower Lobe of Left Lung",
+     "ontology": "UBERON:0008953",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_lower_L",
+      "VH_M_left_anterior_basal_bronchopulmonary_segment",
+      "VH_M_left_lateral_basal_bronchopulmonary_segment",
+      "VH_M_left_medial_basal_bronchopulmonary_segment",
+      "VH_M_left_posetrior_basal_bronchopulmonary_segment",
+      "VH_M_left_superior_bronchopulmonary_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lower_lobe_of_right_lung",
+     "name": "Lower Lobe of Right Lung",
+     "ontology": "UBERON:0002171",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_lower_R",
+      "VH_M_right_anterior_basal_bronchopulmonary_segment",
+      "VH_M_right_lateral_basal_bronchopulmonary_segment",
+      "VH_M_right_medial_basal_bronchopulmonary_segment",
+      "VH_M_right_posterior_basal_bronchopulmonary_segment",
+      "VH_M_right_superior_bronchopulmonary_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "medial_segmental_bronchus",
+     "name": "Medial segmental bronchus",
+     "ontology": "FMA:7403",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_medial_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "middle_lobar_bronchus",
+     "name": "Middle lobar bronchus",
+     "ontology": "FMA:7401",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_middle_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "middle_lobe_of_right_lung",
+     "name": "Middle Lobe of Right Lung",
+     "ontology": "UBERON:0002174",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_middle_R",
+      "VH_M_right_lateral_bronchopulmonary_segment",
+      "VH_M_right_medial_bronchopulmonary_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_anterior_basal_bronchopulmonary_segment",
+     "name": "Right anterior basal bronchopulmonary segment",
+     "ontology": "FMA:7364",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_anterior_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_anterior_basal_segmental_bronchus",
+     "name": "Right anterior basal segmental bronchus",
+     "ontology": "",
+     "labelSource": "corrected",
+     "meshes": [
+      "VH_M_right_anterior_basal_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_anterior_bronchopulmonary_segment",
+     "name": "Right Anterior Bronchopulmonary Segment",
+     "ontology": "FMA:7359",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_anterior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_anterior_segmental_bronchus",
+     "name": "Right anterior segmental bronchus",
+     "ontology": "FMA:7400",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_anterior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_apical_bronchopulmonary_segment",
+     "name": "Right Apical Bronchopulmonary Segment",
+     "ontology": "FMA:7338",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_apical_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_apical_segmental_bronchus",
+     "name": "Right apical segmental bronchus",
+     "ontology": "",
+     "labelSource": "corrected",
+     "meshes": [
+      "VH_M_right_apical_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_inferior_lobar_bronchus",
+     "name": "Right inferior lobar bronchus",
+     "ontology": "FMA:7404",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_lower_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lateral_basal_bronchopulmonary_segment",
+     "name": "Right Lateral Basal Bronchopulmonary Segment",
+     "ontology": "FMA:7363",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_lateral_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_lateral_basal_segmental_bronchus",
+     "name": "Right lateral basal segmental bronchus",
+     "ontology": "FMA:7419",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_lateral_basal_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lateral_bronchopulmonary_segment",
+     "name": "Right Lateral Bronchopulmonary Segment",
+     "ontology": "FMA:7361",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_lateral_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_lung",
+     "name": "Right lung",
+     "ontology": "UBERON:0002167",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_R",
+      "VH_M_hilum_lower_R",
+      "VH_M_hilum_middle_R",
+      "VH_M_hilum_upper_R",
+      "VH_M_right_anterior_basal_bronchopulmonary_segment",
+      "VH_M_right_anterior_bronchopulmonary_segment",
+      "VH_M_right_apical_bronchopulmonary_segment",
+      "VH_M_right_lateral_basal_bronchopulmonary_segment",
+      "VH_M_right_lateral_bronchopulmonary_segment",
+      "VH_M_right_medial_basal_bronchopulmonary_segment",
+      "VH_M_right_medial_bronchopulmonary_segment",
+      "VH_M_right_posterior_basal_bronchopulmonary_segment",
+      "VH_M_right_posterior_bronchopulmonary_segment",
+      "VH_M_right_superior_bronchopulmonary_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lung_hilus",
+     "name": "Right lung hilus",
+     "ontology": "UBERON:0004888",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_R",
+      "VH_M_hilum_lower_R",
+      "VH_M_hilum_middle_R",
+      "VH_M_hilum_upper_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_medial_basal_bronchopulmonary_segment",
+     "name": "Right Medial Basal Bronchopulmonary Segment",
+     "ontology": "FMA:7365",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_medial_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_medial_basal_segmental_bronchus",
+     "name": "Right medial basal segmental bronchus",
+     "ontology": "FMA:7417",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_medial_basal_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_medial_bronchopulmonary_segment",
+     "name": "Right Medial Bronchopulmonary Segment",
+     "ontology": "FMA:7360",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_medial_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_posterior_basal_bronchopulmonary_segment",
+     "name": "Right Posterior Basal Bronchopulmonary Segment",
+     "ontology": "FMA:7362",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_posterior_basal_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_posterior_basal_segmental_bronchus",
+     "name": "Right posterior basal segmental bronchus",
+     "ontology": "FMA:7420",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_posterior_basal"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_posterior_bronchopulmonary_segment",
+     "name": "Right Posterior Bronchopulmonary Segment",
+     "ontology": "FMA:7339",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_posterior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_posterior_segmental_bronchus",
+     "name": "Right posterior segmental bronchus",
+     "ontology": "FMA:7399",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_posterior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_superior_bronchopulmonary_segment",
+     "name": "Right Superior Bronchopulmonary Segment",
+     "ontology": "FMA:7366",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_superior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_superior_lobar_bronchus",
+     "name": "Right superior lobar bronchus",
+     "ontology": "FMA:7397",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_superior_lobar_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_superior_segmental_bronchus",
+     "name": "Right superior segmental bronchus",
+     "ontology": "FMA:7416",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_right_superior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "segmental_bronchus",
+     "name": "Segmental bronchus",
+     "ontology": "UBERON:0002184",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_bronchus",
+      "VH_M_left_anterior_basal_bronchus",
+      "VH_M_left_anterior_bronchus",
+      "VH_M_left_apical_bronchus",
+      "VH_M_left_lateral_basal_bronchus",
+      "VH_M_left_lingula_inferior_bronchus",
+      "VH_M_left_lingula_superior_bronchus",
+      "VH_M_left_lingular_bronchus",
+      "VH_M_left_medial_basal_bronchus",
+      "VH_M_left_posterior_basal_bronchus",
+      "VH_M_left_superior_bronchus",
+      "VH_M_right_anterior_basal_bronchus",
+      "VH_M_right_anterior_bronchus",
+      "VH_M_right_apical_bronchus",
+      "VH_M_right_lateral_basal_bronchus",
+      "VH_M_right_lateral_bronchus",
+      "VH_M_right_lower_lobar_bronchus",
+      "VH_M_right_medial_basal_bronchus",
+      "VH_M_right_medial_bronchus",
+      "VH_M_right_posterior_basal",
+      "VH_M_right_posterior_bronchus",
+      "VH_M_right_superior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "superior_lingular_bronchopulmonary_segment",
+     "name": "Superior lingular bronchopulmonary segment",
+     "ontology": "FMA:7374",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_lingula_superior_bronchopulmonary_segment"
+     ],
+     "shell": true
+    },
+    {
+     "id": "superior_lingular_bronchus",
+     "name": "Superior lingular bronchus",
+     "ontology": "FMA:7430",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_left_lingula_superior_bronchus"
+     ],
+     "shell": false
+    },
+    {
+     "id": "upper_lobe_of_left_lung",
+     "name": "Upper Lobe of Left Lung",
+     "ontology": "UBERON:0008952",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_upper_L",
+      "VH_M_left_anterior_bronchopulmonary_segment",
+      "VH_M_left_apical_bronchopulmonary_segment",
+      "VH_M_left_lingula_inferior_bronchopulmonary_segment",
+      "VH_M_left_lingula_superior_bronchopulmonary_segment",
+      "VH_M_left_posterior_bronchopulmonary_segment"
+     ],
+     "shell": false
+    },
+    {
+     "id": "upper_lobe_of_right_lung",
+     "name": "Upper Lobe of Right Lung",
+     "ontology": "UBERON:0002170",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_hilum_upper_R",
+      "VH_M_right_anterior_bronchopulmonary_segment",
+      "VH_M_right_apical_bronchopulmonary_segment",
+      "VH_M_right_posterior_bronchopulmonary_segment"
+     ],
+     "shell": false
+    }
+   ]
+  },
+  {
+   "id": "brain",
+   "name": "Brain",
+   "side": "midline",
+   "family": "brain",
+   "bodyIds": [
+    "brain"
+   ],
+   "file": "brain.glb",
+   "bytes": 1935828,
+   "offset": [
+    -0.00043,
+    0.71791,
+    0.08083
+   ],
+   "parts": [
+    {
+     "id": "anterior_cingulate_gyrus",
+     "name": "Anterior cingulate gyrus",
+     "ontology": "UBERON:0002756",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_cingulate_gyrus_rostral_anterior_part_L",
+      "Allen_cingulate_gyrus_rostral_anterior_part_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "anterior_commissure",
+     "name": "Anterior commissure",
+     "ontology": "UBERON:0000935",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_anterior_commissure_L",
+      "Allen_anterior_commissure_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "anterior_olfactory_nucleus",
+     "name": "Anterior olfactory nucleus",
+     "ontology": "UBERON:0002266",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_anterior_olfactory_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "anterior_parahippocampal_gyrus",
+     "name": "Anterior parahippocampal gyrus",
+     "ontology": "UBERON:0022383",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_anterior_parahippocampal_gyrus_L",
+      "Allen_anterior_parahippocampal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "anterior_segment_of_paracentral_lobule",
+     "name": "Anterior segment of paracentral lobule",
+     "ontology": "UBERON:0035932",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_paracentral_lobule_rostral_part_L",
+      "Allen_paracentral_lobule_rostral_part_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "cerebellar_vermis",
+     "name": "Cerebellar vermis",
+     "ontology": "UBERON:0004720",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_cerebellar_vermis_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "cerebral_peduncle",
+     "name": "Cerebral peduncle",
+     "ontology": "UBERON:0002623",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_cerebral_peduncle_crus_cerebri_L",
+      "Allen_cerebral_peduncle_crus_cerebri_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "corpus_callosum",
+     "name": "Corpus callosum",
+     "ontology": "UBERON:0002336",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_corpus_callosum_L",
+      "Allen_corpus_callosum_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "cuneus_cortex",
+     "name": "Cuneus cortex",
+     "ontology": "UBERON:0006092",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_cuneus_L",
+      "Allen_cuneus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "fornix_of_brain",
+     "name": "Fornix of brain",
+     "ontology": "UBERON:0000052",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_fornix_L",
+      "Allen_fornix_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "fourth_ventricle",
+     "name": "Fourth ventricle",
+     "ontology": "UBERON:0002422",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_fourth_ventricle_L",
+      "Allen_fourth_ventricle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "frontal_operculum",
+     "name": "Frontal operculum",
+     "ontology": "UBERON:0002947",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_frontal_operculum_L",
+      "Allen_frontal_operculum_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "gyrus_rectus",
+     "name": "Gyrus rectus",
+     "ontology": "UBERON:0004671",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_gyrus_rectus_straight_gyrus_L",
+      "Allen_gyrus_rectus_straight_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "hippocampal_formation",
+     "name": "Hippocampal formation",
+     "ontology": "UBERON:0002421",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_body_of_hippocampus_L",
+      "Allen_body_of_hippocampus_R",
+      "Allen_head_of_hippocampus_L",
+      "Allen_head_of_hippocampus_R",
+      "Allen_tail_of_hippocampus_L",
+      "Allen_tail_of_hippocampus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "hypothalamus",
+     "name": "Hypothalamus",
+     "ontology": "UBERON:0001898",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_hypothalamus_L",
+      "Allen_hypothalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "inferior_colliculus",
+     "name": "Inferior colliculus",
+     "ontology": "UBERON:0001946",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_inferior_colliculus_L",
+      "Allen_inferior_colliculus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "inferior_occipital_gyrus",
+     "name": "Inferior occipital gyrus",
+     "ontology": "UBERON:0014608",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_inferior_occipital_gyrus_L",
+      "Allen_inferior_occipital_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "inferior_temporal_gyrus",
+     "name": "Inferior temporal gyrus",
+     "ontology": "UBERON:0002751",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_inferior_temporal_gyrus_L",
+      "Allen_inferior_temporal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "intermediate_orbital_gyrus",
+     "name": "Intermediate orbital gyrus",
+     "ontology": "UBERON:0002644",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_anterior_intermediate_orbital_gyrus_L",
+      "Allen_anterior_intermediate_orbital_gyrus_R",
+      "Allen_posterior_intermediate_orbital_gyrus_L",
+      "Allen_posterior_intermediate_orbital_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "isthmus_of_cingulate_gyrus",
+     "name": "Isthmus of cingulate gyrus",
+     "ontology": "UBERON:0002738",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_ingulo_parahippocampal_isthmus_L",
+      "Allen_ingulo_parahippocampal_isthmus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "lateral_orbital_gyrus",
+     "name": "Lateral orbital gyrus",
+     "ontology": "UBERON:0002564",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_lateral_orbital_gyrus_L",
+      "Allen_lateral_orbital_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_amygdalohippocampal_area",
+     "name": "Left amygdalohippocampal area",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_amygdalohippocampal_area_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_amygdaloid_complex",
+     "name": "Left amygdaloid complex",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_amygdaloid_complex_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_angular_gyrus",
+     "name": "Left angular gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_angular_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_anterior_amygdaloid_area",
+     "name": "Left anterior amygdaloid area",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_amygdaloid_area_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_anterior_cortical_nucleus",
+     "name": "Left anterior cortical nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_cortical_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_anterior_horn_of_lateral_ventricle",
+     "name": "Left anterior horn of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_horn_of_lateral_ventricle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_anterior_nuclear_complex_of_thalamus",
+     "name": "Left anterior nuclear complex of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_nuclear_complex_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_anterior_olfactory_nucleus",
+     "name": "Left anterior olfactory nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_olfactory_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_atrium_of_lateral_ventricle",
+     "name": "Left atrium of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_atrium_of_lateral_ventricle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_basal_forebrain",
+     "name": "Left basal forebrain",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_basal_forebrain_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_basolateral_nucleus_basal_nucleus",
+     "name": "Left basolateral nucleus basal nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_basolateral_nucleus_basal_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_basomedial_nucleus_accessory_basal_nucleus",
+     "name": "Left basomedial nucleus accessory basal nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_basomedial_nucleus_accessory_basal_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_bed_nucleus_of_stria_terminalis",
+     "name": "Left bed nucleus of stria terminalis",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_bed_nucleus_of_stria_terminalis_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_body_of_caudate",
+     "name": "Left body of caudate",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_body_of_caudate_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_body_of_hippocampus",
+     "name": "Left body of hippocampus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_body_of_hippocampus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_body_of_lateral_ventricle",
+     "name": "Left body of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_body_of_lateral_ventricle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_central_canal_of_medulla_oblongata",
+     "name": "Left central canal of medulla oblongata",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_central_canal_of_medulla_oblongata_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_central_nuclear_group",
+     "name": "Left central nuclear group",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_central_nuclear_group_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_centromedian_nucleus_of_thalamus",
+     "name": "Left centromedian nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_centromedian_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_cerebellar_deep_nuclei",
+     "name": "Left cerebellar deep nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_cerebellar_deep_nuclei_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_cerebellar_vermis",
+     "name": "Left cerebellar vermis",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_cerebellar_vermis_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_cerebral_aqueduct",
+     "name": "Left cerebral aqueduct",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_cerebral_aqueduct_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_cerebral_hemisphere",
+     "name": "Left cerebral hemisphere",
+     "ontology": "UBERON:0002813",
+     "labelSource": "corrected",
+     "meshes": [
+      "Allen_amygdalohippocampal_area_R",
+      "Allen_amygdaloid_complex_R",
+      "Allen_angular_gyrus_R",
+      "Allen_anterior_amygdaloid_area_R",
+      "Allen_anterior_commissure_R",
+      "Allen_anterior_cortical_nucleus_R",
+      "Allen_anterior_horn_of_lateral_ventricle_R",
+      "Allen_anterior_intermediate_orbital_gyrus_R",
+      "Allen_anterior_nuclear_complex_of_thalamus_R",
+      "Allen_anterior_olfactory_nucleus_R",
+      "Allen_anterior_parahippocampal_gyrus_R",
+      "Allen_atrium_of_lateral_ventricle_R",
+      "Allen_basal_forebrain_R",
+      "Allen_basilar_part_of_pons_R",
+      "Allen_basolateral_nucleus_basal_nucleus_R",
+      "Allen_basomedial_nucleus_accessory_basal_nucleus_R",
+      "Allen_bed_nucleus_of_stria_terminalis_R",
+      "Allen_body_of_caudate_R",
+      "Allen_body_of_hippocampus_R",
+      "Allen_body_of_lateral_ventricle_R",
+      "Allen_central_canal_of_medulla_oblongata_R",
+      "Allen_central_nuclear_group_R",
+      "Allen_centromedian_nucleus_of_thalamus_R",
+      "Allen_cerebellar_deep_nuclei_R",
+      "Allen_cerebellar_vermis_R",
+      "Allen_cerebral_aqueduct_R",
+      "Allen_cerebral_peduncle_crus_cerebri_R",
+      "Allen_cingulate_gyrus_caudal_posterior_part_R",
+      "Allen_cingulate_gyrus_rostral_anterior_part_R",
+      "Allen_claustrum_R",
+      "Allen_corpus_callosum_R",
+      "Allen_cuneus_R",
+      "Allen_dorsal_lateral_geniculate_nucleus_R",
+      "Allen_external_segment_of_globus_pallidus_R",
+      "Allen_fornix_R",
+      "Allen_fourth_ventricle_R",
+      "Allen_frontal_agranular_insular_cortex_area_Fl_R",
+      "Allen_frontal_operculum_R",
+      "Allen_frontal_pole_R",
+      "Allen_frontomarginal_gyrus_R",
+      "Allen_gyrus_ambiens_R",
+      "Allen_gyrus_rectus_straight_gyrus_R",
+      "Allen_habenular_nuclei_R",
+      "Allen_head_of_caudate_R",
+      "Allen_head_of_hippocampus_R",
+      "Allen_hypothalamus_L",
+      "Allen_hypothalamus_R",
+      "Allen_inferior_cerebellar_peduncle_R",
+      "Allen_inferior_colliculus_L",
+      "Allen_inferior_colliculus_R",
+      "Allen_inferior_frontal_gyrus_opercular_part_R",
+      "Allen_inferior_frontal_gyrus_triangular_part_R",
+      "Allen_inferior_horn_of_lateral_ventricle_R",
+      "Allen_inferior_occipital_gyrus_R",
+      "Allen_inferior_olive_R",
+      "Allen_inferior_temporal_gyrus_R",
+      "Allen_ingulo_parahippocampal_isthmus_R",
+      "Allen_internal_segment_of_globus_pallidus_R",
+      "Allen_lateral_dorsal_nucleus_of_thalamus_R",
+      "Allen_lateral_hemisphere_of_cerebellum_R",
+      "Allen_lateral_nucleus_R",
+      "Allen_lateral_occipitotemporal_fusiform_gyrus_occipital_part_R",
+      "Allen_lateral_olfactory_gyrus_R",
+      "Allen_lateral_orbital_gyrus_R",
+      "Allen_lateral_posterior_nucleus_of_thalamus_R",
+      "Allen_limen_insula_R",
+      "Allen_lingual_gyrus_medial_occipitotemporal_gyrus_R",
+      "Allen_long_insular_gyri_R",
+      "Allen_mammillary_region_of_HTH_L",
+      "Allen_mammillary_region_of_HTH_R",
+      "Allen_mammillothalamic_tract_R",
+      "Allen_medial_geniculate_nuclei_R",
+      "Allen_medial_nucleus_R",
+      "Allen_medial_orbital_gyrus_R",
+      "Allen_mediodorsal_nucleus_of_thalamus_R",
+      "Allen_midbrain_tegmentum_L",
+      "Allen_midbrain_tegmentum_R",
+      "Allen_middle_cerebellar_peduncle_R",
+      "Allen_middle_frontal_gyrus_R",
+      "Allen_middle_temporal_gyrus_R",
+      "Allen_midline_nuclear_complex_R",
+      "Allen_nucleus_accumbens_R",
+      "Allen_occipital_pole_R",
+      "Allen_occipitotemporal_fusiform_gyrus_temporal_part_R",
+      "Allen_olfactory_bulb_R",
+      "Allen_olfactory_tract_R",
+      "Allen_optic_radiation_R",
+      "Allen_optic_tract_R",
+      "Allen_paracentral_lobule_caudal_part_R",
+      "Allen_paracentral_lobule_rostral_part_R",
+      "Allen_paracingulate_gyrus_R",
+      "Allen_parafascicular_nucleus_of_thalamus_R",
+      "Allen_paravermis_of_cerebellum_R",
+      "Allen_parietal_operculum_R",
+      "Allen_perirhinal_gyrus_rostral_part_of_FuGt_R",
+      "Allen_pineal_body_R",
+      "Allen_piriform_region_R",
+      "Allen_planum_polare_R",
+      "Allen_planum_temporale_R",
+      "Allen_pontine_tegmentum_R",
+      "Allen_postcentral_gyrus_R",
+      "Allen_posterior_cortical_nucleus_R",
+      "Allen_posterior_horn_of_lateral_ventricle_R",
+      "Allen_posterior_intermediate_orbital_gyrus_R",
+      "Allen_posterior_parahippocampal_gyrus_R",
+      "Allen_posteroventral_putamen_R",
+      "Allen_precuneus_R",
+      "Allen_preoptic_region_of_HTH_R",
+      "Allen_pretectal_region_R",
+      "Allen_primary_motor_cortex_R",
+      "Allen_pulvinar_of_thalamus_R",
+      "Allen_putamen_R",
+      "Allen_pyramidal_part_of_medulla_oblongata_R",
+      "Allen_red_nucleus_L",
+      "Allen_red_nucleus_R",
+      "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_R",
+      "Allen_rostral_gyrus_R",
+      "Allen_septal_nuclei_R",
+      "Allen_short_insular_gyri_R",
+      "Allen_subcallosal_gyrus_parolfactory_gyrus_R",
+      "Allen_substantia_nigra_R",
+      "Allen_subthalamic_nucleus_L",
+      "Allen_subthalamic_nucleus_R",
+      "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_R",
+      "Allen_superior_colliculus_R",
+      "Allen_superior_frontal_gyrus_R",
+      "Allen_superior_occipital_gyrus_R",
+      "Allen_superior_temporal_gyrus_R",
+      "Allen_supramarginal_gyrus_R",
+      "Allen_supraoptic_region_of_HTH_R",
+      "Allen_supraparietal_lobule_R",
+      "Allen_tail_of_caudate_R",
+      "Allen_tail_of_hippocampus_R",
+      "Allen_tegmentum_of_medulla_oblongata_R",
+      "Allen_temporal_agranular_insular_cortex_area_Tl_R",
+      "Allen_temporal_pole_R",
+      "Allen_thalamus_R",
+      "Allen_third_ventricle_R",
+      "Allen_transverse_temporal_gyrus_Heschls_gyrus_R",
+      "Allen_tuberal_region_of_HTH_R",
+      "Allen_ventral_anterior_nucleus_of_thalamus_R",
+      "Allen_ventral_lateral_nucleus_of_thalamus_R",
+      "Allen_ventral_posterior_lateral_nucleus_R",
+      "Allen_ventral_posterior_medial_nucleus_R",
+      "Allen_white_matter_of_forebrain_R",
+      "Allen_white_matter_of_hindbrain_R",
+      "Allen_zona_incerta_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_claustrum",
+     "name": "Left claustrum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_claustrum_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_dorsal_lateral_geniculate_nucleus",
+     "name": "Left dorsal lateral geniculate nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_dorsal_lateral_geniculate_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_external_segment_of_globus_pallidus",
+     "name": "Left external segment of globus pallidus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_external_segment_of_globus_pallidus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_frontal_agranular_insular_cortex_area_fl",
+     "name": "Left frontal agranular insular cortex area Fl",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_frontal_agranular_insular_cortex_area_Fl_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_frontal_pole",
+     "name": "Left frontal pole",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_frontal_pole_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_frontomarginal_gyrus",
+     "name": "Left frontomarginal gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_frontomarginal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_gyrus_ambiens",
+     "name": "Left gyrus ambiens",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_gyrus_ambiens_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_habenular_nuclei",
+     "name": "Left habenular nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_habenular_nuclei_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_head_of_caudate",
+     "name": "Left head of caudate",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_head_of_caudate_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_head_of_hippocampus",
+     "name": "Left head of hippocampus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_head_of_hippocampus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_inferior_cerebellar_peduncle",
+     "name": "Left inferior cerebellar peduncle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_inferior_cerebellar_peduncle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_inferior_horn_of_lateral_ventricle",
+     "name": "Left inferior horn of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_inferior_horn_of_lateral_ventricle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_inferior_olive",
+     "name": "Left inferior olive",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_inferior_olive_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_internal_segment_of_globus_pallidus",
+     "name": "Left internal segment of globus pallidus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_internal_segment_of_globus_pallidus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lateral_dorsal_nucleus_of_thalamus",
+     "name": "Left lateral dorsal nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_dorsal_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lateral_hemisphere_of_cerebellum",
+     "name": "Left lateral hemisphere of cerebellum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_hemisphere_of_cerebellum_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_lateral_nucleus",
+     "name": "Left lateral nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lateral_olfactory_gyrus",
+     "name": "Left lateral olfactory gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_olfactory_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_lateral_posterior_nucleus_of_thalamus",
+     "name": "Left lateral posterior nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_posterior_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_limen_insula",
+     "name": "Left limen insula",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_limen_insula_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_long_insular_gyri",
+     "name": "Left long insular gyri",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_long_insular_gyri_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_mammillary_region_of_hypothalamus",
+     "name": "Left mammillary region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_mammillary_region_of_HTH_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_mammillothalamic_tract",
+     "name": "Left mammillothalamic tract",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_mammillothalamic_tract_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_medial_geniculate_nuclei",
+     "name": "Left medial geniculate nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_medial_geniculate_nuclei_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_medial_nucleus",
+     "name": "Left medial nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_medial_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_mediodorsal_nucleus_of_thalamus",
+     "name": "Left mediodorsal nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_mediodorsal_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_midbrain_tegmentum",
+     "name": "Left midbrain tegmentum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_midbrain_tegmentum_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_middle_cerebellar_peduncle",
+     "name": "Left middle cerebellar peduncle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_middle_cerebellar_peduncle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_midline_nuclear_complex",
+     "name": "Left midline nuclear complex",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_midline_nuclear_complex_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_nucleus_accumbens",
+     "name": "Left nucleus accumbens",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_nucleus_accumbens_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_occipitotemporal_fusiform_gyrus_temporal_part",
+     "name": "Left occipitotemporal fusiform gyrus temporal part",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_occipitotemporal_fusiform_gyrus_temporal_part_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_olfactory_bulb",
+     "name": "Left olfactory bulb",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_olfactory_bulb_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_olfactory_tract",
+     "name": "Left olfactory tract",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_olfactory_tract_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_paracentral_lobule_caudal_part",
+     "name": "Left paracentral lobule caudal part",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_paracentral_lobule_caudal_part_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_paracingulate_gyrus",
+     "name": "Left paracingulate gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_paracingulate_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_parafascicular_nucleus_of_thalamus",
+     "name": "Left parafascicular nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_parafascicular_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_paravermis_of_cerebellum",
+     "name": "Left paravermis of cerebellum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_paravermis_of_cerebellum_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_perirhinal_gyrus_rostral_part_of_fugt",
+     "name": "Left perirhinal gyrus rostral part of FuGt",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_perirhinal_gyrus_rostral_part_of_FuGt_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_piriform_region",
+     "name": "Left piriform region",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_piriform_region_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_posterior_cortical_nucleus",
+     "name": "Left posterior cortical nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_posterior_cortical_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_posterior_horn_of_lateral_ventricle",
+     "name": "Left posterior horn of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_posterior_horn_of_lateral_ventricle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_posteroventral_putamen",
+     "name": "Left posteroventral putamen",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_posteroventral_putamen_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_preoptic_region_of_hypothalamus",
+     "name": "Left preoptic region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_preoptic_region_of_HTH_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_pretectal_region",
+     "name": "Left pretectal region",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_pretectal_region_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_pulvinar_of_thalamus",
+     "name": "Left pulvinar of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_pulvinar_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_putamen",
+     "name": "Left putamen",
+     "ontology": "UBERON:0008885",
+     "labelSource": "corrected",
+     "meshes": [
+      "Allen_putamen_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_pyramidal_part_of_medulla_oblongata",
+     "name": "Left pyramidal part of medulla oblongata",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_pyramidal_part_of_medulla_oblongata_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_reuniens_nucleus_medioventral_nucleus_of_thalamus",
+     "name": "Left reuniens nucleus medioventral nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_rostral_gyrus",
+     "name": "Left rostral gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_rostral_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_septal_nuclei",
+     "name": "Left septal nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_septal_nuclei_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_short_insular_gyri",
+     "name": "Left short insular gyri",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_short_insular_gyri_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_subthalamic_nucleus",
+     "name": "Left subthalamic nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_subthalamic_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_superior_cerebellar_peduncle_brachium_conjunctivum",
+     "name": "Left superior cerebellar peduncle brachium conjunctivum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_supramarginal_gyrus",
+     "name": "Left supramarginal gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_supramarginal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_supraoptic_region_of_hypothalamus",
+     "name": "Left supraoptic region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_supraoptic_region_of_HTH_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_supraparietal_lobule",
+     "name": "Left supraparietal lobule",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_supraparietal_lobule_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_tail_of_caudate",
+     "name": "Left tail of caudate",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tail_of_caudate_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_tail_of_hippocampus",
+     "name": "Left tail of hippocampus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tail_of_hippocampus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_tegmentum_of_medulla_oblongata",
+     "name": "Left tegmentum of medulla oblongata",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tegmentum_of_medulla_oblongata_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_temporal_agranular_insular_cortex_area_tl",
+     "name": "Left temporal agranular insular cortex area Tl",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_temporal_agranular_insular_cortex_area_Tl_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_thalamus",
+     "name": "Left thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_third_ventricle",
+     "name": "Left third ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_third_ventricle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_transverse_temporal_gyrus_heschls_gyrus",
+     "name": "Left transverse temporal gyrus Heschls gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_transverse_temporal_gyrus_Heschls_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_tuberal_region_of_hypothalamus",
+     "name": "Left tuberal region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tuberal_region_of_HTH_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_ventral_anterior_nucleus_of_thalamus",
+     "name": "Left ventral anterior nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_anterior_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_ventral_lateral_nucleus_of_thalamus",
+     "name": "Left ventral lateral nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_lateral_nucleus_of_thalamus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_ventral_posterior_lateral_nucleus",
+     "name": "Left ventral posterior lateral nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_posterior_lateral_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_ventral_posterior_medial_nucleus",
+     "name": "Left ventral posterior medial nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_posterior_medial_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_white_matter_of_forebrain",
+     "name": "Left white matter of forebrain",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_white_matter_of_forebrain_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_white_matter_of_hindbrain",
+     "name": "Left white matter of hindbrain",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_white_matter_of_hindbrain_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_zona_incerta",
+     "name": "Left zona incerta",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_zona_incerta_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "lingual_gyrus",
+     "name": "Lingual gyrus",
+     "ontology": "UBERON:0002943",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_lingual_gyrus_medial_occipitotemporal_gyrus_L",
+      "Allen_lingual_gyrus_medial_occipitotemporal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "medial_orbital_gyrus",
+     "name": "Medial orbital gyrus",
+     "ontology": "UBERON:0002570",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_medial_orbital_gyrus_L",
+      "Allen_medial_orbital_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "middle_frontal_gyrus",
+     "name": "Middle frontal gyrus",
+     "ontology": "UBERON:0002702",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_middle_frontal_gyrus_L",
+      "Allen_middle_frontal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "middle_temporal_gyrus",
+     "name": "Middle temporal gyrus",
+     "ontology": "UBERON:0002771",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_middle_temporal_gyrus_L",
+      "Allen_middle_temporal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "occipital_fusiform_gyrus",
+     "name": "Occipital fusiform gyrus",
+     "ontology": "UBERON:0022364",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_lateral_occipitotemporal_fusiform_gyrus_occipital_part_L",
+      "Allen_lateral_occipitotemporal_fusiform_gyrus_occipital_part_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "occipital_pole",
+     "name": "Occipital pole",
+     "ontology": "UBERON:0002902",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_occipital_pole_L",
+      "Allen_occipital_pole_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "olfactory_bulb",
+     "name": "Olfactory bulb",
+     "ontology": "UBERON:0002264",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_olfactory_bulb_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "opercular_part_of_inferior_frontal_gyrus",
+     "name": "Opercular part of inferior frontal gyrus",
+     "ontology": "UBERON:0002980",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_inferior_frontal_gyrus_opercular_part_L",
+      "Allen_inferior_frontal_gyrus_opercular_part_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "optic_chiasma",
+     "name": "Optic chiasma",
+     "ontology": "UBERON:0000959",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_optic_chiasm"
+     ],
+     "shell": false
+    },
+    {
+     "id": "optic_radiation",
+     "name": "Optic radiation",
+     "ontology": "UBERON:0022264",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_optic_radiation_L",
+      "Allen_optic_radiation_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "optic_tract",
+     "name": "Optic tract",
+     "ontology": "UBERON:0001908",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_optic_tract_L",
+      "Allen_optic_tract_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "parietal_operculum",
+     "name": "Parietal operculum",
+     "ontology": "UBERON:0002911",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_parietal_operculum_L",
+      "Allen_parietal_operculum_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "pineal_body",
+     "name": "Pineal body",
+     "ontology": "UBERON:0001905",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_pineal_body_L",
+      "Allen_pineal_body_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "piriform_cortex",
+     "name": "Piriform cortex",
+     "ontology": "UBERON:0004725",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_piriform_region_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "planum_polare",
+     "name": "Planum polare",
+     "ontology": "UBERON:0023861",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_planum_polare_L",
+      "Allen_planum_polare_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "planum_temporale",
+     "name": "Planum temporale",
+     "ontology": "UBERON:0022268",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_planum_temporale_L",
+      "Allen_planum_temporale_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "pontine_nuclear_group",
+     "name": "Pontine nuclear group",
+     "ontology": "UBERON:0002151",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_basilar_part_of_pons_L",
+      "Allen_basilar_part_of_pons_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "pontine_tegmentum",
+     "name": "Pontine tegmentum",
+     "ontology": "UBERON:0003023",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_pontine_tegmentum_L",
+      "Allen_pontine_tegmentum_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "postcentral_gyrus",
+     "name": "Postcentral gyrus",
+     "ontology": "UBERON:0002581",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_postcentral_gyrus_L",
+      "Allen_postcentral_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "posterior_cingulate_gyrus",
+     "name": "Posterior cingulate gyrus",
+     "ontology": "UBERON:0002740",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_cingulate_gyrus_caudal_posterior_part_L",
+      "Allen_cingulate_gyrus_caudal_posterior_part_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "posterior_parahippocampal_gyrus",
+     "name": "Posterior parahippocampal gyrus",
+     "ontology": "UBERON:0002657",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_posterior_parahippocampal_gyrus_L",
+      "Allen_posterior_parahippocampal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "precuneus_cortex",
+     "name": "Precuneus cortex",
+     "ontology": "UBERON:0006093",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_precuneus_L",
+      "Allen_precuneus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "primary_motor_cortex",
+     "name": "Primary motor cortex",
+     "ontology": "UBERON:0002703",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_primary_motor_cortex_L",
+      "Allen_primary_motor_cortex_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "red_nucleus",
+     "name": "Red nucleus",
+     "ontology": "UBERON:0001947",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_red_nucleus_L",
+      "Allen_red_nucleus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_amygdalohippocampal_area",
+     "name": "Right amygdalohippocampal area",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_amygdalohippocampal_area_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_amygdaloid_complex",
+     "name": "Right amygdaloid complex",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_amygdaloid_complex_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_angular_gyrus",
+     "name": "Right angular gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_angular_gyrus_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_anterior_amygdaloid_area",
+     "name": "Right anterior amygdaloid area",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_amygdaloid_area_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_anterior_cortical_nucleus",
+     "name": "Right anterior cortical nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_cortical_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_anterior_horn_of_lateral_ventricle",
+     "name": "Right anterior horn of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_horn_of_lateral_ventricle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_anterior_nuclear_complex_of_thalamus",
+     "name": "Right anterior nuclear complex of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_anterior_nuclear_complex_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_atrium_of_lateral_ventricle",
+     "name": "Right atrium of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_atrium_of_lateral_ventricle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_basal_forebrain",
+     "name": "Right basal forebrain",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_basal_forebrain_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_basolateral_nucleus_basal_nucleus",
+     "name": "Right basolateral nucleus basal nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_basolateral_nucleus_basal_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_basomedial_nucleus_accessory_basal_nucleus",
+     "name": "Right basomedial nucleus accessory basal nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_basomedial_nucleus_accessory_basal_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_bed_nucleus_of_stria_terminalis",
+     "name": "Right bed nucleus of stria terminalis",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_bed_nucleus_of_stria_terminalis_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_body_of_caudate",
+     "name": "Right body of caudate",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_body_of_caudate_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_body_of_hippocampus",
+     "name": "Right body of hippocampus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_body_of_hippocampus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_body_of_lateral_ventricle",
+     "name": "Right body of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_body_of_lateral_ventricle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_central_canal_of_medulla_oblongata",
+     "name": "Right central canal of medulla oblongata",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_central_canal_of_medulla_oblongata_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_central_nuclear_group",
+     "name": "Right central nuclear group",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_central_nuclear_group_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_centromedian_nucleus_of_thalamus",
+     "name": "Right centromedian nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_centromedian_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_cerebellar_deep_nuclei",
+     "name": "Right cerebellar deep nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_cerebellar_deep_nuclei_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_cerebral_aqueduct",
+     "name": "Right cerebral aqueduct",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_cerebral_aqueduct_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_cerebral_hemisphere",
+     "name": "Right cerebral hemisphere",
+     "ontology": "UBERON:0002812",
+     "labelSource": "corrected",
+     "meshes": [
+      "Allen_amygdalohippocampal_area_L",
+      "Allen_amygdaloid_complex_L",
+      "Allen_angular_gyrus_L",
+      "Allen_anterior_amygdaloid_area_L",
+      "Allen_anterior_commissure_L",
+      "Allen_anterior_cortical_nucleus_L",
+      "Allen_anterior_horn_of_lateral_ventricle_L",
+      "Allen_anterior_intermediate_orbital_gyrus_L",
+      "Allen_anterior_nuclear_complex_of_thalamus_L",
+      "Allen_anterior_olfactory_nucleus_L",
+      "Allen_anterior_parahippocampal_gyrus_L",
+      "Allen_atrium_of_lateral_ventricle_L",
+      "Allen_basal_forebrain_L",
+      "Allen_basilar_part_of_pons_L",
+      "Allen_basolateral_nucleus_basal_nucleus_L",
+      "Allen_basomedial_nucleus_accessory_basal_nucleus_L",
+      "Allen_bed_nucleus_of_stria_terminalis_L",
+      "Allen_body_of_caudate_L",
+      "Allen_body_of_hippocampus_L",
+      "Allen_body_of_lateral_ventricle_L",
+      "Allen_central_canal_of_medulla_oblongata_L",
+      "Allen_central_nuclear_group_L",
+      "Allen_centromedian_nucleus_of_thalamus_L",
+      "Allen_cerebellar_deep_nuclei_L",
+      "Allen_cerebellar_vermis_L",
+      "Allen_cerebral_aqueduct_L",
+      "Allen_cerebral_peduncle_crus_cerebri_L",
+      "Allen_cingulate_gyrus_caudal_posterior_part_L",
+      "Allen_cingulate_gyrus_rostral_anterior_part_L",
+      "Allen_claustrum_L",
+      "Allen_corpus_callosum_L",
+      "Allen_cuneus_L",
+      "Allen_dorsal_lateral_geniculate_nucleus_L",
+      "Allen_external_segment_of_globus_pallidus_L",
+      "Allen_fornix_L",
+      "Allen_fourth_ventricle_L",
+      "Allen_frontal_agranular_insular_cortex_area_Fl_L",
+      "Allen_frontal_operculum_L",
+      "Allen_frontal_pole_L",
+      "Allen_frontomarginal_gyrus_L",
+      "Allen_gyrus_ambiens_L",
+      "Allen_gyrus_rectus_straight_gyrus_L",
+      "Allen_habenular_nuclei_L",
+      "Allen_head_of_caudate_L",
+      "Allen_head_of_hippocampus_L",
+      "Allen_inferior_cerebellar_peduncle_L",
+      "Allen_inferior_frontal_gyrus_opercular_part_L",
+      "Allen_inferior_frontal_gyrus_triangular_part_L",
+      "Allen_inferior_horn_of_lateral_ventricle_L",
+      "Allen_inferior_occipital_gyrus_L",
+      "Allen_inferior_olive_L",
+      "Allen_inferior_temporal_gyrus_L",
+      "Allen_ingulo_parahippocampal_isthmus_L",
+      "Allen_internal_segment_of_globus_pallidus_L",
+      "Allen_lateral_dorsal_nucleus_of_thalamus_L",
+      "Allen_lateral_hemisphere_of_cerebellum_L",
+      "Allen_lateral_nucleus_L",
+      "Allen_lateral_occipitotemporal_fusiform_gyrus_occipital_part_L",
+      "Allen_lateral_olfactory_gyrus_L",
+      "Allen_lateral_orbital_gyrus_L",
+      "Allen_lateral_posterior_nucleus_of_thalamus_L",
+      "Allen_limen_insula_L",
+      "Allen_lingual_gyrus_medial_occipitotemporal_gyrus_L",
+      "Allen_long_insular_gyri_L",
+      "Allen_mammillothalamic_tract_L",
+      "Allen_medial_geniculate_nuclei_L",
+      "Allen_medial_nucleus_L",
+      "Allen_medial_orbital_gyrus_L",
+      "Allen_mediodorsal_nucleus_of_thalamus_L",
+      "Allen_middle_cerebellar_peduncle_L",
+      "Allen_middle_frontal_gyrus_L",
+      "Allen_middle_temporal_gyrus_L",
+      "Allen_midline_nuclear_complex_L",
+      "Allen_nucleus_accumbens_L",
+      "Allen_occipital_pole_L",
+      "Allen_occipitotemporal_fusiform_gyrus_temporal_part_L",
+      "Allen_olfactory_bulb_L",
+      "Allen_olfactory_tract_L",
+      "Allen_optic_radiation_L",
+      "Allen_optic_tract_L",
+      "Allen_paracentral_lobule_caudal_part_L",
+      "Allen_paracentral_lobule_rostral_part_L",
+      "Allen_paracingulate_gyrus_L",
+      "Allen_parafascicular_nucleus_of_thalamus_L",
+      "Allen_paravermis_of_cerebellum_L",
+      "Allen_parietal_operculum_L",
+      "Allen_perirhinal_gyrus_rostral_part_of_FuGt_L",
+      "Allen_pineal_body_L",
+      "Allen_piriform_region_L",
+      "Allen_planum_polare_L",
+      "Allen_planum_temporale_L",
+      "Allen_pontine_tegmentum_L",
+      "Allen_postcentral_gyrus_L",
+      "Allen_posterior_cortical_nucleus_L",
+      "Allen_posterior_horn_of_lateral_ventricle_L",
+      "Allen_posterior_intermediate_orbital_gyrus_L",
+      "Allen_posterior_parahippocampal_gyrus_L",
+      "Allen_posteroventral_putamen_L",
+      "Allen_precuneus_L",
+      "Allen_preoptic_region_of_HTH_L",
+      "Allen_pretectal_region_L",
+      "Allen_primary_motor_cortex_L",
+      "Allen_pulvinar_of_thalamus_L",
+      "Allen_putamen_L",
+      "Allen_pyramidal_part_of_medulla_oblongata_L",
+      "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_L",
+      "Allen_rostral_gyrus_L",
+      "Allen_septal_nuclei_L",
+      "Allen_short_insular_gyri_L",
+      "Allen_subcallosal_gyrus_parolfactory_gyrus_L",
+      "Allen_substantia_nigra_L",
+      "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_L",
+      "Allen_superior_colliculus_L",
+      "Allen_superior_frontal_gyrus_L",
+      "Allen_superior_occipital_gyrus_L",
+      "Allen_superior_temporal_gyrus_L",
+      "Allen_supramarginal_gyrus_L",
+      "Allen_supraoptic_region_of_HTH_L",
+      "Allen_supraparietal_lobule_L",
+      "Allen_tail_of_caudate_L",
+      "Allen_tail_of_hippocampus_L",
+      "Allen_tegmentum_of_medulla_oblongata_L",
+      "Allen_temporal_agranular_insular_cortex_area_Tl_L",
+      "Allen_temporal_pole_L",
+      "Allen_thalamus_L",
+      "Allen_third_ventricle_L",
+      "Allen_transverse_temporal_gyrus_Heschls_gyrus_L",
+      "Allen_tuberal_region_of_HTH_L",
+      "Allen_ventral_anterior_nucleus_of_thalamus_L",
+      "Allen_ventral_lateral_nucleus_of_thalamus_L",
+      "Allen_ventral_posterior_lateral_nucleus_L",
+      "Allen_ventral_posterior_medial_nucleus_L",
+      "Allen_white_matter_of_forebrain_L",
+      "Allen_white_matter_of_hindbrain_L",
+      "Allen_zona_incerta_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_claustrum",
+     "name": "Right claustrum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_claustrum_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_dorsal_lateral_geniculate_nucleus",
+     "name": "Right dorsal lateral geniculate nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_dorsal_lateral_geniculate_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_external_segment_of_globus_pallidus",
+     "name": "Right external segment of globus pallidus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_external_segment_of_globus_pallidus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_frontal_agranular_insular_cortex_area_fl",
+     "name": "Right frontal agranular insular cortex area Fl",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_frontal_agranular_insular_cortex_area_Fl_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_frontal_pole",
+     "name": "Right frontal pole",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_frontal_pole_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_frontomarginal_gyrus",
+     "name": "Right frontomarginal gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_frontomarginal_gyrus_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_gyrus_ambiens",
+     "name": "Right gyrus ambiens",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_gyrus_ambiens_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_habenular_nuclei",
+     "name": "Right habenular nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_habenular_nuclei_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_head_of_caudate",
+     "name": "Right head of caudate",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_head_of_caudate_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_head_of_hippocampus",
+     "name": "Right head of hippocampus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_head_of_hippocampus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_inferior_cerebellar_peduncle",
+     "name": "Right inferior cerebellar peduncle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_inferior_cerebellar_peduncle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_inferior_horn_of_lateral_ventricle",
+     "name": "Right inferior horn of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_inferior_horn_of_lateral_ventricle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_inferior_olive",
+     "name": "Right inferior olive",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_inferior_olive_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_internal_segment_of_globus_pallidus",
+     "name": "Right internal segment of globus pallidus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_internal_segment_of_globus_pallidus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lateral_dorsal_nucleus_of_thalamus",
+     "name": "Right lateral dorsal nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_dorsal_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lateral_hemisphere_of_cerebellum",
+     "name": "Right lateral hemisphere of cerebellum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_hemisphere_of_cerebellum_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_lateral_nucleus",
+     "name": "Right lateral nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lateral_olfactory_gyrus",
+     "name": "Right lateral olfactory gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_olfactory_gyrus_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_lateral_posterior_nucleus_of_thalamus",
+     "name": "Right lateral posterior nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_lateral_posterior_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_limen_insula",
+     "name": "Right limen insula",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_limen_insula_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_long_insular_gyri",
+     "name": "Right long insular gyri",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_long_insular_gyri_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_mammillary_region_of_hypothalamus",
+     "name": "Right mammillary region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_mammillary_region_of_HTH_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_mammillothalamic_tract",
+     "name": "Right mammillothalamic tract",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_mammillothalamic_tract_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_medial_geniculate_nuclei",
+     "name": "Right medial geniculate nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_medial_geniculate_nuclei_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_medial_nucleus",
+     "name": "Right medial nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_medial_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_mediodorsal_nucleus_of_thalamus",
+     "name": "Right mediodorsal nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_mediodorsal_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_midbrain_tegmentum",
+     "name": "Right midbrain tegmentum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_midbrain_tegmentum_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_middle_cerebellar_peduncle",
+     "name": "Right middle cerebellar peduncle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_middle_cerebellar_peduncle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_midline_nuclear_complex",
+     "name": "Right midline nuclear complex",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_midline_nuclear_complex_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_nucleus_accumbens",
+     "name": "Right nucleus accumbens",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_nucleus_accumbens_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_occipitotemporal_fusiform_gyrus_temporal_part",
+     "name": "Right occipitotemporal fusiform gyrus temporal part",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_occipitotemporal_fusiform_gyrus_temporal_part_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_olfactory_tract",
+     "name": "Right olfactory tract",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_olfactory_tract_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_paracentral_lobule_caudal_part",
+     "name": "Right paracentral lobule caudal part",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_paracentral_lobule_caudal_part_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_paracingulate_gyrus",
+     "name": "Right paracingulate gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_paracingulate_gyrus_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_parafascicular_nucleus_of_thalamus",
+     "name": "Right parafascicular nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_parafascicular_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_paravermis_of_cerebellum",
+     "name": "Right paravermis of cerebellum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_paravermis_of_cerebellum_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_perirhinal_gyrus_rostral_part_of_fugt",
+     "name": "Right perirhinal gyrus rostral part of FuGt",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_perirhinal_gyrus_rostral_part_of_FuGt_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_posterior_cortical_nucleus",
+     "name": "Right posterior cortical nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_posterior_cortical_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_posterior_horn_of_lateral_ventricle",
+     "name": "Right posterior horn of lateral ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_posterior_horn_of_lateral_ventricle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_posteroventral_putamen",
+     "name": "Right posteroventral putamen",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_posteroventral_putamen_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_preoptic_region_of_hypothalamus",
+     "name": "Right preoptic region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_preoptic_region_of_HTH_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_pretectal_region",
+     "name": "Right pretectal region",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_pretectal_region_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_pulvinar_of_thalamus",
+     "name": "Right pulvinar of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_pulvinar_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_putamen",
+     "name": "Right putamen",
+     "ontology": "UBERON:0008884",
+     "labelSource": "corrected",
+     "meshes": [
+      "Allen_putamen_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_pyramidal_part_of_medulla_oblongata",
+     "name": "Right pyramidal part of medulla oblongata",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_pyramidal_part_of_medulla_oblongata_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_reuniens_nucleus_medioventral_nucleus_of_thalamus",
+     "name": "Right reuniens nucleus medioventral nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_reuniens_nucleus_medioventral_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_rostral_gyrus",
+     "name": "Right rostral gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_rostral_gyrus_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_septal_nuclei",
+     "name": "Right septal nuclei",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_septal_nuclei_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_short_insular_gyri",
+     "name": "Right short insular gyri",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_short_insular_gyri_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_subthalamic_nucleus",
+     "name": "Right subthalamic nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_subthalamic_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_superior_cerebellar_peduncle_brachium_conjunctivum",
+     "name": "Right superior cerebellar peduncle brachium conjunctivum",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_superior_cerebellar_peduncle_brachium_conjunctivum_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_supramarginal_gyrus",
+     "name": "Right supramarginal gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_supramarginal_gyrus_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_supraoptic_region_of_hypothalamus",
+     "name": "Right supraoptic region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_supraoptic_region_of_HTH_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_supraparietal_lobule",
+     "name": "Right supraparietal lobule",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_supraparietal_lobule_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_tail_of_caudate",
+     "name": "Right tail of caudate",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tail_of_caudate_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_tail_of_hippocampus",
+     "name": "Right tail of hippocampus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tail_of_hippocampus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_tegmentum_of_medulla_oblongata",
+     "name": "Right tegmentum of medulla oblongata",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tegmentum_of_medulla_oblongata_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_temporal_agranular_insular_cortex_area_tl",
+     "name": "Right temporal agranular insular cortex area Tl",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_temporal_agranular_insular_cortex_area_Tl_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_thalamus",
+     "name": "Right thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_third_ventricle",
+     "name": "Right third ventricle",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_third_ventricle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_transverse_temporal_gyrus_heschls_gyrus",
+     "name": "Right transverse temporal gyrus Heschls gyrus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_transverse_temporal_gyrus_Heschls_gyrus_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_tuberal_region_of_hypothalamus",
+     "name": "Right tuberal region of hypothalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_tuberal_region_of_HTH_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_ventral_anterior_nucleus_of_thalamus",
+     "name": "Right ventral anterior nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_anterior_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_ventral_lateral_nucleus_of_thalamus",
+     "name": "Right ventral lateral nucleus of thalamus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_lateral_nucleus_of_thalamus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_ventral_posterior_lateral_nucleus",
+     "name": "Right ventral posterior lateral nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_posterior_lateral_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_ventral_posterior_medial_nucleus",
+     "name": "Right ventral posterior medial nucleus",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_ventral_posterior_medial_nucleus_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_white_matter_of_forebrain",
+     "name": "Right white matter of forebrain",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_white_matter_of_forebrain_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_white_matter_of_hindbrain",
+     "name": "Right white matter of hindbrain",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_white_matter_of_hindbrain_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_zona_incerta",
+     "name": "Right zona incerta",
+     "ontology": "",
+     "labelSource": "node",
+     "meshes": [
+      "Allen_zona_incerta_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "subcallosal_area",
+     "name": "Subcallosal area",
+     "ontology": "UBERON:0003020",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_subcallosal_gyrus_parolfactory_gyrus_L",
+      "Allen_subcallosal_gyrus_parolfactory_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "substantia_nigra",
+     "name": "Substantia nigra",
+     "ontology": "UBERON:0002038",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_substantia_nigra_L",
+      "Allen_substantia_nigra_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "superior_colliculus",
+     "name": "Superior colliculus",
+     "ontology": "UBERON:0001945",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_superior_colliculus_L",
+      "Allen_superior_colliculus_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "superior_frontal_gyrus",
+     "name": "Superior frontal gyrus",
+     "ontology": "UBERON:0002661",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_superior_frontal_gyrus_L",
+      "Allen_superior_frontal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "superior_occipital_gyrus",
+     "name": "Superior occipital gyrus",
+     "ontology": "UBERON:0002948",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_superior_occipital_gyrus_L",
+      "Allen_superior_occipital_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "superior_temporal_gyrus",
+     "name": "Superior temporal gyrus",
+     "ontology": "UBERON:0002769",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_superior_temporal_gyrus_L",
+      "Allen_superior_temporal_gyrus_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "temporal_pole",
+     "name": "Temporal pole",
+     "ontology": "UBERON:0002576",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_temporal_pole_L",
+      "Allen_temporal_pole_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "triangular_part_of_inferior_frontal_gyrus",
+     "name": "Triangular part of inferior frontal gyrus",
+     "ontology": "UBERON:0002629",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "Allen_inferior_frontal_gyrus_triangular_part_L",
+      "Allen_inferior_frontal_gyrus_triangular_part_R"
+     ],
+     "shell": true
+    }
+   ]
+  },
+  {
+   "id": "left_eye",
+   "name": "Left eyeball",
+   "side": "left",
+   "family": "eye",
+   "bodyIds": [
+    "left_eyeball"
+   ],
+   "file": "left_eye.glb",
+   "bytes": 350316,
+   "offset": [
+    -0.00733,
+    0.70781,
+    0.06832
+   ],
+   "parts": [
+    {
+     "id": "aqueous_humor_of_left_eyeball",
+     "name": "Aqueous humor of left eyeball",
+     "ontology": "FMA:58821",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_aqueous_humor_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "ciliary_processes",
+     "name": "Ciliary processes",
+     "ontology": "UBERON:0010427",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ciliary_processes_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "eye_trabecular_meshwork",
+     "name": "Eye trabecular meshwork",
+     "ontology": "UBERON:0005969",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_trabecular_meshwork_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "humor_of_left_vitreous_body",
+     "name": "Humor of left vitreous body",
+     "ontology": "FMA:261238",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_vitreous_humor_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_bulbar_conjunctiva",
+     "name": "Left bulbar conjunctiva",
+     "ontology": "FMA:59029",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_bulbar_conjunctiva_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_choroid",
+     "name": "Left choroid",
+     "ontology": "FMA:58300",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_optic_choroid_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_ciliary_body",
+     "name": "Left ciliary body",
+     "ontology": "FMA:58297",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ciliary_body_L",
+      "VH_M_ciliary_muscle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_ciliary_muscle",
+     "name": "Left ciliary muscle",
+     "ontology": "FMA:49153",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ciliary_muscle_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_cornea",
+     "name": "Left cornea",
+     "ontology": "FMA:58240",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_cornea_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_corneoscleral_junction",
+     "name": "Left corneoscleral junction",
+     "ontology": "FMA:58344",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_corneo_scleral_junction_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_fovea_centralis",
+     "name": "Left fovea centralis",
+     "ontology": "FMA:58663",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_fovea_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_iris",
+     "name": "Left iris",
+     "ontology": "FMA:58237",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_iris_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_lens",
+     "name": "Left lens",
+     "ontology": "FMA:58243",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_lens_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_macula_lutea",
+     "name": "Left macula lutea",
+     "ontology": "FMA:58639",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_macula_lutea_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_optic_disc",
+     "name": "Left optic disc",
+     "ontology": "FMA:58636",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_optic_disc_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_ora_serrata",
+     "name": "Left ora serrata",
+     "ontology": "FMA:58602",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ora_serrata_of_retina_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_pupil",
+     "name": "Left pupil",
+     "ontology": "UBERON:0010223",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_pupil_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_retina",
+     "name": "Left retina",
+     "ontology": "FMA:58303",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_fovea_L",
+      "VH_M_macula_lutea_L",
+      "VH_M_optic_disc_L",
+      "VH_M_retina_L"
+     ],
+     "shell": false
+    },
+    {
+     "id": "left_sclera",
+     "name": "Left sclera",
+     "ontology": "FMA:58272",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_sclera_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "left_scleral_venous_sinus",
+     "name": "Left scleral venous sinus",
+     "ontology": "FMA:51875",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_schlemms_canal_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "palpebral_conjunctiva_of_left_lower_eyelid",
+     "name": "Palpebral conjunctiva of left lower eyelid",
+     "ontology": "FMA:223075",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_palpebral_conjunctiva_of_lower_eyelid_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "palpebral_conjunctiva_of_left_upper_eyelid",
+     "name": "Palpebral conjunctiva of left upper eyelid",
+     "ontology": "FMA:223078",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_palpebral_conjunctiva_of_upper_eyelid_L"
+     ],
+     "shell": true
+    },
+    {
+     "id": "suspensory_ligament_of_left_lens",
+     "name": "Suspensory ligament of left lens",
+     "ontology": "FMA:58840",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_suspensory_ligament_of_lens_L"
+     ],
+     "shell": false
+    }
+   ]
+  },
+  {
+   "id": "right_eye",
+   "name": "Right eyeball",
+   "side": "right",
+   "family": "eye",
+   "bodyIds": [
+    "right_eyeball"
+   ],
+   "file": "right_eye.glb",
+   "bytes": 350432,
+   "offset": [
+    0.00394,
+    0.70712,
+    0.068
+   ],
+   "parts": [
+    {
+     "id": "aqueous_humor_of_right_eyeball",
+     "name": "Aqueous humor of right eyeball",
+     "ontology": "FMA:58820",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_aqueous_humor_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "ciliary_processes",
+     "name": "Ciliary processes",
+     "ontology": "UBERON:0010427",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ciliary_processes_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "eye_trabecular_meshwork",
+     "name": "Eye trabecular meshwork",
+     "ontology": "UBERON:0005969",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_trabecular_meshwork_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "humor_of_right_vitreous_body",
+     "name": "Humor of right vitreous body",
+     "ontology": "FMA:261236",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_vitreous_humor_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "palpebral_conjunctiva_of_right_lower_eyelid",
+     "name": "Palpebral conjunctiva of right lower eyelid",
+     "ontology": "FMA:223074",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_palpebral_conjunctiva_of_lower_eyelid_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "palpebral_conjunctiva_of_right_upper_eyelid",
+     "name": "Palpebral conjunctiva of right upper eyelid",
+     "ontology": "FMA:223076",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_palpebral_conjunctiva_of_upper_eyelid_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_bulbar_conjunctiva",
+     "name": "Right bulbar conjunctiva",
+     "ontology": "FMA:59028",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_bulbar_conjunctiva_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_choroid",
+     "name": "Right choroid",
+     "ontology": "FMA:58299",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_optic_choroid_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_ciliary_body",
+     "name": "Right ciliary body",
+     "ontology": "FMA:58296",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ciliary_body_R",
+      "VH_M_ciliary_muscle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_ciliary_muscle",
+     "name": "Right ciliary muscle",
+     "ontology": "FMA:49152",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ciliary_muscle_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_cornea",
+     "name": "Right cornea",
+     "ontology": "FMA:58239",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_cornea_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_corneoscleral_junction",
+     "name": "Right corneoscleral junction",
+     "ontology": "FMA:58343",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_corneo_scleral_junction_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_fovea_centralis",
+     "name": "Right fovea centralis",
+     "ontology": "FMA:58661",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_fovea_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_iris",
+     "name": "Right iris",
+     "ontology": "FMA:58236",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_iris_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_lens",
+     "name": "Right lens",
+     "ontology": "FMA:58242",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_lens_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_macula_lutea",
+     "name": "Right macula lutea",
+     "ontology": "FMA:58638",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_macula_lutea_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_optic_disc",
+     "name": "Right optic disc",
+     "ontology": "FMA:58635",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_optic_disc_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_ora_serrata",
+     "name": "Right ora serrata",
+     "ontology": "FMA:58601",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_ora_serrata_of_retina_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_pupil",
+     "name": "Right pupil",
+     "ontology": "UBERON:0010224",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_pupil_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_retina",
+     "name": "Right retina",
+     "ontology": "FMA:58302",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_fovea_R",
+      "VH_M_macula_lutea_R",
+      "VH_M_optic_disc_R",
+      "VH_M_retina_R"
+     ],
+     "shell": false
+    },
+    {
+     "id": "right_sclera",
+     "name": "Right sclera",
+     "ontology": "FMA:58271",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_sclera_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "right_scleral_venous_sinus",
+     "name": "Right scleral venous sinus",
+     "ontology": "FMA:51874",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_schlemms_canal_R"
+     ],
+     "shell": true
+    },
+    {
+     "id": "suspensory_ligament_of_right_lens",
+     "name": "Suspensory ligament of right lens",
+     "ontology": "FMA:58839",
+     "labelSource": "crosswalk",
+     "meshes": [
+      "VH_M_suspensory_ligament_of_lens_R"
+     ],
+     "shell": false
+    }
+   ]
+  }
+ ]
+}
