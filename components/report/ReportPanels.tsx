@@ -49,12 +49,12 @@ export function statusTag(f: ResolvedFinding): { text: string; tone: "out" | "in
 
 /**
  * Colour has one defined meaning (Section 23): green = within the report's own
- * range, amber = outside it. There is no graded "how far" colour: how much a
+ * range, red = outside it. Both always carry a text label (Section 24). There is no graded "how far" colour: how much a
  * difference matters depends on the test and the person (Sections 93, 94).
  */
 const TONE: Record<"out" | "in" | "none", string> = {
-  out: "border-amber-300/50 bg-amber-300/15 text-amber-100",
-  in: "border-emerald-300/40 bg-emerald-300/10 text-emerald-100",
+  out: "border-red-500 bg-red-600 text-white",
+  in: "border-green-500 bg-green-600 text-white",
   none: "border-white/10 text-muted",
 };
 
@@ -96,7 +96,7 @@ function Section({ section, selected, onOpen }: { section: FindingSection; selec
         <summary className="flex cursor-pointer list-none items-center gap-2 rounded-lg px-1.5 py-1 hover:bg-white/5">
           <span aria-hidden className={`inline-block h-2 w-2 shrink-0 rounded-full ${shownOn.length ? "bg-violet-400" : "bg-white/20"}`} />
           <h3 className="min-w-0 flex-1 truncate text-[13px] font-semibold">{section.title}</h3>
-          {outside > 0 && <span className="ui-tag border-amber-300/50 bg-amber-300/10 text-amber-100">{outside} outside range</span>}
+          {outside > 0 && <span className="ui-tag border-red-500 bg-red-600 text-white">{outside} outside range</span>}
           <span className="text-[11px] tabular-nums text-muted">{section.findings.length}</span>
         </summary>
         <p className="px-1.5 pb-1 text-[11px] leading-snug text-muted">
@@ -169,8 +169,8 @@ export function ReportCard({ measureRef }: { measureRef?: RefObject<HTMLDivEleme
       <div className={`${expanded ? "block" : "hidden"} md:block`}>
         <div className="flex flex-wrap gap-1.5 px-3 pt-2">
           <span className="ui-tag border-border text-foreground">{s.total} results</span>
-          {outsideCount > 0 && <span className="ui-tag border-amber-300/50 bg-amber-300/10 text-amber-100">{outsideCount} outside range</span>}
-          {inCount > 0 && <span className="ui-tag border-emerald-300/40 bg-emerald-300/10 text-emerald-100">{inCount} in range</span>}
+          {outsideCount > 0 && <span className="ui-tag border-red-500 bg-red-600 text-white">{outsideCount} outside range</span>}
+          {inCount > 0 && <span className="ui-tag border-green-500 bg-green-600 text-white">{inCount} in range</span>}
           <span className="ui-tag border-border text-muted">{s.mapped} shown on the body</span>
           {s.unmapped + s.grouped > 0 && <span className="ui-tag border-border text-muted">{s.unmapped + s.grouped} listed only</span>}
           {s.review > 0 && <span className="ui-tag border-border text-muted">{s.review} need review</span>}
