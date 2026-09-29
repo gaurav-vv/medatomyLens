@@ -30,6 +30,106 @@
       "system": "digestive",
       "visualizationType": "association",
       "mappingReason": "ALT is an enzyme found mainly in the liver, so it is commonly used as a liver-associated marker."
+    },
+    {
+      "normalizedTerm": "blood_urea_nitrogen",
+      "displayName": "BUN (blood urea nitrogen)",
+      "synonyms": ["bun", "blood urea nitrogen", "urea nitrogen", "serum bun", "s. bun", "bun serum"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Urea nitrogen is a waste product that the kidneys remove from the blood, so BUN is commonly used as a kidney-associated marker."
+    },
+    {
+      "normalizedTerm": "urea",
+      "displayName": "Urea",
+      "synonyms": ["urea", "blood urea", "serum urea", "s. urea", "urea serum", "urea blood"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Urea is a waste product that the kidneys remove from the blood, so it is commonly used as a kidney-associated marker."
+    },
+    {
+      "normalizedTerm": "aspartate_aminotransferase",
+      "displayName": "AST (aspartate aminotransferase)",
+      "synonyms": ["ast", "aspartate aminotransferase", "aspartate transaminase", "sgot", "ast sgot", "sgot ast", "serum glutamic oxaloacetic transaminase"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "AST is an enzyme found mainly in the liver (and also in the heart and muscles), so it is commonly used as a liver-associated marker."
+    },
+    {
+      "normalizedTerm": "gamma_glutamyl_transferase",
+      "displayName": "GGT (gamma-glutamyl transferase)",
+      "synonyms": ["ggt", "gamma gt", "ggtp", "gamma glutamyl transferase", "gamma glutamyl transpeptidase"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "GGT is an enzyme found mainly in the liver, so it is commonly used as a liver-associated marker."
+    },
+    {
+      "normalizedTerm": "bilirubin_total",
+      "displayName": "Bilirubin, total",
+      "synonyms": ["bilirubin total", "total bilirubin", "serum bilirubin total", "s. bilirubin total", "t. bilirubin", "tbil", "total serum bilirubin"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Bilirubin is removed from the blood by the liver, so it is commonly used as a liver-associated marker."
+    },
+    {
+      "normalizedTerm": "bilirubin_direct",
+      "displayName": "Bilirubin, direct (conjugated)",
+      "synonyms": ["bilirubin direct", "direct bilirubin", "conjugated bilirubin", "d. bilirubin", "bilirubin conjugated"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Direct bilirubin is bilirubin already processed by the liver, so it is commonly used as a liver-associated marker."
+    },
+    {
+      "normalizedTerm": "bilirubin_indirect",
+      "displayName": "Bilirubin, indirect (unconjugated)",
+      "synonyms": ["bilirubin indirect", "indirect bilirubin", "unconjugated bilirubin", "i. bilirubin", "bilirubin unconjugated"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["liver"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Indirect bilirubin is bilirubin not yet processed by the liver; it is reported as part of liver-associated bilirubin testing."
+    },
+    {
+      "normalizedTerm": "lipase",
+      "displayName": "Lipase",
+      "synonyms": ["lipase", "serum lipase", "s. lipase", "lipase serum"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["pancreas"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Most lipase in the blood is made by the pancreas, so it is commonly used as a pancreas-associated marker."
+    },
+    {
+      "normalizedTerm": "cardiac_troponin_i",
+      "displayName": "Troponin I (cardiac)",
+      "synonyms": ["troponin i", "cardiac troponin i", "ctni", "tni", "hs troponin i", "high sensitivity troponin i", "hs-ctni"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["heart"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Troponin is a protein found in heart muscle cells, so it is used as a heart-associated marker."
+    },
+    {
+      "normalizedTerm": "cardiac_troponin_t",
+      "displayName": "Troponin T (cardiac)",
+      "synonyms": ["troponin t", "cardiac troponin t", "ctnt", "tnt", "hs troponin t", "high sensitivity troponin t", "hs-ctnt"],
+      "category": "laboratory_marker",
+      "associatedStructures": ["heart"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Troponin is a protein found in heart muscle cells, so it is used as a heart-associated marker."
     }
   ]
 }

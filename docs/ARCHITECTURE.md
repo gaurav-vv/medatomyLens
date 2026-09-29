@@ -96,6 +96,14 @@ pick file -> checkFile (size, starts with %PDF-) -> pdf.js text with positions (
 | `components/report/ReportUploader.tsx` | Upload button, real progress, errors with retry, review screen |
 
 - Rows read by OCR get `confidence: "low"`, are **not ticked by default** on the review screen, and carry a "compare with your report" note in the finding panel. OCR rows with any word below 60% confidence are left out.
-- Only numeric lab rows are read. Imaging text is shown as page text but not interpreted yet (Phase 3).
+- Only numeric lab rows and imaging sentences are read (see below); other text stays page text.
+
+## Imaging text and terminology (Phase 3, part 1; AGENTS.md Sections 105-107, 111, 113)
+
+- `lib/reports/imagingParser.ts` reads sentences from text pages (not OCR pages) that are not lab rows. Words come from `data/medical/mappings/imaging_vocabulary.json` (organs, regions, finding words, negation, uncertainty and prior-study cues).
+- A sentence becomes a `report_statement` only if it has a finding word and names exactly one organ. The side comes only from "right"/"left" in the sentence; none, both or "bilateral" means both organs and no region. A pole or lobe beats cortex/medulla; two of the same kind means no region.
+- Negated findings ("no calculus", "not seen") are listed with `negated: true` and no structure: never marked. Uncertain wording is quoted as is with low confidence. Sizes are not taken from sentences that compare with an earlier study.
+- `terms.json` has 13 lab terms (kidneys, liver, pancreas, heart), all sourced in `docs/MEDICAL_SOURCES.md` and pending review. Thyroid tests stay unmapped: the body model has no thyroid gland.
+- `regions.json` has 18 regions: kidney poles (pins), cortex, medulla, renal pelvis, liver lobes, lung lobes (model parts).
 - Runtime files (pdf.js worker, image decoders, fonts; tesseract worker, LSTM WebAssembly cores, English model) are copied from `node_modules` to `public/vendor/` by `scripts/copy-vendor.mjs` (runs before `dev` and `build`; git-ignored). No CDN. The service worker fetches `/vendor/` network-first with an offline copy.
 - Tests use synthetic PDFs written by `tests/fixtures/makePdf.ts` (text, image-only "scanned" pages, password-protected).

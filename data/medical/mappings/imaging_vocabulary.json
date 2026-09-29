@@ -1,0 +1,38 @@
+{
+  "$comment": "Controlled vocabulary for reading imaging report text (AGENTS.md Sections 105, 107, 111, 113). Organs map anatomy words to body-model structure ids; paired organs take a side only from the words 'right'/'left' in the same sentence. Regions map words to region ids in regions.json ({side} is replaced by left/right). A position region (pole, lobe) is chosen over a tissue region (cortex, medulla, pelvis) when a sentence names one of each; two of the same kind means no region is chosen. Finding words only decide THAT a sentence states something about an organ; the report's own words are always quoted, never rewritten. Negation cues mean the finding is not present and is never marked. Words are matched case-insensitively on word boundaries.",
+  "organs": [
+    { "id": "kidney", "words": ["kidney", "kidneys", "renal"], "paired": { "left": "left_kidney", "right": "right_kidney" } },
+    { "id": "lung", "words": ["lung", "lungs", "pulmonary", "lobe of the lung"], "paired": { "left": "left_lung", "right": "right_lung" } },
+    { "id": "liver", "words": ["liver", "hepatic"], "structure": "liver" },
+    { "id": "gallbladder", "words": ["gallbladder", "gall bladder"], "structure": "gallbladder" },
+    { "id": "spleen", "words": ["spleen", "splenic"], "structure": "spleen" },
+    { "id": "pancreas", "words": ["pancreas", "pancreatic"], "structure": "pancreas" },
+    { "id": "urinary_bladder", "words": ["urinary bladder"], "structure": "urinary_bladder" },
+    { "id": "stomach", "words": ["stomach", "gastric"], "structure": "stomach" },
+    { "id": "heart", "words": ["heart", "cardiac"], "structure": "heart" }
+  ],
+  "regions": [
+    { "organ": "kidney", "words": ["upper pole"], "region": "{side}_kidney_upper_pole", "kind": "position" },
+    { "organ": "kidney", "words": ["lower pole"], "region": "{side}_kidney_lower_pole", "kind": "position" },
+    { "organ": "kidney", "words": ["cortex", "cortical"], "region": "{side}_kidney_cortex", "kind": "tissue" },
+    { "organ": "kidney", "words": ["medulla", "medullary"], "region": "{side}_kidney_medulla", "kind": "tissue" },
+    { "organ": "kidney", "words": ["renal pelvis", "pelvicalyceal", "pelvi-calyceal"], "region": "{side}_kidney_renal_pelvis", "kind": "tissue" },
+    { "organ": "liver", "words": ["right lobe"], "region": "liver_right_lobe", "kind": "position" },
+    { "organ": "liver", "words": ["left lobe"], "region": "liver_left_lobe", "kind": "position" },
+    { "organ": "liver", "words": ["caudate lobe"], "region": "liver_caudate_lobe", "kind": "position" },
+    { "organ": "lung", "words": ["upper lobe", "upper zone"], "region": "{side}_lung_upper_lobe", "kind": "position" },
+    { "organ": "lung", "words": ["middle lobe"], "region": "{side}_lung_middle_lobe", "kind": "position" },
+    { "organ": "lung", "words": ["lower lobe", "lower zone"], "region": "{side}_lung_lower_lobe", "kind": "position" }
+  ],
+  "findingWords": [
+    "cyst", "cysts", "cystic", "lesion", "lesions", "mass", "masses", "nodule", "nodules", "nodular",
+    "calculus", "calculi", "stone", "stones", "hydronephrosis", "hydroureter", "polyp", "polyps", "sludge",
+    "fatty", "steatosis", "echogenic", "echogenicity", "hypoechoic", "hyperechoic", "heterogeneous",
+    "enlarged", "enlargement", "hepatomegaly", "splenomegaly", "cardiomegaly", "thickening", "thickened",
+    "effusion", "opacity", "opacities", "consolidation", "calcification", "calcified", "dilated", "dilatation",
+    "atrophy", "atrophic", "scar", "scarring", "collection", "focus", "foci", "grade"
+  ],
+  "negationCues": ["no", "not", "without", "absent", "negative for", "free of", "no evidence of", "not seen", "not visualized", "ruled out"],
+  "uncertaintyCues": ["possible", "possibly", "probable", "probably", "likely", "suggestive of", "suspicious", "cannot be excluded", "cannot exclude", "may represent", "could represent", "?"],
+  "priorCues": ["previous", "previously", "prior", "earlier", "last study", "compared", "comparison", "was measuring", "then measured"]
+}

@@ -7,6 +7,7 @@ import { DISCLAIMER_TEXT } from "@/components/layout/Disclaimer";
 
 export const NO_EXPLANATION_TEXT = "No explanation is available for this term yet.";
 export const NEXT_STEP_TEXT = "Discuss this result with your doctor.";
+export const NEGATED_TEXT = "The report states this was not found. Nothing is marked on the body.";
 export const OCR_FINDING_NOTE =
   "Read from a scanned page by text recognition, which can misread characters. Compare this value with your report.";
 
@@ -82,7 +83,7 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
           {report.title} · page {raw.source.page}
           {report.isDemo && " · DEMO / SAMPLE DATA"}
         </p>
-        {raw.confidence === "low" && (
+        {raw.findingType === "lab_association" && raw.confidence === "low" && (
           <p className="rounded-lg bg-amber-200/10 px-2.5 py-1.5 text-[11px] text-amber-100">{OCR_FINDING_NOTE}</p>
         )}
         {isLab ? (
@@ -97,7 +98,7 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
           </>
         ) : (
           <>
-            <p className="text-muted">The report states this. The app does not interpret it.</p>
+            <p className="text-muted">{raw.negated ? NEGATED_TEXT : "The report states this. The app does not interpret it."}</p>
             {raw.size?.specified && <p>Size as reported: {raw.size.text}</p>}
           </>
         )}
@@ -111,7 +112,7 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
         <Section title="Needs review">
           <p>This finding could not be checked against the report text, so it is not shown on the body.</p>
         </Section>
-      ) : finding.structures.length === 0 ? (
+      ) : raw.negated ? null : finding.structures.length === 0 ? (
         <Section title="Anatomy">
           <p>This finding could not be confidently mapped to a specific anatomical structure.</p>
         </Section>

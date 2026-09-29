@@ -69,6 +69,45 @@ test("text PDF: read, review, show on the body, open a finding", async ({ page }
   expect(errors).toEqual([]);
 });
 
+test("imaging text PDF: statement placed on the named side and region, negation not marked", async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  const { errors, external } = watch(page);
+  await page.goto("/");
+  await layersReady(page);
+  const lines = [
+    "SYNTHETIC ULTRASOUND ABDOMEN - not a real patient",
+    "Right kidney: 1.8 cm simple cortical cyst at the lower pole.",
+    "Left kidney: normal in size. No calculus in the left kidney.",
+    "Liver is normal in size and echotexture.",
+  ];
+  await upload(page, "synthetic-usg.pdf", makePdf([{ texts: lines.map((text, i) => ({ x: 40, y: 60 + i * 20, text, size: 11 })) }]));
+  const dialog = page.getByRole("dialog", { name: "Check what was read" });
+  await expect(dialog.getByTestId("review-summary")).toHaveText("2 organ statements found on 1 page.", { timeout: 60_000 });
+  await expect(dialog).toContainText("The report names: Right kidney · Right kidney, lower pole");
+  await expect(dialog).toContainText("not found: listed, not marked");
+  await dialog.getByRole("button", { name: "Show results (2)" }).click();
+
+  const card = page.getByRole("region", { name: "Report findings" });
+  await expect(card).toContainText("1 shown on the body");
+  await card.getByRole("button", { name: /Left kidney \(report statement\)/ }).click();
+  const finding = page.getByRole("complementary", { name: "Finding details" });
+  await expect(finding).toContainText("The report states this was not found");
+  // Phones collapse the list after opening a finding: expand it again.
+  const expand = card.getByRole("button", { name: /findings ▾/ });
+  if (await expand.isVisible()) await expand.click();
+  await card.getByRole("button", { name: /Right kidney \(report statement\)/ }).click();
+  await finding.getByRole("button", { name: /Right kidney/ }).click();
+  const panel = page.getByRole("complementary", { name: "Selected structure" });
+  await panel.getByRole("button", { name: "Open detailed view" }).click();
+  await expect(page.locator("[data-detail-status]")).toHaveAttribute("data-detail-status", "ready", { timeout: 90_000 });
+  const organFindings = page.getByRole("region", { name: "Organ findings" });
+  await expect(organFindings).toContainText("Right kidney, lower pole");
+  await expect(organFindings).toContainText("Size as reported: 1.8 cm");
+  await page.screenshot({ path: testInfo.outputPath("upload-4-imaging-organ.png") });
+  expect(external).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
 test("upload errors are explained and recoverable", async ({ page }) => {
   test.setTimeout(120_000);
   const { errors } = watch(page);

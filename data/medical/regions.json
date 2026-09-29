@@ -5,25 +5,37 @@
       "parentStructure": "left_kidney",
       "displayName": "Left kidney, upper pole",
       "supportedBy": "overlay",
-      "overlay": { "type": "pin_marker", "position": [0, 0.7, 0] }
+      "overlay": {
+        "type": "pin_marker",
+        "position": [0, 0.7, 0]
+      }
     },
     "left_kidney_lower_pole": {
       "parentStructure": "left_kidney",
       "displayName": "Left kidney, lower pole",
       "supportedBy": "overlay",
-      "overlay": { "type": "pin_marker", "position": [0, -0.7, 0] }
+      "overlay": {
+        "type": "pin_marker",
+        "position": [0, -0.7, 0]
+      }
     },
     "right_kidney_upper_pole": {
       "parentStructure": "right_kidney",
       "displayName": "Right kidney, upper pole",
       "supportedBy": "overlay",
-      "overlay": { "type": "pin_marker", "position": [0, 0.7, 0] }
+      "overlay": {
+        "type": "pin_marker",
+        "position": [0, 0.7, 0]
+      }
     },
     "right_kidney_lower_pole": {
       "parentStructure": "right_kidney",
       "displayName": "Right kidney, lower pole",
       "supportedBy": "overlay",
-      "overlay": { "type": "pin_marker", "position": [0, -0.7, 0] }
+      "overlay": {
+        "type": "pin_marker",
+        "position": [0, -0.7, 0]
+      }
     },
     "left_kidney_cortex": {
       "parentStructure": "left_kidney",
@@ -48,6 +60,66 @@
       "displayName": "Liver, left lobe",
       "supportedBy": "mesh",
       "parts": ["left_lobe_of_liver"]
+    },
+    "left_kidney_medulla": {
+      "parentStructure": "left_kidney",
+      "displayName": "Left kidney, medulla",
+      "supportedBy": "mesh",
+      "parts": ["renal_medulla"]
+    },
+    "right_kidney_medulla": {
+      "parentStructure": "right_kidney",
+      "displayName": "Right kidney, medulla",
+      "supportedBy": "mesh",
+      "parts": ["renal_medulla"]
+    },
+    "left_kidney_renal_pelvis": {
+      "parentStructure": "left_kidney",
+      "displayName": "Left kidney, renal pelvis",
+      "supportedBy": "mesh",
+      "parts": ["left_renal_pelvis"]
+    },
+    "right_kidney_renal_pelvis": {
+      "parentStructure": "right_kidney",
+      "displayName": "Right kidney, renal pelvis",
+      "supportedBy": "mesh",
+      "parts": ["right_renal_pelvis"]
+    },
+    "liver_caudate_lobe": {
+      "parentStructure": "liver",
+      "displayName": "Liver, caudate lobe",
+      "supportedBy": "mesh",
+      "parts": ["caudate_lobe_of_liver"]
+    },
+    "right_lung_upper_lobe": {
+      "parentStructure": "right_lung",
+      "displayName": "Right lung, upper lobe",
+      "supportedBy": "mesh",
+      "parts": ["upper_lobe_of_right_lung"]
+    },
+    "right_lung_middle_lobe": {
+      "parentStructure": "right_lung",
+      "displayName": "Right lung, middle lobe",
+      "supportedBy": "mesh",
+      "parts": ["middle_lobe_of_right_lung"]
+    },
+    "right_lung_lower_lobe": {
+      "parentStructure": "right_lung",
+      "displayName": "Right lung, lower lobe",
+      "supportedBy": "mesh",
+      "parts": ["lower_lobe_of_right_lung"]
+    },
+    "left_lung_upper_lobe": {
+      "parentStructure": "left_lung",
+      "displayName": "Left lung, upper lobe",
+      "supportedBy": "mesh",
+      "parts": ["upper_lobe_of_left_lung"]
+    },
+    "left_lung_lower_lobe": {
+      "parentStructure": "left_lung",
+      "displayName": "Left lung, lower lobe",
+      "supportedBy": "mesh",
+      "parts": ["lower_lobe_of_left_lung"]
     }
   }
 }

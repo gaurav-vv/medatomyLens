@@ -22,6 +22,7 @@ export function reportLabel(report: { isDemo: boolean } | null): string {
 /** Short status line for a finding in lists. */
 export function findingSubtitle(f: ResolvedFinding): string {
   if (f.status === "NOT_INTERPRETED") return "Needs review";
+  if (f.raw.negated) return "The report states: not found";
   const value = f.raw.findingType === "lab_association" ? `${f.raw.value} ${f.raw.unit ?? ""} · ` : "";
   return `${value}${STATUS_LABEL[f.status]}`;
 }
@@ -40,7 +41,7 @@ function FindingRow({ f, active, onOpen }: { f: ResolvedFinding; active: boolean
   const { state } = useAnatomy();
   const where = f.structures.length
     ? f.structures.map((s) => structureName(state.index, s)).join(", ")
-    : f.status === "NOT_INTERPRETED"
+    : f.status === "NOT_INTERPRETED" || f.raw.negated
       ? "Not shown"
       : "Not mapped to a structure";
   return (

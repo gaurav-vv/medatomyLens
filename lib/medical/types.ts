@@ -49,6 +49,8 @@ export interface RawFinding {
   size?: { text: string; specified: boolean } | null;
   source: FindingSource;
   confidence: Confidence;
+  /** The report states this finding is absent ("no calculus"): listed, never drawn (Section 111). */
+  negated?: boolean;
 }
 
 export interface ReportPage {

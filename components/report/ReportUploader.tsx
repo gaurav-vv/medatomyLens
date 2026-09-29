@@ -4,9 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useAnatomy } from "@/components/anatomy/AnatomyContext";
 import { structureName } from "@/lib/medical/anatomyLink";
-import { findTerm } from "@/lib/medical/report";
+import { findTerm, REGIONS } from "@/lib/medical/report";
 import type { RawFinding } from "@/lib/medical/types";
-import { withFindings, type ReadReport } from "@/lib/reports/buildReport";
+import { fromOcr, withFindings, type ReadReport } from "@/lib/reports/buildReport";
 import type { ReadProgress } from "@/lib/reports/pdfText";
 import { REPORT_ERROR_TEXT, ReportReadError, type ReportErrorCode } from "@/lib/reports/validate";
 import { useReport } from "./ReportContext";
@@ -36,12 +36,29 @@ export function progressText(p: ReadProgress | null): { text: string; fraction: 
 
 const pageList = (pages: number[]) => (pages.length === 1 ? `Page ${pages[0]}` : `Pages ${pages.join(", ")}`);
 
+/** "3 test results and 2 organ statements" */
+export function countText(findings: RawFinding[]): string {
+  const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
+  const statements = findings.filter((f) => f.findingType === "report_statement").length;
+  const labs = findings.length - statements;
+  return [labs && plural(labs, "test result"), statements && plural(statements, "organ statement")].filter(Boolean).join(" and ");
+}
+
 function ReviewRow({ f, checked, onToggle }: { f: RawFinding; checked: boolean; onToggle: () => void }) {
   const { state } = useAnatomy();
-  const term = findTerm(f.name);
-  const where = term
-    ? `Associated with: ${term.associatedStructures.map((s) => structureName(state.index, s)).join(", ")}`
-    : "Not in the app's terminology yet: listed, not shown on the body";
+  const isStatement = f.findingType === "report_statement";
+  const term = isStatement ? null : findTerm(f.name);
+  const structures = isStatement ? (f.anatomicalStructures ?? []) : (term?.associatedStructures ?? []);
+  const where = f.negated
+    ? "The report states this was not found: listed, not marked"
+    : structures.length
+      ? `${isStatement ? "The report names" : "Associated with"}: ${structures.map((s) => structureName(state.index, s)).join(", ")}${
+          isStatement && f.location?.region && REGIONS[f.location.region] ? ` · ${REGIONS[f.location.region]!.displayName}` : ""
+        }`
+      : isStatement
+        ? "No single organ could be placed: listed, not shown on the body"
+        : "Not in the app's terminology yet: listed, not shown on the body";
+  const ocr = fromOcr(f);
   const id = `review-${f.id}`;
   return (
     <li className="rounded-lg border border-border bg-white/[0.03] px-3 py-2">
@@ -50,19 +67,22 @@ function ReviewRow({ f, checked, onToggle }: { f: RawFinding; checked: boolean; 
         <span className="min-w-0 flex-1">
           <span className="flex flex-wrap items-baseline gap-x-2">
             <span className="text-sm font-medium">{f.name}</span>
-            <span className="text-sm">
-              {f.value} {f.unit ?? ""}
-            </span>
+            {!isStatement && (
+              <span className="text-sm">
+                {f.value} {f.unit ?? ""}
+              </span>
+            )}
             <span className="text-[11px] text-muted">
-              {f.referenceRange ? `Reported range ${f.referenceRange.text}` : "No range printed"} · page {f.source.page}
-              {f.confidence === "low" && " · text recognition"}
+              {isStatement ? "Report statement" : f.referenceRange ? `Reported range ${f.referenceRange.text}` : "No range printed"} · page{" "}
+              {f.source.page}
+              {ocr && " · text recognition"}
             </span>
           </span>
           <span className="mt-0.5 block truncate font-mono text-[11px] text-muted" title={f.source.text}>
             “{f.source.text}”
           </span>
-          <span className={`block text-[11px] ${term ? "text-violet-200/90" : "text-muted"}`}>{where}</span>
-          {f.confidence === "low" && <span className="block text-[11px] text-amber-100">{OCR_ROW_NOTE}</span>}
+          <span className={`block text-[11px] ${structures.length && !f.negated ? "text-violet-200/90" : "text-muted"}`}>{where}</span>
+          {ocr && <span className="block text-[11px] text-amber-100">{OCR_ROW_NOTE}</span>}
         </span>
       </label>
     </li>
@@ -103,7 +123,7 @@ export function ReportUploader({ onShown }: { onShown?: () => void }) {
       });
       if (controller.signal.aborted) return;
       // Values read by OCR are opt-in: the user compares them with the report first (Section 4.4).
-      setPhase({ kind: "review", read: result, keep: new Set(result.report.findings.filter((x) => x.confidence !== "low").map((x) => x.id)) });
+      setPhase({ kind: "review", read: result, keep: new Set(result.report.findings.filter((x) => !fromOcr(x)).map((x) => x.id)) });
     } catch (e) {
       if (controller.signal.aborted) return;
       setPhase({ kind: "error", code: e instanceof ReportReadError ? e.code : "unavailable", file: f });
@@ -265,8 +285,8 @@ function ReviewView({
         </h2>
         <p className="text-sm" data-testid="review-summary">
           {n === 0
-            ? "No recognizable test results were found in this report."
-            : `${n} test result${n === 1 ? "" : "s"} found on ${summary.pageCount} page${summary.pageCount === 1 ? "" : "s"}.`}
+            ? "No recognizable test results or organ statements were found in this report."
+            : `${countText(report.findings)} found on ${summary.pageCount} page${summary.pageCount === 1 ? "" : "s"}.`}
         </p>
         {summary.ocrPages.length > 0 && (
           <p className="rounded-lg bg-amber-200/10 px-2.5 py-1.5 text-[12px] text-amber-100">
@@ -293,7 +313,7 @@ function ReviewView({
         </ul>
       )}
       <p className="mt-3 text-[11px] text-muted">
-        {PRIVACY_NOTE} Only rows that look like test results are read; other text such as imaging findings is not interpreted yet.
+        {PRIVACY_NOTE} Test rows and imaging sentences that name an organ are read; other text is kept as page text only.
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
         {n > 0 && (
