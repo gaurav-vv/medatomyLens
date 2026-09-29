@@ -4,7 +4,7 @@
  * (AGENTS.md Sections 28, 29). pdf.js and OCR are loaded on first use.
  */
 import { withBase } from "@/lib/basePath";
-import { buildReport, type ReadReport } from "./buildReport";
+import { buildReport, rowsAreUsable, type ReadReport } from "./buildReport";
 import type { OcrSession } from "./ocr";
 import { extractPdf, type ReadProgress } from "./pdfText";
 import { checkFile, REPORT_LIMITS, ReportReadError } from "./validate";
@@ -39,8 +39,12 @@ export async function readReportFile(
       signal,
       deadline,
       onProgress,
+      usable: rowsAreUsable,
       getDocumentParams: {
         standardFontDataUrl: withBase("/vendor/pdfjs/standard_fonts/"),
+        // Character maps: needed to read text in many fonts used by report software.
+        cMapUrl: withBase("/vendor/pdfjs/cmaps/"),
+        cMapPacked: true,
         wasmUrl: withBase("/vendor/pdfjs/wasm/"),
         useSystemFonts: false,
         verbosity: 0, // errors only; pdf.js never logs page text, but keep the console quiet

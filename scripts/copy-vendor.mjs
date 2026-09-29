@@ -13,6 +13,7 @@ const FILES = [
   // pdf.js (Mozilla, Apache-2.0): worker, image decoders, standard fonts.
   [nm("pdfjs-dist/build/pdf.worker.min.mjs"), "pdfjs/pdf.worker.min.mjs"],
   [nm("pdfjs-dist/standard_fonts"), "pdfjs/standard_fonts"],
+  [nm("pdfjs-dist/cmaps"), "pdfjs/cmaps"],
   [nm("pdfjs-dist/LICENSE"), "pdfjs/LICENSE"],
   // tesseract.js (Apache-2.0): worker script and the LSTM-only WebAssembly cores.
   [nm("tesseract.js/dist/worker.min.js"), "tesseract/worker.min.js"],

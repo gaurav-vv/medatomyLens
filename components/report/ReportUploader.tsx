@@ -312,6 +312,19 @@ function ReviewView({
           ))}
         </ul>
       )}
+      <details className="mt-3 rounded-lg border border-border bg-black/20" open={n === 0}>
+        <summary className="cursor-pointer px-3 py-2 text-xs text-teal-100">Show the text that was read (this device only)</summary>
+        <div className="max-h-56 overflow-y-auto px-3 pb-3 font-mono text-[11px] leading-relaxed text-muted" data-testid="read-text">
+          {report.pages.map((p) => (
+            <div key={p.page} className="mt-2">
+              <p className="font-sans text-[11px] uppercase tracking-wide">
+                {p.heading} · {p.lines.length} line{p.lines.length === 1 ? "" : "s"}
+              </p>
+              {p.lines.length === 0 ? <p>(no text)</p> : p.lines.map((l, i) => <p key={i}>{l}</p>)}
+            </div>
+          ))}
+        </div>
+      </details>
       <p className="mt-3 text-[11px] text-muted">
         {PRIVACY_NOTE} Test rows and imaging sentences that name an organ are read; other text is kept as page text only.
       </p>

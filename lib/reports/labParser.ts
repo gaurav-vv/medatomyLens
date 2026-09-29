@@ -14,7 +14,9 @@
 import type { Confidence, RawFinding, ReferenceRange } from "@/lib/medical/types";
 import type { TextRow } from "./layout";
 
-const NUM = String.raw`\d+(?:\.\d+)?`;
+/** A number; thousands separators ("12,500") only in the exact 1,234 pattern. */
+const NUM = String.raw`(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?)`;
+const num = (s: string) => Number(s.replace(/,/g, ""));
 const VALUE_RE = new RegExp(`^(${NUM})$`);
 /** A value with a trailing flag in the same cell: "1.9 H", "1.9H", "1.9*". */
 const VALUE_FLAG_RE = new RegExp(`^(${NUM})\\s*(H|L|HIGH|LOW|\\*)$`, "i");
@@ -39,14 +41,14 @@ export function parseRange(cell: string): ReferenceRange | null {
   const text = cell.trim();
   let m = RANGE_BETWEEN.exec(text);
   if (m?.[1] && m[2]) {
-    const low = Number(m[1]);
-    const high = Number(m[2]);
+    const low = num(m[1]);
+    const high = num(m[2]);
     return low <= high ? { low, high, text } : null;
   }
   m = RANGE_BELOW.exec(text);
-  if (m?.[1]) return { low: null, high: Number(m[1]), text };
+  if (m?.[1]) return { low: null, high: num(m[1]), text };
   m = RANGE_ABOVE.exec(text);
-  if (m?.[1]) return { low: Number(m[1]), high: null, text };
+  if (m?.[1]) return { low: num(m[1]), high: null, text };
   return null;
 }
 
@@ -75,45 +77,80 @@ function nameOk(name: string): boolean {
   return /[A-Za-z]{2,}/.test(name) && !HEADER.test(name) && !NOT_A_TEST.test(name) && name.length <= 60;
 }
 
+/** "Creatinine :" / "* Creatinine" → "Creatinine" (the quote keeps the original row). */
+const cleanName = (s: string) => s.replace(/^[*•\s]+/, "").replace(/[\s:*]+$/, "").trim();
+const hasDigit = (s: string) => /\d/.test(s);
+/** A text-only cell such as a method or specimen column ("Serum", "Photometry"): ignored, never guessed into a value. */
+const isTextCell = (s: string) => !hasDigit(s) && s.length <= 40;
+/** "1.9 mg/dL" in one cell. */
+const VALUE_UNIT_RE = new RegExp(`^(${NUM})\\s+(\\S+)$`);
+/** A range with a label ("Male: 0.7 - 1.3", "Adult 10-40"): which one applies depends on context, so no range is taken (Section 69). */
+const LABELED_RANGE = new RegExp(`^[A-Za-z][A-Za-z ./()]*:?\\s*(?:${NUM}\\s*(?:-|–|to)\\s*${NUM}|(?:<=?|>=?|≤|≥)\\s*${NUM})`, "i");
+
+/** "mg/dL 0.7 - 1.3" or "0.7 - 1.3 mg/dL" printed in one cell. */
+function unitAndRange(cell: string): { unit: string; range: ReferenceRange } | null {
+  const lead = /^(\S+)\s+(.+)$/.exec(cell);
+  if (lead?.[1] && lead[2] && isUnit(lead[1])) {
+    const range = parseRange(lead[2]);
+    if (range) return { unit: lead[1], range };
+  }
+  const trail = /^(.+?)\s+(\S+)$/.exec(cell);
+  if (trail?.[1] && trail[2] && isUnit(trail[2])) {
+    const range = parseRange(trail[1]);
+    if (range) return { unit: trail[2], range };
+  }
+  return null;
+}
+
+function readValue(cell: string): { value: number; flag: string | null; unit: string | null } | null {
+  const v = VALUE_RE.exec(cell) ?? VALUE_FLAG_RE.exec(cell);
+  if (v?.[1]) return { value: num(v[1]), flag: v[2] ?? null, unit: null };
+  const u = VALUE_UNIT_RE.exec(cell);
+  if (u?.[1] && u[2] && isUnit(u[2])) return { value: num(u[1]), flag: null, unit: u[2] };
+  return null;
+}
+
 /** One row → the printed fields, or null when the row is not clearly a numeric lab result. */
 export function parseRow(cells: string[]): (ParsedRow & { layout: "table" | "text" }) | null {
-  const [name, first, ...rest] = cells;
-  if (name === undefined) return null;
+  const [rawName, first] = cells;
+  if (rawName === undefined) return null;
+  const name = cleanName(rawName);
   if (first !== undefined) {
     if (!nameOk(name)) return null;
-    // The value is the cell right after the name (a method column in between is not guessed around).
-    const v = VALUE_RE.exec(first) ?? VALUE_FLAG_RE.exec(first);
-    if (!v?.[1]) return null;
-    const value = Number(v[1]);
-    let flag: string | null = v[2] ?? null;
-    let unit: string | null = null;
+    // The value is the first numeric cell after the name. Only text-only cells
+    // (method, specimen) may sit in between; anything else is not guessed around.
+    let at = 1;
+    while (at < cells.length && isTextCell(cells[at]!) && !isUnit(cells[at]!) && !FLAG_RE.test(cells[at]!)) at++;
+    const v = at < cells.length ? readValue(cells[at]!) : null;
+    if (!v) return null;
+    let { flag, unit } = v;
     let range: ReferenceRange | null = null;
-    for (const c of rest) {
+    let rangeWithheld = false;
+    for (const c of cells.slice(at + 1)) {
       const asRange = parseRange(c);
+      const combined: { unit: string; range: ReferenceRange } | null = !range ? unitAndRange(c) : null;
       if (!flag && FLAG_RE.test(c)) flag = c;
       else if (!unit && isUnit(c)) unit = c;
       else if (!range && asRange) range = asRange;
-      else if (!unit && !range) {
-        // "mg/dL 0.7 - 1.3" printed in one cell.
-        const m = /^(\S+)\s+(.+)$/.exec(c);
-        const r = m?.[2] ? parseRange(m[2]) : null;
-        if (!m?.[1] || !isUnit(m[1]) || !r) return null;
-        unit = m[1];
-        range = r;
-      } else return null; // an extra cell we cannot place: do not guess
+      else if (combined) {
+        range = combined.range;
+        unit ??= combined.unit;
+      }
+      else if (!range && !rangeWithheld && LABELED_RANGE.test(c)) rangeWithheld = true;
+      else if (!isTextCell(c)) return null; // a numeric cell we cannot place (e.g. a previous result): do not guess
     }
-    if (!unit && !range) return null;
-    return { name, value, unit, referenceRange: range, flag, layout: "table" };
+    if (!unit && !range && !rangeWithheld) return null;
+    return { name, value: v.value, unit, referenceRange: range, flag, layout: "table" };
   }
-  const g = ONE_CELL.exec(name)?.groups;
+  const g = ONE_CELL.exec(rawName)?.groups;
   if (!g?.name || !g.value) return null;
-  const n = g.name.trim();
+  const n = cleanName(g.name);
   if (!nameOk(n)) return null;
   const unit = g.unit && isUnit(g.unit) ? g.unit : null;
   if (g.unit && !unit) return null;
   const range = g.range ? parseRange(g.range) : null;
   if (!unit && !range) return null;
-  return { name: n, value: Number(g.value), unit, referenceRange: range, flag: g.flag ?? null, layout: "text" };
+  return { name: n, value: num(g.value), unit, referenceRange: range, flag: g.flag ?? null, layout: "text" };
 }
 
 export interface PageRows {

@@ -5,7 +5,7 @@ import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
 import { parseStructureIndex } from "@/lib/anatomy/structures";
 import { structureExists } from "@/lib/medical/anatomyLink";
 import { resolveReport } from "@/lib/medical/report";
-import { buildReport } from "@/lib/reports/buildReport";
+import { buildReport, rowsAreUsable } from "@/lib/reports/buildReport";
 import { buildRows, textAmount, type TextPiece } from "@/lib/reports/layout";
 import { isUnit, MIN_OCR_CONFIDENCE, parseLabPages, parseRange, parseRow } from "@/lib/reports/labParser";
 import { extractPdf } from "@/lib/reports/pdfText";
@@ -114,8 +114,30 @@ describe("lab row parser (Sections 66–69)", () => {
     expect(parseRow(["Creatinine", "see note"])).toBeNull(); // no number
     expect(parseRow(["Creatinine", "1.9"])).toBeNull(); // no unit or range to anchor it
     expect(parseRow(["Creatinine", "<0.5", "mg/dL"])).toBeNull(); // censored value: not a plain number
-    expect(parseRow(["Creatinine", "Jaffe", "1.9", "mg/dL"])).toBeNull(); // extra column before the value
-    expect(parseRow(["Creatinine", "1.9", "mg/dL", "0.7 - 1.3", "see comment"])).toBeNull(); // unknown extra cell
+    expect(parseRow(["Creatinine", "1.9", "mg/dL", "0.7 - 1.3", "1.5"])).toBeNull(); // extra number (e.g. previous result)
+  });
+  it("reads common Indian lab layouts", () => {
+    // Method / technology column between name and value.
+    expect(parseRow(["CREATININE - SERUM", "PHOTOMETRY", "0.83", "mg/dL", "0.6-1.1"])).toMatchObject({
+      name: "CREATININE - SERUM",
+      value: 0.83,
+      unit: "mg/dL",
+      referenceRange: { low: 0.6, high: 1.1 },
+    });
+    // Trailing text column (method, comment) is ignored.
+    expect(parseRow(["Creatinine", "1.9", "mg/dL", "0.7 - 1.3", "Enzymatic"])).toMatchObject({ value: 1.9 });
+    // Range with the unit printed after it.
+    expect(parseRow(["Haemoglobin", "13.2", "g/dL", "13.0 - 17.0 g/dL"])).toMatchObject({ unit: "g/dL", referenceRange: { low: 13, high: 17 } });
+    expect(parseRow(["Haemoglobin", "13.2", "13.0 - 17.0 g/dL"])).toMatchObject({ unit: "g/dL", referenceRange: { low: 13, high: 17 } });
+    // Value with its unit in one cell; name with a trailing colon.
+    expect(parseRow(["Urea :", "32 mg/dL", "15 - 40"])).toMatchObject({ name: "Urea", value: 32, unit: "mg/dL" });
+    // Thousands separators.
+    expect(parseRow(["Total Leucocyte Count", "7,800", "cells/cu.mm", "4,000 - 11,000"])).toMatchObject({
+      value: 7800,
+      referenceRange: { low: 4000, high: 11000 },
+    });
+    // Sex-specific range: value kept, no range chosen (Section 69).
+    expect(parseRow(["Creatinine", "1.1", "mg/dL", "Male: 0.7-1.3"])).toMatchObject({ value: 1.1, referenceRange: null });
   });
   it("leaves out OCR rows below the confidence threshold", () => {
     const row = (minConfidence: number) => ({ cells: ["Creatinine", "1.9", "mg/dL"], text: "Creatinine | 1.9 | mg/dL", minConfidence });
@@ -186,6 +208,29 @@ describe("PDF extraction end to end (synthetic PDFs)", () => {
     const ocrFinding = report.findings.find((f) => f.source.page === 2)!;
     expect(ocrFinding).toMatchObject({ name: "Creatinine", value: 1.9, confidence: "low" });
     expect(report.pages[1]!.heading).toMatch(/text recognition/);
+  });
+
+  it("tries OCR on pages whose text reads as nothing useful (table drawn as an image)", async () => {
+    const headerOnly: PdfPageSpec = {
+      texts: [
+        { x: 40, y: 40, text: "SYNTHETIC LAB - header and footer are real text", size: 10 },
+        { x: 40, y: 800, text: "This report is electronically generated. Page 1 of 1", size: 8 },
+      ],
+    };
+    const asked: number[] = [];
+    const doc = await extract(makePdf([headerOnly]), {
+      usable: rowsAreUsable,
+      ocr: async (_p, n) => {
+        asked.push(n);
+        return [piece("Creatinine", 40, 100), piece("1.9", 220, 100), piece("mg/dL", 300, 100)].map((p) => ({ ...p, confidence: 90 }));
+      },
+    });
+    expect(asked).toEqual([1]);
+    expect(doc.pages[0]!.method).toBe("ocr");
+    // A page that already has results is not sent to OCR.
+    const asked2: number[] = [];
+    await extract(makePdf(syntheticReport().slice(0, 1)), { usable: rowsAreUsable, ocr: async (_p, n) => (asked2.push(n), null) });
+    expect(asked2).toEqual([]);
   });
 
   it("rejects password-protected, damaged and oversized-page-count PDFs with clear errors", async () => {

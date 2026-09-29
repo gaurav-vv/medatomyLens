@@ -33,6 +33,8 @@ export interface ExtractOptions {
   onProgress?: (p: ReadProgress) => void;
   /** Text recognition for scanned pages. Returns null when the page could not be recognized. */
   ocr?: (page: PDFPageProxy, pageNumber: number, pageCount: number) => Promise<TextPiece[] | null>;
+  /** Whether a page's rows contain anything readable; pages that don't are also tried with OCR. */
+  usable?: (rows: TextRow[]) => boolean;
   signal?: AbortSignal;
   deadline?: number;
 }
@@ -88,18 +90,24 @@ export async function extractPdf(lib: typeof PdfJs, data: Uint8Array, opts: Extr
       const page = await doc.getPage(n);
       try {
         const pieces = await pageTextPieces(lib, page);
-        if (textAmount(pieces) >= REPORT_LIMITS.minTextChars || !ocr) {
-          pages.push({ page: n, method: "text", rows: buildRows(pieces) });
+        const textRows = buildRows(pieces);
+        const enoughText = textAmount(pieces) >= REPORT_LIMITS.minTextChars;
+        // Text that reads as nothing useful (a results table drawn as an image,
+        // or a font whose text comes out garbled) also goes to OCR.
+        if (!ocr || (enoughText && (!opts.usable || opts.usable(textRows)))) {
+          pages.push({ page: n, method: "text", rows: textRows });
           continue;
         }
         if (ocrUsed >= REPORT_LIMITS.maxOcrPages) {
-          pages.push({ page: n, method: "unreadable", rows: buildRows(pieces) });
+          pages.push({ page: n, method: enoughText ? "text" : "unreadable", rows: textRows });
           continue;
         }
         ocrUsed++;
         const words = await ocr(page, n, pageCount);
         check(signal, deadline);
-        pages.push(words ? { page: n, method: "ocr", rows: buildRows(words) } : { page: n, method: "unreadable", rows: buildRows(pieces) });
+        const ocrRows = words ? buildRows(words) : null;
+        if (ocrRows && (!enoughText || !opts.usable || opts.usable(ocrRows))) pages.push({ page: n, method: "ocr", rows: ocrRows });
+        else pages.push({ page: n, method: enoughText ? "text" : "unreadable", rows: textRows });
       } finally {
         page.cleanup();
       }

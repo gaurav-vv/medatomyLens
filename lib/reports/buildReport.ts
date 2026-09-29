@@ -4,8 +4,9 @@
  * of its page and passes the exact-quote check in lib/medical/report.ts.
  */
 import type { RawFinding, RawReport } from "@/lib/medical/types";
-import { parseLabPages } from "./labParser";
+import { parseLabPages, parseRow } from "./labParser";
 import { parseImagingLines } from "./imagingParser";
+import type { TextRow } from "./layout";
 import type { ExtractedDocument, PageMethod } from "./pdfText";
 
 export const OCR_PAGE_NOTE = "read by text recognition";
@@ -72,4 +73,9 @@ export function withFindings(report: RawReport, keep: (f: RawFinding) => boolean
 /** Lab rows read by text recognition (the only source of low-confidence lab findings). */
 export function fromOcr(f: RawFinding): boolean {
   return f.findingType === "lab_association" && f.confidence === "low";
+}
+
+/** A page is usable when at least one row reads as a result or an organ statement. */
+export function rowsAreUsable(rows: TextRow[]): boolean {
+  return rows.some((r) => parseRow(r.cells)) || parseImagingLines(0, rows.map((r, i) => ({ text: r.text, index: i }))).length > 0;
 }
