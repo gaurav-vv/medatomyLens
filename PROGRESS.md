@@ -3,7 +3,7 @@
 > Read this first when you pick up the project (human or AI), then read `AGENTS.md`, which holds the binding rules.
 > Update this file at the end of every work session: change **Current status**, **Next steps** and **Open decisions**, and add a line to the **Log**.
 
-Last updated: 2026-09-29 (night)
+Last updated: 2026-09-30
 
 ---
 
@@ -33,7 +33,7 @@ Open app → Explore mode (whole body, education)
 | 1.7 | Rendering polish, About screen, deploy | Done: live at https://gaurav-vv.github.io/medatomyLens/ |
 | 1.8 | AGENTS.md build order 2–5: demo report, organ view Reported/Normal/Side by side, region marker, range bar, curated explanations (3 terms) | Done (explanations pending medical review) |
 | 2 | PDF reading: pdf.js, table parser, OCR fallback, AI fallback with exact-quote check, review screen | Done except the AI fallback (waiting on provider choice) |
-| 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | In progress: 13 terms, imaging text reader, 18 regions done; explanations for new terms, bone/X-ray regions, report comparison pending |
+| 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | In progress: 119 terms, 19 explanations, imaging text reader, 18 regions, AI chat (Cloudflare) built but not deployed; medical review, bone/X-ray regions, report comparison pending |
 | 4 | Adding medical content region by region (reviewed sources only) | Not started |
 
 The user chose this order (visuals, then PDF, then mapping). AGENTS.md Section 115 lists a different order, and updating AGENTS.md to match hasn't been approved yet (see section 6).
@@ -59,11 +59,14 @@ What works now (verified by tests and screenshots, desktop and mobile Chromium):
 
 Not done or known gaps:
 
+- **AI chat (new, 2026-09-30):** Menu → "Ask AI about your results" opens a chat about a lab result that has a curated explanation. A Cloudflare Worker + Cloudflare Workers AI (free tier) answers; the client sends only the test name, the range status and the question, the Worker grounds the prompt in the curated explanation server-side and runs a guard, and the client re-checks the answer. **Not yet deployed:** the user must create a free Cloudflare account and run `npm run worker:deploy`, then set `CHAT_URL`. **Not tested against the real model** yet (unit tests use a fake `send`).
+- **e2e not re-run** after the 2026-09-30 medical-content and menu changes.
+- **Female body + sex-specific ranges:** unfinished and unverified, saved on the **local-only branch `wip/female-body`** (commit 4094b4f). **Do not push it** (user request).
 - Performance on a **real phone hasn't been measured yet**. The test browser renders without a GPU, so its load times mean nothing. Each mesh is a separate draw call (about 650 for the default view); merging meshes per layer is the planned fix if phones stutter.
 - The structure panel shows only the name, layer, side and parent organ. There's no educational text yet; it needs reviewed sources (AGENTS.md Section 116).
 - CI on GitHub: `npm run check` passes, but the e2e step fails on the GitHub runner (logs need a GitHub login to read; likely timeouts on the slower software-rendered runner). The website deploy is separate and succeeds.
 - The full desktop e2e run was not repeated after the last phone-layout change (stopped on request); the full mobile run passed.
-- Explanations for creatinine, eGFR and ALT are drafted from MedlinePlus and marked "Pending review by a medical professional".
+- 19 explanations drafted from MedlinePlus and marked "Pending review by a medical professional". The other ~99 terms are mapped only.
 - Hosted on GitHub Pages: https://gaurav-vv.github.io/medatomyLens/ (repo https://github.com/gaurav-vv/medatomyLens). Every push to `main` redeploys via `.github/workflows/pages.yml` (GitHub Pages, sub-path handled by `NEXT_PUBLIC_BASE_PATH` / `lib/basePath.ts`).
 
 ## 4. Key decisions (and why)
@@ -82,24 +85,25 @@ Not done or known gaps:
 
 ## 5. Next steps (in order)
 
+0. **Now:** run e2e (`npm run build; npm run test:e2e`); deploy the chat Worker (`npm run worker:deploy`) and set `CHAT_URL`; try the chat against the real model (answer speed and quality). Then commit on `main` (medical content + chat), without the female-body branch.
 1. **User:** test on a real phone and report how smooth it is and how long it takes to load. If it stutters, merge meshes per layer or reduce the draw calls.
 2. **Detailed organs (HRA): done** for kidneys, heart, liver, lungs, brain and eyes. Pipeline: `npm run anatomy:fetch-organs` then `npm run anatomy:organs`, configured in `data/anatomy/detail_organs.json`; part colours in `appearance.json` "parts". Brain L/R labels in the source are mirrored and are set from geometry (`lateralityFromGeometry`, see THIRD_PARTY_ASSETS). Candidates to add later: spleen, pancreas, stomach, bladder, thyroid (check each source the same way).
 3. Fix the CI e2e step on GitHub (read the run log, then raise timeouts or run a smaller e2e set in CI).
 4. Optional rendering extras that need a post-processing dependency (ambient occlusion, depth of field in the detail view): only after real-phone numbers, high tier only.
-5. **Medical review:** someone qualified should review the 3 explanations in `data/medical/explanations/` (status "pending"), then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
+5. **Medical review:** someone qualified should review the 19 explanations in `data/medical/explanations/` (status "pending") and the new mappings, then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
 6. Phase 2 is done except the AI fallback. Next: test uploads with real-layout (synthetic or de-identified) reports from the labs users will use, and tune the parser.
-7. Phase 3 next parts: curated explanations for the 10 new terms (needs a reviewer), bone/X-ray regions (e.g. distal radius, femoral neck), more detailed organs (spleen, pancreas, bladder), and comparing reports by date (Sections 43, 44, 70).
+7. Phase 3 next parts: explanations for more terms (needs a reviewer; each new explanation also enables chat for that term), bone/X-ray regions (e.g. distal radius, femoral neck), more detailed organs (spleen, pancreas, bladder), and comparing reports by date (Sections 43, 44, 70).
 
 ## 6. Open decisions (waiting on the user)
 
-- [ ] **AI chat per finding/body part** (requested 2026-09-30). Needs: provider (in-browser model, user's own API key, or a hosted proxy; GitHub Pages cannot hold a secret key), explicit opt-in before any report text leaves the device (AGENTS.md Section 28), and grounding in curated content only with no diagnosis (Sections 33, 34, 47).
+- [x] **AI chat per finding** (requested 2026-09-30): the user chose a free hosted proxy (a Cloudflare Worker calling Cloudflare Workers AI) after rejecting the in-browser WebLLM model (830 MB download) and users bringing their own Gemini keys. A user's-own-API-key provider could still be added later behind an adapter, with its own opt-in.
 - [ ] AGENTS.md Section 74 asks for a demo report; the user asked to remove the demo button (done). Update AGENTS.md?
 - [ ] May AGENTS.md be updated to whole-body scope, the new phase order, PWA and the AI rules? (Asked; not answered yet.)
 - [x] Git host and hosting: GitHub + GitHub Pages (https://github.com/gaurav-vv/medatomyLens).
 - [x] Build order: follow AGENTS.md Section 115 (demo report and organ view before PDF). Chosen by the user ("b").
 - [ ] Who reviews the medical content (mappings and explanations) before it's committed?
 - [ ] UI language: English only for V1?
-- [ ] Which AI provider for Phase 2 extraction: in-browser (WebLLM), self-hosted, or a cloud free tier with opt-in?
+- [ ] Which AI provider for Phase 2 extraction: the chat now uses Cloudflare (Worker + Workers AI); the extraction fallback is still undecided (self-hosted, another cloud free tier, or reuse the Worker).
 - [x] Model files are in git directly (largest 13.8 MB, under GitHub's 100 MB limit).
 - [ ] "Remove every slide bar": scrollbars were hidden. Did the user also mean the reference range bar? (Asked.)
 
@@ -125,6 +129,13 @@ components/anatomy/           AnatomyViewer (layout), AnatomyContext (state/redu
                               AnatomySearch, AnatomyLayerToggle, OrganPanel,
                               DetailModel (isolated high-detail copy), DetailPanel (back, labels, parts)
 components/layout/Disclaimer  disclaimer + generic-model label + model attribution
+components/menu/               AppMenu (header "Menu": Ask AI about your results, About),
+                              ChatPanel (result picker, consent, chat UI)
+lib/ai/                       client (sendChat to the Worker, error mapping), grounding
+                              (parseChatRequest, buildMessages, suggested questions),
+                              guard (checkAnswer: Section 114 words + treatment/dose)
+worker/                       Cloudflare Worker: src/handler.ts (validate, ground, Workers AI,
+                              guard), src/index.ts, wrangler.toml (ALLOWED_ORIGINS, rate limit)
 lib/anatomy/                  types, structures (index, search, selection, tap logic),
                               appearance (tissue look), quality (device tier)
 data/anatomy/                 appearance.json, groups.json, layer_overrides.json,
@@ -165,3 +176,7 @@ docs/                         ARCHITECTURE, THIRD_PARTY_ASSETS, MEDICAL_SOURCES,
 | 2026-09-29 | Phase 2: on-device PDF reading (pdfjs-dist 6.3.289), row/cell rebuilding, rule-based lab-row parser, OCR fallback (tesseract.js 7.0.0, self-hosted via scripts/copy-vendor.mjs), review screen, upload errors with retry, uploaded-report labels. Fixed the phone page being zoomed out (layer chip fieldset had min-width: min-content). Synthetic PDF writer for tests. 182 unit tests; 6 new e2e upload tests (desktop + mobile, incl. OCR) pass. |
 | 2026-09-30 | Phase 3 part 1: 10 new MedlinePlus-sourced lab terms (BUN, urea, AST, GGT, bilirubin x3, lipase, troponin I/T; pending review), 10 new regions (kidney medulla/pelvis, caudate lobe, lung lobes), data-driven imaging text reader (side, region, negation, uncertainty, prior-study sizes), review screen and panels show organ statements. Fixed a cp1252 encoding corruption in PROGRESS.md. 198 unit tests, 8 upload e2e tests pass. |
 | 2026-09-30 | Real-report feedback: 64 lab terms plus BP/pulse in display groups (kidneys, liver, pancreas, heart, blood pressure, thyroid, blood sugar/count/fats/proteins, electrolytes). Blood-measured tests shown on arteries+veins (`layer:` structure ids, only while the finding is open), calcium/phosphorus/ALP also on bones; thyroid listed only (no thyroid mesh). Repeated results merged. Grouped, collapsible result list with status tags (green in range, amber outside; no graded severity colours). Demo button removed (user request; demo data kept for tests); upload next to the search. Closing finding details keeps the highlight (bar to reopen/clear). Shared control sizes (40/36 px), icon buttons, panel style. 207 unit tests, upload and smoke e2e pass. |
+| 2026-09-30 | Medical content: 16 new explanations checked against their MedlinePlus pages (BUN, urea, uric acid, AST, GGT, bilirubin x3, albumin, ALP, lipase, troponin I/T, total protein, globulin, A/G ratio; AST/ALT ratio has no source so no explanation). 52 new terms from a real-layout report (iron/vitamins, CRP/ESR/immunoglobulins, clotting, urine, SpO2/blood gases/peak flow, CK/CK-MB/NT-proBNP/BNP, cortisol/LH/FSH/prolactin/SHBG/PTH/testosterone, trace minerals, osmolality): 119 terms, 18 groups. Ambiguous names are not highlighted (bare pH not recognized; bare osmolality, PTH, testosterone listed only). Term keys handle subscripts (SpO₂). Female-body work moved to local branch wip/female-body (not pushed). |
+| 2026-09-30 | (Superseded the same day, see next rows.) First AI chat attempt: in-browser WebLLM model in each finding panel. Removed because it needed an 830 MB download. |
+| 2026-09-30 | Medical content: 16 new explanations checked against MedlinePlus (20 total, pending review); 52 new terms from a real-layout report → 119 terms in 18 groups. Ambiguous names are not highlighted; term keys handle subscripts (SpO₂). Female-body work moved to the local-only branch wip/female-body (not pushed). |
+| 2026-09-30 | AI chat redesigned to a free hosted proxy: header Menu (`components/menu/AppMenu.tsx`: Ask AI about your results, About) → ChatPanel → `lib/ai/client.ts` sendChat → Cloudflare Worker (`worker/`) on Cloudflare Workers AI (Llama 3.1 8B Instruct). Worker has an origin allow-list, a 10/min per-IP rate limit, request validation, curated server-side grounding (`lib/ai/grounding.ts` + `lib/medical/explanations.ts`) and a guard (`lib/ai/guard.ts`); failing answers return `{withheld:true}`; no logging. Client re-checks answers. The earlier in-browser WebLLM chat was tried and removed. Built but not deployed. |

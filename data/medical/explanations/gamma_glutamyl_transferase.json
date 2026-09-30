@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "gamma_glutamyl_transferase",
+  "title": "GGT (gamma-glutamyl transferase)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-ggt", "title": "MedlinePlus: Gamma-glutamyl Transferase (GGT) Test", "url": "https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "GGT is an enzyme found throughout the body, but mainly in the liver. It is often read together with ALP to help tell whether a raised ALP comes from the liver or from bone.",
+  "context": "Results can be affected by certain medicines or supplements, drinking alcohol and smoking. GGT levels go down after meals, so fasting may be asked for. A low or normal GGT is not usually a concern.",
+  "aboveRange": [
+    "Drinking alcohol",
+    "Certain medicines or supplements",
+    "Liver or bile duct conditions",
+    "Some pancreas, heart or blood sugar conditions"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

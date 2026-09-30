@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "albumin_globulin_ratio",
+  "title": "A/G ratio",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-total-protein", "title": "MedlinePlus: Total Protein and Albumin/Globulin (A/G) Ratio", "url": "https://medlineplus.gov/lab-tests/total-protein-and-albumin-globulin-a-g-ratio/", "accessed": "2026-09-30" }
+  ],
+  "measures": "The A/G ratio compares the amount of albumin in the blood with the amount of globulin. Together with total protein, it is used to help check the liver and kidneys and overall nutrition.",
+  "context": "The ratio is calculated from albumin and globulin, so anything that changes either one changes the ratio. It is read together with those results.",
+  "aboveRange": [
+    "Some inherited or blood conditions"
+  ],
+  "belowRange": [
+    "Autoimmune conditions",
+    "Liver or kidney conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

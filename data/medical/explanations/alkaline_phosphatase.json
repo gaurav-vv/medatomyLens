@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "alkaline_phosphatase",
+  "title": "ALP (alkaline phosphatase)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-alp", "title": "MedlinePlus: Alkaline Phosphatase", "url": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/", "accessed": "2026-09-30" }
+  ],
+  "measures": "ALP is an enzyme found in all body tissues, but in higher amounts in the liver, bile ducts and bones. The test on its own cannot tell which part of the body the ALP comes from.",
+  "context": "ALP is normally higher in children and teenagers, whose bones are growing, and during pregnancy. A fatty meal before the test can raise it slightly, and some medicines raise or lower it.",
+  "aboveRange": [
+    "Liver or bile duct conditions",
+    "Bone conditions",
+    "Normal bone growth in children and teenagers",
+    "Pregnancy",
+    "A fatty meal before the test, or certain medicines"
+  ],
+  "belowRange": [
+    "Low zinc or protein, or poor nutrition",
+    "Some thyroid or inherited conditions",
+    "Birth control pills or certain medicines"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

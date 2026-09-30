@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "bilirubin_total",
+  "title": "Bilirubin, total",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-bilirubin", "title": "MedlinePlus: Bilirubin Blood Test", "url": "https://medlineplus.gov/lab-tests/bilirubin-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Bilirubin is a yellowish substance made during the body's normal breakdown of old red blood cells. The liver removes most of it from the blood into bile. Total bilirubin is the sum of direct (processed by the liver) and indirect (not yet processed) bilirubin.",
+  "context": "Some medicines, certain foods and strenuous exercise can affect bilirubin. Normal ranges vary by lab, by sex and with age. A low result is usually not a cause for concern.",
+  "aboveRange": [
+    "Faster breakdown of red blood cells",
+    "Liver conditions",
+    "A blockage in the bile ducts",
+    "Some medicines, certain foods or strenuous exercise"
+  ],
+  "belowRange": [
+    "Certain medicines, such as some antibiotics, birth control pills, sleeping pills or seizure medicines"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

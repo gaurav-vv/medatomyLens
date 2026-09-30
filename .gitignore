@@ -54,3 +54,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Cloudflare Worker local build output
+worker/.wrangler/
+worker/worker-dist/

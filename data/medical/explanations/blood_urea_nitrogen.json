@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "blood_urea_nitrogen",
+  "title": "BUN (blood urea nitrogen)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-bun", "title": "MedlinePlus: BUN (Blood Urea Nitrogen)", "url": "https://medlineplus.gov/lab-tests/bun-blood-urea-nitrogen/", "accessed": "2026-09-30" }
+  ],
+  "measures": "BUN measures the amount of urea nitrogen in the blood. Urea nitrogen is a normal waste product made when the body breaks down protein. The kidneys remove it from the blood into urine, so this test is commonly used with creatinine and eGFR to help check how well the kidneys are working.",
+  "context": "BUN levels vary with sex and usually rise with age. A result outside the reported range does not always mean there is a condition that needs treatment.",
+  "aboveRange": [
+    "Changes in how well the kidneys remove waste",
+    "Dehydration",
+    "A diet high in protein",
+    "Certain medicines",
+    "Burns, or a recent heart event"
+  ],
+  "belowRange": [
+    "A diet low in protein, or poor nutrition",
+    "Some liver conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

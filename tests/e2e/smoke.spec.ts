@@ -11,7 +11,7 @@ test("app shell loads with 3D canvas, disclaimer and manifest", async ({ page })
   await page.goto("/");
   await expect(page.getByText("AnatomyLens").first()).toBeVisible();
   await expect(page.getByTestId("anatomy-viewer").locator("canvas")).toBeVisible();
-  await expect(page.getByRole("link", { name: "About" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Menu" })).toBeVisible();
 
   const manifest = await page.request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBe(true);
@@ -22,6 +22,7 @@ test("app shell loads with 3D canvas, disclaimer and manifest", async ({ page })
 
 test("about page shows disclaimer, licenses and returns to the viewer", async ({ page }) => {
   await page.goto("/");
+  await page.getByRole("button", { name: "Menu" }).click();
   await page.getByRole("link", { name: "About" }).click();
   await expect(page.getByRole("heading", { name: "About AnatomyLens" })).toBeVisible();
   await expect(page.getByText(/does not provide a medical diagnosis/)).toBeVisible();
@@ -216,7 +217,7 @@ test("uploaded report: body highlight, organ view modes, region marker, explanat
       ["Creatinine", "1.9", "mg/dL", "0.7 - 1.3"],
       ["eGFR", "42", "mL/min/1.73m2", "> 60"],
       ["ALT (SGPT)", "28", "U/L", "7 - 56"],
-      ["Vitamin B12", "450", "pg/mL", "200 - 900"],
+      ["Vitamin B6", "12", "ng/mL", "5 - 50"],
     ]),
     {
       texts: [

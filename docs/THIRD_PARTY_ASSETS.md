@@ -2,6 +2,13 @@
 
 Every 3D model, texture, font or dataset shipped with the app is recorded here before it is added (AGENTS.md Sections 9 and 112).
 
+## In use (service): Cloudflare Workers AI chat
+
+- Model: **Llama 3.1 8B Instruct** (fp8-fast build, `@cf/meta/llama-3.1-8b-instruct-fp8-fast`) by Meta. License: **Llama 3.1 Community License** (its acceptable use policy applies; the app uses it only for educational explanation of lab tests, never for diagnosis or treatment).
+- Run by Cloudflare on Cloudflare Workers AI. The model is **not shipped with the app**: nothing is downloaded to the browser. The app's Worker calls the model server-side and returns text.
+- Data usage: Cloudflare states it does not use Workers AI inputs to train models — https://developers.cloudflare.com/workers-ai/platform/data-usage/. The Worker sends only the term, the range status and the question (no report data), and does not log requests.
+- Tooling: `wrangler` 4.144.0 (**MIT OR Apache-2.0**), run via `npx wrangler@4.144.0` to log in and deploy the Worker. It is **not a project dependency** and is not installed into `node_modules`.
+
 ## In use: HuBMAP Human Reference Atlas 3D Reference Organs (detailed organs)
 
 - Source: https://github.com/hubmapconsortium/hra-kg (`digital-objects/ref-organ/`); library page https://humanatlas.io/3d-reference-library

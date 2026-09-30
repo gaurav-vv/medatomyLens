@@ -1,0 +1,17 @@
+{
+  "normalizedTerm": "bilirubin_direct",
+  "title": "Bilirubin, direct (conjugated)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-bilirubin", "title": "MedlinePlus: Bilirubin Blood Test", "url": "https://medlineplus.gov/lab-tests/bilirubin-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Direct (conjugated) bilirubin is bilirubin that the liver has already processed so it can leave the body in bile. It is one part of total bilirubin.",
+  "context": "Some medicines, certain foods and strenuous exercise can affect bilirubin. Direct bilirubin is usually read together with total and indirect bilirubin and other liver tests.",
+  "aboveRange": [
+    "Liver conditions",
+    "A blockage in the bile ducts",
+    "Some medicines"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

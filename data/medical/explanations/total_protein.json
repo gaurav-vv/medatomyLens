@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "total_protein",
+  "title": "Total protein",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-total-protein", "title": "MedlinePlus: Total Protein and Albumin/Globulin (A/G) Ratio", "url": "https://medlineplus.gov/lab-tests/total-protein-and-albumin-globulin-a-g-ratio/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Total protein is the amount of protein in the blood. It is made up mainly of albumin, made by the liver, and globulins, made by the liver and the immune system.",
+  "context": "Total protein is usually read together with albumin, globulin and the A/G ratio. Some medicines can affect results.",
+  "aboveRange": [
+    "Dehydration",
+    "Some long-lasting infections",
+    "Some immune system or blood conditions"
+  ],
+  "belowRange": [
+    "Liver or kidney conditions",
+    "Not getting enough nutrition, or problems absorbing it"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

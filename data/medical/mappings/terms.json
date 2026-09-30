@@ -55,6 +55,41 @@
       "id": "blood_proteins",
       "displayName": "Blood proteins",
       "note": "Proteins carried in the blood: shown on the blood vessels."
+    },
+    {
+      "id": "urine",
+      "displayName": "Urine tests",
+      "note": "Tests on a urine sample. The kidneys make urine, so they are shown."
+    },
+    {
+      "id": "lungs",
+      "displayName": "Lungs and breathing",
+      "note": "Breathing tests and oxygen and carbon dioxide in the blood, which the lungs exchange."
+    },
+    {
+      "id": "muscles",
+      "displayName": "Muscles",
+      "note": "An enzyme found mostly in skeletal muscle."
+    },
+    {
+      "id": "hormones",
+      "displayName": "Hormones",
+      "note": "Hormones made by glands. Only glands that are part of the 3D model are highlighted."
+    },
+    {
+      "id": "iron_vitamins",
+      "displayName": "Iron and vitamins",
+      "note": "Iron and vitamins carried in the blood: shown on the blood vessels."
+    },
+    {
+      "id": "clotting",
+      "displayName": "Blood clotting",
+      "note": "How the blood forms clots: shown on the blood vessels."
+    },
+    {
+      "id": "inflammation_immunity",
+      "displayName": "Inflammation and immunity",
+      "note": "Proteins linked to inflammation and the immune system, measured in blood: shown on the blood vessels."
     }
   ],
   "terms": [
@@ -402,7 +437,7 @@
     {
       "normalizedTerm": "hematocrit",
       "displayName": "PCV / haematocrit",
-      "synonyms": ["pcv", "packed cell volume", "hematocrit", "haematocrit", "hct"],
+      "synonyms": ["pcv", "packed cell volume", "hematocrit", "haematocrit", "hct", "hematocrit pcv", "haematocrit pcv", "pcv hematocrit", "pcv haematocrit"],
       "category": "laboratory_marker",
       "group": "blood_count",
       "associatedStructures": ["layer:arteries", "layer:veins"],
@@ -794,6 +829,578 @@
       "system": "cardiovascular",
       "visualizationType": "association",
       "mappingReason": "The pulse is the number of heartbeats per minute, so the heart is shown."
+    },
+    {
+      "normalizedTerm": "cystatin_c",
+      "displayName": "Cystatin C",
+      "synonyms": ["cystatin c", "serum cystatin c", "s. cystatin c"],
+      "category": "laboratory_marker",
+      "group": "kidneys",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Blood cystatin C is used to estimate how well the kidneys filter (eGFR), so it is shown with the kidneys."
+    },
+    {
+      "normalizedTerm": "urine_albumin_creatinine_ratio",
+      "displayName": "Urine albumin/creatinine ratio",
+      "synonyms": ["urine albumin creatinine ratio", "albumin creatinine ratio", "uacr", "acr", "microalbumin creatinine ratio", "urine microalbumin creatinine ratio", "urinary albumin creatinine ratio"],
+      "category": "laboratory_marker",
+      "group": "urine",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "The kidneys' filters normally let only a trace of albumin into urine, so this urine test is shown with the kidneys."
+    },
+    {
+      "normalizedTerm": "urine_specific_gravity",
+      "displayName": "Urine specific gravity",
+      "synonyms": ["specific gravity", "urine specific gravity", "sp gravity", "specific gravity urine"],
+      "category": "laboratory_marker",
+      "group": "urine",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Specific gravity shows how concentrated urine is, which reflects how the kidneys balance water."
+    },
+    {
+      "normalizedTerm": "urine_ph",
+      "displayName": "Urine pH",
+      "synonyms": ["urine ph", "ph urine", "urinary ph"],
+      "category": "laboratory_marker",
+      "group": "urine",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Urine pH is the acidity of urine, which is made by the kidneys."
+    },
+    {
+      "normalizedTerm": "osmolality_urine",
+      "displayName": "Osmolality, urine",
+      "synonyms": ["urine osmolality", "osmolality urine"],
+      "category": "laboratory_marker",
+      "group": "urine",
+      "associatedStructures": ["left_kidney", "right_kidney"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Urine osmolality shows how concentrated urine is, which reflects how the kidneys balance water."
+    },
+    {
+      "normalizedTerm": "insulin",
+      "displayName": "Insulin",
+      "synonyms": ["insulin", "fasting insulin", "insulin fasting", "serum insulin", "s. insulin"],
+      "category": "laboratory_marker",
+      "group": "pancreas",
+      "associatedStructures": ["pancreas"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Insulin is a hormone made by the pancreas, so the pancreas is shown."
+    },
+    {
+      "normalizedTerm": "c_peptide",
+      "displayName": "C-peptide",
+      "synonyms": ["c peptide", "serum c peptide", "fasting c peptide", "c peptide fasting"],
+      "category": "laboratory_marker",
+      "group": "pancreas",
+      "associatedStructures": ["pancreas"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "C-peptide is released by the pancreas in the same amount as insulin, so the pancreas is shown."
+    },
+    {
+      "normalizedTerm": "amylase",
+      "displayName": "Amylase",
+      "synonyms": ["amylase", "serum amylase", "s. amylase", "amylase serum"],
+      "category": "laboratory_marker",
+      "group": "pancreas",
+      "associatedStructures": ["pancreas"],
+      "system": "digestive",
+      "visualizationType": "association",
+      "mappingReason": "Most amylase is made by the pancreas and the salivary glands. The pancreas is shown."
+    },
+    {
+      "normalizedTerm": "nt_probnp",
+      "displayName": "NT-proBNP",
+      "synonyms": ["nt probnp", "n terminal pro bnp", "n terminal pro b type natriuretic peptide", "nt pro b type natriuretic peptide"],
+      "category": "laboratory_marker",
+      "group": "heart",
+      "associatedStructures": ["heart"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "NT-proBNP is released mainly by the heart, so it is used as a heart-associated marker."
+    },
+    {
+      "normalizedTerm": "bnp",
+      "displayName": "BNP (B-type natriuretic peptide)",
+      "synonyms": ["bnp", "b type natriuretic peptide", "brain natriuretic peptide"],
+      "category": "laboratory_marker",
+      "group": "heart",
+      "associatedStructures": ["heart"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "BNP is released mainly by the heart, so it is used as a heart-associated marker."
+    },
+    {
+      "normalizedTerm": "creatine_kinase_mb",
+      "displayName": "CK-MB",
+      "synonyms": ["ck mb", "creatine kinase mb", "cpk mb", "ck mb mass"],
+      "category": "laboratory_marker",
+      "group": "heart",
+      "associatedStructures": ["heart"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "CK-MB is the form of creatine kinase found mainly in heart muscle, so it is used as a heart-associated marker."
+    },
+    {
+      "normalizedTerm": "creatine_kinase",
+      "displayName": "CK (creatine kinase), total",
+      "synonyms": ["ck", "ck total", "total ck", "creatine kinase", "creatine kinase total", "cpk", "creatine phosphokinase", "ck nac"],
+      "category": "laboratory_marker",
+      "group": "muscles",
+      "associatedStructures": ["layer:muscles"],
+      "system": "muscular",
+      "visualizationType": "association",
+      "mappingReason": "Most creatine kinase is in the skeletal muscles (some is in the heart and brain), so the muscles are shown. This does not point to any one muscle."
+    },
+    {
+      "normalizedTerm": "oxygen_saturation",
+      "displayName": "SpO2 (oxygen saturation)",
+      "synonyms": ["spo2", "oxygen saturation", "o2 saturation", "o2 sat", "pulse oximetry", "sao2"],
+      "category": "vital_sign",
+      "group": "lungs",
+      "associatedStructures": ["right_lung", "left_lung"],
+      "system": "respiratory",
+      "visualizationType": "association",
+      "mappingReason": "The lungs take oxygen into the blood; this shows how much oxygen the blood is carrying, so the lungs are shown."
+    },
+    {
+      "normalizedTerm": "respiratory_rate",
+      "displayName": "Respiratory rate",
+      "synonyms": ["respiratory rate", "resp rate", "breathing rate", "respiration rate"],
+      "category": "vital_sign",
+      "group": "lungs",
+      "associatedStructures": ["right_lung", "left_lung"],
+      "system": "respiratory",
+      "visualizationType": "association",
+      "mappingReason": "Respiratory rate is the number of breaths per minute, so the lungs are shown."
+    },
+    {
+      "normalizedTerm": "peak_expiratory_flow",
+      "displayName": "Peak expiratory flow",
+      "synonyms": ["peak expiratory flow", "peak expiratory flow rate", "peak flow", "pef", "pefr"],
+      "category": "laboratory_marker",
+      "group": "lungs",
+      "associatedStructures": ["right_lung", "left_lung"],
+      "system": "respiratory",
+      "visualizationType": "association",
+      "mappingReason": "Peak flow measures how fast air can be blown out of the lungs, so the lungs are shown."
+    },
+    {
+      "normalizedTerm": "arterial_po2",
+      "displayName": "PaO2 (oxygen in arterial blood)",
+      "synonyms": ["pao2", "po2", "arterial po2", "po2 arterial", "partial pressure of oxygen"],
+      "category": "laboratory_marker",
+      "group": "lungs",
+      "associatedStructures": ["right_lung", "left_lung"],
+      "system": "respiratory",
+      "visualizationType": "association",
+      "mappingReason": "PaO2 reflects how well the lungs move oxygen into the blood, so the lungs are shown."
+    },
+    {
+      "normalizedTerm": "arterial_pco2",
+      "displayName": "PaCO2 (carbon dioxide in arterial blood)",
+      "synonyms": ["paco2", "pco2", "arterial pco2", "pco2 arterial", "partial pressure of carbon dioxide"],
+      "category": "laboratory_marker",
+      "group": "lungs",
+      "associatedStructures": ["right_lung", "left_lung"],
+      "system": "respiratory",
+      "visualizationType": "association",
+      "mappingReason": "PaCO2 reflects how well the lungs remove carbon dioxide from the blood, so the lungs are shown."
+    },
+    {
+      "normalizedTerm": "arterial_ph",
+      "displayName": "pH, arterial blood",
+      "synonyms": ["arterial ph", "ph arterial", "blood ph", "abg ph", "ph abg"],
+      "category": "laboratory_marker",
+      "group": "lungs",
+      "associatedStructures": ["right_lung", "left_lung", "left_kidney", "right_kidney"],
+      "system": "respiratory",
+      "visualizationType": "association",
+      "mappingReason": "Both the lungs and the kidneys help keep the blood's acid balance (pH), so both are shown."
+    },
+    {
+      "normalizedTerm": "cortisol",
+      "displayName": "Cortisol",
+      "synonyms": ["cortisol", "serum cortisol", "morning cortisol", "cortisol morning", "am cortisol", "cortisol am", "cortisol 8 am", "8 am cortisol"],
+      "category": "laboratory_marker",
+      "group": "hormones",
+      "associatedStructures": ["left_adrenal_gland", "right_adrenal_gland"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Cortisol is a hormone made by the adrenal glands, which sit above the kidneys."
+    },
+    {
+      "normalizedTerm": "parathyroid_hormone",
+      "displayName": "PTH (parathyroid hormone)",
+      "synonyms": ["pth", "parathyroid hormone", "intact pth", "pth intact", "ipth", "parathormone"],
+      "category": "laboratory_marker",
+      "group": "hormones",
+      "associatedStructures": [],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "PTH is made by the parathyroid glands in the neck. They are not part of the current 3D model, so nothing is highlighted."
+    },
+    {
+      "normalizedTerm": "luteinizing_hormone",
+      "displayName": "LH (luteinizing hormone)",
+      "synonyms": ["lh", "luteinizing hormone", "luteinising hormone", "serum lh"],
+      "category": "laboratory_marker",
+      "group": "hormones",
+      "associatedStructures": ["pituitary_gland"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "LH is a hormone made by the pituitary gland at the base of the brain."
+    },
+    {
+      "normalizedTerm": "follicle_stimulating_hormone",
+      "displayName": "FSH (follicle-stimulating hormone)",
+      "synonyms": ["fsh", "follicle stimulating hormone", "serum fsh"],
+      "category": "laboratory_marker",
+      "group": "hormones",
+      "associatedStructures": ["pituitary_gland"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "FSH is a hormone made by the pituitary gland at the base of the brain."
+    },
+    {
+      "normalizedTerm": "prolactin",
+      "displayName": "Prolactin",
+      "synonyms": ["prolactin", "prl", "serum prolactin"],
+      "category": "laboratory_marker",
+      "group": "hormones",
+      "associatedStructures": ["pituitary_gland"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Prolactin is a hormone made by the pituitary gland at the base of the brain."
+    },
+    {
+      "normalizedTerm": "testosterone_total",
+      "displayName": "Testosterone, total",
+      "synonyms": ["testosterone", "total testosterone", "testosterone total", "serum testosterone"],
+      "category": "laboratory_marker",
+      "group": "hormones",
+      "associatedStructures": [],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "Testosterone is made mainly by the testicles in men, and in small amounts by the ovaries and adrenal glands. Because the source depends on sex, nothing is highlighted."
+    },
+    {
+      "normalizedTerm": "sex_hormone_binding_globulin",
+      "displayName": "SHBG (sex hormone binding globulin)",
+      "synonyms": ["shbg", "sex hormone binding globulin"],
+      "category": "laboratory_marker",
+      "group": "hormones",
+      "associatedStructures": ["liver"],
+      "system": "endocrine",
+      "visualizationType": "association",
+      "mappingReason": "SHBG is a protein made mostly in the liver that carries sex hormones in the blood, so the liver is shown."
+    },
+    {
+      "normalizedTerm": "apolipoprotein_b",
+      "displayName": "Apolipoprotein B",
+      "synonyms": ["apolipoprotein b", "apo b", "apolipoprotein b100", "apo b100"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "lipoprotein_a",
+      "displayName": "Lipoprotein(a)",
+      "synonyms": ["lipoprotein a", "lp a", "lipoprotein little a"],
+      "category": "laboratory_marker",
+      "group": "blood_fats",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "reticulocyte_count",
+      "displayName": "Reticulocyte count",
+      "synonyms": ["reticulocyte count", "reticulocytes", "retic count", "reticulocyte"],
+      "category": "laboratory_marker",
+      "group": "blood_count",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "erythrocyte_sedimentation_rate",
+      "displayName": "ESR (erythrocyte sedimentation rate)",
+      "synonyms": ["esr", "erythrocyte sedimentation rate", "sed rate", "sedimentation rate", "esr westergren"],
+      "category": "laboratory_marker",
+      "group": "inflammation_immunity",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "c_reactive_protein",
+      "displayName": "CRP (C-reactive protein)",
+      "synonyms": ["crp", "c reactive protein", "serum crp", "crp quantitative", "c reactive protein crp"],
+      "category": "laboratory_marker",
+      "group": "inflammation_immunity",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "hs_c_reactive_protein",
+      "displayName": "hs-CRP (high-sensitivity CRP)",
+      "synonyms": ["hs crp", "high sensitivity crp", "high sensitivity c reactive protein", "hs c reactive protein", "crp high sensitivity"],
+      "category": "laboratory_marker",
+      "group": "inflammation_immunity",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "rheumatoid_factor",
+      "displayName": "Rheumatoid factor (RF)",
+      "synonyms": ["rheumatoid factor", "rf", "ra factor", "rf quantitative", "rheumatoid factor rf"],
+      "category": "laboratory_marker",
+      "group": "inflammation_immunity",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "immunoglobulin_g",
+      "displayName": "IgG (immunoglobulin G)",
+      "synonyms": ["igg", "immunoglobulin g", "serum igg", "total igg"],
+      "category": "laboratory_marker",
+      "group": "inflammation_immunity",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "immunoglobulin_a",
+      "displayName": "IgA (immunoglobulin A)",
+      "synonyms": ["iga", "immunoglobulin a", "serum iga", "total iga"],
+      "category": "laboratory_marker",
+      "group": "inflammation_immunity",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "immunoglobulin_m",
+      "displayName": "IgM (immunoglobulin M)",
+      "synonyms": ["igm", "immunoglobulin m", "serum igm", "total igm"],
+      "category": "laboratory_marker",
+      "group": "inflammation_immunity",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "ferritin",
+      "displayName": "Ferritin",
+      "synonyms": ["ferritin", "serum ferritin", "s. ferritin"],
+      "category": "laboratory_marker",
+      "group": "iron_vitamins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "serum_iron",
+      "displayName": "Iron",
+      "synonyms": ["iron", "serum iron", "iron serum", "s. iron", "total iron"],
+      "category": "laboratory_marker",
+      "group": "iron_vitamins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "total_iron_binding_capacity",
+      "displayName": "TIBC (total iron-binding capacity)",
+      "synonyms": ["tibc", "total iron binding capacity"],
+      "category": "laboratory_marker",
+      "group": "iron_vitamins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "transferrin_saturation",
+      "displayName": "Transferrin saturation",
+      "synonyms": ["transferrin saturation", "tsat", "iron saturation", "transferrin saturation percent"],
+      "category": "laboratory_marker",
+      "group": "iron_vitamins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "vitamin_b12",
+      "displayName": "Vitamin B12",
+      "synonyms": ["vitamin b12", "b12", "vit b12", "serum b12", "serum vitamin b12", "cobalamin"],
+      "category": "laboratory_marker",
+      "group": "iron_vitamins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "folate",
+      "displayName": "Folate (vitamin B9)",
+      "synonyms": ["folate", "folic acid", "serum folate", "vitamin b9", "folate serum"],
+      "category": "laboratory_marker",
+      "group": "iron_vitamins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "vitamin_d_25_hydroxy",
+      "displayName": "Vitamin D (25-OH)",
+      "synonyms": ["25 oh vitamin d", "25 hydroxy vitamin d", "25 oh vit d", "25ohd", "vitamin d", "vit d", "vitamin d total", "vitamin d 25 oh"],
+      "category": "laboratory_marker",
+      "group": "iron_vitamins",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "prothrombin_time",
+      "displayName": "PT (prothrombin time)",
+      "synonyms": ["pt", "prothrombin time", "pt patient", "prothrombin time pt"],
+      "category": "laboratory_marker",
+      "group": "clotting",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "international_normalized_ratio",
+      "displayName": "INR",
+      "synonyms": ["inr", "international normalized ratio", "international normalised ratio", "pt inr"],
+      "category": "laboratory_marker",
+      "group": "clotting",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "activated_partial_thromboplastin_time",
+      "displayName": "aPTT (partial thromboplastin time)",
+      "synonyms": ["aptt", "ptt", "activated partial thromboplastin time", "partial thromboplastin time", "aptt patient"],
+      "category": "laboratory_marker",
+      "group": "clotting",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "fibrinogen",
+      "displayName": "Fibrinogen",
+      "synonyms": ["fibrinogen", "plasma fibrinogen", "fibrinogen plasma"],
+      "category": "laboratory_marker",
+      "group": "clotting",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "d_dimer",
+      "displayName": "D-dimer",
+      "synonyms": ["d dimer", "d dimer quantitative", "plasma d dimer"],
+      "category": "laboratory_marker",
+      "group": "clotting",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "zinc",
+      "displayName": "Zinc",
+      "synonyms": ["zinc", "serum zinc", "zinc serum"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "copper",
+      "displayName": "Copper",
+      "synonyms": ["copper", "serum copper", "copper serum"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "selenium",
+      "displayName": "Selenium",
+      "synonyms": ["selenium", "serum selenium", "selenium serum"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "cardiovascular",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "osmolality_serum",
+      "displayName": "Osmolality, blood",
+      "synonyms": ["serum osmolality", "plasma osmolality", "osmolality serum", "osmolality plasma"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": ["layer:arteries", "layer:veins"],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Measured in blood, which flows through the arteries and veins of the whole body. The vessels are shown for that reason only: this does not point to any vessel or problem."
+    },
+    {
+      "normalizedTerm": "osmolality_unspecified",
+      "displayName": "Osmolality (sample not stated)",
+      "synonyms": ["osmolality"],
+      "category": "laboratory_marker",
+      "group": "electrolytes",
+      "associatedStructures": [],
+      "system": "urinary",
+      "visualizationType": "association",
+      "mappingReason": "Osmolality can be measured in blood or urine, and this line does not say which, so nothing is highlighted."
     }
   ]
 }

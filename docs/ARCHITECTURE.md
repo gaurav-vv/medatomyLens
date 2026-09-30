@@ -64,7 +64,39 @@ app/page.tsx
 ## Privacy
 
 - The service worker caches only static app files and anatomy assets, never report data.
-- No analytics and no third-party requests. The e2e test checks that no request leaves localhost.
+- No analytics and no third-party requests. The e2e test checks that no request leaves localhost. The one exception is the opt-in "Ask AI" chat: after the user agrees, it sends only the term, the range status and the question to the app's Cloudflare Worker (below). No report data is sent.
+
+## Chat about a result (optional, AGENTS.md Sections 28, 33, 34, 81, 108, 114)
+
+The chat is opt-in and lives behind the header Menu. The viewer never depends on it (Sections 82, 83): if the chat is not set up or the service is down, everything else keeps working.
+
+```text
+AppMenu (components/menu/AppMenu.tsx: "Ask AI about your results", "About")
+  └── ChatPanel (components/menu/ChatPanel.tsx)
+        result picker limited to lab results that have a curated explanation
+        one-time consent notice (stored in localStorage: anatomylens.chat.consent.v1)
+        │
+        └── lib/ai/client.ts sendChat
+              POST { term, status, question, history }
+              to NEXT_PUBLIC_CHAT_URL + "/chat"
+              │
+              └── Cloudflare Worker (worker/src/handler.ts)
+                    origin allow-list (ALLOWED_ORIGINS)
+                    rate limit binding: 10 requests/min per IP
+                    request validation (lib/ai/grounding.ts parseChatRequest)
+                    prompt built server-side from curated data only
+                      (lib/ai/grounding.ts buildMessages + lib/medical/explanations.ts)
+                    Workers AI model @cf/meta/llama-3.1-8b-instruct-fp8-fast
+                    guard (lib/ai/guard.ts) → failing answers return { withheld: true }
+                    no logging; observability disabled
+```
+
+- **Client sends the minimum:** the normalized term, the range status (above / below / within the report's own range) and the typed question, plus prior turns for context. No report text, values or personal details leave the device.
+- **Grounding is server-side:** the Worker builds the whole prompt from the curated explanation of that term (`lib/ai/grounding.ts` + `lib/medical/explanations.ts`). The model is told to answer only from those facts and to reply out-of-scope otherwise. `lib/medical/explanations.ts` holds the curated registry and uses relative imports so the Worker bundles it without the app's path aliases.
+- **Guard both ends:** the Worker checks the answer with `lib/ai/guard.ts` (Section 114 words + treatment/dose patterns); a failing answer is returned as `{ withheld: true }` and never shown. The client re-checks the answer before displaying it.
+- **Errors** map to friendly messages: 429 (too many questions, wait a minute) and 503 (the service is busy, try again). `chatStatusOf` in `lib/ai/client.ts` classifies them.
+- **Free tier:** Cloudflare Workers AI gives 10,000 Neurons/day (resets at 00:00 UTC), enough for roughly a thousand short questions. When it runs out the chat is unavailable and the rest of the app is unaffected.
+- Tests: `tests/unit/chat.test.tsx` covers grounding, the guard and the UI with a fake `send`. The real model is not called in CI.
 
 ## Demo report and organ view modes (AGENTS.md build order steps 2–5)
 
@@ -103,7 +135,7 @@ pick file -> checkFile (size, starts with %PDF-) -> pdf.js text with positions (
 - `lib/reports/imagingParser.ts` reads sentences from text pages (not OCR pages) that are not lab rows. Words come from `data/medical/mappings/imaging_vocabulary.json` (organs, regions, finding words, negation, uncertainty and prior-study cues).
 - A sentence becomes a `report_statement` only if it has a finding word and names exactly one organ. The side comes only from "right"/"left" in the sentence; none, both or "bilateral" means both organs and no region. A pole or lobe beats cortex/medulla; two of the same kind means no region.
 - Negated findings ("no calculus", "not seen") are listed with `negated: true` and no structure: never marked. Uncertain wording is quoted as is with low confidence. Sizes are not taken from sentences that compare with an earlier study.
-- `terms.json` has 13 lab terms (kidneys, liver, pancreas, heart), all sourced in `docs/MEDICAL_SOURCES.md` and pending review. Thyroid tests stay unmapped: the body model has no thyroid gland.
+- `terms.json` has 119 terms in 18 groups (see `docs/MEDICAL_MAPPINGS.md`), all sourced in `docs/MEDICAL_SOURCES.md` and pending review. Thyroid tests stay unhighlighted: the body model has no thyroid gland.
 - `regions.json` has 18 regions: kidney poles (pins), cortex, medulla, renal pelvis, liver lobes, lung lobes (model parts).
 - Runtime files (pdf.js worker, image decoders, fonts; tesseract worker, LSTM WebAssembly cores, English model) are copied from `node_modules` to `public/vendor/` by `scripts/copy-vendor.mjs` (runs before `dev` and `build`; git-ignored). No CDN. The service worker fetches `/vendor/` network-first with an offline copy.
 - Tests use synthetic PDFs written by `tests/fixtures/makePdf.ts` (text, image-only "scanned" pages, password-protected).

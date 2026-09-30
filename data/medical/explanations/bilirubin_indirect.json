@@ -1,0 +1,17 @@
+{
+  "normalizedTerm": "bilirubin_indirect",
+  "title": "Bilirubin, indirect (unconjugated)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-bilirubin", "title": "MedlinePlus: Bilirubin Blood Test", "url": "https://medlineplus.gov/lab-tests/bilirubin-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Indirect (unconjugated) bilirubin is bilirubin made from the breakdown of old red blood cells that the liver has not yet processed. It is one part of total bilirubin.",
+  "context": "Some medicines, certain foods and strenuous exercise can affect bilirubin. Indirect bilirubin is usually read together with total and direct bilirubin.",
+  "aboveRange": [
+    "Faster breakdown of red blood cells",
+    "Liver conditions",
+    "Some medicines, certain foods or strenuous exercise"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

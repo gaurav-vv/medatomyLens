@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "globulin",
+  "title": "Globulin",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-total-protein", "title": "MedlinePlus: Total Protein and Albumin/Globulin (A/G) Ratio", "url": "https://medlineplus.gov/lab-tests/total-protein-and-albumin-globulin-a-g-ratio/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Globulins are a group of blood proteins that help fight infection and move nutrients through the body. Some are made by the liver and others by the immune system.",
+  "context": "Globulin is usually calculated from total protein and albumin, and read together with the A/G ratio.",
+  "aboveRange": [
+    "Some long-lasting infections",
+    "Autoimmune conditions",
+    "Some blood conditions"
+  ],
+  "belowRange": [
+    "Liver or kidney conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

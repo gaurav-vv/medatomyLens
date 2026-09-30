@@ -47,6 +47,13 @@ body {
 @utility ui-btn-report {
   @apply border-violet-300/50 bg-violet-300/10 hover:bg-violet-300/20;
 }
+/* AI chat: its own sky-blue look so it is never mistaken for report findings (violet) or app actions (teal). */
+@utility ui-btn-ai {
+  @apply border-sky-300/50 bg-sky-400/15 text-sky-50 hover:bg-sky-400/25 focus-visible:outline-sky-300;
+}
+@utility ui-ai-box {
+  @apply rounded-2xl border border-sky-300/25 bg-sky-400/[0.06];
+}
 @utility ui-tag {
   @apply inline-flex items-center whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] leading-5;
 }

@@ -60,8 +60,24 @@ export default function AboutPage() {
 
         <Section title="Privacy">
           <p>
-            The app runs entirely in your browser. It has no account, no analytics and no server; the anatomy models are static
-            files. Reports you open in later versions stay on your device.
+            The app runs in your browser. It has no account, no analytics and no tracking; the anatomy models are static files.
+            Reports you open are read on your device and are not uploaded or saved.
+          </p>
+          <p>
+            The optional &apos;Ask AI&apos; chat (in the Menu) is the one part that talks to a service. It sends only your
+            question, the test name and whether the result is above, below or within the report&apos;s range to the app&apos;s AI
+            service on Cloudflare Workers AI. It does not send any report text, values or personal details. Your questions are not
+            stored, and Cloudflare states it does not use Workers AI inputs to train models.
+          </p>
+        </Section>
+
+        <Section title="AI chat">
+          <p>
+            Answers are generated only from the app&apos;s curated explanation of the selected test and can be wrong. They are not
+            medical advice. Answers that use diagnostic wording or mention treatment are not shown.
+          </p>
+          <p className="text-xs text-muted">
+            Model: Llama 3.1 8B Instruct (Meta, Llama 3.1 Community License), run on Cloudflare Workers AI.
           </p>
         </Section>
 

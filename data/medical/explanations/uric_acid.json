@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "uric_acid",
+  "title": "Uric acid",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-uric-acid", "title": "MedlinePlus: Uric Acid Test", "url": "https://medlineplus.gov/lab-tests/uric-acid-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Uric acid is a normal waste product made when the body breaks down purines, which come from the body's own cells and from some foods and drinks. The kidneys filter most of it out of the blood into urine.",
+  "context": "Diet, alcohol and many medicines (including aspirin and niacin) can affect uric acid. A high result does not always mean a condition that needs treatment, and a low result is uncommon and usually causes no problems.",
+  "aboveRange": [
+    "Foods and drinks high in purines, such as red meat, organ meats, some seafood, alcohol and sugary drinks with high-fructose corn syrup",
+    "The kidneys removing less uric acid",
+    "Joint conditions linked to uric acid crystals, or kidney stones",
+    "Certain medicines or treatments"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

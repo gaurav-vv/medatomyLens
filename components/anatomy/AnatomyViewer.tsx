@@ -12,6 +12,7 @@ import { ViewerStatus } from "./ViewerStatus";
 import { ReportProvider, useReport } from "@/components/report/ReportContext";
 import { BodyFindingPanel, ReportCard } from "@/components/report/ReportPanels";
 import { ReportUploader } from "@/components/report/ReportUploader";
+import { AppMenu } from "@/components/menu/AppMenu";
 
 // three.js needs WebGL/window, so the canvas is loaded client-side only and
 // split into its own chunk so the page shell paints immediately.
@@ -44,6 +45,7 @@ function BodyChrome({ viewer }: { viewer: ViewerRef }) {
             <AnatomySearch />
           </div>
           <ReportUploader />
+          <AppMenu />
         </div>
         <div ref={chips} className="pointer-events-auto">
           <AnatomyLayerToggle />

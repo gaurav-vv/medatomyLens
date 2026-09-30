@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "aspartate_aminotransferase",
+  "title": "AST (aspartate aminotransferase)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-ast", "title": "MedlinePlus: AST Test", "url": "https://medlineplus.gov/lab-tests/ast-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "AST is an enzyme found mainly in the liver, and also in the heart, muscles and other tissues. Blood usually contains low levels of it. It is often measured together with ALT and other liver tests.",
+  "context": "Many things can affect AST results, including pregnancy, exercise, certain medicines, age and sex. A low AST result is usually considered normal. A result outside the reported range does not always mean there is a condition that needs treatment.",
+  "aboveRange": [
+    "Irritation or inflammation of liver cells, from several possible causes",
+    "Alcohol or certain medicines that affect the liver",
+    "Heart or muscle conditions, because AST is also found in these tissues",
+    "Recent surgery, burns or seizures",
+    "Exercise"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

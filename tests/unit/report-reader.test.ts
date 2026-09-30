@@ -27,7 +27,7 @@ const SYNTHETIC_ROWS = [
   ["Serum Creatinine", "1.9", "mg/dL", "0.7 - 1.3"],
   ["eGFR", "42", "mL/min/1.73m2", "> 60"],
   ["ALT (SGPT)", "28", "U/L", "7 - 56"],
-  ["Vitamin B12", "450", "pg/mL", "200 - 900"],
+  ["Vitamin B6", "12", "ng/mL", "5 - 50"],
   ["Potassium", "4.1", "mmol/L"],
 ];
 const syntheticReport = (): PdfPageSpec[] => [
@@ -172,7 +172,7 @@ describe("PDF extraction end to end (synthetic PDFs)", () => {
       "Serum Creatinine",
       "eGFR",
       "ALT (SGPT)",
-      "Vitamin B12",
+      "Vitamin B6",
       "Potassium",
       "Haemoglobin",
     ]);
@@ -185,7 +185,7 @@ describe("PDF extraction end to end (synthetic PDFs)", () => {
     expect(by("eGFR").status).toBe("BELOW_RANGE");
     expect(by("ALT (SGPT)").structures).toEqual(["liver"]);
     expect(by("Potassium").status).toBe("UNKNOWN"); // no range printed: none substituted
-    expect(by("Vitamin B12").structures).toEqual([]); // not in terminology: listed, not mapped
+    expect(by("Vitamin B6").structures).toEqual([]); // not in terminology: listed, not mapped
     expect(by("Haemoglobin").raw.source.page).toBe(2);
     // Patient details stay page text only.
     expect(resolved.findings.some((f) => /Patient|Age|Sample/.test(f.raw.name))).toBe(false);

@@ -33,8 +33,33 @@ describe("terminology (Section 15)", () => {
     expect(findTerm("EGFR")?.normalizedTerm).toBe("estimated_glomerular_filtration_rate");
   });
   it("does not guess unknown terms (Section 90)", () => {
-    expect(findTerm("Vitamin B12")).toBeNull();
-    expect(findTerm("creatine kinase")).toBeNull();
+    expect(findTerm("Vitamin B6")).toBeNull();
+    expect(findTerm("Anti-TPO antibodies")).toBeNull();
+    expect(findTerm("pH")).toBeNull(); // urine or blood: ambiguous
+  });
+  it("matches report spellings with subscripts and bracketed abbreviations", () => {
+    expect(findTerm("SpO₂")?.normalizedTerm).toBe("oxygen_saturation");
+    expect(findTerm("PaCO₂")?.normalizedTerm).toBe("arterial_pco2");
+    expect(findTerm("Hematocrit (PCV)")?.normalizedTerm).toBe("hematocrit");
+    expect(findTerm("25-OH Vitamin D")?.normalizedTerm).toBe("vitamin_d_25_hydroxy");
+    expect(findTerm("Lipoprotein(a)")?.normalizedTerm).toBe("lipoprotein_a");
+    expect(findTerm("CK-MB")?.normalizedTerm).toBe("creatine_kinase_mb");
+    expect(findTerm("CK total")?.normalizedTerm).toBe("creatine_kinase");
+  });
+  it("new organ associations follow their sources", () => {
+    expect(findTerm("Morning cortisol")?.associatedStructures).toEqual(["left_adrenal_gland", "right_adrenal_gland"]);
+    expect(findTerm("Fasting insulin")?.associatedStructures).toEqual(["pancreas"]);
+    expect(findTerm("NT-proBNP")?.associatedStructures).toEqual(["heart"]);
+    expect(findTerm("Urine albumin/creatinine ratio")?.associatedStructures).toEqual(["left_kidney", "right_kidney"]);
+  });
+  it("highlights nothing when the source organ is unknown or not in the model", () => {
+    expect(findTerm("Osmolality")?.associatedStructures).toEqual([]); // blood or urine not stated
+    expect(findTerm("Total testosterone")?.associatedStructures).toEqual([]); // source gland depends on sex
+    expect(findTerm("PTH")?.associatedStructures).toEqual([]); // no parathyroid mesh
+  });
+  it("every term's group exists", () => {
+    const groups = new Set(termsFile.groups.map((g) => g.id));
+    for (const t of TERMS) expect(groups.has(t.group), t.normalizedTerm).toBe(true);
   });
   it("every mapping is an association to a real body-model structure", () => {
     for (const t of TERMS) {

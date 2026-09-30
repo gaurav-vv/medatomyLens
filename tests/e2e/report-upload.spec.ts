@@ -14,7 +14,7 @@ const ROWS = [
   ["Test", "Result", "Unit", "Reference range"],
   ["Creatinine", "1.9", "mg/dL", "0.7 - 1.3"],
   ["ALT (SGPT)", "28", "U/L", "7 - 56"],
-  ["Vitamin B12", "450", "pg/mL", "200 - 900"],
+  ["Vitamin B6", "12", "ng/mL", "5 - 50"],
 ];
 
 function watch(page: Page) {
@@ -48,7 +48,7 @@ test("text PDF: read, review, show on the body, open a finding", async ({ page }
   await page.screenshot({ path: testInfo.outputPath("upload-1-review.png") });
 
   // Untick one row: it is left out of the report.
-  await dialog.getByRole("checkbox", { name: /Vitamin B12/ }).uncheck();
+  await dialog.getByRole("checkbox", { name: /Vitamin B6/ }).uncheck();
   await dialog.getByRole("button", { name: "Show results (2)" }).click();
   await expect(dialog).toBeHidden();
 

@@ -22,11 +22,24 @@ Mappings live in data files, never in components (AGENTS.md Section 64). Every m
 
 ## Current mappings
 
-| Term | Structures | Why |
-|---|---|---|
-| creatinine | left_kidney, right_kidney | Filtered from the blood by the kidneys |
-| estimated_glomerular_filtration_rate | left_kidney, right_kidney | Estimates how much blood the kidneys filter |
-| alanine_aminotransferase | liver | Enzyme found mainly in the liver |
+The full list (119 terms in 18 groups) is `data/medical/mappings/terms.json`; each term's source is in `docs/MEDICAL_SOURCES.md`. Summary:
+
+| Group | Shown on |
+|---|---|
+| Kidneys, urine tests | Both kidneys (urine osmolality: kidneys) |
+| Liver | Liver (ALP: liver and bones; SHBG in Hormones: liver) |
+| Pancreas | Pancreas (lipase, amylase, insulin, C-peptide) |
+| Heart | Heart (troponin I/T, CK-MB, BNP, NT-proBNP) |
+| Blood pressure and pulse | Heart and arteries (pulse: heart) |
+| Lungs and breathing | Both lungs (arterial pH: lungs and kidneys) |
+| Muscles | Muscles layer (total CK) |
+| Hormones | Adrenal glands (cortisol), pituitary gland (LH, FSH, prolactin); nothing for PTH (no parathyroid mesh) and testosterone (source gland depends on sex) |
+| Thyroid | Nothing (no thyroid mesh) |
+| Blood sugar, blood count, blood fats, blood proteins, electrolytes, iron and vitamins, clotting, inflammation and immunity | Arteries and veins (measured in blood; calcium and phosphorus also on the bones) |
+
+A term with no structures is still recognized and listed under its group, but never drawn. Ambiguous names are left unrecognized or unhighlighted instead of guessed: a bare "pH" (urine or blood) is not recognized, and a bare "Osmolality" is listed without a highlight.
+
+Explanations (`data/medical/explanations/`) exist for creatinine, eGFR, BUN, urea, uric acid, ALT, AST, GGT, bilirubin (total, direct, indirect), albumin, ALP, lipase, troponin I and T, total protein, globulin and the A/G ratio. All are pending medical review.
 
 ## Regions
 

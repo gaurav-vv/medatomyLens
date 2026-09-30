@@ -47,7 +47,7 @@ describe("terminology additions (Sections 15, 89, 92)", () => {
     // Vessel wording never suggests a problem in a vessel.
     expect(findTerm("Haemoglobin")!.mappingReason).toMatch(/does not point to any vessel or problem/);
     expect(findTerm("ALKALINE PHOSPHATASE")!.associatedStructures).toEqual(["liver", "layer:skeleton"]);
-    expect(findTerm("Amylase")).toBeNull();
+    expect(findTerm("Vitamin B6")).toBeNull();
   });
   it("reads blood pressure as systolic and diastolic, shown on the heart and arteries", () => {
     const rows = ["BP | 140/90 | mmHg", "Blood Pressure: 120/80 mmHg"].map((text) => ({ text, cells: text.split(" | ") }));
@@ -197,7 +197,7 @@ describe("finding list (grouping and repeats)", () => {
     "CREATININE | 3.6 | mg/dL | 0.7 - 1.3",
     "HAEMOGLOBIN | 12.1 | g/dL | 13 - 17",
     "TSH (Ultrasensitive/4thGen) | 7.85 | μIU/mL | 0.55 - 4.78",
-    "VITAMIN D | 18 | ng/mL | 30 - 100",
+    "VITAMIN B6 | 3 | ng/mL | 5 - 50",
   ].map((text) => ({ text, cells: text.split(" | ") }));
   const doc = (pages: number[]) => ({ pageCount: pages.length, pages: pages.map((page) => ({ page, method: "text" as const, rows })) });
 

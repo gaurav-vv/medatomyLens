@@ -4,6 +4,7 @@ import { explanationFor, STATUS_LABEL } from "@/lib/medical/report";
 import type { ResolvedFinding, ResolvedReport } from "@/lib/medical/types";
 import { ReferenceRangeBar } from "./ReferenceRangeBar";
 import { DISCLAIMER_TEXT } from "@/components/layout/Disclaimer";
+import { FindingChat } from "./FindingChat";
 
 export const NO_EXPLANATION_TEXT = "No explanation is available for this term yet.";
 export const NEXT_STEP_TEXT = "Discuss this result with your doctor.";
@@ -175,19 +176,33 @@ export function FindingDetails({ finding, report, structures }: FindingDetailsPr
         <p>{explanation?.nextStep ?? NEXT_STEP_TEXT}</p>
       </Section>
 
-      <p className="text-[11px] leading-snug text-muted">{DISCLAIMER_TEXT}</p>
+      {/* Keyed by finding: switching findings starts a new conversation. */}
+      <FindingChat key={raw.id} finding={finding} />
 
-      {explanation && (
-        <p className="text-[11px] leading-snug text-muted">
-          Explanation source:{" "}
-          {explanation.sources.map((s) => (
-            <a key={s.id} href={s.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
-              {s.title}
-            </a>
-          ))}
-          {explanation.review.status === "pending" && ". Pending review by a medical professional."}
-        </p>
-      )}
+      {/* Disclaimer and source (Sections 46, 92): one tap away, so the panel stays short. */}
+      <details className="group rounded-xl border border-border bg-white/[0.03] text-[11px] leading-snug text-muted">
+        <summary className="flex cursor-pointer list-none items-center gap-1.5 px-3 py-2 hover:text-foreground [&::-webkit-details-marker]:hidden">
+          <span aria-hidden className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-current text-[10px] leading-none">
+            i
+          </span>
+          <span>About this information</span>
+          <span aria-hidden className="ml-auto transition-transform group-open:rotate-90">▸</span>
+        </summary>
+        <div className="space-y-1.5 px-3 pb-3">
+          <p>{DISCLAIMER_TEXT}</p>
+          {explanation && (
+            <p>
+              Explanation source:{" "}
+              {explanation.sources.map((s) => (
+                <a key={s.id} href={s.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                  {s.title}
+                </a>
+              ))}
+              {explanation.review.status === "pending" && ". Pending review by a medical professional."}
+            </p>
+          )}
+        </div>
+      </details>
     </div>
   );
 }

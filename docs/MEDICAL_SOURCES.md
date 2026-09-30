@@ -9,12 +9,12 @@ Entries marked "pending" were drafted by the developer (with AI assistance) from
 | creatinine | Terminology mapping (kidneys), explanation, above/below-range associations | MedlinePlus, Creatinine Test: https://medlineplus.gov/lab-tests/creatinine-test/ | pending | 2026-09-29 |
 | estimated_glomerular_filtration_rate | Terminology mapping (kidneys), explanation, below-range associations | MedlinePlus, Glomerular Filtration Rate (GFR) Test: https://medlineplus.gov/lab-tests/glomerular-filtration-rate-gfr-test/ | pending | 2026-09-29 |
 | alanine_aminotransferase | Terminology mapping (liver), explanation, above/below-range associations | MedlinePlus, ALT Blood Test: https://medlineplus.gov/lab-tests/alt-blood-test/ | pending | 2026-09-29 |
-| blood_urea_nitrogen, urea | Terminology mapping only (kidneys) | MedlinePlus, BUN (Blood Urea Nitrogen): https://medlineplus.gov/lab-tests/bun-blood-urea-nitrogen/ | pending | 2026-09-30 |
-| aspartate_aminotransferase | Terminology mapping only (liver) | MedlinePlus, AST Test: https://medlineplus.gov/lab-tests/ast-test/ | pending | 2026-09-30 |
-| gamma_glutamyl_transferase | Terminology mapping only (liver) | MedlinePlus, Gamma-glutamyl Transferase (GGT) Test: https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/ | pending | 2026-09-30 |
-| bilirubin_total, bilirubin_direct, bilirubin_indirect | Terminology mapping only (liver) | MedlinePlus, Bilirubin Blood Test: https://medlineplus.gov/lab-tests/bilirubin-blood-test/ | pending | 2026-09-30 |
-| lipase | Terminology mapping only (pancreas) | MedlinePlus, Lipase Tests: https://medlineplus.gov/lab-tests/lipase-tests/ | pending | 2026-09-30 |
-| cardiac_troponin_i, cardiac_troponin_t | Terminology mapping only (heart) | MedlinePlus, Troponin Test: https://medlineplus.gov/lab-tests/troponin-test/ | pending | 2026-09-30 |
+| blood_urea_nitrogen, urea | Terminology mapping (kidneys), explanation, above/below-range associations | MedlinePlus, BUN (Blood Urea Nitrogen): https://medlineplus.gov/lab-tests/bun-blood-urea-nitrogen/ | pending | 2026-09-30 |
+| aspartate_aminotransferase | Terminology mapping (liver), explanation, above-range associations | MedlinePlus, AST Test: https://medlineplus.gov/lab-tests/ast-test/ | pending | 2026-09-30 |
+| gamma_glutamyl_transferase | Terminology mapping (liver), explanation, above-range associations | MedlinePlus, Gamma-glutamyl Transferase (GGT) Test: https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/ | pending | 2026-09-30 |
+| bilirubin_total, bilirubin_direct, bilirubin_indirect | Terminology mapping (liver), explanations, above/below-range associations | MedlinePlus, Bilirubin Blood Test: https://medlineplus.gov/lab-tests/bilirubin-blood-test/ | pending | 2026-09-30 |
+| lipase | Terminology mapping (pancreas), explanation, above/below-range associations | MedlinePlus, Lipase Tests: https://medlineplus.gov/lab-tests/lipase-tests/ | pending | 2026-09-30 |
+| cardiac_troponin_i, cardiac_troponin_t | Terminology mapping (heart), explanations, above-range associations | MedlinePlus, Troponin Test: https://medlineplus.gov/lab-tests/troponin-test/ | pending | 2026-09-30 |
 
 Deliberately **not highlighted** (recognized and listed under their group, never drawn on an organ):
 
@@ -31,13 +31,54 @@ Added mappings (pending review, 2026-09-30):
 
 | Normalized term | Content | Source | Reviewed by | Date |
 |---|---|---|---|---|
-| albumin | Terminology mapping only (liver: made by the liver) | MedlinePlus, Albumin Blood Test: https://medlineplus.gov/lab-tests/albumin-blood-test/ | pending | 2026-09-30 |
-| alkaline_phosphatase | Terminology mapping only (liver highlighted; the text says bones are not) | MedlinePlus, Alkaline Phosphatase: https://medlineplus.gov/lab-tests/alkaline-phosphatase/ | pending | 2026-09-30 |
-| ast_alt_ratio | Terminology mapping only (liver: ratio of two liver-associated enzymes) | MedlinePlus AST Test and ALT Blood Test (above) | pending | 2026-09-30 |
+| albumin | Terminology mapping (liver: made by the liver), explanation, above/below-range associations | MedlinePlus, Albumin Blood Test: https://medlineplus.gov/lab-tests/albumin-blood-test/ | pending | 2026-09-30 |
+| alkaline_phosphatase | Terminology mapping (liver and bones), explanation, above/below-range associations | MedlinePlus, Alkaline Phosphatase: https://medlineplus.gov/lab-tests/alkaline-phosphatase/ | pending | 2026-09-30 |
+| ast_alt_ratio | Terminology mapping only (liver: ratio of two liver-associated enzymes). No explanation: the MedlinePlus AST page does not describe the ratio | MedlinePlus AST Test and ALT Blood Test (above) | pending | 2026-09-30 |
 | systolic_blood_pressure, diastolic_blood_pressure, pulse_rate | Terminology mapping only (heart and arteries; pulse: heart) | MedlinePlus, High Blood Pressure: https://medlineplus.gov/highbloodpressure.html; Vital signs: https://medlineplus.gov/ency/article/002341.htm | pending | 2026-09-30 |
 | (blood-measured groups) | Shown on the arteries and veins (layer:arteries, layer:veins) because they are measured in blood; the text says this does not point to any vessel or problem. Calcium and phosphorus also on the bones (stored in bone); ALP on liver and bones | MedlinePlus pages listed above for each group (Calcium Blood Test, Phosphate in Blood, Alkaline Phosphatase) | pending | 2026-09-30 |
-| uric_acid | Terminology mapping only (kidneys: removed mainly by the kidneys) | MedlinePlus, Uric Acid Test: https://medlineplus.gov/lab-tests/uric-acid-test/ | pending | 2026-09-30 |
+| uric_acid | Terminology mapping (kidneys: removed mainly by the kidneys), explanation, above-range associations | MedlinePlus, Uric Acid Test: https://medlineplus.gov/lab-tests/uric-acid-test/ | pending | 2026-09-30 |
+| total_protein, globulin, albumin_globulin_ratio | Terminology mapping (blood vessels), explanations, above/below-range associations | MedlinePlus, Total Protein and A/G Ratio: https://medlineplus.gov/lab-tests/total-protein-and-albumin-globulin-a-g-ratio/ | pending | 2026-09-30 |
 
-Still not recognized: vitamin and hormone tests other than thyroid, iron studies, urine tests, and anything else not listed above; they are listed as "Not in the app's terminology yet".
+Added mappings, terminology only (pending review, 2026-09-30). Each URL was opened and checked for topic on 2026-09-30. Pages marked (encyclopedia) are A.D.A.M. content on MedlinePlus: only facts are used, reworded in-house; no text is copied.
+
+| Normalized term | Shown on | Source |
+|---|---|---|
+| cystatin_c | Kidneys (used to estimate eGFR) | MedlinePlus, GFR Test: https://medlineplus.gov/lab-tests/glomerular-filtration-rate-gfr-test/ |
+| urine_albumin_creatinine_ratio | Kidneys | MedlinePlus, Microalbumin Creatinine Ratio: https://medlineplus.gov/lab-tests/microalbumin-creatinine-ratio/ |
+| urine_specific_gravity, urine_ph | Kidneys (make urine) | MedlinePlus, Urinalysis (encyclopedia): https://medlineplus.gov/ency/article/003579.htm; Urine specific gravity test (encyclopedia): https://medlineplus.gov/ency/article/003587.htm |
+| osmolality_urine; osmolality_serum; osmolality_unspecified | Kidneys; blood vessels; nothing (sample type not stated) | MedlinePlus, Osmolality Tests: https://medlineplus.gov/lab-tests/osmolality-tests/ |
+| insulin | Pancreas (makes insulin) | MedlinePlus, Insulin in Blood: https://medlineplus.gov/lab-tests/insulin-in-blood/ |
+| c_peptide | Pancreas | MedlinePlus, C-Peptide Test: https://medlineplus.gov/lab-tests/c-peptide-test/ |
+| amylase | Pancreas (also salivary glands, not highlighted) | MedlinePlus, Amylase Test: https://medlineplus.gov/lab-tests/amylase-test/ |
+| nt_probnp, bnp | Heart | MedlinePlus, Natriuretic Peptide Tests (BNP, NT-proBNP): https://medlineplus.gov/lab-tests/natriuretic-peptide-tests-bnp-nt-probnp/ |
+| creatine_kinase; creatine_kinase_mb | Muscles layer; heart | MedlinePlus, Creatine Kinase: https://medlineplus.gov/lab-tests/creatine-kinase/ |
+| oxygen_saturation | Lungs | MedlinePlus, Pulse Oximetry: https://medlineplus.gov/lab-tests/pulse-oximetry/ |
+| arterial_po2, arterial_pco2; arterial_ph | Lungs; lungs and kidneys | MedlinePlus, Arterial Blood Gas (ABG) Test: https://medlineplus.gov/lab-tests/arterial-blood-gas-abg-test/ |
+| peak_expiratory_flow | Lungs | MedlinePlus, Make peak flow a habit (encyclopedia): https://medlineplus.gov/ency/patientinstructions/000046.htm |
+| respiratory_rate | Lungs | MedlinePlus, Vital signs (encyclopedia): https://medlineplus.gov/ency/article/002341.htm |
+| cortisol | Adrenal glands | MedlinePlus, Cortisol Test: https://medlineplus.gov/lab-tests/cortisol-test/ |
+| parathyroid_hormone | Nothing (no parathyroid mesh) | MedlinePlus, Parathyroid Hormone (PTH) Test: https://medlineplus.gov/lab-tests/parathyroid-hormone-pth-test/ |
+| luteinizing_hormone, follicle_stimulating_hormone | Pituitary gland | MedlinePlus, LH Levels Test: https://medlineplus.gov/lab-tests/luteinizing-hormone-lh-levels-test/; FSH Levels Test: https://medlineplus.gov/lab-tests/follicle-stimulating-hormone-fsh-levels-test/ |
+| prolactin | Pituitary gland | MedlinePlus, Prolactin Levels: https://medlineplus.gov/lab-tests/prolactin-levels/ |
+| testosterone_total | Nothing (source gland depends on sex) | MedlinePlus, Testosterone Levels Test: https://medlineplus.gov/lab-tests/testosterone-levels-test/ |
+| sex_hormone_binding_globulin | Liver (made mostly in the liver) | MedlinePlus, SHBG Blood Test: https://medlineplus.gov/lab-tests/shbg-blood-test/ |
+| apolipoprotein_b | Blood vessels | MedlinePlus, Apolipoprotein B100 (encyclopedia): https://medlineplus.gov/ency/article/003502.htm |
+| lipoprotein_a | Blood vessels | MedlinePlus, Lipoprotein (a) Blood Test: https://medlineplus.gov/lab-tests/lipoprotein-a-blood-test/ |
+| reticulocyte_count | Blood vessels | MedlinePlus, Reticulocyte Count: https://medlineplus.gov/lab-tests/reticulocyte-count/ |
+| erythrocyte_sedimentation_rate | Blood vessels | MedlinePlus, ESR: https://medlineplus.gov/lab-tests/erythrocyte-sedimentation-rate-esr/ |
+| c_reactive_protein, hs_c_reactive_protein | Blood vessels | MedlinePlus, C-Reactive Protein (CRP) Test (covers hs-CRP): https://medlineplus.gov/lab-tests/c-reactive-protein-crp-test/ |
+| rheumatoid_factor | Blood vessels | MedlinePlus, Rheumatoid Factor (RF) Test: https://medlineplus.gov/lab-tests/rheumatoid-factor-rf-test/ |
+| immunoglobulin_g, immunoglobulin_a, immunoglobulin_m | Blood vessels | MedlinePlus, Immunoglobulins Blood Test: https://medlineplus.gov/lab-tests/immunoglobulins-blood-test/ |
+| ferritin | Blood vessels | MedlinePlus, Ferritin Blood Test: https://medlineplus.gov/lab-tests/ferritin-blood-test/ |
+| serum_iron, total_iron_binding_capacity, transferrin_saturation | Blood vessels | MedlinePlus, Iron Tests: https://medlineplus.gov/lab-tests/iron-tests/ |
+| vitamin_b12, folate | Blood vessels | MedlinePlus, Vitamin B Test (covers B12 and folate): https://medlineplus.gov/lab-tests/vitamin-b-test/ |
+| vitamin_d_25_hydroxy | Blood vessels | MedlinePlus, Vitamin D Test: https://medlineplus.gov/lab-tests/vitamin-d-test/ |
+| prothrombin_time, international_normalized_ratio | Blood vessels | MedlinePlus, PT/INR: https://medlineplus.gov/lab-tests/prothrombin-time-test-and-inr-ptinr/ |
+| activated_partial_thromboplastin_time | Blood vessels | MedlinePlus, PTT Test: https://medlineplus.gov/lab-tests/partial-thromboplastin-time-ptt-test/ |
+| fibrinogen | Blood vessels | MedlinePlus, Fibrinogen blood test (encyclopedia): https://medlineplus.gov/ency/article/003650.htm |
+| d_dimer | Blood vessels | MedlinePlus, D-Dimer Test: https://medlineplus.gov/lab-tests/d-dimer-test/ |
+| zinc, copper, selenium | Blood vessels | MedlinePlus (encyclopedia): Zinc in diet https://medlineplus.gov/ency/article/002416.htm, Copper in diet https://medlineplus.gov/ency/article/002419.htm, Selenium in diet https://medlineplus.gov/ency/article/002414.htm |
+
+Choices made to avoid overstating (Section 107): CRP (made by the liver), ferritin (stored mostly in the liver) and clotting factors (made by the liver) are shown on the blood vessels, not the liver, because a result is not specific to the liver. A bare "pH" line is not recognized, because it may be urine or blood.
 
 Wording choices: the sources' lists include disease names; the app's lists are reworded as general possibilities and always include the ordinary non-disease causes the source names (dehydration, exercise, diet, medicines), as required by AGENTS.md Section 108. No severity, prognosis or treatment is stated.

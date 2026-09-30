@@ -2,21 +2,16 @@ import { describe, expect, it } from "vitest";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, extname } from "node:path";
 
+import { DISALLOWED_WORDING } from "@/lib/medical/wording";
+
 /**
  * AGENTS.md Section 114: app-authored text must not use diagnostic wording.
  * Scans string literals and JSX text in app code. Quoted report text is never
  * stored in source files, so any hit here is app-authored.
  */
-const DISALLOWED = [
-  "damaged",
-  "diseased",
-  "infected",
-  "failing",
-  "dangerous",
-  "severe",
-  "critical",
-  "you have",
-];
+const DISALLOWED: readonly string[] = DISALLOWED_WORDING;
+/** The file that defines the list (it must name the words). */
+const SKIP = new Set([join("lib", "medical", "wording.ts")]);
 
 const ROOTS = ["app", "components", "lib", "data"];
 const EXTS = new Set([".ts", ".tsx", ".json"]);
@@ -44,7 +39,7 @@ function extractText(source: string): string[] {
 }
 
 describe("UI wording rules (Section 114)", () => {
-  const files = ROOTS.flatMap((r) => walk(r));
+  const files = ROOTS.flatMap((r) => walk(r)).filter((f) => !SKIP.has(f));
 
   it("finds source files to scan", () => {
     expect(files.length).toBeGreaterThan(0);

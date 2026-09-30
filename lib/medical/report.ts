@@ -1,10 +1,6 @@
 import termsFile from "@/data/medical/mappings/terms.json";
 import regionsFile from "@/data/medical/regions.json";
-import creatinine from "@/data/medical/explanations/creatinine.json";
-import egfr from "@/data/medical/explanations/estimated_glomerular_filtration_rate.json";
-import alt from "@/data/medical/explanations/alanine_aminotransferase.json";
 import type {
-  Explanation,
   FindingStatus,
   LocationDisplay,
   RawFinding,
@@ -39,13 +35,13 @@ export function parseRegions(data: unknown): Record<string, Region> {
   }
   return out;
 }
-const EXPLANATIONS: Record<string, Explanation> = Object.fromEntries(
-  ([creatinine, egfr, alt] as Explanation[]).map((e) => [e.normalizedTerm, e]),
-);
-
-/** Case, spacing and punctuation-insensitive key ("ALT (SGPT)" → "altsgpt"). */
+/** Case, spacing and punctuation-insensitive key ("ALT (SGPT)" → "altsgpt", "SpO₂" → "spo2"). */
 export function termKey(text: string): string {
-  return text.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  return text
+    .toLowerCase()
+    .replace(/[\u2080-\u2089]/g, (c) => String(c.charCodeAt(0) - 0x2080))
+    .replace(/[\u00b2\u00b3\u00b9]/g, (c) => (c === "\u00b9" ? "1" : c === "\u00b2" ? "2" : "3"))
+    .replace(/[^a-z0-9]+/g, "");
 }
 
 const TERM_BY_KEY = new Map<string, Term>();
@@ -56,9 +52,7 @@ export function findTerm(name: string): Term | null {
   return TERM_BY_KEY.get(termKey(name)) ?? null;
 }
 
-export function explanationFor(normalizedTerm: string | undefined | null): Explanation | null {
-  return normalizedTerm ? (EXPLANATIONS[normalizedTerm] ?? null) : null;
-}
+export { explanationFor } from "./explanations";
 
 /** Position of a value against the report's own range (Sections 68, 110). */
 export function rangeStatus(value: number | null | undefined, range: ReferenceRange | null | undefined): FindingStatus {

@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "albumin",
+  "title": "Albumin",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-albumin", "title": "MedlinePlus: Albumin Blood Test", "url": "https://medlineplus.gov/lab-tests/albumin-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Albumin is a protein made by the liver. It helps keep fluid from leaking out of blood vessels and carries hormones, vitamins and enzymes through the body.",
+  "context": "Albumin is often lower during pregnancy, after not eating for a day or two, and with some medicines such as birth control pills. Steroids, insulin and some hormones can raise it.",
+  "aboveRange": [
+    "Dehydration, for example from diarrhoea",
+    "Certain medicines, such as steroids, insulin or hormones"
+  ],
+  "belowRange": [
+    "Liver or kidney conditions",
+    "Not getting enough protein in the diet, or problems absorbing it",
+    "Infection, large burns or thyroid conditions",
+    "Pregnancy, not eating for 24 to 48 hours, or certain medicines"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

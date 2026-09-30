@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "cardiac_troponin_t",
+  "title": "Troponin T (cardiac)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-troponin", "title": "MedlinePlus: Troponin Test", "url": "https://medlineplus.gov/lab-tests/troponin-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Troponin is a protein found in heart muscle cells. Blood normally contains so little that only sensitive tests can detect it. Troponin T and troponin I are two types; a lab may measure either.",
+  "context": "Troponin can take a few hours to rise, so the test is often repeated over 12 to 24 hours. Biotin (vitamin B7) supplements can make results appear lower than they really are.",
+  "aboveRange": [
+    "Stress or strain on the heart muscle, from several possible heart conditions",
+    "Heart surgery or a chest injury",
+    "Long, intense exercise such as running a marathon",
+    "Some kidney or lung conditions, or a serious illness elsewhere in the body"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

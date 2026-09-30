@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "lipase",
+  "title": "Lipase",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-lipase", "title": "MedlinePlus: Lipase Tests", "url": "https://medlineplus.gov/lab-tests/lipase-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Lipase is a digestive enzyme that helps the body digest fats. Most of it is made by the pancreas, and some by the salivary glands and stomach.",
+  "context": "Fasting may be asked for before the test. Many medicines, including codeine, water pills (diuretics), some cholesterol medicines and birth control pills, can affect lipase levels.",
+  "aboveRange": [
+    "Inflammation of the pancreas or a blocked pancreatic duct",
+    "Gallbladder, stomach or intestine conditions",
+    "Some kidney or salivary gland conditions",
+    "Alcohol use",
+    "Certain medicines"
+  ],
+  "belowRange": [
+    "Long-term conditions that reduce how much lipase the pancreas makes"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}
