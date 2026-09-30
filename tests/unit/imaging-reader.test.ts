@@ -103,7 +103,10 @@ describe("imaging text (Sections 107, 111, 113)", () => {
     expect(read("Left kidney shows a 5 mm calculus in the lower pole.")!.anatomicalStructures).toEqual(["left_kidney"]);
     expect(read("Left kidney shows a 5 mm calculus in the lower pole.")!.location!.region).toBe("left_kidney_lower_pole");
     expect(read("Right lung: opacity in the upper lobe.")!.location!.region).toBe("right_lung_upper_lobe");
-    expect(read("Left lung: opacity in the lower zone.")!.location!.region).toBe("left_lung_lower_lobe");
+    // A chest X-ray zone names the lung and side only; zones are not lobes.
+    const zone = read("Left lung: opacity in the lower zone.")!;
+    expect(zone.anatomicalStructures).toEqual(["left_lung"]);
+    expect(zone.location!.region).toBeNull();
   });
 
   it("with no side, both sides are shown and no region is guessed", () => {

@@ -39,8 +39,18 @@ The full list (119 terms in 18 groups) is `data/medical/mappings/terms.json`; ea
 
 A term with no structures is still recognized and listed under its group, but never drawn. Ambiguous names are left unrecognized or unhighlighted instead of guessed: a bare "pH" (urine or blood) is not recognized, and a bare "Osmolality" is listed without a highlight.
 
-Explanations (`data/medical/explanations/`) exist for creatinine, eGFR, BUN, urea, uric acid, ALT, AST, GGT, bilirubin (total, direct, indirect), albumin, ALP, lipase, troponin I and T, total protein, globulin and the A/G ratio. All are pending medical review.
+Explanations (`data/medical/explanations/`) exist for 104 of the 119 terms; the 15 without one are listed in `docs/MEDICAL_SOURCES.md`. All are pending medical review.
 
 ## Regions
 
 Kidney upper/lower poles (both sides) are overlay pins at ±0.7 of the model's vertical half-height: an approximation of where the pole is, stated as such. Kidney cortex and liver left/right lobe use the detailed model's own parts.
+
+Long bones (femur, tibia, fibula, humerus, radius, ulna, both sides) have three overlay pins: proximal end (+0.8), shaft (0) and distal end (-0.8) of the bone's vertical half-height. These bones stand close to vertical in the model (checked from their bounds), and the pins sit on the box's centre line, so they are approximate. A femoral neck or head, a tibial plateau or a malleolus is shown at the matching end, never more precisely.
+
+## X-ray text (bones)
+
+- 68 bone entries in `imaging_vocabulary.json`, each mapping to its own body-model bone: long bones, clavicle, scapula, hip bone, patella, calcaneus, talus, scaphoid, skull bones, mandible, sacrum, ribs 1-12, metacarpals and metatarsals 1-5, and every vertebra (C1-L5).
+- Adjectives shared with vessels, nerves or sinuses (femoral, tibial, radial, ulnar, maxillary, iliac) are not bone words, so "femoral artery" is not placed on the femur.
+- Vertebral level codes (L4, D12, T12, C5) count only in a sentence with a spine word and never in a level range ("L4-L5", "L5-S1"): a range names a disc or several levels, and "T4" in a thyroid line is a hormone.
+- Chest X-ray zones (upper/mid/lower zone) name the lung and side only. Zones are not lobes, so they no longer pick a lobe region.
+- Not handled: joints (knee, hip, shoulder) and the sternum, which are not single structures in the model; sentences naming two bones ("left 5th and 6th ribs") are not guessed apart.

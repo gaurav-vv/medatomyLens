@@ -82,7 +82,7 @@ test("imaging text PDF: statement placed on the named side and region, negation 
   ];
   await upload(page, "synthetic-usg.pdf", makePdf([{ texts: lines.map((text, i) => ({ x: 40, y: 60 + i * 20, text, size: 11 })) }]));
   const dialog = page.getByRole("dialog", { name: "Check what was read" });
-  await expect(dialog.getByTestId("review-summary")).toHaveText("2 organ statements found on 1 page.", { timeout: 60_000 });
+  await expect(dialog.getByTestId("review-summary")).toHaveText("2 report statements found on 1 page.", { timeout: 60_000 });
   await expect(dialog).toContainText("The report names: Right kidney · Right kidney, lower pole");
   await expect(dialog).toContainText("not found: listed, not marked");
   await dialog.getByRole("button", { name: "Show results (2)" }).click();
@@ -104,6 +104,43 @@ test("imaging text PDF: statement placed on the named side and region, negation 
   await expect(organFindings).toContainText("Right kidney, lower pole");
   await expect(organFindings).toContainText("Size as reported: 1.8 cm");
   await page.screenshot({ path: testInfo.outputPath("upload-4-imaging-organ.png") });
+  expect(external).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
+test("X-ray text PDF: statements placed on the named bone and side", { tag: "@3d" }, async ({ page }, testInfo) => {
+  test.setTimeout(300_000);
+  const { errors, external } = watch(page);
+  await page.goto("/");
+  await layersReady(page);
+  const lines = [
+    "SYNTHETIC X-RAY REPORT - not a real patient",
+    "Right femur: fracture of the shaft.",
+    "Lumbar spine: anterior wedging of L1.",
+    "No fracture of the left tibia.",
+    "Lumbar spine: L4-L5 disc space narrowing.",
+  ];
+  await upload(page, "synthetic-xray.pdf", makePdf([{ texts: lines.map((text, i) => ({ x: 40, y: 60 + i * 20, text, size: 11 })) }]));
+  const dialog = page.getByRole("dialog", { name: "Check what was read" });
+  await expect(dialog.getByTestId("review-summary")).toHaveText("3 report statements found on 1 page.", { timeout: 60_000 });
+  await expect(dialog).toContainText("Right femur, shaft");
+  await page.screenshot({ path: testInfo.outputPath("xray-1-review.png") });
+  await dialog.getByRole("button", { name: /Show results/ }).click();
+
+  const card = page.getByRole("region", { name: "Report findings" });
+  await expect(card).toContainText("2 shown on the body");
+  await card.getByRole("button", { name: /Right femur \(report statement\)/ }).click();
+  const finding = page.getByRole("complementary", { name: "Finding details" });
+  await expect(finding).toContainText("Right femur: fracture of the shaft.");
+  await finding.getByRole("button", { name: /Right femur/ }).first().click();
+  const panel = page.getByRole("complementary", { name: "Selected structure" });
+  await expect(panel).toContainText(/femur/i);
+  await panel.getByRole("button", { name: "Open detailed view" }).click();
+  await expect(page.locator("[data-detail-status]")).toHaveAttribute("data-detail-status", "ready", { timeout: 90_000 });
+  await expect(page.getByRole("region", { name: "Organ findings" })).toContainText("Right femur, shaft");
+  await expect(page.getByText("Reported area", { exact: false }).first()).toBeVisible();
+  await page.waitForTimeout(900);
+  await page.screenshot({ path: testInfo.outputPath("xray-2-femur.png") });
   expect(external).toEqual([]);
   expect(errors).toEqual([]);
 });

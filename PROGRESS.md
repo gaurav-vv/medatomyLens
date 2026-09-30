@@ -33,7 +33,7 @@ Open app → Explore mode (whole body, education)
 | 1.7 | Rendering polish, About screen, deploy | Done: live at https://gaurav-vv.github.io/medatomyLens/ |
 | 1.8 | AGENTS.md build order 2–5: demo report, organ view Reported/Normal/Side by side, region marker, range bar, curated explanations (3 terms) | Done (explanations pending medical review) |
 | 2 | PDF reading: pdf.js, table parser, OCR fallback, AI fallback with exact-quote check, review screen | Done except the AI fallback (waiting on provider choice) |
-| 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | In progress: 119 terms, 104 explanations, imaging text reader, 18 regions, AI chat (Cloudflare) live; medical review, bone/X-ray regions, report comparison pending |
+| 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | In progress: 119 terms, 104 explanations, imaging text reader (ultrasound and X-ray), 54 regions, AI chat (Cloudflare) live; medical review, bone/X-ray regions, report comparison pending |
 | 4 | Adding medical content region by region (reviewed sources only) | Not started |
 
 The user chose this order (visuals, then PDF, then mapping). AGENTS.md Section 115 lists a different order, and updating AGENTS.md to match hasn't been approved yet (see section 6).
@@ -92,7 +92,7 @@ Not done or known gaps:
 4. Optional rendering extras that need a post-processing dependency (ambient occlusion, depth of field in the detail view): only after real-phone numbers, high tier only.
 5. **Medical review:** someone qualified should review the 104 explanations in `data/medical/explanations/` (status "pending") and the new mappings, then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
 6. Phase 2 is done except the AI fallback. Next: test uploads with real-layout (synthetic or de-identified) reports from the labs users will use, and tune the parser.
-7. Phase 3 next parts: explanations for more terms (needs a reviewer; each new explanation also enables chat for that term), bone/X-ray regions (e.g. distal radius, femoral neck), more detailed organs (spleen, pancreas, bladder), and comparing reports by date (Sections 43, 44, 70).
+7. Phase 3 next parts: explanations for more terms (needs a reviewer; each new explanation also enables chat for that term), more detailed organs (spleen, pancreas, bladder), and comparing reports by date (Sections 43, 44, 70).
 
 ## 6. Open decisions (waiting on the user)
 
@@ -181,3 +181,4 @@ docs/                         ARCHITECTURE, THIRD_PARTY_ASSETS, MEDICAL_SOURCES,
 | 2026-09-30 | Medical content: 16 new explanations checked against MedlinePlus (20 total, pending review); 52 new terms from a real-layout report → 119 terms in 18 groups. Ambiguous names are not highlighted; term keys handle subscripts (SpO₂). Female-body work moved to the local-only branch wip/female-body (not pushed). |
 | 2026-09-30 | AI chat redesigned to a free hosted proxy: header Menu (`components/menu/AppMenu.tsx`: Ask AI about your results, About) → ChatPanel → `lib/ai/client.ts` sendChat → Cloudflare Worker (`worker/`) on Cloudflare Workers AI (Llama 3.1 8B Instruct). Worker has an origin allow-list, a 10/min per-IP rate limit, request validation, curated server-side grounding (`lib/ai/grounding.ts` + `lib/medical/explanations.ts`) and a guard (`lib/ai/guard.ts`); failing answers return `{withheld:true}`; no logging. Client re-checks answers. The earlier in-browser WebLLM chat was tried and removed. Built but not deployed. |
 | 2026-09-30 | Live chat URL fixed (wrong Worker address in the Pages build); chat offered for every recognized lab test. 85 more MedlinePlus-sourced explanations (104 total, pending review; 15 terms skipped, no clear source). CI green: @3d tests local-only, software WebGL in CI, no-WebGL fallback + test, font-independent OCR check. |
+| 2026-09-30 | X-ray text: 68 bone entries (long bones, ribs, vertebrae C1-L5, hand/foot, skull, pelvis) mapped to their own body-model bones; 36 long-bone regions (proximal end, shaft, distal end pins); vertebral codes need spine context and never a level range; chest X-ray zones no longer map to lobes. Review screen says "report statements". CI actions updated to current versions and runner pinned to ubuntu-24.04. |

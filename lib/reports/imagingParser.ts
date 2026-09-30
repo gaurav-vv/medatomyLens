@@ -21,6 +21,8 @@ import type { Confidence, FindingLocation, RawFinding } from "@/lib/medical/type
 interface OrganWords {
   id: string;
   words: string[];
+  /** Short codes (vertebral levels such as "L4"): used only with spine context, never in a range. */
+  codes?: string[];
   structure?: string;
   paired?: { left: string; right: string };
 }
@@ -37,6 +39,7 @@ interface Vocabulary {
   negationCues: string[];
   uncertaintyCues: string[];
   priorCues: string[];
+  spine: { contextWords: string[]; levelRangePattern: string };
 }
 const V = vocabulary as Vocabulary;
 
@@ -51,7 +54,9 @@ const UNCERTAIN = anyOf(V.uncertaintyCues);
 const PRIOR = anyOf(V.priorCues);
 const SIDE = /\b(right|left|bilateral|both)\b/gi;
 const SIZE = /\b\d+(?:\.\d+)?(?:\s*[x×]\s*\d+(?:\.\d+)?)*\s*(?:mm|cm)\b/i;
-const ORGANS = V.organs.map((o) => ({ ...o, re: anyOf(o.words) }));
+const ORGANS = V.organs.map((o) => ({ ...o, re: anyOf(o.words), codeRe: o.codes?.length ? new RegExp(`\\b(?:${o.codes.map(esc).join("|")})\\b`, "g") : null }));
+const SPINE_CONTEXT = anyOf(V.spine.contextWords);
+const LEVEL_RANGE = new RegExp(V.spine.levelRangePattern, "i");
 const REGIONS = V.regions.map((r) => ({ ...r, re: anyOf(r.words) }));
 
 interface Match {
@@ -97,7 +102,11 @@ export interface ImagingStatement {
 export function readSentence(sentence: string, page: number, id: string): ImagingStatement | null {
   const findingHits = matches(FINDING, sentence);
   if (!findingHits.length) return null;
-  const organs = ORGANS.map((o) => ({ o, hits: matches(o.re, sentence) })).filter((x) => x.hits.length);
+  // Level codes (case-sensitive, e.g. "L4") only in a sentence about the spine that names one level.
+  const codesOk = matches(SPINE_CONTEXT, sentence).length > 0 && !LEVEL_RANGE.test(sentence);
+  const organs = ORGANS.map((o) => ({ o, hits: [...matches(o.re, sentence), ...(codesOk && o.codeRe ? matches(o.codeRe, sentence) : [])] })).filter(
+    (x) => x.hits.length,
+  );
   // Exactly one organ: a sentence about several organs is not guessed apart.
   if (organs.length !== 1) return null;
   const { o: organ, hits: organHits } = organs[0]!;

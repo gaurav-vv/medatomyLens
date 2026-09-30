@@ -1,38 +1,1342 @@
 {
-  "$comment": "Controlled vocabulary for reading imaging report text (AGENTS.md Sections 105, 107, 111, 113). Organs map anatomy words to body-model structure ids; paired organs take a side only from the words 'right'/'left' in the same sentence. Regions map words to region ids in regions.json ({side} is replaced by left/right). A position region (pole, lobe) is chosen over a tissue region (cortex, medulla, pelvis) when a sentence names one of each; two of the same kind means no region is chosen. Finding words only decide THAT a sentence states something about an organ; the report's own words are always quoted, never rewritten. Negation cues mean the finding is not present and is never marked. Words are matched case-insensitively on word boundaries.",
+  "$comment": "Controlled vocabulary for reading imaging report text (AGENTS.md Sections 105, 107, 111, 113). Organs map anatomy words to body-model structure ids; paired organs take a side only from the words 'right'/'left' in the same sentence. Regions map words to region ids in regions.json ({side} is replaced by left/right). A position region (pole, lobe) is chosen over a tissue region (cortex, medulla, pelvis) when a sentence names one of each; two of the same kind means no region is chosen. Finding words only decide THAT a sentence states something about an organ; the report's own words are always quoted, never rewritten. Negation cues mean the finding is not present and is never marked. Words are matched case-insensitively on word boundaries. Bones (X-ray): each bone maps to its own body-model structure; adjectives shared with vessels, nerves or sinuses are not used. Chest X-ray zones name the lung and side only, never a lobe. Long-bone regions (proximal end, shaft, distal end) are overlay markers.",
   "organs": [
-    { "id": "kidney", "words": ["kidney", "kidneys", "renal"], "paired": { "left": "left_kidney", "right": "right_kidney" } },
-    { "id": "lung", "words": ["lung", "lungs", "pulmonary", "lobe of the lung"], "paired": { "left": "left_lung", "right": "right_lung" } },
-    { "id": "liver", "words": ["liver", "hepatic"], "structure": "liver" },
-    { "id": "gallbladder", "words": ["gallbladder", "gall bladder"], "structure": "gallbladder" },
-    { "id": "spleen", "words": ["spleen", "splenic"], "structure": "spleen" },
-    { "id": "pancreas", "words": ["pancreas", "pancreatic"], "structure": "pancreas" },
-    { "id": "urinary_bladder", "words": ["urinary bladder"], "structure": "urinary_bladder" },
-    { "id": "stomach", "words": ["stomach", "gastric"], "structure": "stomach" },
-    { "id": "heart", "words": ["heart", "cardiac"], "structure": "heart" }
+    {
+      "id": "kidney",
+      "words": [
+        "kidney",
+        "kidneys",
+        "renal"
+      ],
+      "paired": {
+        "left": "left_kidney",
+        "right": "right_kidney"
+      }
+    },
+    {
+      "id": "lung",
+      "words": [
+        "lung",
+        "lungs",
+        "pulmonary",
+        "lobe of the lung",
+        "upper zone",
+        "mid zone",
+        "middle zone",
+        "lower zone",
+        "zones"
+      ],
+      "paired": {
+        "left": "left_lung",
+        "right": "right_lung"
+      }
+    },
+    {
+      "id": "liver",
+      "words": [
+        "liver",
+        "hepatic"
+      ],
+      "structure": "liver"
+    },
+    {
+      "id": "gallbladder",
+      "words": [
+        "gallbladder",
+        "gall bladder"
+      ],
+      "structure": "gallbladder"
+    },
+    {
+      "id": "spleen",
+      "words": [
+        "spleen",
+        "splenic"
+      ],
+      "structure": "spleen"
+    },
+    {
+      "id": "pancreas",
+      "words": [
+        "pancreas",
+        "pancreatic"
+      ],
+      "structure": "pancreas"
+    },
+    {
+      "id": "urinary_bladder",
+      "words": [
+        "urinary bladder"
+      ],
+      "structure": "urinary_bladder"
+    },
+    {
+      "id": "stomach",
+      "words": [
+        "stomach",
+        "gastric"
+      ],
+      "structure": "stomach"
+    },
+    {
+      "id": "heart",
+      "words": [
+        "heart",
+        "cardiac"
+      ],
+      "structure": "heart"
+    },
+    {
+      "id": "femur",
+      "words": [
+        "femur",
+        "femurs",
+        "femoral neck",
+        "femoral head",
+        "femoral shaft",
+        "neck of femur",
+        "head of femur",
+        "shaft of femur",
+        "intertrochanteric",
+        "greater trochanter"
+      ],
+      "paired": {
+        "left": "left_femur",
+        "right": "right_femur"
+      }
+    },
+    {
+      "id": "tibia",
+      "words": [
+        "tibia",
+        "tibial plateau",
+        "tibial shaft",
+        "medial malleolus"
+      ],
+      "paired": {
+        "left": "left_tibia",
+        "right": "right_tibia"
+      }
+    },
+    {
+      "id": "fibula",
+      "words": [
+        "fibula",
+        "fibular shaft",
+        "lateral malleolus"
+      ],
+      "paired": {
+        "left": "left_fibula",
+        "right": "right_fibula"
+      }
+    },
+    {
+      "id": "patella",
+      "words": [
+        "patella"
+      ],
+      "paired": {
+        "left": "left_patella",
+        "right": "right_patella"
+      }
+    },
+    {
+      "id": "humerus",
+      "words": [
+        "humerus",
+        "humeral head",
+        "humeral shaft",
+        "surgical neck of humerus"
+      ],
+      "paired": {
+        "left": "left_humerus",
+        "right": "right_humerus"
+      }
+    },
+    {
+      "id": "radius",
+      "words": [
+        "radius"
+      ],
+      "paired": {
+        "left": "left_radius",
+        "right": "right_radius"
+      }
+    },
+    {
+      "id": "ulna",
+      "words": [
+        "ulna"
+      ],
+      "paired": {
+        "left": "left_ulna",
+        "right": "right_ulna"
+      }
+    },
+    {
+      "id": "clavicle",
+      "words": [
+        "clavicle",
+        "collar bone",
+        "collarbone"
+      ],
+      "paired": {
+        "left": "left_clavicle",
+        "right": "right_clavicle"
+      }
+    },
+    {
+      "id": "scapula",
+      "words": [
+        "scapula",
+        "shoulder blade"
+      ],
+      "paired": {
+        "left": "left_scapula",
+        "right": "right_scapula"
+      }
+    },
+    {
+      "id": "hip_bone",
+      "words": [
+        "hip bone",
+        "ilium",
+        "iliac bone",
+        "iliac wing",
+        "ischium",
+        "ischial",
+        "pubic ramus",
+        "pubic rami",
+        "acetabulum",
+        "acetabular"
+      ],
+      "paired": {
+        "left": "left_hip_bone",
+        "right": "right_hip_bone"
+      }
+    },
+    {
+      "id": "calcaneus",
+      "words": [
+        "calcaneus",
+        "calcaneum",
+        "heel bone"
+      ],
+      "paired": {
+        "left": "left_calcaneus",
+        "right": "right_calcaneus"
+      }
+    },
+    {
+      "id": "talus",
+      "words": [
+        "talus"
+      ],
+      "paired": {
+        "left": "left_talus",
+        "right": "right_talus"
+      }
+    },
+    {
+      "id": "scaphoid",
+      "words": [
+        "scaphoid"
+      ],
+      "paired": {
+        "left": "left_scaphoid",
+        "right": "right_scaphoid"
+      }
+    },
+    {
+      "id": "parietal_bone",
+      "words": [
+        "parietal bone"
+      ],
+      "paired": {
+        "left": "left_parietal_bone",
+        "right": "right_parietal_bone"
+      }
+    },
+    {
+      "id": "temporal_bone",
+      "words": [
+        "temporal bone"
+      ],
+      "paired": {
+        "left": "left_temporal_bone",
+        "right": "right_temporal_bone"
+      }
+    },
+    {
+      "id": "zygomatic_bone",
+      "words": [
+        "zygomatic bone",
+        "zygoma"
+      ],
+      "paired": {
+        "left": "left_zygomatic_bone",
+        "right": "right_zygomatic_bone"
+      }
+    },
+    {
+      "id": "maxilla",
+      "words": [
+        "maxilla"
+      ],
+      "paired": {
+        "left": "left_maxilla",
+        "right": "right_maxilla"
+      }
+    },
+    {
+      "id": "nasal_bone",
+      "words": [
+        "nasal bone",
+        "nasal bones"
+      ],
+      "paired": {
+        "left": "left_nasal_bone",
+        "right": "right_nasal_bone"
+      }
+    },
+    {
+      "id": "frontal_bone",
+      "words": [
+        "frontal bone"
+      ],
+      "structure": "frontal_bone"
+    },
+    {
+      "id": "occipital_bone",
+      "words": [
+        "occipital bone"
+      ],
+      "structure": "occipital_bone"
+    },
+    {
+      "id": "mandible",
+      "words": [
+        "mandible",
+        "mandibular"
+      ],
+      "structure": "mandible"
+    },
+    {
+      "id": "sacrum",
+      "words": [
+        "sacrum"
+      ],
+      "structure": "sacrum"
+    },
+    {
+      "id": "first_rib",
+      "words": [
+        "first rib",
+        "1st rib",
+        "rib 1"
+      ],
+      "paired": {
+        "left": "left_first_rib",
+        "right": "right_first_rib"
+      }
+    },
+    {
+      "id": "second_rib",
+      "words": [
+        "second rib",
+        "2nd rib",
+        "rib 2"
+      ],
+      "paired": {
+        "left": "left_second_rib",
+        "right": "right_second_rib"
+      }
+    },
+    {
+      "id": "third_rib",
+      "words": [
+        "third rib",
+        "3rd rib",
+        "rib 3"
+      ],
+      "paired": {
+        "left": "left_third_rib",
+        "right": "right_third_rib"
+      }
+    },
+    {
+      "id": "fourth_rib",
+      "words": [
+        "fourth rib",
+        "4th rib",
+        "rib 4"
+      ],
+      "paired": {
+        "left": "left_fourth_rib",
+        "right": "right_fourth_rib"
+      }
+    },
+    {
+      "id": "fifth_rib",
+      "words": [
+        "fifth rib",
+        "5th rib",
+        "rib 5"
+      ],
+      "paired": {
+        "left": "left_fifth_rib",
+        "right": "right_fifth_rib"
+      }
+    },
+    {
+      "id": "sixth_rib",
+      "words": [
+        "sixth rib",
+        "6th rib",
+        "rib 6"
+      ],
+      "paired": {
+        "left": "left_sixth_rib",
+        "right": "right_sixth_rib"
+      }
+    },
+    {
+      "id": "seventh_rib",
+      "words": [
+        "seventh rib",
+        "7th rib",
+        "rib 7"
+      ],
+      "paired": {
+        "left": "left_seventh_rib",
+        "right": "right_seventh_rib"
+      }
+    },
+    {
+      "id": "eighth_rib",
+      "words": [
+        "eighth rib",
+        "8th rib",
+        "rib 8"
+      ],
+      "paired": {
+        "left": "left_eighth_rib",
+        "right": "right_eighth_rib"
+      }
+    },
+    {
+      "id": "ninth_rib",
+      "words": [
+        "ninth rib",
+        "9th rib",
+        "rib 9"
+      ],
+      "paired": {
+        "left": "left_ninth_rib",
+        "right": "right_ninth_rib"
+      }
+    },
+    {
+      "id": "tenth_rib",
+      "words": [
+        "tenth rib",
+        "10th rib",
+        "rib 10"
+      ],
+      "paired": {
+        "left": "left_tenth_rib",
+        "right": "right_tenth_rib"
+      }
+    },
+    {
+      "id": "eleventh_rib",
+      "words": [
+        "eleventh rib",
+        "11th rib",
+        "rib 11"
+      ],
+      "paired": {
+        "left": "left_eleventh_rib",
+        "right": "right_eleventh_rib"
+      }
+    },
+    {
+      "id": "twelfth_rib",
+      "words": [
+        "twelfth rib",
+        "12th rib",
+        "rib 12"
+      ],
+      "paired": {
+        "left": "left_twelfth_rib",
+        "right": "right_twelfth_rib"
+      }
+    },
+    {
+      "id": "first_metacarpal",
+      "words": [
+        "first metacarpal",
+        "1st metacarpal"
+      ],
+      "paired": {
+        "left": "left_first_metacarpal_bone",
+        "right": "right_first_metacarpal_bone"
+      }
+    },
+    {
+      "id": "first_metatarsal",
+      "words": [
+        "first metatarsal",
+        "1st metatarsal"
+      ],
+      "paired": {
+        "left": "left_first_metatarsal_bone",
+        "right": "right_first_metatarsal_bone"
+      }
+    },
+    {
+      "id": "second_metacarpal",
+      "words": [
+        "second metacarpal",
+        "2nd metacarpal"
+      ],
+      "paired": {
+        "left": "left_second_metacarpal_bone",
+        "right": "right_second_metacarpal_bone"
+      }
+    },
+    {
+      "id": "second_metatarsal",
+      "words": [
+        "second metatarsal",
+        "2nd metatarsal"
+      ],
+      "paired": {
+        "left": "left_second_metatarsal_bone",
+        "right": "right_second_metatarsal_bone"
+      }
+    },
+    {
+      "id": "third_metacarpal",
+      "words": [
+        "third metacarpal",
+        "3rd metacarpal"
+      ],
+      "paired": {
+        "left": "left_third_metacarpal_bone",
+        "right": "right_third_metacarpal_bone"
+      }
+    },
+    {
+      "id": "third_metatarsal",
+      "words": [
+        "third metatarsal",
+        "3rd metatarsal"
+      ],
+      "paired": {
+        "left": "left_third_metatarsal_bone",
+        "right": "right_third_metatarsal_bone"
+      }
+    },
+    {
+      "id": "fourth_metacarpal",
+      "words": [
+        "fourth metacarpal",
+        "4th metacarpal"
+      ],
+      "paired": {
+        "left": "left_fourth_metacarpal_bone",
+        "right": "right_fourth_metacarpal_bone"
+      }
+    },
+    {
+      "id": "fourth_metatarsal",
+      "words": [
+        "fourth metatarsal",
+        "4th metatarsal"
+      ],
+      "paired": {
+        "left": "left_fourth_metatarsal_bone",
+        "right": "right_fourth_metatarsal_bone"
+      }
+    },
+    {
+      "id": "fifth_metacarpal",
+      "words": [
+        "fifth metacarpal",
+        "5th metacarpal"
+      ],
+      "paired": {
+        "left": "left_fifth_metacarpal_bone",
+        "right": "right_fifth_metacarpal_bone"
+      }
+    },
+    {
+      "id": "fifth_metatarsal",
+      "words": [
+        "fifth metatarsal",
+        "5th metatarsal"
+      ],
+      "paired": {
+        "left": "left_fifth_metatarsal_bone",
+        "right": "right_fifth_metatarsal_bone"
+      }
+    },
+    {
+      "id": "atlas",
+      "words": [
+        "atlas vertebra",
+        "first cervical vertebra"
+      ],
+      "codes": [
+        "C1"
+      ],
+      "structure": "atlas"
+    },
+    {
+      "id": "axis",
+      "words": [
+        "odontoid",
+        "dens of axis",
+        "second cervical vertebra"
+      ],
+      "codes": [
+        "C2"
+      ],
+      "structure": "axis"
+    },
+    {
+      "id": "third_cervical_vertebra",
+      "words": [
+        "third cervical vertebra"
+      ],
+      "codes": [
+        "C3"
+      ],
+      "structure": "third_cervical_vertebra"
+    },
+    {
+      "id": "fourth_cervical_vertebra",
+      "words": [
+        "fourth cervical vertebra"
+      ],
+      "codes": [
+        "C4"
+      ],
+      "structure": "fourth_cervical_vertebra"
+    },
+    {
+      "id": "fifth_cervical_vertebra",
+      "words": [
+        "fifth cervical vertebra"
+      ],
+      "codes": [
+        "C5"
+      ],
+      "structure": "fifth_cervical_vertebra"
+    },
+    {
+      "id": "sixth_cervical_vertebra",
+      "words": [
+        "sixth cervical vertebra"
+      ],
+      "codes": [
+        "C6"
+      ],
+      "structure": "sixth_cervical_vertebra"
+    },
+    {
+      "id": "seventh_cervical_vertebra",
+      "words": [
+        "seventh cervical vertebra"
+      ],
+      "codes": [
+        "C7"
+      ],
+      "structure": "seventh_cervical_vertebra"
+    },
+    {
+      "id": "first_thoracic_vertebra",
+      "words": [
+        "first thoracic vertebra",
+        "first dorsal vertebra"
+      ],
+      "codes": [
+        "T1",
+        "D1"
+      ],
+      "structure": "first_thoracic_vertebra"
+    },
+    {
+      "id": "second_thoracic_vertebra",
+      "words": [
+        "second thoracic vertebra",
+        "second dorsal vertebra"
+      ],
+      "codes": [
+        "T2",
+        "D2"
+      ],
+      "structure": "second_thoracic_vertebra"
+    },
+    {
+      "id": "third_thoracic_vertebra",
+      "words": [
+        "third thoracic vertebra",
+        "third dorsal vertebra"
+      ],
+      "codes": [
+        "T3",
+        "D3"
+      ],
+      "structure": "third_thoracic_vertebra"
+    },
+    {
+      "id": "fourth_thoracic_vertebra",
+      "words": [
+        "fourth thoracic vertebra",
+        "fourth dorsal vertebra"
+      ],
+      "codes": [
+        "T4",
+        "D4"
+      ],
+      "structure": "fourth_thoracic_vertebra"
+    },
+    {
+      "id": "fifth_thoracic_vertebra",
+      "words": [
+        "fifth thoracic vertebra",
+        "fifth dorsal vertebra"
+      ],
+      "codes": [
+        "T5",
+        "D5"
+      ],
+      "structure": "fifth_thoracic_vertebra"
+    },
+    {
+      "id": "sixth_thoracic_vertebra",
+      "words": [
+        "sixth thoracic vertebra",
+        "sixth dorsal vertebra"
+      ],
+      "codes": [
+        "T6",
+        "D6"
+      ],
+      "structure": "sixth_thoracic_vertebra"
+    },
+    {
+      "id": "seventh_thoracic_vertebra",
+      "words": [
+        "seventh thoracic vertebra",
+        "seventh dorsal vertebra"
+      ],
+      "codes": [
+        "T7",
+        "D7"
+      ],
+      "structure": "seventh_thoracic_vertebra"
+    },
+    {
+      "id": "eighth_thoracic_vertebra",
+      "words": [
+        "eighth thoracic vertebra",
+        "eighth dorsal vertebra"
+      ],
+      "codes": [
+        "T8",
+        "D8"
+      ],
+      "structure": "eighth_thoracic_vertebra"
+    },
+    {
+      "id": "ninth_thoracic_vertebra",
+      "words": [
+        "ninth thoracic vertebra",
+        "ninth dorsal vertebra"
+      ],
+      "codes": [
+        "T9",
+        "D9"
+      ],
+      "structure": "ninth_thoracic_vertebra"
+    },
+    {
+      "id": "tenth_thoracic_vertebra",
+      "words": [
+        "tenth thoracic vertebra",
+        "tenth dorsal vertebra"
+      ],
+      "codes": [
+        "T10",
+        "D10"
+      ],
+      "structure": "tenth_thoracic_vertebra"
+    },
+    {
+      "id": "eleventh_thoracic_vertebra",
+      "words": [
+        "eleventh thoracic vertebra",
+        "eleventh dorsal vertebra"
+      ],
+      "codes": [
+        "T11",
+        "D11"
+      ],
+      "structure": "eleventh_thoracic_vertebra"
+    },
+    {
+      "id": "twelfth_thoracic_vertebra",
+      "words": [
+        "twelfth thoracic vertebra",
+        "twelfth dorsal vertebra"
+      ],
+      "codes": [
+        "T12",
+        "D12"
+      ],
+      "structure": "twelfth_thoracic_vertebra"
+    },
+    {
+      "id": "first_lumbar_vertebra",
+      "words": [
+        "first lumbar vertebra"
+      ],
+      "codes": [
+        "L1"
+      ],
+      "structure": "first_lumbar_vertebra"
+    },
+    {
+      "id": "second_lumbar_vertebra",
+      "words": [
+        "second lumbar vertebra"
+      ],
+      "codes": [
+        "L2"
+      ],
+      "structure": "second_lumbar_vertebra"
+    },
+    {
+      "id": "third_lumbar_vertebra",
+      "words": [
+        "third lumbar vertebra"
+      ],
+      "codes": [
+        "L3"
+      ],
+      "structure": "third_lumbar_vertebra"
+    },
+    {
+      "id": "fourth_lumbar_vertebra",
+      "words": [
+        "fourth lumbar vertebra"
+      ],
+      "codes": [
+        "L4"
+      ],
+      "structure": "fourth_lumbar_vertebra"
+    },
+    {
+      "id": "fifth_lumbar_vertebra",
+      "words": [
+        "fifth lumbar vertebra"
+      ],
+      "codes": [
+        "L5"
+      ],
+      "structure": "fifth_lumbar_vertebra"
+    }
   ],
   "regions": [
-    { "organ": "kidney", "words": ["upper pole"], "region": "{side}_kidney_upper_pole", "kind": "position" },
-    { "organ": "kidney", "words": ["lower pole"], "region": "{side}_kidney_lower_pole", "kind": "position" },
-    { "organ": "kidney", "words": ["cortex", "cortical"], "region": "{side}_kidney_cortex", "kind": "tissue" },
-    { "organ": "kidney", "words": ["medulla", "medullary"], "region": "{side}_kidney_medulla", "kind": "tissue" },
-    { "organ": "kidney", "words": ["renal pelvis", "pelvicalyceal", "pelvi-calyceal"], "region": "{side}_kidney_renal_pelvis", "kind": "tissue" },
-    { "organ": "liver", "words": ["right lobe"], "region": "liver_right_lobe", "kind": "position" },
-    { "organ": "liver", "words": ["left lobe"], "region": "liver_left_lobe", "kind": "position" },
-    { "organ": "liver", "words": ["caudate lobe"], "region": "liver_caudate_lobe", "kind": "position" },
-    { "organ": "lung", "words": ["upper lobe", "upper zone"], "region": "{side}_lung_upper_lobe", "kind": "position" },
-    { "organ": "lung", "words": ["middle lobe"], "region": "{side}_lung_middle_lobe", "kind": "position" },
-    { "organ": "lung", "words": ["lower lobe", "lower zone"], "region": "{side}_lung_lower_lobe", "kind": "position" }
+    {
+      "organ": "kidney",
+      "words": [
+        "upper pole"
+      ],
+      "region": "{side}_kidney_upper_pole",
+      "kind": "position"
+    },
+    {
+      "organ": "kidney",
+      "words": [
+        "lower pole"
+      ],
+      "region": "{side}_kidney_lower_pole",
+      "kind": "position"
+    },
+    {
+      "organ": "kidney",
+      "words": [
+        "cortex",
+        "cortical"
+      ],
+      "region": "{side}_kidney_cortex",
+      "kind": "tissue"
+    },
+    {
+      "organ": "kidney",
+      "words": [
+        "medulla",
+        "medullary"
+      ],
+      "region": "{side}_kidney_medulla",
+      "kind": "tissue"
+    },
+    {
+      "organ": "kidney",
+      "words": [
+        "renal pelvis",
+        "pelvicalyceal",
+        "pelvi-calyceal"
+      ],
+      "region": "{side}_kidney_renal_pelvis",
+      "kind": "tissue"
+    },
+    {
+      "organ": "liver",
+      "words": [
+        "right lobe"
+      ],
+      "region": "liver_right_lobe",
+      "kind": "position"
+    },
+    {
+      "organ": "liver",
+      "words": [
+        "left lobe"
+      ],
+      "region": "liver_left_lobe",
+      "kind": "position"
+    },
+    {
+      "organ": "liver",
+      "words": [
+        "caudate lobe"
+      ],
+      "region": "liver_caudate_lobe",
+      "kind": "position"
+    },
+    {
+      "organ": "lung",
+      "words": [
+        "upper lobe"
+      ],
+      "region": "{side}_lung_upper_lobe",
+      "kind": "position"
+    },
+    {
+      "organ": "lung",
+      "words": [
+        "middle lobe"
+      ],
+      "region": "{side}_lung_middle_lobe",
+      "kind": "position"
+    },
+    {
+      "organ": "lung",
+      "words": [
+        "lower lobe"
+      ],
+      "region": "{side}_lung_lower_lobe",
+      "kind": "position"
+    },
+    {
+      "organ": "femur",
+      "words": [
+        "proximal",
+        "upper end",
+        "femoral neck",
+        "femoral head",
+        "neck of femur",
+        "head of femur",
+        "intertrochanteric",
+        "greater trochanter",
+        "tibial plateau",
+        "humeral head",
+        "surgical neck"
+      ],
+      "region": "{side}_femur_proximal",
+      "kind": "position"
+    },
+    {
+      "organ": "femur",
+      "words": [
+        "shaft",
+        "diaphysis",
+        "diaphyseal",
+        "midshaft",
+        "mid shaft"
+      ],
+      "region": "{side}_femur_shaft",
+      "kind": "position"
+    },
+    {
+      "organ": "femur",
+      "words": [
+        "distal",
+        "lower end",
+        "medial malleolus",
+        "lateral malleolus"
+      ],
+      "region": "{side}_femur_distal",
+      "kind": "position"
+    },
+    {
+      "organ": "tibia",
+      "words": [
+        "proximal",
+        "upper end",
+        "femoral neck",
+        "femoral head",
+        "neck of femur",
+        "head of femur",
+        "intertrochanteric",
+        "greater trochanter",
+        "tibial plateau",
+        "humeral head",
+        "surgical neck"
+      ],
+      "region": "{side}_tibia_proximal",
+      "kind": "position"
+    },
+    {
+      "organ": "tibia",
+      "words": [
+        "shaft",
+        "diaphysis",
+        "diaphyseal",
+        "midshaft",
+        "mid shaft"
+      ],
+      "region": "{side}_tibia_shaft",
+      "kind": "position"
+    },
+    {
+      "organ": "tibia",
+      "words": [
+        "distal",
+        "lower end",
+        "medial malleolus",
+        "lateral malleolus"
+      ],
+      "region": "{side}_tibia_distal",
+      "kind": "position"
+    },
+    {
+      "organ": "fibula",
+      "words": [
+        "proximal",
+        "upper end",
+        "femoral neck",
+        "femoral head",
+        "neck of femur",
+        "head of femur",
+        "intertrochanteric",
+        "greater trochanter",
+        "tibial plateau",
+        "humeral head",
+        "surgical neck"
+      ],
+      "region": "{side}_fibula_proximal",
+      "kind": "position"
+    },
+    {
+      "organ": "fibula",
+      "words": [
+        "shaft",
+        "diaphysis",
+        "diaphyseal",
+        "midshaft",
+        "mid shaft"
+      ],
+      "region": "{side}_fibula_shaft",
+      "kind": "position"
+    },
+    {
+      "organ": "fibula",
+      "words": [
+        "distal",
+        "lower end",
+        "medial malleolus",
+        "lateral malleolus"
+      ],
+      "region": "{side}_fibula_distal",
+      "kind": "position"
+    },
+    {
+      "organ": "humerus",
+      "words": [
+        "proximal",
+        "upper end",
+        "femoral neck",
+        "femoral head",
+        "neck of femur",
+        "head of femur",
+        "intertrochanteric",
+        "greater trochanter",
+        "tibial plateau",
+        "humeral head",
+        "surgical neck"
+      ],
+      "region": "{side}_humerus_proximal",
+      "kind": "position"
+    },
+    {
+      "organ": "humerus",
+      "words": [
+        "shaft",
+        "diaphysis",
+        "diaphyseal",
+        "midshaft",
+        "mid shaft"
+      ],
+      "region": "{side}_humerus_shaft",
+      "kind": "position"
+    },
+    {
+      "organ": "humerus",
+      "words": [
+        "distal",
+        "lower end",
+        "medial malleolus",
+        "lateral malleolus"
+      ],
+      "region": "{side}_humerus_distal",
+      "kind": "position"
+    },
+    {
+      "organ": "radius",
+      "words": [
+        "proximal",
+        "upper end",
+        "femoral neck",
+        "femoral head",
+        "neck of femur",
+        "head of femur",
+        "intertrochanteric",
+        "greater trochanter",
+        "tibial plateau",
+        "humeral head",
+        "surgical neck"
+      ],
+      "region": "{side}_radius_proximal",
+      "kind": "position"
+    },
+    {
+      "organ": "radius",
+      "words": [
+        "shaft",
+        "diaphysis",
+        "diaphyseal",
+        "midshaft",
+        "mid shaft"
+      ],
+      "region": "{side}_radius_shaft",
+      "kind": "position"
+    },
+    {
+      "organ": "radius",
+      "words": [
+        "distal",
+        "lower end",
+        "medial malleolus",
+        "lateral malleolus"
+      ],
+      "region": "{side}_radius_distal",
+      "kind": "position"
+    },
+    {
+      "organ": "ulna",
+      "words": [
+        "proximal",
+        "upper end",
+        "femoral neck",
+        "femoral head",
+        "neck of femur",
+        "head of femur",
+        "intertrochanteric",
+        "greater trochanter",
+        "tibial plateau",
+        "humeral head",
+        "surgical neck"
+      ],
+      "region": "{side}_ulna_proximal",
+      "kind": "position"
+    },
+    {
+      "organ": "ulna",
+      "words": [
+        "shaft",
+        "diaphysis",
+        "diaphyseal",
+        "midshaft",
+        "mid shaft"
+      ],
+      "region": "{side}_ulna_shaft",
+      "kind": "position"
+    },
+    {
+      "organ": "ulna",
+      "words": [
+        "distal",
+        "lower end",
+        "medial malleolus",
+        "lateral malleolus"
+      ],
+      "region": "{side}_ulna_distal",
+      "kind": "position"
+    }
   ],
   "findingWords": [
-    "cyst", "cysts", "cystic", "lesion", "lesions", "mass", "masses", "nodule", "nodules", "nodular",
-    "calculus", "calculi", "stone", "stones", "hydronephrosis", "hydroureter", "polyp", "polyps", "sludge",
-    "fatty", "steatosis", "echogenic", "echogenicity", "hypoechoic", "hyperechoic", "heterogeneous",
-    "enlarged", "enlargement", "hepatomegaly", "splenomegaly", "cardiomegaly", "thickening", "thickened",
-    "effusion", "opacity", "opacities", "consolidation", "calcification", "calcified", "dilated", "dilatation",
-    "atrophy", "atrophic", "scar", "scarring", "collection", "focus", "foci", "grade"
+    "cyst",
+    "cysts",
+    "cystic",
+    "lesion",
+    "lesions",
+    "mass",
+    "masses",
+    "nodule",
+    "nodules",
+    "nodular",
+    "calculus",
+    "calculi",
+    "stone",
+    "stones",
+    "hydronephrosis",
+    "hydroureter",
+    "polyp",
+    "polyps",
+    "sludge",
+    "fatty",
+    "steatosis",
+    "echogenic",
+    "echogenicity",
+    "hypoechoic",
+    "hyperechoic",
+    "heterogeneous",
+    "enlarged",
+    "enlargement",
+    "hepatomegaly",
+    "splenomegaly",
+    "cardiomegaly",
+    "thickening",
+    "thickened",
+    "effusion",
+    "opacity",
+    "opacities",
+    "consolidation",
+    "calcification",
+    "calcified",
+    "dilated",
+    "dilatation",
+    "atrophy",
+    "atrophic",
+    "scar",
+    "scarring",
+    "collection",
+    "focus",
+    "foci",
+    "grade",
+    "fracture",
+    "fractures",
+    "fractured",
+    "dislocation",
+    "dislocated",
+    "subluxation",
+    "osteophyte",
+    "osteophytes",
+    "osteophytic",
+    "spondylosis",
+    "spondylolisthesis",
+    "degenerative",
+    "sclerosis",
+    "sclerotic",
+    "lytic",
+    "lucency",
+    "lucencies",
+    "erosion",
+    "erosions",
+    "collapse",
+    "wedging",
+    "wedge",
+    "compression",
+    "narrowing",
+    "narrowed",
+    "haziness",
+    "hazy",
+    "infiltrate",
+    "infiltrates",
+    "infiltration",
+    "shadow",
+    "shadows",
+    "blunting",
+    "blunted",
+    "prominent",
+    "prominence",
+    "callus",
+    "deformity",
+    "displaced",
+    "osteopenia",
+    "osteopenic"
   ],
-  "negationCues": ["no", "not", "without", "absent", "negative for", "free of", "no evidence of", "not seen", "not visualized", "ruled out"],
-  "uncertaintyCues": ["possible", "possibly", "probable", "probably", "likely", "suggestive of", "suspicious", "cannot be excluded", "cannot exclude", "may represent", "could represent", "?"],
-  "priorCues": ["previous", "previously", "prior", "earlier", "last study", "compared", "comparison", "was measuring", "then measured"]
+  "negationCues": [
+    "no",
+    "not",
+    "without",
+    "absent",
+    "negative for",
+    "free of",
+    "no evidence of",
+    "not seen",
+    "not visualized",
+    "ruled out"
+  ],
+  "uncertaintyCues": [
+    "possible",
+    "possibly",
+    "probable",
+    "probably",
+    "likely",
+    "suggestive of",
+    "suspicious",
+    "cannot be excluded",
+    "cannot exclude",
+    "may represent",
+    "could represent",
+    "?"
+  ],
+  "priorCues": [
+    "previous",
+    "previously",
+    "prior",
+    "earlier",
+    "last study",
+    "compared",
+    "comparison",
+    "was measuring",
+    "then measured"
+  ],
+  "spine": {
+    "$comment": "Short vertebral level codes (organs[].codes) count only when the sentence also has one of these words, and never when it names a level range (the disc or several levels), so 'T4' in a thyroid line or 'L4-L5 disc' is not placed on a vertebra.",
+    "contextWords": [
+      "spine",
+      "spinal",
+      "vertebra",
+      "vertebrae",
+      "vertebral",
+      "cervical",
+      "thoracic",
+      "dorsal",
+      "lumbar",
+      "sacral",
+      "spondylosis",
+      "spondylolisthesis",
+      "osteophyte",
+      "osteophytes"
+    ],
+    "levelRangePattern": "\\b[CTDLS]\\d{1,2}\\s*(?:-|–|/|to)\\s*[CTDLS]?\\d{1,2}\\b"
+  }
 }

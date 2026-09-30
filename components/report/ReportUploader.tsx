@@ -36,12 +36,12 @@ export function progressText(p: ReadProgress | null): { text: string; fraction: 
 
 const pageList = (pages: number[]) => (pages.length === 1 ? `Page ${pages[0]}` : `Pages ${pages.join(", ")}`);
 
-/** "3 test results and 2 organ statements" */
+/** "3 test results and 2 report statements" */
 export function countText(findings: RawFinding[]): string {
   const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
   const statements = findings.filter((f) => f.findingType === "report_statement").length;
   const labs = findings.length - statements;
-  return [labs && plural(labs, "test result"), statements && plural(statements, "organ statement")].filter(Boolean).join(" and ");
+  return [labs && plural(labs, "test result"), statements && plural(statements, "report statement")].filter(Boolean).join(" and ");
 }
 
 function ReviewRow({ f, checked, onToggle }: { f: RawFinding; checked: boolean; onToggle: () => void }) {
@@ -292,7 +292,7 @@ function ReviewView({
         </h2>
         <p className="text-sm" data-testid="review-summary">
           {n === 0
-            ? "No recognizable test results or organ statements were found in this report."
+            ? "No recognizable test results or report statements were found in this report."
             : `${countText(report.findings)} found on ${summary.pageCount} page${summary.pageCount === 1 ? "" : "s"}.`}
         </p>
         {summary.ocrPages.length > 0 && (
@@ -333,7 +333,7 @@ function ReviewView({
         </div>
       </details>
       <p className="mt-3 text-[11px] text-muted">
-        {PRIVACY_NOTE} Test rows and imaging sentences that name an organ are read; other text is kept as page text only.
+        {PRIVACY_NOTE} Test rows and imaging sentences that name an organ or bone are read; other text is kept as page text only.
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
         {n > 0 && (

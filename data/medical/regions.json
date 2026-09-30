@@ -1,5 +1,5 @@
 {
-  "$comment": "Sub-organ regions (AGENTS.md Section 105). Each region is displayed either by real parts of the detailed organ model (supportedBy: mesh, parts = HRA part ids in public/anatomy/organs/index.json) or by a documented overlay marker (supportedBy: overlay). Overlay position is in the organ model's bounding box, each axis from -1 to 1 (x: patient's right -1 to left +1, y: inferior -1 to superior +1, z: posterior -1 to anterior +1). The marker shows only WHERE the report places a finding, never its size, shape or extent (Section 107). Poles are approximations: the box follows the model axes, and the kidney's long axis is close to vertical in this model.",
+  "$comment": "Sub-organ regions (AGENTS.md Section 105). Each region is displayed either by real parts of the detailed organ model (supportedBy: mesh, parts = HRA part ids in public/anatomy/organs/index.json) or by a documented overlay marker (supportedBy: overlay). Overlay position is in the organ model's bounding box, each axis from -1 to 1 (x: patient's right -1 to left +1, y: inferior -1 to superior +1, z: posterior -1 to anterior +1). The marker shows only WHERE the report places a finding, never its size, shape or extent (Section 107). Poles are approximations: the box follows the model axes, and the kidney's long axis is close to vertical in this model. Long bones (femur, tibia, fibula, humerus, radius, ulna) stand close to vertical in this model (anatomical position), so the proximal end is at the top of the bone's box and the distal end at the bottom; the markers sit on the box's vertical centre line and are approximate.",
   "regions": {
     "left_kidney_upper_pole": {
       "parentStructure": "left_kidney",
@@ -7,7 +7,11 @@
       "supportedBy": "overlay",
       "overlay": {
         "type": "pin_marker",
-        "position": [0, 0.7, 0]
+        "position": [
+          0,
+          0.7,
+          0
+        ]
       }
     },
     "left_kidney_lower_pole": {
@@ -16,7 +20,11 @@
       "supportedBy": "overlay",
       "overlay": {
         "type": "pin_marker",
-        "position": [0, -0.7, 0]
+        "position": [
+          0,
+          -0.7,
+          0
+        ]
       }
     },
     "right_kidney_upper_pole": {
@@ -25,7 +33,11 @@
       "supportedBy": "overlay",
       "overlay": {
         "type": "pin_marker",
-        "position": [0, 0.7, 0]
+        "position": [
+          0,
+          0.7,
+          0
+        ]
       }
     },
     "right_kidney_lower_pole": {
@@ -34,92 +46,594 @@
       "supportedBy": "overlay",
       "overlay": {
         "type": "pin_marker",
-        "position": [0, -0.7, 0]
+        "position": [
+          0,
+          -0.7,
+          0
+        ]
       }
     },
     "left_kidney_cortex": {
       "parentStructure": "left_kidney",
       "displayName": "Left kidney, cortex",
       "supportedBy": "mesh",
-      "parts": ["cortex_of_kidney", "outer_cortex_of_kidney"]
+      "parts": [
+        "cortex_of_kidney",
+        "outer_cortex_of_kidney"
+      ]
     },
     "right_kidney_cortex": {
       "parentStructure": "right_kidney",
       "displayName": "Right kidney, cortex",
       "supportedBy": "mesh",
-      "parts": ["cortex_of_kidney", "outer_cortex_of_kidney"]
+      "parts": [
+        "cortex_of_kidney",
+        "outer_cortex_of_kidney"
+      ]
     },
     "liver_right_lobe": {
       "parentStructure": "liver",
       "displayName": "Liver, right lobe",
       "supportedBy": "mesh",
-      "parts": ["right_lobe_of_liver"]
+      "parts": [
+        "right_lobe_of_liver"
+      ]
     },
     "liver_left_lobe": {
       "parentStructure": "liver",
       "displayName": "Liver, left lobe",
       "supportedBy": "mesh",
-      "parts": ["left_lobe_of_liver"]
+      "parts": [
+        "left_lobe_of_liver"
+      ]
     },
     "left_kidney_medulla": {
       "parentStructure": "left_kidney",
       "displayName": "Left kidney, medulla",
       "supportedBy": "mesh",
-      "parts": ["renal_medulla"]
+      "parts": [
+        "renal_medulla"
+      ]
     },
     "right_kidney_medulla": {
       "parentStructure": "right_kidney",
       "displayName": "Right kidney, medulla",
       "supportedBy": "mesh",
-      "parts": ["renal_medulla"]
+      "parts": [
+        "renal_medulla"
+      ]
     },
     "left_kidney_renal_pelvis": {
       "parentStructure": "left_kidney",
       "displayName": "Left kidney, renal pelvis",
       "supportedBy": "mesh",
-      "parts": ["left_renal_pelvis"]
+      "parts": [
+        "left_renal_pelvis"
+      ]
     },
     "right_kidney_renal_pelvis": {
       "parentStructure": "right_kidney",
       "displayName": "Right kidney, renal pelvis",
       "supportedBy": "mesh",
-      "parts": ["right_renal_pelvis"]
+      "parts": [
+        "right_renal_pelvis"
+      ]
     },
     "liver_caudate_lobe": {
       "parentStructure": "liver",
       "displayName": "Liver, caudate lobe",
       "supportedBy": "mesh",
-      "parts": ["caudate_lobe_of_liver"]
+      "parts": [
+        "caudate_lobe_of_liver"
+      ]
     },
     "right_lung_upper_lobe": {
       "parentStructure": "right_lung",
       "displayName": "Right lung, upper lobe",
       "supportedBy": "mesh",
-      "parts": ["upper_lobe_of_right_lung"]
+      "parts": [
+        "upper_lobe_of_right_lung"
+      ]
     },
     "right_lung_middle_lobe": {
       "parentStructure": "right_lung",
       "displayName": "Right lung, middle lobe",
       "supportedBy": "mesh",
-      "parts": ["middle_lobe_of_right_lung"]
+      "parts": [
+        "middle_lobe_of_right_lung"
+      ]
     },
     "right_lung_lower_lobe": {
       "parentStructure": "right_lung",
       "displayName": "Right lung, lower lobe",
       "supportedBy": "mesh",
-      "parts": ["lower_lobe_of_right_lung"]
+      "parts": [
+        "lower_lobe_of_right_lung"
+      ]
     },
     "left_lung_upper_lobe": {
       "parentStructure": "left_lung",
       "displayName": "Left lung, upper lobe",
       "supportedBy": "mesh",
-      "parts": ["upper_lobe_of_left_lung"]
+      "parts": [
+        "upper_lobe_of_left_lung"
+      ]
     },
     "left_lung_lower_lobe": {
       "parentStructure": "left_lung",
       "displayName": "Left lung, lower lobe",
       "supportedBy": "mesh",
-      "parts": ["lower_lobe_of_left_lung"]
+      "parts": [
+        "lower_lobe_of_left_lung"
+      ]
+    },
+    "left_femur_proximal": {
+      "parentStructure": "left_femur",
+      "displayName": "Left femur, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "left_femur_shaft": {
+      "parentStructure": "left_femur",
+      "displayName": "Left femur, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "left_femur_distal": {
+      "parentStructure": "left_femur",
+      "displayName": "Left femur, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "right_femur_proximal": {
+      "parentStructure": "right_femur",
+      "displayName": "Right femur, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "right_femur_shaft": {
+      "parentStructure": "right_femur",
+      "displayName": "Right femur, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "right_femur_distal": {
+      "parentStructure": "right_femur",
+      "displayName": "Right femur, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "left_tibia_proximal": {
+      "parentStructure": "left_tibia",
+      "displayName": "Left tibia, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "left_tibia_shaft": {
+      "parentStructure": "left_tibia",
+      "displayName": "Left tibia, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "left_tibia_distal": {
+      "parentStructure": "left_tibia",
+      "displayName": "Left tibia, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "right_tibia_proximal": {
+      "parentStructure": "right_tibia",
+      "displayName": "Right tibia, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "right_tibia_shaft": {
+      "parentStructure": "right_tibia",
+      "displayName": "Right tibia, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "right_tibia_distal": {
+      "parentStructure": "right_tibia",
+      "displayName": "Right tibia, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "left_fibula_proximal": {
+      "parentStructure": "left_fibula",
+      "displayName": "Left fibula, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "left_fibula_shaft": {
+      "parentStructure": "left_fibula",
+      "displayName": "Left fibula, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "left_fibula_distal": {
+      "parentStructure": "left_fibula",
+      "displayName": "Left fibula, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "right_fibula_proximal": {
+      "parentStructure": "right_fibula",
+      "displayName": "Right fibula, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "right_fibula_shaft": {
+      "parentStructure": "right_fibula",
+      "displayName": "Right fibula, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "right_fibula_distal": {
+      "parentStructure": "right_fibula",
+      "displayName": "Right fibula, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "left_humerus_proximal": {
+      "parentStructure": "left_humerus",
+      "displayName": "Left humerus, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "left_humerus_shaft": {
+      "parentStructure": "left_humerus",
+      "displayName": "Left humerus, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "left_humerus_distal": {
+      "parentStructure": "left_humerus",
+      "displayName": "Left humerus, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "right_humerus_proximal": {
+      "parentStructure": "right_humerus",
+      "displayName": "Right humerus, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "right_humerus_shaft": {
+      "parentStructure": "right_humerus",
+      "displayName": "Right humerus, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "right_humerus_distal": {
+      "parentStructure": "right_humerus",
+      "displayName": "Right humerus, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "left_radius_proximal": {
+      "parentStructure": "left_radius",
+      "displayName": "Left radius, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "left_radius_shaft": {
+      "parentStructure": "left_radius",
+      "displayName": "Left radius, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "left_radius_distal": {
+      "parentStructure": "left_radius",
+      "displayName": "Left radius, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "right_radius_proximal": {
+      "parentStructure": "right_radius",
+      "displayName": "Right radius, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "right_radius_shaft": {
+      "parentStructure": "right_radius",
+      "displayName": "Right radius, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "right_radius_distal": {
+      "parentStructure": "right_radius",
+      "displayName": "Right radius, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "left_ulna_proximal": {
+      "parentStructure": "left_ulna",
+      "displayName": "Left ulna, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "left_ulna_shaft": {
+      "parentStructure": "left_ulna",
+      "displayName": "Left ulna, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "left_ulna_distal": {
+      "parentStructure": "left_ulna",
+      "displayName": "Left ulna, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
+    },
+    "right_ulna_proximal": {
+      "parentStructure": "right_ulna",
+      "displayName": "Right ulna, proximal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0.8,
+          0
+        ]
+      }
+    },
+    "right_ulna_shaft": {
+      "parentStructure": "right_ulna",
+      "displayName": "Right ulna, shaft",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "right_ulna_distal": {
+      "parentStructure": "right_ulna",
+      "displayName": "Right ulna, distal end",
+      "supportedBy": "overlay",
+      "overlay": {
+        "type": "pin_marker",
+        "position": [
+          0,
+          -0.8,
+          0
+        ]
+      }
     }
   }
 }
