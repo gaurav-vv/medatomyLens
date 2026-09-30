@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { readSentence } from "@/lib/reports/imagingParser";
+import { parseImagingLines, readSentence } from "@/lib/reports/imagingParser";
 import { REGIONS } from "@/lib/medical/report";
 
 const read = (s: string) => readSentence(s, 1, "t")?.finding ?? null;
@@ -58,6 +58,29 @@ describe("X-ray text: bones (Sections 107, 111, 113)", () => {
   it("chest X-ray: heart and lung zones", () => {
     expect(where("Cardiac shadow is enlarged.")!.structures).toEqual(["heart"]);
     expect(where("Haziness in the right lower zone.")).toEqual({ structures: ["right_lung"], region: null, negated: false });
+  });
+
+  it("why the study was done is never read as a finding", () => {
+    const lines = (texts: string[]) => parseImagingLines(1, texts.map((text, index) => ({ text, index })));
+    expect(lines(["Clinical Indication: Right shoulder trauma / Suspected collarbone fracture after sports injury"])).toEqual([]);
+    expect(lines(["History: fall on the left wrist, ? fracture of the left distal radius."])).toEqual([]);
+    // A bare heading skips its lines until the findings start.
+    const read = lines([
+      "CLINICAL HISTORY",
+      "Pain in the right clavicle, suspected fracture.",
+      "FINDINGS",
+      "Right clavicle: undisplaced fracture of the middle third.",
+      "IMPRESSION: Fracture of the right clavicle.",
+    ]);
+    expect(read.map((f) => f.statementText)).toEqual([
+      "Right clavicle: undisplaced fracture of the middle third.",
+      "IMPRESSION: Fracture of the right clavicle.",
+    ]);
+    expect(read[0]!.anatomicalStructures).toEqual(["right_clavicle"]);
+  });
+
+  it("'suspected' lowers confidence", () => {
+    expect(read("Suspected fracture of the right clavicle.")!.confidence).toBe("low");
   });
 
   it("every long-bone region is a displayable overlay on its own bone", () => {

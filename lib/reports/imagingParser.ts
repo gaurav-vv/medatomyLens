@@ -40,6 +40,7 @@ interface Vocabulary {
   uncertaintyCues: string[];
   priorCues: string[];
   spine: { contextWords: string[]; levelRangePattern: string };
+  contextSections: { labels: string[]; resultLabels: string[] };
 }
 const V = vocabulary as Vocabulary;
 
@@ -177,9 +178,27 @@ export function readSentence(sentence: string, page: number, id: string): Imagin
   };
 }
 
+/**
+ * Why the study was done ("Clinical indication: suspected fracture") is a question,
+ * not a finding: such lines are never read as statements. A label alone on its
+ * line starts a section that lasts until the next findings/impression heading.
+ */
+const CONTEXT_LABEL = anyOf(V.contextSections.labels);
+const RESULT_LABEL = anyOf(V.contextSections.resultLabels);
+const startsWith = (re: RegExp, text: string) => matches(re, text).some((m) => m.start === text.search(/\S/));
+const labelOnly = (re: RegExp, text: string) => startsWith(re, text) && text.replace(re, "").replace(/[\s:.\-–]/g, "") === "";
+
 export function parseImagingLines(page: number, lines: { text: string; index: number }[]): RawFinding[] {
   const out: RawFinding[] = [];
+  let inContext = false;
   for (const { text, index } of lines) {
+    if (startsWith(RESULT_LABEL, text)) inContext = false;
+    if (startsWith(CONTEXT_LABEL, text)) {
+      // "Clinical history: ..." is skipped; a bare "CLINICAL HISTORY" heading also skips what follows.
+      inContext = labelOnly(CONTEXT_LABEL, text);
+      continue;
+    }
+    if (inContext) continue;
     sentences(text).forEach((s, i) => {
       const st = readSentence(s, page, `p${page}_s${index + 1}_${i + 1}`);
       if (st) out.push(st.finding);

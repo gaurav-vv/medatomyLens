@@ -16,6 +16,8 @@ export function locationText(f: ResolvedFinding): string {
   const loc = f.location;
   if (loc.kind === "region") return loc.region.displayName;
   if (loc.kind === "region_unavailable") return "Region not available in the current model";
+  // The report names one structure (and its side) but not a part of it.
+  if (f.raw.findingType === "report_statement" && f.raw.location?.specified) return "Whole structure: the report does not name a part of it";
   return "Location not specified in the report";
 }
 

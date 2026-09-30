@@ -1306,7 +1306,12 @@
     "cannot exclude",
     "may represent",
     "could represent",
-    "?"
+    "?",
+    "suspected",
+    "suspect",
+    "query",
+    "questionable",
+    "equivocal"
   ],
   "priorCues": [
     "previous",
@@ -1338,5 +1343,57 @@
       "osteophytes"
     ],
     "levelRangePattern": "\\b[CTDLS]\\d{1,2}\\s*(?:-|–|/|to)\\s*[CTDLS]?\\d{1,2}\\b"
+  },
+  "contextSections": {
+    "$comment": "Lines starting with a label are why the study was done, not findings: they are never read as statements. A label alone on a line skips the lines after it until a result label.",
+    "labels": [
+      "clinical indication",
+      "clinical indications",
+      "indication",
+      "indications",
+      "clinical history",
+      "history",
+      "clinical details",
+      "clinical information",
+      "clinical notes",
+      "reason for examination",
+      "reason for exam",
+      "reason for study",
+      "reason for referral",
+      "referred for",
+      "referral",
+      "provisional diagnosis",
+      "presenting complaint",
+      "chief complaint",
+      "complaints",
+      "complaint",
+      "c/o",
+      "k/c/o",
+      "query",
+      "to rule out",
+      "r/o"
+    ],
+    "resultLabels": [
+      "findings",
+      "finding",
+      "observations",
+      "observation",
+      "report",
+      "impression",
+      "conclusion",
+      "opinion",
+      "interpretation",
+      "result",
+      "results",
+      "technique",
+      "comparison",
+      "x-ray",
+      "xray",
+      "radiograph",
+      "usg",
+      "ultrasound",
+      "ct",
+      "mri"
+    ]
   }
 }
