@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "sodium",
+  "title": "Sodium",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-sodium", "title": "MedlinePlus: Sodium Blood Test", "url": "https://medlineplus.gov/lab-tests/sodium-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A sodium blood test measures the amount of sodium in your blood. Sodium is an electrolyte that helps control the balance of fluids and the balance of acids and bases in the body, and it helps nerves and muscles work.",
+  "context": "You get most of the sodium you need from your diet, and the kidneys remove extra sodium in urine. A result outside the normal range does not always mean a condition that needs treatment; age, sex, and certain medicines can raise or lower sodium levels.",
+  "aboveRange": [
+    "Dehydration, such as from not drinking enough, diarrhea, or water pills",
+    "An adrenal gland disorder",
+    "A kidney condition",
+    "A less common hormone condition affecting water balance"
+  ],
+  "belowRange": [
+    "Loss of sodium from diarrhea or vomiting",
+    "Conditions where the body holds extra fluid, which can include kidney, liver, heart, brain, or lung conditions",
+    "Certain medicines, including some over-the-counter pain relievers and some antidepressants",
+    "An adrenal gland condition or poor nutrition"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

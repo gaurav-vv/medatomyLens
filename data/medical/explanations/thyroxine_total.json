@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "thyroxine_total",
+  "title": "Total thyroxine (Total T4)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-t4", "title": "MedlinePlus: Thyroxine (T4) Test", "url": "https://medlineplus.gov/lab-tests/thyroxine-t4-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "T4 is the main hormone made by the thyroid gland. A total T4 test measures the free and bound forms of T4 together in the blood.",
+  "context": "A T4 result on its own is not enough to identify a thyroid problem, so it is usually read with a TSH test. Some medicines, such as birth control pills and steroids, and some other illnesses can affect the level.",
+  "aboveRange": [
+    "Can be associated with an overactive thyroid (too much thyroid hormone)",
+    "May relate to thyroid nodules, a goiter, or too much iodine from certain medicines or seaweed",
+    "May relate to taking more thyroid hormone medicine than needed"
+  ],
+  "belowRange": [
+    "Can be associated with an underactive thyroid (too little thyroid hormone)",
+    "May relate to too little iodine in the diet, or to earlier treatment of the thyroid",
+    "Rarely, may relate to a pituitary gland problem"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

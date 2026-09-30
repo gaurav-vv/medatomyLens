@@ -1,3 +1,4 @@
+import { EXPLAINED_TESTS } from "@/lib/medical/explanations";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import demo from "@/data/medical/demo/demo_report.json";
@@ -266,7 +267,7 @@ describe("ChatPanelView", () => {
     render(<ChatPanelView report={null} selectedFindingId={null} chatUrl="https://x" onClose={noop} send={send} />);
     fireEvent.click(screen.getByText("I understand, continue"));
     const select = screen.getByLabelText("Test") as HTMLSelectElement;
-    expect(select.options.length).toBe(19);
+    expect(select.options.length).toBe(EXPLAINED_TESTS.length);
     expect(screen.getByText(CHAT_GENERAL_NOTE)).toBeTruthy();
     expect(screen.getByPlaceholderText("Ask about this result")).toBeTruthy();
     fireEvent.click(screen.getByText("What does this test measure?"));
@@ -280,7 +281,7 @@ describe("ChatPanelView", () => {
     const noTopics = resolveReport(onlyB6 as RawReport, () => true);
     render(<ChatPanelView report={noTopics} selectedFindingId={null} chatUrl="https://x" onClose={noop} />);
     fireEvent.click(screen.getByText("I understand, continue"));
-    expect((screen.getByLabelText("Test") as HTMLSelectElement).options.length).toBe(19);
+    expect((screen.getByLabelText("Test") as HTMLSelectElement).options.length).toBe(EXPLAINED_TESTS.length);
   });
 
   it("shows the consent screen first, then a Test select defaulting to selectedFindingId", () => {

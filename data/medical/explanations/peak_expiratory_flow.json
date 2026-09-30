@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "peak_expiratory_flow",
+  "title": "Peak expiratory flow (airflow out of the lungs)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-lung-function-tests", "title": "MedlinePlus: Lung Function Tests", "url": "https://medlineplus.gov/lab-tests/lung-function-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This is a measure of how fast you can blow air out of your lungs. It comes from breathing tests, such as spirometry, that check how much air you breathe out and how quickly.",
+  "context": "A typical result for you depends on the size of your lungs, which is based on your height, sex, and age. Providers compare your result to results from people who are similar to you.",
+  "aboveRange": [],
+  "belowRange": [
+    "A lower result may be associated with narrowed airways that make it harder for air to flow out, such as with asthma or COPD",
+    "A lower result may also be associated with conditions that reduce how much air the lungs can hold"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "mean_corpuscular_hemoglobin_concentration",
+  "title": "Mean corpuscular hemoglobin concentration (MCHC)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-rbc-indices", "title": "MedlinePlus: Red Blood Cell (RBC) Indices", "url": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-indices/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Mean corpuscular hemoglobin concentration (MCHC) measures how concentrated the hemoglobin is in your red blood cells. It is one of the red blood cell indices reported as part of a complete blood count.",
+  "context": "MCHC is used along with other red blood cell indices and blood tests to help tell apart different types of anemia. One index alone is not enough to make a diagnosis.",
+  "aboveRange": [
+    "Can be associated with hemolytic anemia, when red blood cells are broken down faster than they can be replaced",
+    "Can be associated with hereditary spherocytosis, a rare genetic disorder"
+  ],
+  "belowRange": [
+    "Can be associated with iron deficiency anemia",
+    "Can be associated with thalassemia"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

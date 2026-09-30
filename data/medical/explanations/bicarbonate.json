@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "bicarbonate",
+  "title": "Bicarbonate (carbon dioxide, CO2)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-co2", "title": "MedlinePlus: Carbon Dioxide (CO2) in Blood", "url": "https://medlineplus.gov/lab-tests/carbon-dioxide-co2-in-blood/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A carbon dioxide (CO2) blood test measures the amount of carbon dioxide in your blood, most of which is in the form of bicarbonate. Bicarbonate is an electrolyte that helps control the balance of acids and bases in the body.",
+  "context": "The blood carries carbon dioxide to the lungs to be breathed out, and the lungs and kidneys help keep the balance steady. A result outside the normal range does not always mean a condition that needs treatment; certain medicines can raise or lower the level.",
+  "aboveRange": [
+    "Lung conditions",
+    "Cushing's syndrome",
+    "Kidney failure",
+    "Metabolic alkalosis, when the blood is not acidic enough, such as with vomiting or dehydration"
+  ],
+  "belowRange": [
+    "Addison disease",
+    "Diabetic ketoacidosis, a complication of diabetes",
+    "Shock",
+    "Metabolic acidosis, when the blood is too acidic, or respiratory alkalosis from a breathing problem"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

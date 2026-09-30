@@ -1,0 +1,25 @@
+{
+  "normalizedTerm": "potassium",
+  "title": "Potassium",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-potassium", "title": "MedlinePlus: Potassium Blood Test", "url": "https://medlineplus.gov/lab-tests/potassium-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A potassium blood test measures the amount of potassium in your blood. Potassium is an electrolyte that your cells, nerves, heart, and muscles need to work properly.",
+  "context": "You usually get most of the potassium you need from food, and the kidneys remove extra potassium in urine. A result outside the normal range does not always mean a condition that needs treatment; certain medicines and supplements can raise levels, and clenching your fist during the blood draw can temporarily raise the reading.",
+  "aboveRange": [
+    "A kidney condition",
+    "An adrenal gland condition",
+    "Injuries, burns, or surgery that release potassium from cells",
+    "Type 1 diabetes that is not well controlled",
+    "Side effects of certain medicines, such as water pills or antibiotics"
+  ],
+  "belowRange": [
+    "Side effects of prescription water pills",
+    "Fluid loss from diarrhea, vomiting, or heavy sweating",
+    "Using too many laxatives",
+    "Adrenal gland conditions",
+    "A kidney condition or heavy alcohol use"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

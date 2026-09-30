@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "cholesterol_total",
+  "title": "Total cholesterol",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-cholesterol-levels", "title": "MedlinePlus: Cholesterol Levels", "url": "https://medlineplus.gov/lab-tests/cholesterol-levels/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Total cholesterol is a measure of the total amount of cholesterol in the blood, including HDL and LDL cholesterol. Cholesterol is a waxy, fat-like substance the body needs to make hormones, vitamin D, and substances that help digest food.",
+  "context": "You may need to fast for 9 to 12 hours before the blood draw, so the test is often done in the morning. A healthy level for a person can depend on age, family history, lifestyle, and other factors, and one result alone does not tell the whole story.",
+  "aboveRange": [
+    "Eating foods high in dietary fat, which can raise the cholesterol in the blood",
+    "Excess weight and a lack of physical activity",
+    "Smoking and drinking too much alcohol, which can raise total cholesterol",
+    "Family history and genes, which cannot be changed",
+    "A higher total cholesterol can be associated with a greater risk of heart problems over time"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

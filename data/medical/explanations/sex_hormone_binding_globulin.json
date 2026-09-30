@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "sex_hormone_binding_globulin",
+  "title": "Sex hormone binding globulin (SHBG)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-shbg", "title": "MedlinePlus: SHBG Blood Test", "url": "https://medlineplus.gov/lab-tests/shbg-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This test measures the level of a protein called sex hormone binding globulin (SHBG), made mostly in the liver. SHBG attaches to sex hormones such as testosterone and estrogen and helps control how much of them is active in the body.",
+  "context": "SHBG is usually read together with a total testosterone test to estimate how much testosterone is free for the body to use. It is normal for SHBG to decrease with older age, and medicines that contain hormones can affect it.",
+  "aboveRange": [
+    "A higher level means less testosterone is free for the tissues to use",
+    "It may be associated with liver conditions, an overactive thyroid, certain eating disorders, or use of estrogen-containing medicines"
+  ],
+  "belowRange": [
+    "A lower level means more testosterone is likely free and available",
+    "It may be associated with an underactive thyroid, type 2 diabetes or insulin resistance, obesity, overuse of steroid medicines, Cushing's syndrome, or PCOS in females"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "erythrocyte_sedimentation_rate",
+  "title": "Erythrocyte sedimentation rate (ESR)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-esr", "title": "MedlinePlus: Erythrocyte Sedimentation Rate (ESR)", "url": "https://medlineplus.gov/lab-tests/erythrocyte-sedimentation-rate-esr/", "accessed": "2026-09-30" }
+  ],
+  "measures": "An ESR is a blood test that measures how quickly red blood cells settle to the bottom of a test tube. It can show whether there is inflammation in the body.",
+  "context": "An ESR alone cannot show what is causing inflammation. Normal levels vary with age and sex, and pregnancy, the menstrual cycle, aging, obesity, regular alcohol use, exercise, and some medicines or supplements can affect the result.",
+  "aboveRange": [
+    "Faster settling can be associated with inflammation from many causes",
+    "May be associated with arthritis or other autoimmune conditions",
+    "May be associated with some infections",
+    "May be associated with inflammatory bowel disease, kidney disease, or heart disease",
+    "May be associated with certain cancers"
+  ],
+  "belowRange": [
+    "Slower settling may be associated with some blood disorders, such as an increase in red blood cells or a very high white blood cell count",
+    "May be associated with heart failure",
+    "May be associated with certain kidney and liver problems"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "hs_c_reactive_protein",
+  "title": "High-sensitivity C-reactive protein (hs-CRP)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-crp", "title": "MedlinePlus: C-Reactive Protein (CRP) Test", "url": "https://medlineplus.gov/lab-tests/c-reactive-protein-crp-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "An hs-CRP test measures very small increases in C-reactive protein, a protein the liver makes in response to inflammation. It is used to estimate a person's risk of heart conditions.",
+  "context": "An hs-CRP test and a standard CRP test both measure C-reactive protein but are used for different purposes. Many everyday factors can affect CRP levels, so the result is considered along with other information.",
+  "aboveRange": [
+    "Higher levels may be associated with a greater estimated risk of heart conditions",
+    "May be associated with inflammation in the body from many causes"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,24 @@
+{
+  "normalizedTerm": "red_blood_cell_count",
+  "title": "Red blood cell count",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-rbc-count", "title": "MedlinePlus: Red Blood Cell (RBC) Count", "url": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-count/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A red blood cell (RBC) count measures the number of red blood cells in your blood. These cells carry oxygen from your lungs to every cell in your body.",
+  "context": "This test is almost always part of a complete blood count and is used to help look at red blood cell disorders such as anemia. Pregnancy, living at a high altitude, and misuse of certain drugs for athletic performance can also change the count.",
+  "aboveRange": [
+    "Dehydration",
+    "Living at a high altitude",
+    "Can be associated with heart conditions, lung conditions, or scarring of the lungs often linked to cigarette smoking",
+    "Can be associated with polycythemia vera, kidney cancer, or sleep apnea"
+  ],
+  "belowRange": [
+    "Can be associated with anemia",
+    "Blood loss from injury or other causes",
+    "Malnutrition or alcohol use disorder",
+    "Pregnancy",
+    "Can be associated with leukemia, multiple myeloma, or kidney failure"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

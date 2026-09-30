@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "luteinizing_hormone",
+  "title": "Luteinizing hormone (LH)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-lh", "title": "MedlinePlus: Luteinizing Hormone (LH) Levels Test", "url": "https://medlineplus.gov/lab-tests/luteinizing-hormone-lh-levels-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This test measures the level of luteinizing hormone (LH), which is made by the pituitary gland at the base of the brain. LH plays a role in sexual development in children and in fertility in adults.",
+  "context": "What a result means depends on your sex and age. In people who menstruate, LH changes through the monthly cycle, so testing may be done at a set time; in people age 45 or older, higher LH is often a normal sign of perimenopause and menopause.",
+  "aboveRange": [
+    "In people who menstruate, a higher level may be associated with the ovaries not working as usual, such as with PCOS or primary ovarian insufficiency, or with approaching menopause",
+    "In men, a higher level may be associated with a condition affecting the testicles"
+  ],
+  "belowRange": [
+    "A lower level is often associated with a condition of the pituitary gland or hypothalamus",
+    "In people who menstruate, a lower level with missed periods may also be linked to extreme exercise, poor nutrition, stress, or being very underweight"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

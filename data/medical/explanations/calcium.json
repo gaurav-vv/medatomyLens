@@ -1,0 +1,24 @@
+{
+  "normalizedTerm": "calcium",
+  "title": "Calcium",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-calcium", "title": "MedlinePlus: Calcium Blood Test", "url": "https://medlineplus.gov/lab-tests/calcium-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A calcium blood test measures the amount of calcium in your blood. Calcium is an important mineral that your nerves, muscles, and heart need to work properly; most of the body's calcium is stored in bones and teeth.",
+  "context": "A calcium blood test does not tell you how much calcium is in your bones. A result outside the normal range does not always mean a condition that needs treatment; your diet and certain medicines and supplements, such as vitamin D, can affect calcium levels.",
+  "aboveRange": [
+    "Overactive parathyroid glands",
+    "Certain types of cancer, including cancer that spreads to bone",
+    "Bone conditions such as Paget's disease of bone",
+    "Taking too much vitamin D over a long time"
+  ],
+  "belowRange": [
+    "Low blood protein, which can come from liver conditions or poor nutrition",
+    "Underactive parathyroid glands",
+    "Too little calcium in the diet",
+    "Too little vitamin D or magnesium",
+    "Inflammation of the pancreas or a kidney condition"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

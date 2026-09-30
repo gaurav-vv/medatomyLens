@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "creatine_kinase_mb",
+  "title": "Creatine kinase-MB (CK-MB)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-creatine-kinase", "title": "MedlinePlus: Creatine Kinase", "url": "https://medlineplus.gov/lab-tests/creatine-kinase/", "accessed": "2026-09-30" }
+  ],
+  "measures": "CK-MB is one of the three forms of the enzyme creatine kinase measured in a CK isoenzymes test. It is the form most linked to the heart muscle, and it is measured to help show where a high CK level is coming from.",
+  "context": "A follow-up CK isoenzymes test is used when the source of a high CK level is not clear. Results are read with your symptoms and medical history, and a troponin test is often used as well for the heart.",
+  "aboveRange": [
+    "High CK-MB most often relates to the heart muscle, for example from a heart attack or inflammation of the heart muscle (myocarditis)",
+    "May also relate to a blood clot in the lung, heart surgery, congestive heart failure, an underactive thyroid, or a kidney condition"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

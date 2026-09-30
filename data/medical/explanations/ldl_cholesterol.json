@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "ldl_cholesterol",
+  "title": "LDL cholesterol",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-cholesterol-levels", "title": "MedlinePlus: Cholesterol Levels", "url": "https://medlineplus.gov/lab-tests/cholesterol-levels/", "accessed": "2026-09-30" }
+  ],
+  "measures": "LDL stands for low-density lipoprotein, often called the bad cholesterol. It is the main source of blockages in the arteries.",
+  "context": "LDL is measured as part of a cholesterol test that may need fasting for 9 to 12 hours beforehand. The LDL value may be calculated as an estimate from total cholesterol, HDL, and triglycerides, or measured directly; in general a low LDL level is good for heart health.",
+  "aboveRange": [
+    "Eating foods high in saturated fat and cholesterol",
+    "Excess weight and a lack of physical activity",
+    "Smoking, which can raise LDL",
+    "Family history and genes, which cannot be changed",
+    "A higher LDL can be associated with buildup of plaque in the arteries and a greater risk of heart problems"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,17 @@
+{
+  "normalizedTerm": "mean_corpuscular_hemoglobin",
+  "title": "Mean corpuscular hemoglobin (MCH)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-rbc-indices", "title": "MedlinePlus: Red Blood Cell (RBC) Indices", "url": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-indices/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Mean corpuscular hemoglobin (MCH) measures the average amount of hemoglobin in a single red blood cell. It is one of the red blood cell indices reported as part of a complete blood count.",
+  "context": "MCH is used together with other red blood cell indices and blood tests to help tell apart different types of anemia. One index alone is not enough to make a diagnosis.",
+  "aboveRange": [
+    "A higher amount of hemoglobin per cell, which can be associated with anemia caused by a vitamin B deficiency"
+  ],
+  "belowRange": [
+    "A lower amount of hemoglobin per cell, which can be associated with iron deficiency anemia"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "arterial_po2",
+  "title": "Arterial partial pressure of oxygen (PaO2)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-abg", "title": "MedlinePlus: Arterial Blood Gas (ABG) Test", "url": "https://medlineplus.gov/lab-tests/arterial-blood-gas-abg-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This value measures the pressure of oxygen dissolved in your blood. It helps show how well your lungs move oxygen from the air into your blood when you breathe in.",
+  "context": "It is part of an arterial blood gas test and is read together with the other blood gas values. This test alone usually cannot provide a diagnosis, so more tests may be ordered if results are not typical.",
+  "aboveRange": [],
+  "belowRange": [
+    "A lower reading may be associated with a problem in the lungs and breathing",
+    "It may be checked in people with breathing conditions or those receiving oxygen therapy"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

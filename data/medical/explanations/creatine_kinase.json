@@ -1,0 +1,17 @@
+{
+  "normalizedTerm": "creatine_kinase",
+  "title": "Creatine kinase (CK)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-creatine-kinase", "title": "MedlinePlus: Creatine Kinase", "url": "https://medlineplus.gov/lab-tests/creatine-kinase/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Creatine kinase (CK) is an enzyme that helps make energy. Most of it is in the skeletal muscles you use to move, with smaller amounts in the heart and brain. A CK test measures the amount of CK in the blood.",
+  "context": "A small amount of CK is normally in the blood from everyday muscle use. Normal levels depend on your age, sex, race, your amount of muscle, and how active you are, so the source suggests avoiding intense exercise and alcohol for a few days before the test.",
+  "aboveRange": [
+    "Usually relates to muscle injury or stress, for example from an accident, burns, or intense exercise",
+    "May be associated with muscle conditions such as muscular dystrophy, rhabdomyolysis, or myositis",
+    "May relate to the heart or brain; a follow-up CK isoenzymes test can show which tissue it came from"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

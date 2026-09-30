@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "hemoglobin_a1c",
+  "title": "Hemoglobin A1C (HbA1c)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-hba1c", "title": "MedlinePlus: Hemoglobin A1C (HbA1c) Test", "url": "https://medlineplus.gov/lab-tests/hemoglobin-a1c-hba1c-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "An A1C test shows your average blood glucose (blood sugar) level over the past two to three months. It measures the share of red blood cells that have glucose stuck to their hemoglobin.",
+  "context": "You do not need to fast for this test. Pregnancy, some medicines, and conditions that affect red blood cells (such as anemia or other blood conditions) and liver or kidney conditions can make the result less accurate.",
+  "aboveRange": [
+    "Can be associated with prediabetes or diabetes",
+    "A provider often uses more than one test before making a diagnosis"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

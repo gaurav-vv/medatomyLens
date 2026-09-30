@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "transferrin_saturation",
+  "title": "Transferrin saturation",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-iron-tests", "title": "MedlinePlus: Iron Tests", "url": "https://medlineplus.gov/lab-tests/iron-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Transferrin saturation reflects how much of the blood protein transferrin is carrying iron. Transferrin is the protein that moves iron throughout the body, and this measure is part of a group of iron tests.",
+  "context": "This measure is usually read together with other iron tests to understand iron levels. A result outside the usual range does not always mean a condition that needs care, and some medicines, such as birth control pills and estrogen, along with menstrual cycles, can affect iron levels.",
+  "aboveRange": [
+    "A higher result may be associated with high iron levels in the body, such as iron overload (hemochromatosis)",
+    "May be associated with some liver conditions"
+  ],
+  "belowRange": [
+    "A lower result may be associated with low iron levels in the body, which can be a sign of anemia"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

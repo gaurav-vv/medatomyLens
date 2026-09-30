@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "chloride",
+  "title": "Chloride",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-chloride", "title": "MedlinePlus: Chloride Blood Test", "url": "https://medlineplus.gov/lab-tests/chloride-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A chloride blood test measures the amount of chloride in your blood. Chloride is an electrolyte that helps control the amount of fluid and the balance of acids and bases in the body.",
+  "context": "You get chloride mainly from salt in food, and the body removes extra chloride in urine. A result outside the normal range does not always mean a condition that needs treatment; drinking too much fluid, losing fluid from vomiting or diarrhea, or medicines such as antacids can affect it.",
+  "aboveRange": [
+    "Dehydration",
+    "A kidney condition",
+    "Metabolic acidosis, when there is too much acid in the blood"
+  ],
+  "belowRange": [
+    "Heart failure",
+    "A lung condition",
+    "An adrenal gland condition that lowers certain hormones",
+    "Metabolic alkalosis, when there is too much base in the blood"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

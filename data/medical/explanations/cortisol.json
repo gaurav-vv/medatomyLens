@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "cortisol",
+  "title": "Cortisol",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-cortisol", "title": "MedlinePlus: Cortisol Test", "url": "https://medlineplus.gov/lab-tests/cortisol-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This test measures the level of cortisol, a hormone made by the adrenal glands, which sit above the kidneys. Cortisol helps the body respond to stress, reduce swelling, control blood sugar, and manage blood pressure.",
+  "context": "Cortisol levels rise and fall during the day, so samples are often taken at set times. Stress, exercise, pregnancy, hot and cold temperatures, and certain medicines such as birth control pills can affect the level, and one result on its own cannot find a cause.",
+  "aboveRange": [
+    "A higher level may be associated with taking steroid medicines for a long time",
+    "It may also be associated with certain tumors that lead the body to make extra cortisol, or with conditions such as ongoing stress, depression, anxiety, or obesity"
+  ],
+  "belowRange": [
+    "A lower level may be associated with the adrenal glands not making enough cortisol",
+    "It can also happen if steroid medicine is stopped suddenly"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

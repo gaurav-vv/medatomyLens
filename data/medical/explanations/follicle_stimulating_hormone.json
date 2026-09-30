@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "follicle_stimulating_hormone",
+  "title": "Follicle-stimulating hormone (FSH)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-fsh", "title": "MedlinePlus: Follicle-Stimulating Hormone (FSH) Levels Test", "url": "https://medlineplus.gov/lab-tests/follicle-stimulating-hormone-fsh-levels-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This test measures the level of follicle-stimulating hormone (FSH), which is made by the pituitary gland at the base of the brain. FSH plays a role in sexual development in children and in fertility in adults.",
+  "context": "What a result means depends on your sex and age. In people who menstruate, FSH changes through the monthly cycle, so testing may be done at a set time; from about age 45, higher FSH is often a normal sign of perimenopause and menopause.",
+  "aboveRange": [
+    "A higher level is often associated with the ovaries or testicles not making usual levels of sex hormones, so the pituitary makes more FSH",
+    "In people who menstruate this can be linked to menopause, PCOS, or primary ovarian insufficiency; in men it can be linked to a condition affecting the testicles"
+  ],
+  "belowRange": [
+    "A lower level is often associated with a condition of the pituitary gland or hypothalamus",
+    "In people who menstruate, a lower level may also be linked to rapid weight loss, being very underweight, or extreme exercise"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "triiodothyronine_free",
+  "title": "Free triiodothyronine (Free T3)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-t3", "title": "MedlinePlus: Triiodothyronine (T3) Tests", "url": "https://medlineplus.gov/lab-tests/triiodothyronine-t3-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Free T3 is the active form of the thyroid hormone T3 that enters the body's tissues. A free T3 test measures only this free form in the blood.",
+  "context": "T3 results are usually read together with TSH and T4 tests, since one thyroid result alone may not show the full picture. Certain medicines and supplements can affect the level, so tell your provider what you take.",
+  "aboveRange": [
+    "Can be associated with an overactive thyroid (too much thyroid hormone)",
+    "May relate to a pituitary gland condition when read with other thyroid results"
+  ],
+  "belowRange": [
+    "Can be associated with an underactive thyroid (too little thyroid hormone) when read with other thyroid results"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

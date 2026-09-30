@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "d_dimer",
+  "title": "D-dimer",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-d-dimer", "title": "MedlinePlus: D-Dimer Test", "url": "https://medlineplus.gov/lab-tests/d-dimer-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A D-dimer test looks for D-dimer in the blood. D-dimer is a small protein fragment made when a blood clot dissolves in the body, and it is not usually found in the blood unless the body is making or breaking up clots.",
+  "context": "No special preparation is needed for this test. Blood thinner medicines can lead to a false negative result, and a result outside the usual range often means more tests are needed rather than a clear answer on its own.",
+  "aboveRange": [
+    "The body making or breaking up a blood clot, such as in the legs or lungs",
+    "Pregnancy",
+    "Heart conditions or rheumatoid arthritis",
+    "Recent surgery, being older, or being unable to move much",
+    "A higher level often means more tests are needed to look for where a clot may be"
+  ],
+  "belowRange": [
+    "A low or normal level usually means a clotting disorder is unlikely"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

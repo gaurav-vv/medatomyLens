@@ -1,0 +1,17 @@
+{
+  "normalizedTerm": "arterial_pco2",
+  "title": "Arterial partial pressure of carbon dioxide (PaCO2)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-abg", "title": "MedlinePlus: Arterial Blood Gas (ABG) Test", "url": "https://medlineplus.gov/lab-tests/arterial-blood-gas-abg-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This value measures the amount of carbon dioxide in your blood, a waste product your body makes naturally. It shows how well your lungs remove carbon dioxide when you breathe out.",
+  "context": "It is part of an arterial blood gas test, and the values in that test affect one another and involve many body systems. Because of this, one result on its own usually cannot provide a diagnosis.",
+  "aboveRange": [
+    "A higher reading may be associated with the lungs not removing carbon dioxide as well as usual"
+  ],
+  "belowRange": [
+    "A lower reading may be associated with breathing faster or deeper than usual"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

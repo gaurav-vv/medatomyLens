@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "thyroid_stimulating_hormone",
+  "title": "Thyroid-stimulating hormone (TSH)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-tsh", "title": "MedlinePlus: TSH (Thyroid-stimulating hormone) Test", "url": "https://medlineplus.gov/lab-tests/tsh-thyroid-stimulating-hormone-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "TSH is a hormone made by the pituitary gland that tells the thyroid how much thyroid hormone to make. A TSH blood test measures how well the thyroid is working.",
+  "context": "TSH can be higher or lower even with a healthy thyroid. Pregnancy, some other illnesses not related to the thyroid, being over age 80, and certain medicines can all affect the level, so one result alone does not confirm a thyroid condition.",
+  "aboveRange": [
+    "Can be associated with an underactive thyroid (too little thyroid hormone)",
+    "May be higher in people over about age 80 who have no thyroid problem",
+    "Rarely, may relate to a pituitary gland problem"
+  ],
+  "belowRange": [
+    "Can be associated with an overactive thyroid (too much thyroid hormone)",
+    "May be lower for a short time during some other illnesses",
+    "May be a little low in early pregnancy"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

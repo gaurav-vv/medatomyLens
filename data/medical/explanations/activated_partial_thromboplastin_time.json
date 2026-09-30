@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "activated_partial_thromboplastin_time",
+  "title": "Activated partial thromboplastin time (aPTT)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-ptt", "title": "MedlinePlus: Partial Thromboplastin Time (PTT) Test", "url": "https://medlineplus.gov/lab-tests/partial-thromboplastin-time-ptt-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A partial thromboplastin time (PTT) test measures the number of seconds it takes for a blood sample to clot. It checks how many of a specific group of clotting factors a person has and how well they are working.",
+  "context": "No special preparation is needed for this test. It is often ordered along with a prothrombin time (PT) test, and it may be used to help monitor a blood thinner called heparin. A result outside the usual range does not by itself mean a person has a condition, so more tests may be ordered.",
+  "aboveRange": [
+    "A longer clotting time may be associated with inherited bleeding conditions such as hemophilia or Von Willebrand disease",
+    "Liver conditions or a lack of vitamin K",
+    "Too much of the blood thinner heparin",
+    "Certain autoimmune conditions, which can make the test show a slower clotting time than the body actually has"
+  ],
+  "belowRange": [
+    "A shorter clotting time can be associated with higher levels of clotting factors, such as during inflammation, pregnancy, or an infection",
+    "An early stage of a condition that uses up clotting factors over time",
+    "Certain cancers that have spread"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

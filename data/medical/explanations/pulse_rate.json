@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "pulse_rate",
+  "title": "Pulse rate (heart rate)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-arrhythmia", "title": "MedlinePlus: Arrhythmia", "url": "https://medlineplus.gov/arrhythmia.html", "accessed": "2026-09-30" }
+  ],
+  "measures": "Your pulse rate is the rate of your heartbeat, or how many times your heart beats each minute. A provider may check it as part of a physical exam.",
+  "context": "Some changes in heart rate are harmless, such as when the rate speeds up during exercise and slows down when you sleep. Stress and many everyday factors can also affect it.",
+  "aboveRange": [
+    "A faster-than-usual heartbeat is called tachycardia",
+    "It may be a normal response to exercise or stress, or it may be linked to a change in the heart's rhythm"
+  ],
+  "belowRange": [
+    "A slower-than-usual heartbeat is called bradycardia",
+    "It can be normal in some people, or it may be linked to a change in the heart's rhythm"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

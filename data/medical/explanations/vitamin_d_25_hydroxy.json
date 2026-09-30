@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "vitamin_d_25_hydroxy",
+  "title": "Vitamin D (25-hydroxy)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-vitamin-d", "title": "MedlinePlus: Vitamin D Test", "url": "https://medlineplus.gov/lab-tests/vitamin-d-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A vitamin D test measures the level of vitamin D in the blood. Most tests measure a form called 25-hydroxyvitamin D, which is the most accurate way to see if the body has enough vitamin D for healthy bones, muscles, nerves, and the immune system.",
+  "context": "The body makes vitamin D from sunlight on the skin, and gets it from a few foods and from supplements. Medicines, vitamins, and supplements can affect the result, so it helps to tell your provider about them.",
+  "aboveRange": [
+    "Higher levels usually can be associated with getting too much vitamin D from supplements"
+  ],
+  "belowRange": [
+    "Lower levels may be associated with not getting enough vitamin D from diet or sunlight",
+    "May be associated with trouble absorbing vitamin D from food",
+    "May be associated with trouble changing vitamin D into a usable form, which can be linked to some kidney or liver conditions",
+    "May be associated with taking a medicine that affects vitamin D levels"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

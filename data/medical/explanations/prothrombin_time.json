@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "prothrombin_time",
+  "title": "Prothrombin time (PT)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-pt-inr", "title": "MedlinePlus: Prothrombin Time Test and INR (PT/INR)", "url": "https://medlineplus.gov/lab-tests/prothrombin-time-test-and-inr-ptinr/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A prothrombin time (PT) test measures how many seconds it takes for a clot to form in a blood sample. Prothrombin is a protein made by the liver and is one of several clotting factors that work together to form a blood clot.",
+  "context": "This test helps show if blood is clotting normally and can check whether a blood-thinning medicine is working. Alcohol, foods high in vitamin K such as green leafy vegetables, soybean and canola oils, high-fat diets, and some medicines and supplements can affect the result.",
+  "aboveRange": [
+    "A longer clotting time may be associated with a bleeding disorder, in which blood does not clot well",
+    "Liver conditions",
+    "A lack of vitamin K, which plays a role in blood clotting"
+  ],
+  "belowRange": [
+    "A shorter clotting time can be associated with a clotting disorder, in which the body forms too many clots",
+    "Supplements with vitamin K, or a diet high in vitamin K",
+    "Certain medicines"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

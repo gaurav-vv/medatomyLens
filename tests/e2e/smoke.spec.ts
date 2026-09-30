@@ -32,7 +32,7 @@ test("about page shows disclaimer, licenses and returns to the viewer", async ({
   await expect(page.getByTestId("anatomy-viewer").locator("canvas")).toBeVisible();
 });
 
-test("anatomy loads, search selects organs and parts, layers toggle", async ({ page }, testInfo) => {
+test("anatomy loads, search selects organs and parts, layers toggle", { tag: "@3d" }, async ({ page }, testInfo) => {
   test.setTimeout(240_000);
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -87,7 +87,7 @@ test("anatomy loads, search selects organs and parts, layers toggle", async ({ p
   expect(errors).toEqual([]);
 });
 
-test("detail view: open from body, parts, Escape back to body with selection kept", async ({ page }, testInfo) => {
+test("detail view: open from body, parts, Escape back to body with selection kept", { tag: "@3d" }, async ({ page }, testInfo) => {
   test.setTimeout(240_000);
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -160,7 +160,7 @@ test("detail view: open from body, parts, Escape back to body with selection kep
 });
 
 
-test("detailed atlas organs open with their internal parts", async ({ page }, testInfo) => {
+test("detailed atlas organs open with their internal parts", { tag: "@3d" }, async ({ page }, testInfo) => {
   test.setTimeout(300_000);
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -196,7 +196,7 @@ test("detailed atlas organs open with their internal parts", async ({ page }, te
   expect(errors).toEqual([]);
 });
 
-test("uploaded report: body highlight, organ view modes, region marker, explanation", async ({ page }, testInfo) => {
+test("uploaded report: body highlight, organ view modes, region marker, explanation", { tag: "@3d" }, async ({ page }, testInfo) => {
   test.setTimeout(300_000);
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -296,7 +296,7 @@ test("uploaded report: body highlight, organ view modes, region marker, explanat
   expect(errors).toEqual([]);
 });
 
-test("mouse wheel zooms towards the part under the pointer", async ({ page }, testInfo) => {
+test("mouse wheel zooms towards the part under the pointer", { tag: "@3d" }, async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-chromium", "wheel is a desktop gesture");
   test.setTimeout(180_000);
   await page.goto("/");

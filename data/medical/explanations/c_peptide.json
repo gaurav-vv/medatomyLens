@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "c_peptide",
+  "title": "C-peptide",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-c-peptide", "title": "MedlinePlus: C-Peptide Test", "url": "https://medlineplus.gov/lab-tests/c-peptide-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "C-peptide is made by the pancreas at the same time as insulin and in equal amounts. Because it is not affected by insulin taken as medicine, a C-peptide test gives an accurate picture of how much insulin the body makes on its own.",
+  "context": "Results are read together with a blood glucose test and depend on your age, health, and medicines. You may need to fast for 8 to 12 hours, or the test may be done after eating.",
+  "aboveRange": [
+    "May mean the body is making a lot of insulin, as can happen with type 2 diabetes",
+    "May relate to Cushing's syndrome, a pancreatic tumor (insulinoma), a kidney condition, or a low blood potassium level"
+  ],
+  "belowRange": [
+    "May mean the body is not making enough insulin, as can happen with type 1 diabetes and sometimes type 2 diabetes",
+    "May relate to taking a lot of insulin as medicine, a serious infection, Addison disease, or a liver condition"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

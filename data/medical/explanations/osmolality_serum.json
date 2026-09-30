@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "osmolality_serum",
+  "title": "Serum osmolality",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-osmolality", "title": "MedlinePlus: Osmolality Tests", "url": "https://medlineplus.gov/lab-tests/osmolality-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A serum osmolality test measures the concentration of dissolved particles in your blood, such as sodium, glucose, and urea. It can show how well your body is keeping a healthy balance between water and these substances.",
+  "context": "Osmolality goes up when there is less water in the blood and down when there is more water, and the kidneys adjust urine to help keep the balance. Your provider looks at it together with your symptoms and other tests.",
+  "aboveRange": [
+    "Dehydration",
+    "Too much salt in the blood",
+    "Antifreeze or other types of poisoning",
+    "Diabetes insipidus, a condition affecting the kidneys"
+  ],
+  "belowRange": [
+    "Overhydration, when the body holds too much fluid",
+    "Too little salt in the blood"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

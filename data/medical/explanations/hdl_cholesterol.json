@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "hdl_cholesterol",
+  "title": "HDL cholesterol",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-cholesterol-levels", "title": "MedlinePlus: Cholesterol Levels", "url": "https://medlineplus.gov/lab-tests/cholesterol-levels/", "accessed": "2026-09-30" }
+  ],
+  "measures": "HDL stands for high-density lipoprotein, often called the good cholesterol. HDL helps get rid of LDL (the bad) cholesterol, and a higher HDL level may help reduce the risk of heart attack or stroke.",
+  "context": "HDL is measured as part of a cholesterol test, which may need fasting for 9 to 12 hours beforehand. For HDL, higher levels are generally good for heart health, so a high HDL is not treated as a concern.",
+  "aboveRange": [
+    "For HDL, a higher level is generally good for heart health and is not a problem"
+  ],
+  "belowRange": [
+    "Smoking can lower HDL, especially in women",
+    "Excess weight and a lack of physical activity can be associated with a lower HDL",
+    "A low HDL can be associated with a higher risk of heart problems"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

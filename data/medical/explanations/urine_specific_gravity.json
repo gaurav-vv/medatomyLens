@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "urine_specific_gravity",
+  "title": "Urine specific gravity",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-usg", "title": "MedlinePlus Medical Encyclopedia: Urine specific gravity test", "url": "https://medlineplus.gov/ency/article/003587.htm", "accessed": "2026-09-30" }
+  ],
+  "measures": "A urine specific gravity test shows the total concentration of all particles in your urine. It helps show how well your body is balancing water and how concentrated your urine is.",
+  "context": "How much fluid you drink strongly affects this result, and it is usually part of a routine urinalysis. Some medicines, recent anesthesia, or intravenous contrast dye from an imaging scan can also affect it.",
+  "aboveRange": [
+    "Loss of body fluids, such as dehydration",
+    "Heart failure",
+    "Glucose in the urine or a high sodium level in the blood",
+    "Adrenal gland or hormone conditions, or shock"
+  ],
+  "belowRange": [
+    "Drinking too much fluid",
+    "Diabetes insipidus",
+    "Kidney conditions, including a serious kidney infection",
+    "A low sodium level in the blood"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

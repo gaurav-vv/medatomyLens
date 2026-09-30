@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "immunoglobulin_g",
+  "title": "Immunoglobulin G (IgG)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-immunoglobulins", "title": "MedlinePlus: Immunoglobulins Blood Test", "url": "https://medlineplus.gov/lab-tests/immunoglobulins-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "IgG is one of the main antibodies the immune system makes to fight germs. An immunoglobulins blood test measures the amount of IgG and other antibodies in the blood.",
+  "context": "This test alone cannot diagnose a condition, so results outside the usual range often need more testing. Certain medicines can affect the result, and levels that are not normal do not always mean a condition that needs care.",
+  "aboveRange": [
+    "Higher levels may be associated with an autoimmune condition",
+    "May be associated with a chronic infection",
+    "May be associated with some liver conditions, such as hepatitis or cirrhosis",
+    "May be associated with certain cancers of the blood, bone marrow, or immune system"
+  ],
+  "belowRange": [
+    "Lower levels may be associated with conditions that reduce protein in the body, such as some kidney conditions, serious burns, malabsorption, or malnutrition",
+    "May be associated with a condition affecting the ability to make immunoglobulins",
+    "May be associated with a genetic condition present from birth"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

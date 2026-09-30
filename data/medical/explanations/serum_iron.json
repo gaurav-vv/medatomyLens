@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "serum_iron",
+  "title": "Serum iron",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-iron-tests", "title": "MedlinePlus: Iron Tests", "url": "https://medlineplus.gov/lab-tests/iron-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A serum iron test measures the amount of iron in the blood. Iron is a mineral the body uses to make hemoglobin, which carries oxygen in red blood cells.",
+  "context": "The amount of iron in the blood varies during the day and may be higher in the morning. A result outside the usual range does not always mean a condition that needs care, and some medicines, such as birth control pills and estrogen, along with menstrual cycles, can affect iron levels.",
+  "aboveRange": [
+    "Higher levels may be associated with iron overload (hemochromatosis)",
+    "May be associated with lead poisoning",
+    "May be associated with some liver conditions"
+  ],
+  "belowRange": [
+    "Lower levels can be associated with iron deficiency anemia",
+    "May be associated with another type of anemia",
+    "May be associated with thalassemia, an inherited blood disorder"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

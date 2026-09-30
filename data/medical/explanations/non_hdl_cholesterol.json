@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "non_hdl_cholesterol",
+  "title": "Non-HDL cholesterol",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-cholesterol-levels", "title": "MedlinePlus: Cholesterol Levels", "url": "https://medlineplus.gov/lab-tests/cholesterol-levels/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Non-HDL cholesterol is the total cholesterol minus the HDL (good) cholesterol. It is reported as part of a cholesterol test, alongside total cholesterol, LDL, and HDL.",
+  "context": "Non-HDL is measured as part of a cholesterol test, which may need fasting for 9 to 12 hours beforehand. In general, low LDL levels and high HDL levels are good for heart health, and a healthy level for a person can depend on age, family history, and other factors.",
+  "aboveRange": [
+    "Eating foods high in saturated fat and cholesterol",
+    "Excess weight and a lack of physical activity",
+    "Smoking and drinking too much alcohol",
+    "Family history and genes, which cannot be changed"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -31,7 +31,7 @@ async function upload(page: Page, name: string, data: Uint8Array | Buffer, mimeT
   await page.getByTestId("report-file-input").setInputFiles({ name, mimeType, buffer: Buffer.from(data) });
 }
 
-test("text PDF: read, review, show on the body, open a finding", async ({ page }, testInfo) => {
+test("text PDF: read, review, show on the body, open a finding", { tag: "@3d" }, async ({ page }, testInfo) => {
   test.setTimeout(240_000);
   const { errors, external } = watch(page);
   await page.goto("/");

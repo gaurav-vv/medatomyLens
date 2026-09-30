@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "urine_albumin_creatinine_ratio",
+  "title": "Urine albumin-creatinine ratio (ACR)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-acr", "title": "MedlinePlus: Microalbumin Creatinine Ratio", "url": "https://medlineplus.gov/lab-tests/microalbumin-creatinine-ratio/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This urine test compares the amount of the protein albumin in your urine to the amount of creatinine. Healthy kidneys let very little albumin pass into urine, so this ratio can show if the body is losing albumin at an increased rate, which can be an early sign of a kidney condition.",
+  "context": "A single result outside the normal range does not always mean a kidney condition, so it is usually repeated. Hard exercise, some medicines, fever, and inflammation in the body can raise albumin in urine for a short time, and diet, age, and muscle can also affect the result.",
+  "aboveRange": [
+    "A kidney condition, which may be an early sign in people with diabetes or high blood pressure",
+    "A higher chance of problems with the heart and blood vessels",
+    "Temporary rises from hard exercise, fever, some medicines, or inflammation",
+    "Other conditions with inflammation, such as a urinary tract infection, gum infection, or hepatitis"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

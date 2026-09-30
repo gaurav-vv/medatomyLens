@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "magnesium",
+  "title": "Magnesium",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-magnesium", "title": "MedlinePlus: Magnesium Blood Test", "url": "https://medlineplus.gov/lab-tests/magnesium-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A magnesium blood test measures the amount of magnesium in your blood. Magnesium is a mineral that helps muscles, nerves, and the heart work, supports bones and the immune system, and helps control blood pressure and blood sugar.",
+  "context": "You get magnesium from foods such as nuts, seeds, beans, leafy greens, and milk, and the kidneys and intestines control how much stays in your blood. A result outside the normal range does not always mean a condition that needs treatment; many medicines and supplements can raise or lower it, and low levels are more common than high levels.",
+  "aboveRange": [
+    "Getting too much magnesium from supplements, laxatives, antacids, or certain medicines",
+    "A problem clearing magnesium, most often from kidney failure",
+    "Other conditions such as dehydration, an underactive thyroid, an adrenal gland condition, or overactive parathyroid glands"
+  ],
+  "belowRange": [
+    "Not getting enough magnesium in the diet",
+    "Trouble absorbing magnesium, such as with digestive conditions or certain medicines",
+    "Losing too much magnesium, such as from kidney problems, long-term diarrhea, or diabetes",
+    "Other conditions such as underactive parathyroid glands or pregnancy"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

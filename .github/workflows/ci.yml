@@ -15,4 +15,13 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
+      # GitHub runners have no GPU: loading the full 3D model in software rendering
+      # takes too long, so tests tagged @3d run locally only (npm run test:e2e).
+      - run: npm run test:e2e:ci
+        timeout-minutes: 15
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-results
+          path: test-results/
+          retention-days: 7

@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "reticulocyte_count",
+  "title": "Reticulocyte count",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-reticulocyte-count", "title": "MedlinePlus: Reticulocyte Count", "url": "https://medlineplus.gov/lab-tests/reticulocyte-count/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A reticulocyte count measures the number of reticulocytes in your blood. Reticulocytes are immature, still-developing red blood cells, so the count helps check whether the bone marrow is making the right amount of red blood cells.",
+  "context": "The count can be higher during pregnancy and may rise for a short time after moving to a high altitude, returning to usual once the body adjusts. Some medicines can raise or lower it, and one result alone does not mean a condition.",
+  "aboveRange": [
+    "Can be associated with hemolytic anemia, when red blood cells are broken down faster than the bone marrow can replace them",
+    "New or ongoing bleeding, as the body makes more red blood cells to replace what was lost",
+    "Higher counts during pregnancy or for a short time at high altitude"
+  ],
+  "belowRange": [
+    "Can be associated with iron deficiency anemia, the most common type of anemia",
+    "Can be associated with pernicious anemia, linked to not getting or not absorbing enough B vitamins",
+    "Can be associated with aplastic anemia or bone marrow that is not making enough blood cells",
+    "Can be associated with kidney conditions or cirrhosis of the liver"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

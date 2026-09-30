@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "c_reactive_protein",
+  "title": "C-reactive protein (CRP)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-crp", "title": "MedlinePlus: C-Reactive Protein (CRP) Test", "url": "https://medlineplus.gov/lab-tests/c-reactive-protein-crp-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A CRP test measures the level of C-reactive protein in the blood. The liver makes this protein in response to inflammation, so the test shows how much inflammation is in the body.",
+  "context": "A CRP result shows how much inflammation there is, but not what is causing it or where it is. Smoking, environmental toxins, and factors such as insomnia, hormone therapy for menopause, obesity, and sex can also affect the level.",
+  "aboveRange": [
+    "Higher levels can be associated with an infection from bacteria or viruses",
+    "May be associated with inflammatory bowel disease",
+    "May be associated with autoimmune conditions such as lupus, rheumatoid arthritis, and vasculitis",
+    "May be associated with some lung conditions, such as asthma",
+    "May be associated with smoking or exposure to environmental toxins"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

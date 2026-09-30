@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "neutrophils",
+  "title": "Neutrophils",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-blood-differential", "title": "MedlinePlus: Blood Differential", "url": "https://medlineplus.gov/lab-tests/blood-differential/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Neutrophils are the most common type of white blood cell. A blood differential measures the amount or percentage of neutrophils, which are a main defense when bacteria, viruses, or other germs enter the body.",
+  "context": "A blood differential is often part of a routine checkup. An out-of-range result does not always mean a condition that needs care, and your provider considers your symptoms, history, and other blood tests.",
+  "aboveRange": [
+    "Can be associated with infections",
+    "Can be associated with autoimmune or inflammatory conditions",
+    "Allergic reactions, or the use of certain steroids",
+    "Can be associated with leukemia or Hodgkin disease"
+  ],
+  "belowRange": [
+    "Can be associated with bone marrow conditions",
+    "Chemotherapy or certain medicines such as antibiotics",
+    "Can be associated with cancer or HIV",
+    "Physical injury, extreme stress, smoking, or alcohol use may also affect results"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

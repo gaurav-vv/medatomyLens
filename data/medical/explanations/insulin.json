@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "insulin",
+  "title": "Insulin (blood)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-insulin", "title": "MedlinePlus: Insulin in Blood", "url": "https://medlineplus.gov/lab-tests/insulin-in-blood/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Insulin is a hormone made by the pancreas that helps move blood glucose (blood sugar) into cells for energy. An insulin in blood test measures how much insulin is in the blood.",
+  "context": "Results are read together with a blood glucose test, since insulin and glucose normally rise and fall together. You will usually fast for 8 to 12 hours, and biotin supplements can affect the result.",
+  "aboveRange": [
+    "With normal or slightly high glucose, can be associated with insulin resistance",
+    "With low glucose, may relate to a pancreatic tumor (insulinoma), Cushing's syndrome, or taking too much insulin"
+  ],
+  "belowRange": [
+    "With high glucose, may mean the pancreas is not making enough insulin, as in type 1 diabetes or pancreatitis"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

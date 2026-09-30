@@ -11,6 +11,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "test:e2e:ci": "playwright test --grep-invert @3d",
     "check": "npm run lint && npm run typecheck && npm run test && npm run build",
     "worker:dev": "npx --yes wrangler@4.144.0 dev --config worker/wrangler.toml",
     "worker:deploy": "npx --yes wrangler@4.144.0 deploy --config worker/wrangler.toml",

@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "glucose_fasting",
+  "title": "Fasting blood glucose",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-blood-glucose", "title": "MedlinePlus: Blood Glucose Test", "url": "https://medlineplus.gov/lab-tests/blood-glucose-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Glucose is a type of sugar in the blood that the body uses for energy. A fasting blood glucose test measures glucose after not eating or drinking anything except water for at least 8 hours.",
+  "context": "This test is often used to screen for or monitor prediabetes and diabetes. Certain medicines, such as steroids, some blood pressure or cholesterol medicines, and others, can raise or lower glucose, so tell your provider what you take.",
+  "aboveRange": [
+    "Can be associated with prediabetes or diabetes",
+    "May relate to an overactive thyroid, or a pancreas or adrenal gland condition",
+    "May follow stress from surgery, serious illness, or injury, or be linked to certain medicines"
+  ],
+  "belowRange": [
+    "In people with diabetes, may relate to certain diabetes medicines, eating too little, or more activity than usual",
+    "In people without diabetes, may relate to liver, kidney, adrenal, thyroid, or pituitary conditions, poor nutrition, some medicines, or alcohol use"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

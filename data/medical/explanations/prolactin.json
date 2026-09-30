@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "prolactin",
+  "title": "Prolactin",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-prolactin", "title": "MedlinePlus: Prolactin Levels", "url": "https://medlineplus.gov/lab-tests/prolactin-levels/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This test measures the level of prolactin, a hormone made by the pituitary gland at the base of the brain. Its main role is to signal breast tissue to grow during pregnancy and make milk after birth.",
+  "context": "Prolactin is normally high during pregnancy and while breastfeeding, and low at other times. Levels also change through the day, so blood is usually drawn a few hours after waking. Stress, exercise, a high-protein diet, and certain medicines can raise it.",
+  "aboveRange": [
+    "A higher level may be associated with a benign (non-cancer) pituitary growth called a prolactinoma, or another pituitary condition",
+    "It may also be linked to an underactive thyroid, kidney conditions, PCOS, certain medicines, or everyday causes such as stress or exercise"
+  ],
+  "belowRange": [
+    "A lower level is uncommon but may be associated with a pituitary condition"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

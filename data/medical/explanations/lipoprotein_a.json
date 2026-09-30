@@ -1,0 +1,17 @@
+{
+  "normalizedTerm": "lipoprotein_a",
+  "title": "Lipoprotein (a)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-lipoprotein-a", "title": "MedlinePlus: Lipoprotein (a) Blood Test", "url": "https://medlineplus.gov/lab-tests/lipoprotein-a-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A lipoprotein (a) test measures the level of lipoprotein (a) in the blood. Lipoprotein (a) is a type of LDL that carries cholesterol through the arteries, and its particles are stickier than other LDL particles.",
+  "context": "Genes largely control how much lipoprotein (a) a person makes, and the level tends to stay about the same for life, so diet and exercise may not change it much. Some labs ask you to fast for 9 to 12 hours, and alcohol, niacin supplements, aspirin, or oral estrogen can affect results.",
+  "aboveRange": [
+    "A high level is mostly inherited and can be associated with a higher risk of heart and blood vessel problems",
+    "Certain health conditions may affect the result",
+    "A high level can be present even when routine cholesterol levels look healthy"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

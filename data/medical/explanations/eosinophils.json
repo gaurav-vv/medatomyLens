@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "eosinophils",
+  "title": "Eosinophils",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-blood-differential", "title": "MedlinePlus: Blood Differential", "url": "https://medlineplus.gov/lab-tests/blood-differential/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Eosinophils are a type of white blood cell that helps defend against parasites and infections and takes part in allergies and inflammation. A blood differential measures the amount or percentage of eosinophils.",
+  "context": "A blood differential is often part of a routine checkup. An out-of-range result does not always mean a condition that needs care, and your provider considers your symptoms, history, and other blood tests.",
+  "aboveRange": [
+    "Can be associated with infections",
+    "Allergic reactions",
+    "Can be associated with autoimmune or inflammatory conditions",
+    "Can be associated with leukemia or Hodgkin disease"
+  ],
+  "belowRange": [
+    "Can be associated with bone marrow conditions",
+    "Chemotherapy or certain medicines such as antibiotics",
+    "Physical injury, extreme stress, smoking, or alcohol use may also affect results"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

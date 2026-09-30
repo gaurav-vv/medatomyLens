@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "international_normalized_ratio",
+  "title": "International normalized ratio (INR)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-pt-inr", "title": "MedlinePlus: Prothrombin Time Test and INR (PT/INR)", "url": "https://medlineplus.gov/lab-tests/prothrombin-time-test-and-inr-ptinr/", "accessed": "2026-09-30" }
+  ],
+  "measures": "The INR (international normalized ratio) is a standardized number based on the prothrombin time (PT) test. Using this ratio makes it easier to compare results from different labs or test methods.",
+  "context": "The INR is often used to see how well a blood-thinning medicine such as warfarin is working. Alcohol, foods high in vitamin K such as green leafy vegetables, soybean and canola oils, high-fat diets, and some medicines and supplements can affect the result.",
+  "aboveRange": [
+    "A higher INR means blood is taking longer than normal to form a clot, which can be associated with a higher risk of bleeding",
+    "Liver conditions",
+    "A lack of vitamin K"
+  ],
+  "belowRange": [
+    "A lower INR means blood is clotting more easily, which can be associated with a higher risk of harmful clots",
+    "Supplements with vitamin K, or a diet high in vitamin K",
+    "Certain medicines"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

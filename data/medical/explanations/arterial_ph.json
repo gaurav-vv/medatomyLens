@@ -1,0 +1,17 @@
+{
+  "normalizedTerm": "arterial_ph",
+  "title": "Arterial blood pH (acid-base balance)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-abg", "title": "MedlinePlus: Arterial Blood Gas (ABG) Test", "url": "https://medlineplus.gov/lab-tests/arterial-blood-gas-abg-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This value measures the acidity of your blood, called the acid-base balance. Too much acid is called acidosis, and too much base is called alkalosis.",
+  "context": "It is part of an arterial blood gas test. The lungs and kidneys both help keep this balance steady, and the test values affect one another, so one result on its own usually cannot provide a diagnosis.",
+  "aboveRange": [
+    "A higher (more alkaline) reading is called alkalosis and may be associated with breathing changes or other conditions"
+  ],
+  "belowRange": [
+    "A lower (more acidic) reading is called acidosis and may be associated with problems in the lungs, kidneys, or how the body uses food for energy"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

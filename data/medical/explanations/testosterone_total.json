@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "testosterone_total",
+  "title": "Total testosterone",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-testosterone", "title": "MedlinePlus: Testosterone Levels Test", "url": "https://medlineplus.gov/lab-tests/testosterone-levels-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A total testosterone test measures the amount of the hormone testosterone in your blood, including the part bound to proteins and the free part. Testosterone helps control sex drive and supports muscle and bone growth, and it is present in all sexes.",
+  "context": "Testosterone levels are usually highest in the morning, so blood is often drawn between about 7 and 10 a.m. Levels normally decrease with age, and a result on its own cannot diagnose a condition.",
+  "aboveRange": [
+    "In males, a higher level may be associated with a testicular tumor, steroid use, or an adrenal gland condition",
+    "In females, a higher level may be associated with PCOS, an ovarian condition, an adrenal gland condition, or a pituitary condition"
+  ],
+  "belowRange": [
+    "In males, a lower level may be associated with a condition of the testicles, pituitary gland, or another long-lasting illness, and it is also common with older age",
+    "In females, low levels are normal, though very low levels may be linked to an adrenal, pituitary, or ovarian condition"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

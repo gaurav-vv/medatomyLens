@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "folate",
+  "title": "Folate",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-vitamin-b", "title": "MedlinePlus: Vitamin B Test", "url": "https://medlineplus.gov/lab-tests/vitamin-b-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A vitamin B test measures the amount of a B vitamin in the blood or urine. Folate (also called folic acid, or vitamin B9) helps the body make healthy new cells, and it is often measured together with vitamin B12.",
+  "context": "The meaning of a vitamin B result is not always clear, because inflammation and some medicines can affect it, and labs use different ranges. Diets low in foods rich in B vitamins and conditions such as celiac or Crohn's disease can affect how well the body absorbs folate.",
+  "aboveRange": [
+    "Large amounts of B vitamins can be associated with an underlying condition, such as some liver conditions"
+  ],
+  "belowRange": [
+    "Lower levels can be associated with certain types of anemia",
+    "May be associated with not getting enough folate from food or with trouble absorbing it"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

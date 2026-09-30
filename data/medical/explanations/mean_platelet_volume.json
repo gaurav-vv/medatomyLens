@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "mean_platelet_volume",
+  "title": "Mean platelet volume (MPV)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-mpv-blood-test", "title": "MedlinePlus: MPV Blood Test", "url": "https://medlineplus.gov/lab-tests/mpv-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "An MPV blood test measures the average size of your platelets, the small blood cells that help form clots. Newly made platelets are larger than older ones, so the average size gives information about how the bone marrow is making platelets.",
+  "context": "An MPV result alone cannot identify a health condition, so your provider uses it with your platelet count and other results. Age, sex, race and ethnicity, diet, smoking, alcohol, physical activity, and genes can all affect the result.",
+  "aboveRange": [
+    "Larger platelets than usual, which may mean older platelets are being cleared faster and the bone marrow is making many new ones",
+    "Can be associated with having too few platelets, or with conditions in which the bone marrow makes too many blood cells",
+    "Can be associated with preeclampsia during pregnancy, heart conditions, diabetes, or hemolytic anemia"
+  ],
+  "belowRange": [
+    "Smaller platelets than usual, which may mean the bone marrow is not making enough new platelets",
+    "Side effects from certain medicines, or alcohol use disorder",
+    "Bacterial or viral infections, or genetic conditions",
+    "Can be associated with certain cancers, aplastic anemia, or autoimmune conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

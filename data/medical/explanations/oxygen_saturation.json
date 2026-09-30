@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "oxygen_saturation",
+  "title": "Oxygen saturation",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-abg", "title": "MedlinePlus: Arterial Blood Gas (ABG) Test", "url": "https://medlineplus.gov/lab-tests/arterial-blood-gas-abg-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Oxygen saturation measures how much oxygen your red blood cells are carrying. It is one of the values reported in an arterial blood gas test, which checks how well your lungs move oxygen into your blood.",
+  "context": "This value is often checked together with other blood gas measurements, and one result on its own usually cannot explain what is happening. Your provider looks at the full picture before drawing any conclusions.",
+  "aboveRange": [],
+  "belowRange": [
+    "A lower reading may be associated with a problem in how the lungs move oxygen into the blood",
+    "It may be checked in people receiving oxygen therapy or with breathing conditions such as asthma or COPD"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

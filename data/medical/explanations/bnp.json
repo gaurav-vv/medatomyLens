@@ -1,0 +1,18 @@
+{
+  "normalizedTerm": "bnp",
+  "title": "B-type natriuretic peptide (BNP)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-natriuretic-peptide", "title": "MedlinePlus: Natriuretic Peptide Tests (BNP, NT-proBNP)", "url": "https://medlineplus.gov/lab-tests/natriuretic-peptide-tests-bnp-nt-probnp/", "accessed": "2026-09-30" }
+  ],
+  "measures": "BNP is a protein that the heart makes and releases when it is working harder than normal to pump blood. A BNP test measures the amount of this protein in the blood, mainly to help confirm or rule out heart failure in people with symptoms.",
+  "context": "It is normal to have some BNP in the blood. The result is read with your age, sex, and medical history. Body weight can affect the result, and levels may read lower than expected in people with obesity. No special preparation is needed.",
+  "aboveRange": [
+    "Can be associated with heart failure; other heart health tests are usually done to confirm",
+    "May relate to kidney conditions, other heart conditions affecting the valves or heart muscle, or some lung conditions"
+  ],
+  "belowRange": [
+    "A normal or low result usually means heart failure is unlikely"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

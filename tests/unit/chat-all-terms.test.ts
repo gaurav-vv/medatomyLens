@@ -4,10 +4,10 @@ import { CHAT_URL } from "@/lib/ai/client";
 
 describe("chat for every recognized test", () => {
   it("accepts a recognized test without a curated explanation and grounds it in terminology only", () => {
-    const req = parseChatRequest({ term: "ferritin", status: "NORMAL", question: "What is ferritin?", history: [] });
+    const req = parseChatRequest({ term: "zinc", status: "NORMAL", question: "What is zinc?", history: [] });
     expect("error" in req).toBe(false);
     const [system] = buildMessages(req as Exclude<typeof req, { error: string }>);
-    expect(system!.content).toContain("Ferritin");
+    expect(system!.content).toContain("Zinc");
     expect(system!.content).toContain("no detailed explanation for this test yet");
     expect(system!.content).toMatch(/ONLY the FACTS/);
   });

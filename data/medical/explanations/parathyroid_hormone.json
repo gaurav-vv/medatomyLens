@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "parathyroid_hormone",
+  "title": "Parathyroid hormone (PTH)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-pth", "title": "MedlinePlus: Parathyroid Hormone (PTH) Test", "url": "https://medlineplus.gov/lab-tests/parathyroid-hormone-pth-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "This test measures the level of parathyroid hormone (PTH) in your blood. PTH is made by four small parathyroid glands in your neck, and it helps control the level of calcium in your blood.",
+  "context": "Because PTH changes with the amount of calcium in your blood, it is usually read together with a calcium blood test. A result on its own is hard to interpret, so your provider considers both tests along with your symptoms and history.",
+  "aboveRange": [
+    "A higher level with high blood calcium may be associated with a parathyroid gland making too much PTH, often from a benign (non-cancer) growth",
+    "A higher level with low blood calcium may mean the glands are working to raise calcium, which can be linked to low vitamin D, not enough calcium, trouble absorbing calcium, or kidney conditions"
+  ],
+  "belowRange": [
+    "A lower level with low blood calcium may be associated with the parathyroid glands not making enough PTH",
+    "This can be linked to prior neck surgery or radiation, certain autoimmune or genetic conditions, or getting too much vitamin D or calcium"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

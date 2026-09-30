@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "systolic_blood_pressure",
+  "title": "Systolic blood pressure",
+  "review": { "status": "pending", "note": "Drafted from the sources below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-high-blood-pressure", "title": "MedlinePlus: High Blood Pressure", "url": "https://medlineplus.gov/highbloodpressure.html", "accessed": "2026-09-30" },
+    { "id": "medlineplus-low-blood-pressure", "title": "MedlinePlus: Low Blood Pressure", "url": "https://medlineplus.gov/lowbloodpressure.html", "accessed": "2026-09-30" }
+  ],
+  "measures": "Blood pressure is the force of your blood pushing against the walls of your arteries. Systolic pressure is the higher number, measured when the heart beats and pumps blood. It is the first or top number in a reading such as 120/80.",
+  "context": "A single reading is not enough on its own; a provider usually takes two or more readings at separate visits before deciding what it means. Normal readings also change with age, sex, and overall health.",
+  "aboveRange": [
+    "Higher readings may be associated with high blood pressure",
+    "It may be primary (building up over time as you get older) or linked to another condition or a medicine you take"
+  ],
+  "belowRange": [
+    "Lower readings are normal for some people who feel well",
+    "In others, lower readings may be linked to a condition or a medicine, and may sometimes cause dizziness or fainting"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

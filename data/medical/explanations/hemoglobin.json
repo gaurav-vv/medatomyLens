@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "hemoglobin",
+  "title": "Hemoglobin",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-hemoglobin-test", "title": "MedlinePlus: Hemoglobin Test", "url": "https://medlineplus.gov/lab-tests/hemoglobin-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Hemoglobin is an iron-rich protein in your red blood cells that carries oxygen from your lungs to the rest of your body. This test measures the level of hemoglobin in the blood.",
+  "context": "The normal range can vary based on the laboratory and on age, race, and sex. Diet, activity level, certain medicines, dehydration, smoking, living at a higher altitude, and some genetic conditions can also affect the result, and one result alone cannot tell what is causing it.",
+  "aboveRange": [
+    "Living at a higher altitude, dehydration, or smoking",
+    "Can be associated with lung conditions or heart conditions",
+    "Can be associated with polycythemia vera, in which the bone marrow makes too many red blood cells",
+    "Can be associated with sleep apnea"
+  ],
+  "belowRange": [
+    "Can be associated with different types of anemia or thalassemia",
+    "Can be associated with iron deficiency or a lack of certain nutrients such as vitamin B-12",
+    "Blood loss from injury, a heavy menstrual period, or other causes",
+    "Can be associated with liver conditions, cancer, and other conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

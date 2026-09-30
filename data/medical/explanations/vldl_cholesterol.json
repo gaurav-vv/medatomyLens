@@ -1,0 +1,16 @@
+{
+  "normalizedTerm": "vldl_cholesterol",
+  "title": "VLDL cholesterol",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-cholesterol-levels", "title": "MedlinePlus: Cholesterol Levels", "url": "https://medlineplus.gov/lab-tests/cholesterol-levels/", "accessed": "2026-09-30" }
+  ],
+  "measures": "VLDL stands for very low-density lipoprotein. Some people call it a bad cholesterol because it can add to the buildup of plaque in the arteries. VLDL mainly carries triglycerides, while LDL mainly carries cholesterol.",
+  "context": "VLDL is not usually included in routine cholesterol tests because it is difficult to measure. Because VLDL contains a certain percentage of triglycerides, a lab can use the triglycerides level to estimate the VLDL level.",
+  "aboveRange": [
+    "A higher VLDL can be associated with buildup of plaque in the arteries",
+    "Factors that raise triglycerides, such as diet, may also affect the estimated VLDL"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

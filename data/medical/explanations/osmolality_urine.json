@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "osmolality_urine",
+  "title": "Urine osmolality",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-osmolality", "title": "MedlinePlus: Osmolality Tests", "url": "https://medlineplus.gov/lab-tests/osmolality-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A urine osmolality test measures the concentration of dissolved particles in your urine. It is often used with a blood osmolality test to check the body's fluid balance and how well the kidneys are working.",
+  "context": "Urine becomes more concentrated when the body holds onto water and more diluted when there is extra water. It may also be used to find the reason for producing too much or too little urine, and results are read together with your symptoms and other tests.",
+  "aboveRange": [
+    "Dehydration"
+  ],
+  "belowRange": [
+    "Overhydration, when the body holds too much fluid",
+    "Heart failure",
+    "Liver conditions",
+    "Kidney conditions"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

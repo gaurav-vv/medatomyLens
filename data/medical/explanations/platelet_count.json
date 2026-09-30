@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "platelet_count",
+  "title": "Platelet count",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-platelet-tests", "title": "MedlinePlus: Platelet Tests", "url": "https://medlineplus.gov/lab-tests/platelet-tests/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A platelet count measures the number of platelets in your blood. Platelets are small blood cells that stick together to help form blood clots and slow or stop bleeding.",
+  "context": "A platelet count is often part of a complete blood count done at a regular checkup. It is most often used to look at conditions that cause too much bleeding or clotting, and your provider reviews it with your symptoms and other tests.",
+  "aboveRange": [
+    "A viral or bacterial infection",
+    "Anemia or large blood loss",
+    "Can be associated with inflammatory bowel conditions such as Crohn's disease and ulcerative colitis, or rheumatoid arthritis",
+    "Can be associated with certain cancers such as lung cancer or breast cancer"
+  ],
+  "belowRange": [
+    "A viral infection such as mononucleosis, hepatitis, or measles",
+    "Gestational thrombocytopenia, a common and mild low-platelet condition during pregnancy that usually gets better on its own",
+    "Vitamin B12 deficiency, or an autoimmune condition",
+    "Can be associated with cirrhosis, bone marrow conditions, leukemia, or lymphoma"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "triglycerides",
+  "title": "Triglycerides",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-triglycerides", "title": "MedlinePlus: Triglycerides Test", "url": "https://medlineplus.gov/lab-tests/triglycerides-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A triglycerides test measures the amount of a fat called triglycerides in the blood. The body uses triglycerides for energy and stores extra calories as triglycerides in fat cells.",
+  "context": "You may need to fast for 9 to 12 hours before the blood draw. High triglycerides usually cause no symptoms, and the test is often done as part of a lipid profile along with cholesterol.",
+  "aboveRange": [
+    "Eating a lot of foods high in fat and sugar and other simple carbohydrates",
+    "Not getting enough exercise, or having excess weight",
+    "Drinking a lot of alcohol",
+    "Certain conditions such as diabetes that is not well controlled, thyroid conditions, or kidney or liver conditions",
+    "Taking certain medicines, such as water pills and some medicines for other conditions"
+  ],
+  "belowRange": [
+    "Triglyceride levels that are too low are very uncommon"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

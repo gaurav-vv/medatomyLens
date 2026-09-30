@@ -1,0 +1,22 @@
+{
+  "normalizedTerm": "urine_ph",
+  "title": "Urine pH",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-urine-ph", "title": "MedlinePlus Medical Encyclopedia: Urine pH test", "url": "https://medlineplus.gov/ency/article/003583.htm", "accessed": "2026-09-30" }
+  ],
+  "measures": "A urine pH test measures the level of acid in your urine. It may be used to look at the chance of kidney stones, to check for certain metabolic conditions, or to guide which medicines work best for a urinary tract infection.",
+  "context": "What you eat can change urine pH. A diet high in fruits, vegetables, or non-cheese dairy can raise it, while a diet high in fish, meat, or cheese can lower it. Certain medicines can also affect the result, so tell your provider what you take.",
+  "aboveRange": [
+    "Kidneys not removing acids from the blood as usual, such as renal tubular acidosis",
+    "Kidney failure",
+    "Vomiting or stomach fluid being removed",
+    "A urinary tract infection"
+  ],
+  "belowRange": [
+    "Diarrhea",
+    "Too much acid in the body fluids, such as diabetic ketoacidosis",
+    "Starvation"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

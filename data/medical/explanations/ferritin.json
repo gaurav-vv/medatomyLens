@@ -1,0 +1,21 @@
+{
+  "normalizedTerm": "ferritin",
+  "title": "Ferritin",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-ferritin", "title": "MedlinePlus: Ferritin Blood Test", "url": "https://medlineplus.gov/lab-tests/ferritin-blood-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A ferritin blood test measures the level of ferritin, a protein that stores iron in the body. It shows how much iron is stored, and much of the body's ferritin is kept in the liver.",
+  "context": "A result outside the usual range does not always mean a condition that needs care. Certain medicines can lower or raise ferritin levels.",
+  "aboveRange": [
+    "Higher levels can be associated with having too much iron stored in the body",
+    "May be associated with inflammation, such as from an infection or surgery",
+    "May be associated with an autoimmune condition, some liver conditions, or cancer",
+    "May be associated with obesity, alcohol use disorder, or an overactive thyroid"
+  ],
+  "belowRange": [
+    "Lower levels may be associated with iron deficiency anemia",
+    "May be associated with another condition related to low iron levels"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

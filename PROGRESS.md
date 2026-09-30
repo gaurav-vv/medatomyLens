@@ -33,7 +33,7 @@ Open app → Explore mode (whole body, education)
 | 1.7 | Rendering polish, About screen, deploy | Done: live at https://gaurav-vv.github.io/medatomyLens/ |
 | 1.8 | AGENTS.md build order 2–5: demo report, organ view Reported/Normal/Side by side, region marker, range bar, curated explanations (3 terms) | Done (explanations pending medical review) |
 | 2 | PDF reading: pdf.js, table parser, OCR fallback, AI fallback with exact-quote check, review screen | Done except the AI fallback (waiting on provider choice) |
-| 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | In progress: 119 terms, 19 explanations, imaging text reader, 18 regions, AI chat (Cloudflare) built but not deployed; medical review, bone/X-ray regions, report comparison pending |
+| 3 | Mapping findings to anatomy: terminology, organ profiles, report mode, range bar, explanations, imaging text | In progress: 119 terms, 104 explanations, imaging text reader, 18 regions, AI chat (Cloudflare) live; medical review, bone/X-ray regions, report comparison pending |
 | 4 | Adding medical content region by region (reviewed sources only) | Not started |
 
 The user chose this order (visuals, then PDF, then mapping). AGENTS.md Section 115 lists a different order, and updating AGENTS.md to match hasn't been approved yet (see section 6).
@@ -66,7 +66,7 @@ Not done or known gaps:
 - The structure panel shows only the name, layer, side and parent organ. There's no educational text yet; it needs reviewed sources (AGENTS.md Section 116).
 - CI on GitHub: `npm run check` passes, but the e2e step fails on the GitHub runner (logs need a GitHub login to read; likely timeouts on the slower software-rendered runner). The website deploy is separate and succeeds.
 - The full desktop e2e run was not repeated after the last phone-layout change (stopped on request); the full mobile run passed.
-- 19 explanations drafted from MedlinePlus and marked "Pending review by a medical professional". The other ~99 terms are mapped only.
+- 104 explanations drafted from MedlinePlus and marked "Pending review by a medical professional". 15 terms have no clear MedlinePlus source and are mapped only (listed in docs/MEDICAL_SOURCES.md).
 - Hosted on GitHub Pages: https://gaurav-vv.github.io/medatomyLens/ (repo https://github.com/gaurav-vv/medatomyLens). Every push to `main` redeploys via `.github/workflows/pages.yml` (GitHub Pages, sub-path handled by `NEXT_PUBLIC_BASE_PATH` / `lib/basePath.ts`).
 
 ## 4. Key decisions (and why)
@@ -90,7 +90,7 @@ Not done or known gaps:
 2. **Detailed organs (HRA): done** for kidneys, heart, liver, lungs, brain and eyes. Pipeline: `npm run anatomy:fetch-organs` then `npm run anatomy:organs`, configured in `data/anatomy/detail_organs.json`; part colours in `appearance.json` "parts". Brain L/R labels in the source are mirrored and are set from geometry (`lateralityFromGeometry`, see THIRD_PARTY_ASSETS). Candidates to add later: spleen, pancreas, stomach, bladder, thyroid (check each source the same way).
 3. Fix the CI e2e step on GitHub (read the run log, then raise timeouts or run a smaller e2e set in CI).
 4. Optional rendering extras that need a post-processing dependency (ambient occlusion, depth of field in the detail view): only after real-phone numbers, high tier only.
-5. **Medical review:** someone qualified should review the 19 explanations in `data/medical/explanations/` (status "pending") and the new mappings, then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
+5. **Medical review:** someone qualified should review the 104 explanations in `data/medical/explanations/` (status "pending") and the new mappings, then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
 6. Phase 2 is done except the AI fallback. Next: test uploads with real-layout (synthetic or de-identified) reports from the labs users will use, and tune the parser.
 7. Phase 3 next parts: explanations for more terms (needs a reviewer; each new explanation also enables chat for that term), bone/X-ray regions (e.g. distal radius, femoral neck), more detailed organs (spleen, pancreas, bladder), and comparing reports by date (Sections 43, 44, 70).
 

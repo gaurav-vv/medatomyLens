@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "mean_corpuscular_volume",
+  "title": "Mean corpuscular volume (MCV)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-rbc-indices", "title": "MedlinePlus: Red Blood Cell (RBC) Indices", "url": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-indices/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Mean corpuscular volume (MCV) measures the average size of your red blood cells. It is one of the red blood cell indices reported as part of a complete blood count.",
+  "context": "MCV is used with other red blood cell indices and blood tests to help tell apart different types of anemia. One index alone is not enough to make a diagnosis.",
+  "aboveRange": [
+    "Red blood cells larger than usual, which can be associated with anemia caused by a vitamin B deficiency",
+    "Can be associated with liver conditions"
+  ],
+  "belowRange": [
+    "Red blood cells smaller than usual, which can be associated with iron deficiency anemia",
+    "Can be associated with thalassemia, a group of inherited blood disorders"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

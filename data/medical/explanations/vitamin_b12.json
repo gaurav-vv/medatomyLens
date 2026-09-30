@@ -1,0 +1,19 @@
+{
+  "normalizedTerm": "vitamin_b12",
+  "title": "Vitamin B12",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-vitamin-b", "title": "MedlinePlus: Vitamin B Test", "url": "https://medlineplus.gov/lab-tests/vitamin-b-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A vitamin B test measures the amount of a B vitamin in the blood or urine. Vitamin B12 (cobalamin) gives the body energy and helps keep nerves and blood cells healthy.",
+  "context": "The meaning of a vitamin B result is not always clear, because inflammation and some medicines can affect it, and labs use different ranges. Diets low in animal products, alcohol use disorder, and conditions such as celiac or Crohn's disease can affect how well the body absorbs vitamin B12.",
+  "aboveRange": [
+    "Large amounts of B vitamins can be associated with an underlying condition, such as some liver conditions"
+  ],
+  "belowRange": [
+    "Lower levels can be associated with certain types of anemia",
+    "May be associated with nerve problems, such as tingling or numb hands and feet",
+    "May be associated with not getting enough vitamin B12 from food or with trouble absorbing it"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

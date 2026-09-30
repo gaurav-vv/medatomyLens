@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "rheumatoid_factor",
+  "title": "Rheumatoid factor (RF)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-rheumatoid-factor", "title": "MedlinePlus: Rheumatoid Factor (RF) Test", "url": "https://medlineplus.gov/lab-tests/rheumatoid-factor-rf-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A rheumatoid factor test checks the blood for rheumatoid factor, a protein made by the immune system. It is used with other tests to help look into rheumatoid arthritis and some other conditions.",
+  "context": "Many people have small amounts of rheumatoid factor and are healthy, and even higher amounts are not always a sign of a health condition. The test alone cannot make a diagnosis, and results are considered with symptoms and other tests.",
+  "aboveRange": [
+    "A higher (positive) level can be associated with rheumatoid arthritis or other autoimmune conditions",
+    "May be associated with a chronic infection",
+    "May be associated with certain cancers",
+    "Some people with higher levels do not have any related condition"
+  ],
+  "belowRange": [
+    "A low or negative result means little or no rheumatoid factor was found, but it does not rule out rheumatoid arthritis or another condition"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

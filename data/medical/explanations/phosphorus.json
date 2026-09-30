@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "phosphorus",
+  "title": "Phosphorus (phosphate)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-phosphate", "title": "MedlinePlus: Phosphate in Blood", "url": "https://medlineplus.gov/lab-tests/phosphate-in-blood/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A phosphate in blood test measures the amount of phosphate in your blood. Phosphate contains the mineral phosphorus, so this is sometimes called a phosphorus test; the body needs it for strong bones and teeth, for making energy, and for nerves and muscles.",
+  "context": "You get phosphorus from foods such as nuts, seeds, dairy, beans, meats, poultry, and eggs, and the kidneys and intestines control how much stays in your blood. A result outside the normal range does not always mean a condition that needs treatment; levels are linked to calcium and vitamin D, and children often have higher levels because their bones are still growing.",
+  "aboveRange": [
+    "Later stages of long-term kidney conditions",
+    "Underactive parathyroid glands",
+    "Acidosis, too much acid in the blood",
+    "Long-term use of certain medicines, such as some steroids, laxatives, or enemas containing phosphate"
+  ],
+  "belowRange": [
+    "Overactive parathyroid glands",
+    "Too little vitamin D",
+    "Getting too little phosphorus from food, which is uncommon",
+    "Long-term use of certain medicines, such as some antacids or water pills"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

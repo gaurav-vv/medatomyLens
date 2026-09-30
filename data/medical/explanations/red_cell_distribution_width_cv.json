@@ -1,0 +1,15 @@
+{
+  "normalizedTerm": "red_cell_distribution_width_cv",
+  "title": "Red cell distribution width (RDW-CV)",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional. The source describes red cell distribution width (RDW) in general and does not separate the CV and SD forms." },
+  "sources": [
+    { "id": "medlineplus-rbc-indices", "title": "MedlinePlus: Red Blood Cell (RBC) Indices", "url": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-indices/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Red cell distribution width (RDW) measures differences in the volume and size of your red blood cells. Healthy red blood cells are usually about the same size.",
+  "context": "This measurement on its own is not enough to make a diagnosis, so RDW is usually combined with other red blood cell indices and blood tests. A normal result means the cells are about the same size.",
+  "aboveRange": [
+    "A result outside the normal range means there are differences in the size of your red blood cells, which is usually reviewed together with other tests"
+  ],
+  "belowRange": [],
+  "nextStep": "Discuss this result with your doctor."
+}

@@ -1,0 +1,20 @@
+{
+  "normalizedTerm": "amylase",
+  "title": "Amylase",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-amylase", "title": "MedlinePlus: Amylase Test", "url": "https://medlineplus.gov/lab-tests/amylase-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "Amylase is an enzyme that helps the body digest carbohydrates. Most of it is made by the pancreas and the salivary glands. An amylase test measures the amount of amylase in the blood or urine.",
+  "context": "It is normal to have a small amount of amylase in the blood and urine. Drinking alcohol can affect the result, so the source suggests avoiding it for 24 hours before the test, and telling your provider about any medicines you take.",
+  "aboveRange": [
+    "Can be associated with a pancreas condition such as pancreatitis (inflammation of the pancreas)",
+    "May relate to a blockage in a duct of the pancreas, or a tumor of the pancreas",
+    "May relate to salivary gland conditions"
+  ],
+  "belowRange": [
+    "Low levels are uncommon, but may relate to long-term pancreatitis, kidney conditions, cystic fibrosis, or liver conditions",
+    "May relate to pre-eclampsia, a type of high blood pressure in pregnancy"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

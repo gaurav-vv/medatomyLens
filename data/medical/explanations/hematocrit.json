@@ -1,0 +1,23 @@
+{
+  "normalizedTerm": "hematocrit",
+  "title": "Hematocrit",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-hematocrit-test", "title": "MedlinePlus: Hematocrit Test", "url": "https://medlineplus.gov/lab-tests/hematocrit-test/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A hematocrit test measures the percent of your blood that is made up of red blood cells, which carry oxygen from your lungs to the rest of your body.",
+  "context": "Normal levels vary with sex, age, whether or not you smoke, and the altitude where you live. Living at high altitude can raise it, and pregnancy can lower it because the body has more fluid than usual.",
+  "aboveRange": [
+    "Dehydration, the most common cause of a high hematocrit",
+    "Living at a high altitude with less oxygen in the air",
+    "The body making too many red blood cells, which can be associated with lung conditions, congenital heart conditions, heart failure, or polycythemia",
+    "A low blood plasma level, which can be associated with shock"
+  ],
+  "belowRange": [
+    "Blood loss from a recent injury, or long-term blood loss",
+    "Can be associated with anemia, when the body does not have enough red blood cells",
+    "Pregnancy, because the body has more fluid than usual",
+    "Can be associated with bone marrow conditions or certain cancers such as leukemia, lymphoma, or multiple myeloma"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}

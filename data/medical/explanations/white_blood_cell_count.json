@@ -1,0 +1,24 @@
+{
+  "normalizedTerm": "white_blood_cell_count",
+  "title": "White blood cell count",
+  "review": { "status": "pending", "note": "Drafted from the source below; not yet reviewed by a medical professional." },
+  "sources": [
+    { "id": "medlineplus-wbc", "title": "MedlinePlus: White Blood Count (WBC)", "url": "https://medlineplus.gov/lab-tests/white-blood-count-wbc/", "accessed": "2026-09-30" }
+  ],
+  "measures": "A white blood count measures the number of white blood cells in your blood. White blood cells are part of your immune system and help your body respond to infections and other conditions.",
+  "context": "This test can show if the count is too high or too low, but it cannot confirm a diagnosis on its own, so it is usually done with other tests. Smoking, stress, a reaction to a medicine, or pregnancy can also raise the count.",
+  "aboveRange": [
+    "Smoking, stress, a reaction to a medicine, or pregnancy",
+    "An infection or an allergy",
+    "An inflammatory condition such as rheumatoid arthritis",
+    "Tissue changes after a burn injury or surgery",
+    "Can be associated with leukemia or Hodgkin disease"
+  ],
+  "belowRange": [
+    "Effects on the bone marrow, which may come from infection, other conditions, or treatments such as chemotherapy",
+    "Cancers that affect the bone marrow",
+    "An autoimmune disorder such as lupus",
+    "Can be associated with HIV"
+  ],
+  "nextStep": "Discuss this result with your doctor."
+}
