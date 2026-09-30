@@ -1,10 +1,9 @@
 import type { ChatRequest, ChatStatus } from "./grounding";
 import { checkAnswer } from "./guard";
-import { explanationFor } from "../medical/explanations";
 import type { ResolvedFinding } from "../medical/types";
 
 /** Chat Worker address, set at build time (NEXT_PUBLIC_CHAT_URL). Empty = chat not set up. */
-export const CHAT_URL = process.env.NEXT_PUBLIC_CHAT_URL ?? "";
+export const CHAT_URL = (process.env.NEXT_PUBLIC_CHAT_URL ?? "").trim().replace(/\/+$/, "");
 
 export const WITHHELD_TEXT =
   "This answer was not shown because it used wording the app does not allow (for example a diagnosis, severity or treatment). Try asking what the test measures.";
@@ -23,10 +22,10 @@ const STATUS_OF: Partial<Record<ResolvedFinding["status"], ChatStatus>> = {
   UNKNOWN: "UNKNOWN",
 };
 
-/** Chat is offered only for lab results with a curated explanation (Section 108). */
+/** Chat is offered for every lab result the app recognizes (grounded in its curated or terminology data). */
 export function chatStatusOf(finding: ResolvedFinding): ChatStatus | null {
   if (finding.raw.findingType !== "lab_association") return null;
-  if (!explanationFor(finding.term?.normalizedTerm)) return null;
+  if (!finding.term) return null;
   return STATUS_OF[finding.status] ?? null;
 }
 

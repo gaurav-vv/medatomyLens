@@ -33,7 +33,7 @@ To enable it:
 3. `npm run worker:deploy` (uses `worker/wrangler.toml`).
 4. Copy the printed URL, `https://anatomylens-chat.<subdomain>.workers.dev`.
 5. **Local dev:** put `NEXT_PUBLIC_CHAT_URL=<url>` in `.env.local`.
-6. **GitHub Pages:** add a repository variable `CHAT_URL` (Settings → Secrets and variables → Actions → Variables), then redeploy.
+6. **GitHub Pages:** the Worker URL is set in `.github/workflows/pages.yml` (`NEXT_PUBLIC_CHAT_URL`). Change it there if your Worker has a different address.
 7. If you host the app somewhere other than localhost or GitHub Pages, edit `ALLOWED_ORIGINS` in `worker/wrangler.toml` to include your site's origin.
 
 The Worker has no login; it is protected only by the origin allow-list and a per-IP rate limit. Free limit: Cloudflare Workers AI gives 10,000 Neurons/day, roughly 1,000 short questions.

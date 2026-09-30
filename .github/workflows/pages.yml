@@ -28,8 +28,8 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-          # Chat Worker address (Settings → Secrets and variables → Actions → Variables → CHAT_URL). Empty = chat off.
-          NEXT_PUBLIC_CHAT_URL: ${{ vars.CHAT_URL }}
+          # Chat Worker address (public, not a secret; see README "AI chat").
+          NEXT_PUBLIC_CHAT_URL: https://anatomylens-chat.gaurav-vv.workers.dev
       # Serve files starting with "_" (Next's _next/ folder) as-is.
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3

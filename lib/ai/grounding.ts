@@ -35,13 +35,15 @@ const STATUSES: ChatStatus[] = ["ABOVE_RANGE", "BELOW_RANGE", "NORMAL", "UNKNOWN
 export const OUT_OF_SCOPE_REPLY =
   "I can only answer from this app's explanation of this test. Please ask your doctor about this.";
 
+const TERM_INFO = new Map(termsFile.terms.map((t) => [t.normalizedTerm, t]));
+const GROUP_NOTE = new Map(termsFile.groups.map((g) => [g.id, g.note ?? ""]));
 const MAPPING_REASON = new Map(termsFile.terms.map((t) => [t.normalizedTerm, t.mappingReason]));
 
 /** Validates an incoming request body. Returns an error message instead of throwing. */
 export function parseChatRequest(body: unknown): ChatRequest | { error: string } {
   if (!body || typeof body !== "object") return { error: "Invalid request." };
   const b = body as Record<string, unknown>;
-  if (typeof b.term !== "string" || !explanationFor(b.term)) return { error: "This test has no explanation in the app." };
+  if (typeof b.term !== "string" || !TERM_INFO.has(b.term)) return { error: "This test is not in the app's terminology." };
   if (typeof b.status !== "string" || !STATUSES.includes(b.status as ChatStatus)) return { error: "Invalid result status." };
   if (typeof b.question !== "string" || !b.question.trim() || b.question.length > MAX_QUESTION_CHARS)
     return { error: `The question must be 1 to ${MAX_QUESTION_CHARS} characters.` };
@@ -99,12 +101,33 @@ export function systemPrompt(facts: string): string {
   ].join("\n");
 }
 
+/**
+ * Facts for a test without a curated explanation: only the app's sourced
+ * terminology (name, why it is shown on the body, its group). The model is
+ * told plainly that nothing more is known, so it falls back to the fixed reply.
+ */
+export function buildTermFacts(term: string, status: ChatStatus): string {
+  const info = TERM_INFO.get(term);
+  if (!info) throw new Error("Unknown term");
+  const note = GROUP_NOTE.get(info.group);
+  return [
+    `Test: ${info.displayName}`,
+    `Result: ${STATUS_TEXT[status]}`,
+    `What the app knows about this test: ${info.mappingReason}`,
+    ...(note ? [`Group: ${note}`] : []),
+    "The app has no detailed explanation for this test yet. Answer only from the lines above; for anything else use the fixed reply.",
+    "Next step: Discuss this result with your doctor.",
+  ].join("\n");
+}
+
 /** The model input for a validated request. */
 export function buildMessages(req: ChatRequest): ChatMessage[] {
   const explanation = explanationFor(req.term);
-  if (!explanation) throw new Error("No explanation for term");
+  const facts = explanation
+    ? buildFacts(explanation, req.status, MAPPING_REASON.get(req.term))
+    : buildTermFacts(req.term, req.status);
   return [
-    { role: "system", content: systemPrompt(buildFacts(explanation, req.status, MAPPING_REASON.get(req.term))) },
+    { role: "system", content: systemPrompt(facts) },
     ...req.history.slice(-MAX_HISTORY),
     { role: "user", content: req.question },
   ];
