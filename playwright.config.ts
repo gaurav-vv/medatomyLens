@@ -4,7 +4,13 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "tests/e2e",
   timeout: 30_000,
-  use: { baseURL: "http://localhost:4173" },
+  // On CI, failures also appear as annotations on the workflow run.
+  reporter: process.env.CI ? [["github"], ["list"]] : "list",
+  use: {
+    baseURL: "http://localhost:4173",
+    // CI runners have no GPU: use Chromium's software WebGL (SwiftShader).
+    ...(process.env.CI ? { launchOptions: { args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"] } } : {}),
+  },
   webServer: {
     command: "npx --yes serve@14.2.4 out -l 4173",
     url: "http://localhost:4173",

@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef, type RefObject } from "react";
+import { Component, useRef, type ReactNode, type RefObject } from "react";
 import { useOverlayInsets } from "@/lib/ui/insets";
 import { AnatomyProvider, useAnatomy } from "./AnatomyContext";
 import { AnatomyLayerToggle } from "./AnatomyLayerToggle";
@@ -14,10 +14,26 @@ import { BodyFindingPanel, ReportCard } from "@/components/report/ReportPanels";
 import { ReportUploader } from "@/components/report/ReportUploader";
 import { AppMenu } from "@/components/menu/AppMenu";
 
+const NO_3D_TEXT = "3D is not supported on this device or browser. Report reading still works.";
+
+/** True when the browser can create a WebGL context. */
+function webglAvailable(): boolean {
+  try {
+    const c = document.createElement("canvas");
+    return !!(c.getContext("webgl2") ?? c.getContext("webgl"));
+  } catch {
+    return false;
+  }
+}
+
+function No3D() {
+  return <ViewerStatus text={NO_3D_TEXT} />;
+}
+
 // three.js needs WebGL/window, so the canvas is loaded client-side only and
 // split into its own chunk so the page shell paints immediately.
 const AnatomyCanvas = dynamic(
-  () => import("./AnatomyCanvas").then((m) => m.AnatomyCanvas),
+  () => import("./AnatomyCanvas").then((m) => (webglAvailable() ? m.AnatomyCanvas : No3D)),
   {
     ssr: false,
     loading: () => <ViewerStatus text="Preparing 3D viewer..." />,
@@ -25,6 +41,25 @@ const AnatomyCanvas = dynamic(
 );
 
 type ViewerRef = RefObject<HTMLDivElement | null>;
+
+/** A 3D failure must not take the rest of the app down (Sections 37, 83). */
+class CanvasErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  override state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  override render() {
+    return this.state.failed ? <ViewerStatus text={NO_3D_TEXT} /> : this.props.children;
+  }
+}
+
+function SafeCanvas() {
+  return (
+    <CanvasErrorBoundary>
+      <AnatomyCanvas />
+    </CanvasErrorBoundary>
+  );
+}
 
 function BodyChrome({ viewer }: { viewer: ViewerRef }) {
   // Phones: the camera keeps the body between these controls (see CameraRig).
@@ -87,7 +122,7 @@ export function AnatomyViewer() {
     <AnatomyProvider>
       <ReportProvider>
         <div ref={viewer} className="absolute inset-0" data-testid="anatomy-viewer">
-          <AnatomyCanvas />
+          <SafeCanvas />
         </div>
         <ViewerChrome viewer={viewer} />
       </ReportProvider>
