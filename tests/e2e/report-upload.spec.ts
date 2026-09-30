@@ -169,7 +169,10 @@ test("scanned PDF: text recognition runs on the device and is labeled", async ({
   await expect(dialog).toContainText("was a scanned image, read by text recognition");
   await expect(dialog).toContainText("Creatinine");
   // OCR values are never pre-selected: the user compares them with the report first.
-  await expect(dialog.getByRole("checkbox", { name: /Creatinine/ })).not.toBeChecked();
+  // (Checked for every row: exact OCR text depends on the fonts installed on the machine.)
+  const boxes = dialog.getByRole("checkbox");
+  await expect(boxes.first()).toBeVisible();
+  for (const box of await boxes.all()) await expect(box).not.toBeChecked();
   await expect(dialog).toContainText("tick only if it matches your report");
   await page.screenshot({ path: testInfo.outputPath("upload-3-ocr-review.png") });
   expect(external).toEqual([]);
