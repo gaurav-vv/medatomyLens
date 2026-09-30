@@ -3,12 +3,13 @@ on:
   push:
   pull_request:
 
+# Runner image pinned so an ubuntu-latest move (to 26.04) cannot change CI unexpectedly.
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -19,7 +20,7 @@ jobs:
       # takes too long, so tests tagged @3d run locally only (npm run test:e2e).
       - run: npm run test:e2e:ci
         timeout-minutes: 15
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: playwright-results
