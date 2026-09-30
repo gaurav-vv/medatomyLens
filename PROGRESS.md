@@ -60,11 +60,11 @@ What works now (verified by tests and screenshots, desktop and mobile Chromium):
 Not done or known gaps:
 
 - **AI chat (new, 2026-09-30):** Menu → "Ask AI about your results" (and "Ask AI about this result" in every recognized lab finding) opens a chat. Tests with a curated explanation are grounded in it; other recognized tests only in their terminology entry (name, why shown, group). A Cloudflare Worker + Cloudflare Workers AI (free tier) answers; the client sends only the test name, the range status and the question, the Worker grounds the prompt in the curated explanation server-side and runs a guard, and the client re-checks the answer. **Not yet deployed:** the user must create a free Cloudflare account and run `npm run worker:deploy`, then set `CHAT_URL`. **Not tested against the real model** yet (unit tests use a fake `send`).
-- **e2e not re-run** after the 2026-09-30 medical-content and menu changes.
+- e2e: 23 local tests pass (`npm run test:e2e`, ~10 min). The 6 GPU-heavy tests are tagged `@3d` and run locally only.
 - **Female body + sex-specific ranges:** unfinished and unverified, saved on the **local-only branch `wip/female-body`** (commit 4094b4f). **Do not push it** (user request).
 - Performance on a **real phone hasn't been measured yet**. The test browser renders without a GPU, so its load times mean nothing. Each mesh is a separate draw call (about 650 for the default view); merging meshes per layer is the planned fix if phones stutter.
 - The structure panel shows only the name, layer, side and parent organ. There's no educational text yet; it needs reviewed sources (AGENTS.md Section 116).
-- CI on GitHub: `npm run check` passes, but the e2e step fails on the GitHub runner (logs need a GitHub login to read; likely timeouts on the slower software-rendered runner). The website deploy is separate and succeeds.
+- CI on GitHub passes: `npm run check` plus `npm run test:e2e:ci` (12 tests, software WebGL via SwiftShader). Without WebGL the app now shows a message in the 3D area instead of crashing the page.
 - The full desktop e2e run was not repeated after the last phone-layout change (stopped on request); the full mobile run passed.
 - 104 explanations drafted from MedlinePlus and marked "Pending review by a medical professional". 15 terms have no clear MedlinePlus source and are mapped only (listed in docs/MEDICAL_SOURCES.md).
 - Hosted on GitHub Pages: https://gaurav-vv.github.io/medatomyLens/ (repo https://github.com/gaurav-vv/medatomyLens). Every push to `main` redeploys via `.github/workflows/pages.yml` (GitHub Pages, sub-path handled by `NEXT_PUBLIC_BASE_PATH` / `lib/basePath.ts`).
@@ -85,10 +85,10 @@ Not done or known gaps:
 
 ## 5. Next steps (in order)
 
-0. **Now:** run e2e (`npm run build; npm run test:e2e`); deploy the chat Worker (`npm run worker:deploy`) and set `CHAT_URL`; try the chat against the real model (answer speed and quality). Then commit on `main` (medical content + chat), without the female-body branch.
+0. **Now:** check the chat and the new explanations on a real phone; find a medical reviewer for the 104 explanations.
 1. **User:** test on a real phone and report how smooth it is and how long it takes to load. If it stutters, merge meshes per layer or reduce the draw calls.
 2. **Detailed organs (HRA): done** for kidneys, heart, liver, lungs, brain and eyes. Pipeline: `npm run anatomy:fetch-organs` then `npm run anatomy:organs`, configured in `data/anatomy/detail_organs.json`; part colours in `appearance.json` "parts". Brain L/R labels in the source are mirrored and are set from geometry (`lateralityFromGeometry`, see THIRD_PARTY_ASSETS). Candidates to add later: spleen, pancreas, stomach, bladder, thyroid (check each source the same way).
-3. Fix the CI e2e step on GitHub (read the run log, then raise timeouts or run a smaller e2e set in CI).
+3. (Done 2026-09-30) CI e2e fixed.
 4. Optional rendering extras that need a post-processing dependency (ambient occlusion, depth of field in the detail view): only after real-phone numbers, high tier only.
 5. **Medical review:** someone qualified should review the 104 explanations in `data/medical/explanations/` (status "pending") and the new mappings, then set `review.status` to "reviewed" and fill the Reviewed-by column in docs/MEDICAL_SOURCES.md.
 6. Phase 2 is done except the AI fallback. Next: test uploads with real-layout (synthetic or de-identified) reports from the labs users will use, and tune the parser.
@@ -180,3 +180,4 @@ docs/                         ARCHITECTURE, THIRD_PARTY_ASSETS, MEDICAL_SOURCES,
 | 2026-09-30 | (Superseded the same day, see next rows.) First AI chat attempt: in-browser WebLLM model in each finding panel. Removed because it needed an 830 MB download. |
 | 2026-09-30 | Medical content: 16 new explanations checked against MedlinePlus (20 total, pending review); 52 new terms from a real-layout report → 119 terms in 18 groups. Ambiguous names are not highlighted; term keys handle subscripts (SpO₂). Female-body work moved to the local-only branch wip/female-body (not pushed). |
 | 2026-09-30 | AI chat redesigned to a free hosted proxy: header Menu (`components/menu/AppMenu.tsx`: Ask AI about your results, About) → ChatPanel → `lib/ai/client.ts` sendChat → Cloudflare Worker (`worker/`) on Cloudflare Workers AI (Llama 3.1 8B Instruct). Worker has an origin allow-list, a 10/min per-IP rate limit, request validation, curated server-side grounding (`lib/ai/grounding.ts` + `lib/medical/explanations.ts`) and a guard (`lib/ai/guard.ts`); failing answers return `{withheld:true}`; no logging. Client re-checks answers. The earlier in-browser WebLLM chat was tried and removed. Built but not deployed. |
+| 2026-09-30 | Live chat URL fixed (wrong Worker address in the Pages build); chat offered for every recognized lab test. 85 more MedlinePlus-sourced explanations (104 total, pending review; 15 terms skipped, no clear source). CI green: @3d tests local-only, software WebGL in CI, no-WebGL fallback + test, font-independent OCR check. |
